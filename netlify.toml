@@ -9,7 +9,7 @@
   status = 301
   force = true
 
-# Proxy redirect for kickoffworkshop
+# Proxy all requests under /kickoffworkshop to the workshop site
 [[redirects]]
   from = "/kickoffworkshop/*"
   to = "https://kickoffworkshop.netlify.app/kickoffworkshop/:splat"
@@ -17,12 +17,19 @@
   force = true
   headers = {X-From = "Netlify"}
 
-# Handle the base /kickoffworkshop path (without trailing slash)
+# Handle the base path without trailing slash
 [[redirects]]
   from = "/kickoffworkshop"
-  to = "https://kickoffworkshop.netlify.app/kickoffworkshop"
-  status = 200
+  to = "/kickoffworkshop/"
+  status = 301
   force = true
+
+# Ensure the SPA redirect doesn't catch our proxy path
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
 
 # Redirect all requests to index.html for SPA routing
 [[redirects]]
