@@ -1,0 +1,20 @@
+{
+  "title": "Our Value Guarantee",
+  "description": "We're so confident you'll get immense value from the Solo Accelerator Session that we offer a simple guarantee: If you attend the full session and don't feel it was worth your time, we'll refund your ₹99 registration fee and give you access to our \"Solo Business Starter Kit\" (₹1,997 value) for free as an apology for wasting your time.",
+  "benefits": [
+    {
+      "title": "No risk to you",
+      "description": "attend the session and decide for yourself"
+    },
+    {
+      "title": "Actionable strategies",
+      "description": "you'll leave with at least 3 tactics you can implement immediately"
+    },
+    {
+      "title": "Real-world examples",
+      "description": "not theory, but proven strategies from successful entrepreneurs"
+    }
+  ],
+  "buttonText": "Register Risk-Free",
+  "buttonUrl": "#webinar-dates"
+}

@@ -1,0 +1,72 @@
+backend:
+  name: github
+  repo: Sharrmavishal/startsolo_new_v7
+  branch: rollbackbranch
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: '[skip ci] Upload "{{path}}"'
+    deleteMedia: '[skip ci] Delete "{{path}}"'
+
+# Updated site URL
+site_url: https://startsolo.in
+display_url: https://startsolo.in
+
+# Media files will be stored in the repo under public/uploads
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Enable local backend for development
+local_backend: true
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    folder: "src/content/pages"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Meta Description", name: "metaDescription", widget: "text" }
+      - { label: "Featured Image", name: "featuredImage", widget: "image" }
+      - { label: "Content", name: "content", widget: "markdown" }
+      - { label: "Show in Navigation", name: "showInNav", widget: "boolean" }
+      - { label: "Navigation Label", name: "navLabel", widget: "string" }
+      - { label: "Navigation Order", name: "navOrder", widget: "number" }
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "featuredImage", widget: "image" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Content", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list" }
+
+  - name: "settings"
+    label: "Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "src/content/settings/general.json"
+        fields:
+          - { label: "Site Title", name: "siteTitle", widget: "string" }
+          - { label: "Site Description", name: "siteDescription", widget: "text" }
+          - { label: "Site Logo", name: "siteLogo", widget: "image", required: false }
+          - { label: "Cohort Start Date", name: "cohortStartDate", widget: "string" }
+          - { label: "Current Cohort Number", name: "currentCohort", widget: "number" }
+          - { label: "Next Cohort Number", name: "nextCohort", widget: "number" }
+          - { label: "Next Cohort Start Date", name: "nextCohortStartDate", widget: "string" }
+          - label: "Countdown Settings"
+            name: "countdown"
+            widget: "object"
+            fields:
+              - { label: "Enable Countdown", name: "enabled", widget: "boolean" }
+              - { label: "Message", name: "message", widget: "string" }
+              - { label: "Button Text", name: "buttonText", widget: "string" }
+              - { label: "Target Date", name: "targetDate", widget: "datetime" }

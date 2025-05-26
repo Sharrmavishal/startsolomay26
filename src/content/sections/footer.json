@@ -1,0 +1,92 @@
+{
+  "description": "Your guide to building a successful solo business without overwhelm.",
+  "quickLinks": [
+    {
+      "label": "Home",
+      "url": "/"
+    },
+    {
+      "label": "How It Works",
+      "url": "#journey"
+    },
+    {
+      "label": "Accelerator Session",
+      "url": "#webinar"
+    },
+    {
+      "label": "Expert Speakers",
+      "url": "#speakers"
+    },
+    {
+      "label": "Testimonials",
+      "url": "#testimonials"
+    },
+    {
+      "label": "Quiz",
+      "url": "/quiz"
+    },
+    {
+      "label": "FAQ",
+      "url": "#faq"
+    }
+  ],
+  "resources": [
+    {
+      "label": "WhatsApp Hub (Free)",
+      "url": "https://chat.whatsapp.com/CgrHI3AQbb6IX3gWKDa5Ij",
+      "icon": "MessageCircle"
+    },
+    {
+      "label": "Learn",
+      "url": "/learn"
+    },
+    {
+      "label": "Blog",
+      "url": "#"
+    },
+    {
+      "label": "Podcast",
+      "url": "#"
+    },
+    {
+      "label": "Success Stories",
+      "url": "#"
+    },
+    {
+      "label": "Privacy Policy",
+      "url": "/policies/privacy"
+    },
+    {
+      "label": "Terms of Service",
+      "url": "/policies/terms"
+    },
+    {
+      "label": "Refund Policy",
+      "url": "/policies/refund"
+    }
+  ],
+  "contact": {
+    "email": "hello@startsolo.in",
+    "supportButtonText": "Contact Support"
+  },
+  "socialLinks": [
+    {
+      "platform": "Instagram",
+      "url": "https://instagram.com/start.solo"
+    },
+    {
+      "platform": "Twitter",
+      "url": "https://twitter.com/startsolohq"
+    },
+    {
+      "platform": "Facebook",
+      "url": "https://facebook.com/startsoloblueprint"
+    },
+    {
+      "platform": "Youtube",
+      "url": "https://youtube.com/@startsoloblueprint"
+    }
+  ],
+  "copyrightText": "© 2025 Start Solo. All rights reserved.",
+  "disclaimer": "Results mentioned are not typical and will vary based on effort, implementation, and market conditions."
+}

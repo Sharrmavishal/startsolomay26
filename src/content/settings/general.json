@@ -1,0 +1,14 @@
+{
+  "siteTitle": "Start Solo Blueprint",
+  "siteDescription": "Build a profitable solo business without burnout",
+  "cohortStartDate": "March 22, 2025",
+  "currentCohort": 12,
+  "nextCohort": 13,
+  "nextCohortStartDate": "April 12, 2025",
+  "countdown": {
+    "enabled": true,
+    "message": "Hurry! Registrations close in {days} days",
+    "buttonText": "Reserve Your Spot",
+    "buttonUrl": "#webinar-dates"
+  }
+}

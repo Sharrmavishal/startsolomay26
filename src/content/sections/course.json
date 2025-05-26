@@ -1,0 +1,68 @@
+{
+  "title": "Start Solo Blueprint: The Complete Course",
+  "subtitle": "After the Solo Accelerator Session, take your solo business journey to the next level with our comprehensive course delivered LIVE.",
+  "tag": "THE FULL PROGRAM",
+  "benefits": [
+    "12-15 hours of in-depth LIVE lessons",
+    "Free complementary access to several premium tools that simplify your workflow",
+    "Downloadable spotlight activities, AI hacks, workbooks & templates",
+    "Private community access with guest speaker interactions",
+    "Weekly Q&A sessions",
+    "Lifetime access to recorded course materials",
+    "Optional 1-on-1 coaching (premium tier)",
+    "Optional city-specific boot camps (premium tier)"
+  ],
+  "modules": [
+    {
+      "title": "Module 1: Foundation",
+      "lessons": [
+        "Finding your profitable niche",
+        "Market research & validation",
+        "Defining your ideal client",
+        "Crafting your unique value proposition"
+      ]
+    },
+    {
+      "title": "Module 2: Offer Creation",
+      "lessons": [
+        "Packaging your expertise",
+        "Pricing strategies for maximum profit",
+        "Creating your service delivery system",
+        "Building scalable offers"
+      ]
+    },
+    {
+      "title": "Module 3: Client Acquisition",
+      "lessons": [
+        "Building your marketing engine",
+        "Content creation that converts",
+        "Outreach strategies that work",
+        "Sales conversations without the sleaze"
+      ]
+    },
+    {
+      "title": "Module 4: Systems & Scale",
+      "lessons": [
+        "Creating efficient workflows",
+        "Automation & tools",
+        "Strategic outsourcing",
+        "Scaling without burnout"
+      ]
+    }
+  ],
+  "targetAudience": [
+    "Professionals looking beyond the 9-5 grind",
+    "Side-hustlers ready to go full-time",
+    "Freelancers & creators aiming for a sustainable business",
+    "Experts ready to monetize their skills",
+    "People seeking location and time freedom"
+  ],
+  "ctaButton": {
+    "text": "Start with the 90-Min Session - Just ₹99",
+    "url": "#webinar-dates"
+  },
+  "cohortInfo": {
+    "limitedSeatsText": "Limited seats per cohort",
+    "nextCohortText": "Next cohort starts April 12, 2025"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "primaryColor": {
+    "default": "#e57341",
+    "light": "#f8a47f",
+    "dark": "#c45a2f"
+  },
+  "secondaryColor": {
+    "default": "#0097b2",
+    "light": "#33b3ca",
+    "dark": "#007a8f"
+  },
+  "accentColor": {
+    "default": "#eeb44e",
+    "light": "#f4c87a",
+    "dark": "#d9a13c"
+  },
+  "tertiaryColor": {
+    "default": "#6e936a",
+    "light": "#8aaa87",
+    "dark": "#5a7857"
+  },
+  "highlightColor": {
+    "default": "#e44041",
+    "light": "#ea6c6d",
+    "dark": "#c13334"
+  },
+  "richColor": {
+    "default": "#3e1311",
+    "light": "#5a2d2b",
+    "dark": "#2a0d0c"
+  },
+  "typography": {
+    "headingFont": "sans-serif",
+    "bodyFont": "sans-serif",
+    "baseFontSize": "16px"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "title": "Your Path to Success",
+  "subtitle": "Understand exactly how our two-step approach helps you build a successful solo business",
+  "step1": {
+    "title": "Join the Solo Accelerator Session",
+    "description": "Join our 90-minute session for just ₹99 where you'll learn key strategies and get a taste of our complete framework.",
+    "linkText": "Learn more about the session",
+    "linkUrl": "#webinar-info",
+    "features": [
+      "90-minute interactive session",
+      "Learn essential course material",
+      "Discover how this course can add value to your solo journey",
+      "Participate in live Q&A with the trainer",
+      "Receive special discount offer for the full course"
+    ],
+    "dateInfo": "Next cohort starts June 15, 2025",
+    "investmentInfo": "Just ₹99 to secure your spot"
+  },
+  "step2": {
+    "title": "Enroll in the Full Course",
+    "description": "After attending the Solo Accelerator Session, you'll have the opportunity to enroll in our comprehensive Level 1 course with a special discount—available exclusively to session participants.",
+    "linkText": "Learn more about the course",
+    "linkUrl": "#course",
+    "features": [
+      "12-15 hours of in-depth Live lessons",
+      "Comprehensive workbooks, spotlights, AI hacks & templates",
+      "Free complementary access to premium tools",
+      "Community support, lifetime access to course material",
+      "Industry leading guest experts",
+      "Optional 1-on-1 coaching"
+    ],
+    "investmentInfo": "Special discount for session participants"
+  },
+  "bottomCard": {
+    "title": "Our Commitment to Transparency",
+    "description": "We believe in being completely transparent about our offerings. The Solo Accelerator Session provides genuine value on its own, while also introducing you to our more comprehensive course. There's no obligation to purchase the course after attending the session.",
+    "buttonText": "Register for Session - Just ₹99",
+    "buttonUrl": "#webinar-dates"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "title": "Choose Your Session Date",
+  "subtitle": "Select a date and time that works best for your schedule",
+  "tag": "RESERVE YOUR SPOT",
+  "dates": [
+    {
+      "id": "march-22",
+      "date": "March 22, 2025",
+      "day": "Saturday",
+      "time": "10:00 AM",
+      "timeZone": "IST",
+      "spotsLeft": 7,
+      "paymentLink": "https://hub.startsolo.in/l/f2e5a74f31",
+      "fillingFast": true
+    },
+    {
+      "id": "march-29",
+      "date": "March 29, 2025",
+      "day": "Saturday",
+      "time": "10:30 AM",
+      "timeZone": "IST",
+      "spotsLeft": 13,
+      "paymentLink": "https://hub.startsolo.in/l/55dc06e942",
+      "fillingFast": false
+    },
+    {
+      "id": "april-5",
+      "date": "April 5, 2025",
+      "day": "Saturday",
+      "time": "10:00 AM",
+      "timeZone": "IST",
+      "spotsLeft": 15,
+      "paymentLink": "https://hub.startsolo.in/l/48e4cc0241",
+      "fillingFast": false
+    }
+  ],
+  "registrationFee": "₹99",
+  "originalPrice": "₹999",
+  "urgencyMessage": "HURRY! These sessions typically fill up 7-10 days before the start date.",
+  "cantMakeIt": {
+    "title": "Can't Make These Dates?",
+    "description": "Join our WhatsApp Hub to receive notifications about new session dates. You'll also gain access to free resources, exclusives from guest speakers and community support.",
+    "buttonText": "Join WhatsApp Hub"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "logoText": "Start Solo",
+  "navLinks": [
+    {
+      "label": "Home",
+      "url": "/"
+    },
+    {
+      "label": "About",
+      "url": "/about"
+    },
+    {
+      "label": "Accelerator",
+      "url": "#webinar-info"
+    },
+    {
+      "label": "Course",
+      "url": "#course"
+    },
+    {
+      "label": "Mentors",
+      "url": "#instructor"
+    },
+    {
+      "label": "Success Stories",
+      "url": "#testimonials"
+    },
+    {
+      "label": "FAQs",
+      "url": "#faq"
+    },
+    {
+      "label": "Support",
+      "url": "/support"
+    }
+  ],
+  "ctaButton": {
+    "text": "Reserve Your Spot",
+    "url": "#webinar-dates",
+    "trackingId": "header-cta"
+  },
+  "whatsappButton": {
+    "text": "Join Hub",
+    "url": "https://chat.whatsapp.com/CgrHI3AQbb6IX3gWKDa5Ij",
+    "trackingId": "header-whatsapp"
+  },
+  "mobileMenu": {
+    "ctaText": "Reserve Your Spot",
+    "whatsappText": "Join WhatsApp Hub"
+  }
+}

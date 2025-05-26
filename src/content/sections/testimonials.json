@@ -1,0 +1,11 @@
+{
+  "testimonials": [
+    {
+      "name": "Client Name",
+      "role": "Client Role",
+      "quote": "Their testimonial quote goes here...",
+      "image": "https://client-image.jpg",
+      "stars": 5
+    }
+  ]
+}

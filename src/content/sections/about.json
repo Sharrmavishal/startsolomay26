@@ -1,0 +1,230 @@
+{
+  "title": "About Us",
+  "subtitle": "Building successful solopreneurs since 2020",
+  "tabs": [
+    {
+      "id": "our-story",
+      "label": "Our Story",
+      "content": {
+        "title": "Our Journey",
+        "description": "Start Solo Blueprint was founded with a simple mission: to help aspiring entrepreneurs build profitable solo businesses without the burnout that often comes with it.",
+        "highlights": [
+          {
+            "year": "2020",
+            "title": "The Beginning",
+            "description": "Founded during the pandemic to help professionals transition to sustainable solo businesses"
+          },
+          {
+            "year": "2021",
+            "title": "Growing Community",
+            "description": "Expanded to serve 1000+ solopreneurs across India"
+          },
+          {
+            "year": "2022",
+            "title": "Blueprint Development",
+            "description": "Launched our signature framework after studying 500+ successful solo businesses"
+          },
+          {
+            "year": "2023",
+            "title": "Scaling Impact",
+            "description": "Reached 2,800+ successful graduates and launched our WhatsApp community"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mission-vision",
+      "label": "Mission & Vision",
+      "content": {
+        "mission": {
+          "title": "Our Mission",
+          "description": "To empower 100,000 professionals to build profitable solo businesses that provide both financial freedom and work-life balance by 2030.",
+          "keyPoints": [
+            "Make entrepreneurship accessible to everyone",
+            "Eliminate the overwhelm from starting a business",
+            "Create a supportive community of solopreneurs",
+            "Promote sustainable business practices"
+          ]
+        },
+        "vision": {
+          "title": "Our Vision",
+          "description": "A world where anyone can build a successful business without sacrificing their wellbeing.",
+          "pillars": [
+            {
+              "title": "Freedom",
+              "description": "Financial and time freedom to live life on your terms"
+            },
+            {
+              "title": "Impact",
+              "description": "Making a meaningful difference in your clients' lives"
+            },
+            {
+              "title": "Balance",
+              "description": "Growing your business without burning out"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "our-approach",
+      "label": "Our Approach",
+      "content": {
+        "title": "The Start Solo Blueprint Way",
+        "description": "Our approach combines proven business principles with modern strategies and tools, designed specifically for solo entrepreneurs.",
+        "principles": [
+          {
+            "title": "Simplicity First",
+            "description": "We believe in cutting through the noise and focusing on what actually works",
+            "icon": "Target"
+          },
+          {
+            "title": "Action-Oriented",
+            "description": "Every concept comes with clear, implementable steps",
+            "icon": "Rocket"
+          },
+          {
+            "title": "Community-Driven",
+            "description": "Learning and growing together with like-minded solopreneurs",
+            "icon": "Users"
+          },
+          {
+            "title": "Results-Focused",
+            "description": "Everything we teach is tested and proven to work",
+            "icon": "TrendingUp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "team",
+      "label": "Our Team",
+      "content": {
+        "title": "Meet the Experts Behind Start Solo",
+        "description": "Our team combines decades of experience in business, technology, and entrepreneurship.",
+        "members": [
+          {
+            "name": "Diksha Sethi",
+            "role": "Founder & Lead Trainer",
+            "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
+            "bio": "Communications specialist with 18+ years of experience leading brands like Mastercard, Ford, and Qualcomm.",
+            "credentials": [
+              "Former CMO at TechVision",
+              "Certified NLP Practitioner",
+              "Award-winning Podcaster"
+            ]
+          },
+          {
+            "name": "Rahul Mehta",
+            "role": "Co-Founder & Business Strategist",
+            "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
+            "bio": "Former management consultant with expertise in scaling businesses and operational efficiency.",
+            "credentials": [
+              "MBA from IIM Ahmedabad",
+              "Built 3 7-figure businesses",
+              "Business Growth Expert"
+            ]
+          }
+        ],
+        "joinTeam": {
+          "title": "Join Our Team",
+          "description": "We're always looking for passionate people to join our mission.",
+          "buttonText": "View Open Positions",
+          "buttonUrl": "/careers"
+        }
+      }
+    },
+    {
+      "id": "values",
+      "label": "Our Values",
+      "content": {
+        "title": "What We Stand For",
+        "description": "Our values guide everything we do, from course creation to community management.",
+        "values": [
+          {
+            "title": "Transparency",
+            "description": "We're honest about what works and what doesn't",
+            "icon": "Eye"
+          },
+          {
+            "title": "Excellence",
+            "description": "We maintain high standards in everything we deliver",
+            "icon": "Award"
+          },
+          {
+            "title": "Innovation",
+            "description": "We constantly evolve our methods based on real results",
+            "icon": "Lightbulb"
+          },
+          {
+            "title": "Community",
+            "description": "We believe in the power of learning and growing together",
+            "icon": "Users"
+          }
+        ]
+      }
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "content": {
+        "title": "Get in Touch",
+        "description": "Have questions about our programs or want to learn more? We're here to help.",
+        "contactInfo": {
+          "email": "hello@startsolo.in",
+          "phone": "+91 98765 43210",
+          "address": {
+            "line1": "123 Business Park",
+            "line2": "Sector 44",
+            "city": "Gurugram",
+            "state": "Haryana",
+            "pincode": "122003",
+            "country": "India"
+          }
+        },
+        "socialLinks": {
+          "instagram": "https://instagram.com/startsoloblueprint",
+          "twitter": "https://twitter.com/startsolohq",
+          "linkedin": "https://linkedin.com/company/startsolo",
+          "youtube": "https://youtube.com/@startsoloblueprint"
+        },
+        "contactForm": {
+          "title": "Send Us a Message",
+          "fields": [
+            {
+              "label": "Your Name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "label": "Email Address",
+              "type": "email",
+              "required": true
+            },
+            {
+              "label": "Subject",
+              "type": "select",
+              "options": [
+                "Session Inquiry",
+                "Course Information",
+                "Technical Support",
+                "Partnership Opportunity",
+                "Other"
+              ],
+              "required": true
+            },
+            {
+              "label": "Your Message",
+              "type": "textarea",
+              "required": true
+            }
+          ],
+          "submitButton": {
+            "text": "Send Message",
+            "trackingId": "contact-form-submit"
+          }
+        }
+      }
+    }
+  ]
+}

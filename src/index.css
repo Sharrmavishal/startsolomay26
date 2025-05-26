@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-size: var(--font-size-base, 16px);
+}
+
+body {
+  font-family: var(--font-body, sans-serif);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading, sans-serif);
+}
+
+/* Custom utility classes */
+.prose img {
+  @apply rounded-lg;
+}
+
+.prose a {
+  @apply text-primary hover:text-primary-dark transition;
+}

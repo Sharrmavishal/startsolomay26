@@ -1,0 +1,53 @@
+{
+  "title": "The 90-Minute Solo Accelerator Session",
+  "subtitle": "In just 90 minutes, you'll gain insights that would take years of trial and error to discover on your own.",
+  "tag": "WHY ATTEND THIS SESSION",
+  "benefits": [
+    {
+      "icon": "Target",
+      "title": "Proven Framework",
+      "description": "Learn the exact step-by-step blueprint used by 2800+ successful solo entrepreneurs to build profitable businesses."
+    },
+    {
+      "icon": "TrendingUp",
+      "title": "Actionable Strategies",
+      "description": "Get practical, implementable strategies you can start using immediately to attract clients and generate income."
+    },
+    {
+      "icon": "Shield",
+      "title": "Avoid Common Pitfalls",
+      "description": "Discover the mistakes that cause most solo entrepreneurs to fail and learn how to navigate around them successfully."
+    }
+  ],
+  "learningPoints": [
+    {
+      "title": "Finding Your Profitable Niche",
+      "description": "Discover how to identify a niche that aligns with your skills and has high profit potential. We'll show you high impact validation process to ensure market demand before you invest time and resources."
+    },
+    {
+      "title": "Creating Your Irresistible Offer",
+      "description": "Learn how to package your expertise into an offer that stands out in the marketplace. We'll cover branding, pricing strategies, positioning, and how to communicate your value proposition effectively."
+    },
+    {
+      "title": "Client Acquisition Blueprint",
+      "description": "Master our proven system for attracting and converting high-quality clients consistently. You'll learn specific strategies that work even if you hate marketing or sales."
+    },
+    {
+      "title": "Scaling Without Burnout",
+      "description": "Discover how to grow your solo business without working more hours. We'll share our framework for leveraging systems, automation, and strategic outsourcing to increase revenue while maintaining work-life balance."
+    },
+    {
+      "title": "Q&A Session",
+      "description": "Get your specific questions answered live during our interactive Q&A session and learn from guest speakers. This is your chance to get personalized advice for your unique situation."
+    }
+  ],
+  "sessionDetails": {
+    "nextSession": "Starts June 15, 2025",
+    "duration": "90 Minutes",
+    "fee": "₹99"
+  },
+  "ctaButton": {
+    "text": "Choose Your Session Date",
+    "url": "#webinar-dates"
+  }
+}

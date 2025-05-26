@@ -1,0 +1,189 @@
+backend:
+  name: github
+  repo: Sharrmavishal/startsolo_new_v7
+  branch: rollbackbranch
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: '[skip ci] Upload "{{path}}"'
+    deleteMedia: '[skip ci] Delete "{{path}}"'
+
+# Updated site URL
+site_url: https://startsolo.in
+display_url: https://startsolo.in
+
+# Media files will be stored in the repo under public/uploads
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Enable local backend for development
+local_backend: true
+
+collections:
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - label: "Countdown Timer"
+        name: "countdown_timer"
+        file: "content/homepage/countdown.md"
+        fields:
+          - { label: "Countdown Text", name: "countdown_text", widget: "string", default: "URGENT: Only a few days left before registration closes!" }
+          - { label: "Countdown Date", name: "countdown_date", widget: "datetime" }
+          - { label: "Enable Countdown", name: "enabled", widget: "boolean", default: true }
+
+      - label: "Hero Section"
+        name: "hero"
+        file: "content/homepage/hero.md"
+        fields:
+          - { label: "Highlight Text", name: "highlight", widget: "string" }
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subheading", widget: "markdown" }
+          - { label: "Video ID", name: "videoId", widget: "string", required: false, hint: "YouTube video ID for preview" }
+          - { label: "Preview Image", name: "previewImage", widget: "image", hint: "Shown when video is not set" }
+          - label: "Primary Button"
+            name: "primaryButton"
+            widget: "object"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - label: "Secondary Button"
+            name: "secondaryButton"
+            widget: "object"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - label: "Key Points"
+            name: "keyPoints"
+            widget: "list"
+            field: { label: "Point", name: "point", widget: "string" }
+
+      - label: "Training & Workshops"
+        name: "brand_logos"
+        file: "content/homepage/brand_logos.md"
+        fields:
+          - label: "Brand Logos"
+            name: "logos"
+            widget: "list"
+            fields:
+              - { label: "Logo Image", name: "logo", widget: "image" }
+              - { label: "Company Name", name: "name", widget: "string" }
+          - { label: "Bottom Card Title", name: "cardTitle", widget: "string" }
+          - { label: "Bottom Card Description", name: "cardDescription", widget: "markdown" }
+
+      - label: "Success Stories"
+        name: "testimonials"
+        file: "content/homepage/testimonials.md"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Section Subtitle", name: "subtitle", widget: "text" }
+          - label: "Featured Testimonials"
+            name: "featured"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Stars", name: "stars", widget: "number", min: 1, max: 5 }
+              - { label: "Video ID", name: "videoId", widget: "string", required: false }
+          - label: "Quick Quotes"
+            name: "quotes"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }
+
+      - label: "Instructor & Experts"
+        name: "instructors"
+        file: "content/homepage/instructors.md"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Section Subtitle", name: "subtitle", widget: "text" }
+          - label: "Main Instructor"
+            name: "mainInstructor"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Bio", name: "bio", widget: "markdown" }
+              - { label: "Quote", name: "quote", widget: "text" }
+              - label: "Credentials"
+                name: "credentials"
+                widget: "list"
+                field: { label: "Credential", name: "credential", widget: "string" }
+          - label: "Expert Speakers"
+            name: "speakers"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Company", name: "company", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Topic", name: "topic", widget: "string" }
+              - { label: "Date", name: "date", widget: "string" }
+              - label: "Credentials"
+                name: "credentials"
+                widget: "list"
+                field: { label: "Credential", name: "credential", widget: "string" }
+
+      - label: "Available Session Dates"
+        name: "webinar_dates"
+        file: "content/homepage/webinar_dates.md"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Section Subtitle", name: "subtitle", widget: "text" }
+          - label: "Available Dates"
+            name: "dates"
+            widget: "list"
+            fields:
+              - { label: "Session ID", name: "id", widget: "string" }
+              - { label: "Date", name: "date", widget: "string" }
+              - { label: "Day", name: "day", widget: "string" }
+              - { label: "Time", name: "time", widget: "string" }
+              - { label: "Time Zone", name: "timeZone", widget: "string" }
+              - { label: "Spots Left", name: "spotsLeft", widget: "number" }
+              - { label: "Payment Link", name: "paymentLink", widget: "string" }
+              - { label: "Filling Fast", name: "fillingFast", widget: "boolean" }
+
+      - label: "FAQs"
+        name: "faqs"
+        file: "content/homepage/faqs.md"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Section Subtitle", name: "subtitle", widget: "text" }
+          - label: "FAQ List"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "markdown" }
+          - label: "Contact Options"
+            name: "contactOptions"
+            widget: "object"
+            fields:
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "WhatsApp Text", name: "whatsappText", widget: "string" }
+              - { label: "Register Text", name: "registerText", widget: "string" }
+
+      - label: "Navigation"
+        name: "navigation"
+        file: "content/homepage/navigation.md"
+        fields:
+          - { label: "Logo Text", name: "logoText", widget: "string" }
+          - label: "Navigation Links"
+            name: "navLinks"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "External Link", name: "external", widget: "boolean", default: false }
+          - label: "CTA Button"
+            name: "ctaButton"
+            widget: "object"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }

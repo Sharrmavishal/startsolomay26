@@ -1,0 +1,20 @@
+{
+  "name": "Your Name",
+  "role": "Your Role",
+  "image": "https://your-profile-image.jpg",
+  "bio": "Your detailed bio goes here...",
+  "credentials": [
+    "Credential 1",
+    "Credential 2",
+    "Credential 3"
+  ],
+  "guestSpeakers": [
+    {
+      "name": "Speaker Name",
+      "role": "Speaker Role",
+      "topic": "Speaking Topic",
+      "image": "https://speaker-image.jpg",
+      "date": "June 20, 2025"
+    }
+  ]
+}

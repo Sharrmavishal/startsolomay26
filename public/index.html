@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Start Solo Blueprint Admin</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dnm2ejglr/image/upload/v1741331996/favicon_1_xvlg9x.png" />
+  </head>
+  <body>
+    <!-- Pre-render all Netlify forms -->
+    <form name="support" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <form name="course-inquiry" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <form name="mentor-registration" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <textarea name="background"></textarea>
+      <input type="text" name="role" />
+      <input type="text" name="expertise" />
+      <input type="text" name="otherExpertise" />
+      <textarea name="whyInterested"></textarea>
+    </form>
+
+    <form name="solosprint-bootcamp" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="locations" />
+      <input type="text" name="topics" />
+      <input type="text" name="otherTopic" />
+      <input type="text" name="duration" />
+      <input type="email" name="email" />
+    </form>
+
+    <script>
+      // Redirect to the admin interface
+      window.location.href = "/admin/";
+    </script>
+  </body>
+</html>

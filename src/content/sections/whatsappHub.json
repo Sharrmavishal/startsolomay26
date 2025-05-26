@@ -1,0 +1,58 @@
+{
+  "title": "Join Our Start Solo Hub on WhatsApp",
+  "subtitle": "Connect with like-minded solopreneurs and get exclusive resources, complementary premium tool access in our WhatsApp community",
+  "tag": "FREE COMMUNITY",
+  "leftTitle": "Start Solo Hub",
+  "leftDescription": "Our WhatsApp community is the perfect place to stay connected, get support, and access exclusive resources on your solo journey.",
+  "leftFeatures": [
+    {
+      "icon": "Users",
+      "title": "Supportive Community",
+      "description": "Connect with fellow solopreneurs who understand your challenges"
+    },
+    {
+      "icon": "Bell",
+      "title": "Event Notifications",
+      "description": "Be the first to know about upcoming speaker sessions and workshops"
+    },
+    {
+      "icon": "FileText",
+      "title": "Exclusive Resources",
+      "description": "Get access to premium tools, templates, guides, AI hacks, and tools not available elsewhere"
+    }
+  ],
+  "rightTitle": "What You'll Get",
+  "rightFeatures": [
+    {
+      "icon": "Calendar",
+      "title": "Weekly Tips & Challenges",
+      "description": "Actionable business tips and mini-challenges to help you make consistent progress"
+    },
+    {
+      "icon": "Video",
+      "title": "Speaker Session Access",
+      "description": "Join exclusive Q&As with industry experts and successful entrepreneurs"
+    },
+    {
+      "icon": "FileText",
+      "title": "Resource Library",
+      "description": "Access our growing library of templates, checklists, and guides"
+    },
+    {
+      "icon": "Users",
+      "title": "Networking Opportunities",
+      "description": "Connect with potential collaborators, clients, and mentors"
+    }
+  ],
+  "howToJoinCard": {
+    "title": "How to Join",
+    "description": "Joining our WhatsApp Hub is completely free and takes just seconds. Simply click the button below to join.",
+    "note": "Note: All session participants and course students are automatically invited to join."
+  },
+  "ctaButtons": {
+    "whatsappText": "Join Our WhatsApp Hub",
+    "whatsappUrl": "https://chat.whatsapp.com/CgrHI3AQbb6IX3gWKDa5Ij",
+    "sessionText": "Register for Session",
+    "sessionUrl": "#webinar-dates"
+  }
+}

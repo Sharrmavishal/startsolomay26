@@ -1,0 +1,55 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Force HTTPS
+[[redirects]]
+  from = "http://*"
+  to = "https://:splat"
+  status = 301
+  force = true
+
+# Redirect all requests to index.html for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Set up headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Content-Security-Policy = """
+      default-src 'self' https://api.netlify.com https://identity.netlify.com;
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com;
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' data: https: https://res.cloudinary.com;
+      font-src 'self';
+      connect-src 'self' https://api.netlify.com https://identity.netlify.com;
+      frame-ancestors 'none';
+      base-uri 'self';
+      form-action 'self';
+    """
+
+# Enable Netlify Forms
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+# Forms configuration
+[forms]
+  [forms.support]
+    name = "Support Form"
+  [forms.course-inquiry]
+    name = "Course Inquiry"
+  [forms.mentor-registration]
+    name = "Mentor Registration"
+  [forms.solosprint-bootcamp]
+    name = "Solosprint Bootcamp"

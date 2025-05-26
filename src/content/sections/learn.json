@@ -1,0 +1,127 @@
+{
+  "hero": {
+    "title": "learn. launch. lead",
+    "subtitle": "Explore action-focused WhatsApp sprints and mentorships designed to take you from idea to income—one solo step at a time"
+  },
+  "zones": [
+    {
+      "id": "spark-zone",
+      "name": "Stage 0: Still Thinking",
+      "description": "For curious or risk-averse solopreneurs who want low-cost, low-pressure clarity.",
+      "courses": [
+        {
+          "title": "Idea Spark + Mentorship",
+          "hook": "Spark your first viable business idea",
+          "summary": "2-day WhatsApp video micro-lessons + 1:1 mentor call to help you find and validate your direction",
+          "price": 999,
+          "originalPrice": 1199,
+          "curriculum": [
+            "Day 1: Identify skills, passions, and natural strengths",
+            "Day 2: Match your skill with a market need using our Idea Validation Framework",
+            "1:1 mentor call to validate and prioritise your best idea",
+            "Bonus: \"From Confusion to Clarity\" Roadmap (PDF)"
+          ],
+          "ctaText": "Start With Spark + Mentorship",
+          "ctaUrl": "https://hub.startsolo.in/l/26c5108365"
+        }
+      ]
+    },
+    {
+      "id": "curious-zone",
+      "name": "Stage 1: Curious",
+      "description": "For solopreneurs ready to validate their ideas and take the first steps.",
+      "courses": [
+        {
+          "title": "Idea to Income + Mentorship",
+          "hook": "Convert your idea into an income-ready offer",
+          "summary": "5-day WhatsApp video sprint + 1:1 mentor call to help you structure and launch your offer",
+          "price": 1399,
+          "originalPrice": 1599,
+          "curriculum": [
+            "Day 1: Define your niche and ideal client",
+            "Day 2: Create your first offer (problem, promise, price)",
+            "Day 3: Position your offer to communicate value",
+            "Day 4: Map out your first-client strategy",
+            "Day 5: Prepare to deliver your offer confidently",
+            "1:1 mentor call to refine pitch, audience, and pricing",
+            "Bonus: Client Acquisition Toolkit"
+          ],
+          "ctaText": "Join the Sprint + Mentor Boost",
+          "ctaUrl": "https://hub.startsolo.in/l/566f67ea6e"
+        }
+      ]
+    },
+    {
+      "id": "builder-zone",
+      "name": "Stage 2: Builder",
+      "description": "For solopreneurs ready to build a strong brand and consistent client base.",
+      "courses": [
+        {
+          "title": "Brand Builder Sprint (Complete Edition)",
+          "hook": "Build a brand that sticks, sells, and scales",
+          "summary": "4-day WhatsApp video course + 2 Live Mentor Sessions to create your brand and content system",
+          "price": 2999,
+          "originalPrice": 3599,
+          "curriculum": [
+            "Day 1: Brand Pillars → Niche, messaging, voice, and persona",
+            "Day 2: Content Framework → Plug-and-play content system",
+            "Day 3: Client Conversion System → Set up funnel & messaging",
+            "Day 4: Trust Loops & Growth Hacks → Proof and visibility",
+            "2 LIVE mentor sessions for content and pitch refinement",
+            "Custom 90-Day Brand Roadmap"
+          ],
+          "ctaText": "Build your brand authority",
+          "ctaUrl": "https://hub.startsolo.in/l/b055d7df8f"
+        }
+      ]
+    },
+    {
+      "id": "scaler-zone",
+      "name": "Stage 3: Scaler",
+      "description": "For established solopreneurs ready to scale their impact and income.",
+      "courses": [
+        {
+          "title": "Solo Scaler + Mentorship",
+          "hook": "Systematise and scale your solo business",
+          "summary": "5-day WhatsApp course + 1:1 mentor call to help you create systems that scale",
+          "price": 3499,
+          "originalPrice": 3999,
+          "curriculum": [
+            "Day 1: Audit current systems & income blockers",
+            "Day 2: Implement automation tools (Calendly, Notion, CRM)",
+            "Day 3: Create a referral and repeat business engine",
+            "Day 4: Design scalable offers (group coaching, courses, retainers)",
+            "Day 5: Troubleshooting session- LIVE",
+            "1:1 mentor call to create your custom scale plan"
+          ],
+          "ctaText": "Start Scaling Smart",
+          "ctaUrl": "https://hub.startsolo.in/l/200500053e"
+        }
+      ]
+    },
+    {
+      "id": "relaunch-zone",
+      "name": "Stage 4: Relaunch",
+      "description": "For professionals ready to restart their journey with clarity and support.",
+      "courses": [
+        {
+          "title": "Career Re-launcher + Mentorship",
+          "hook": "Relaunch your career or venture with confidence",
+          "summary": "5-day WhatsApp journey + 2 LIVE mentor calls to help you make a strong comeback",
+          "price": 4499,
+          "originalPrice": 4999,
+          "curriculum": [
+            "Day 1: Rediscover monetizable skills",
+            "Day 2: Rebuild confidence & gather proof",
+            "Day 3: Explore flexible and pay-worthy options",
+            "Day 4: Positioning and pricing post-break",
+            "Day 5: Create your comeback roadmap",
+            "2 LIVE mentor calls for confidence and client attraction"
+          ],
+          "ctaText": "Rebuild your comeback story",
+          "ctaUrl": "https://hub.startsolo.in/l/bf5a9a4de1"
+        }
+      ]
+    }
+  ]
+}

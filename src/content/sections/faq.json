@@ -1,0 +1,59 @@
+{
+  "title": "Frequently Asked Questions",
+  "subtitle": "Everything you need to know about our courses and community",
+  "faqs": [
+    {
+      "question": "Do I need to have an idea before I start a course?",
+      "answer": "Not at all. The quiz and courses are designed to meet you where you are — even if you're still exploring. Start with the Idea Spark sprint to find your direction."
+    },
+    {
+      "question": "How are the courses delivered?",
+      "answer": "All courses are delivered directly via WhatsApp and some are LIVE sessions too. You'll receive course info or task each day for the course duration — no dashboards, no logins, just clear nudges where you're already active."
+    },
+    {
+      "question": "What happens after I take the quiz?",
+      "answer": "You'll get a personalized recommendation, a short summary of where you are, and course recommendations that match your journey. You will be emailed a surprise starter pack too. You can start instantly."
+    },
+    {
+      "question": "Can I take more than one course?",
+      "answer": "Absolutely. Many learners take multiple sprints — for example, starting with Idea Validation and later moving to Client Pipeline or Brand Building."
+    },
+    {
+      "question": "What do the mentor calls include?",
+      "answer": "Our 1:1 mentor sessions are 15–30 minute WhatsApp or Zoom chats focused on:\n\nIdea clarity\nClient acquisition\nPricing or relaunch planning\n\nYou choose the agenda when booking."
+    },
+    {
+      "question": "Who are the mentors I'll learn from?",
+      "answer": "Your lead mentor is Diksha, founder of Start Solo and a solo brand consultant who's helped 2800+ professionals learn valuable skills. She's known for real talk, sharp advice, and breaking things down without fluff. You'll also hear from guest experts who've built D2C brands, scaled service businesses, and mastered solopreneur life."
+    },
+    {
+      "question": "Are the mentor sessions live or recorded?",
+      "answer": "Mentor calls are live and personalized. For some group sessions (like in the Relaunch track), you may also get access to recordings."
+    },
+    {
+      "question": "Do you host guest sessions or expert AMAs?",
+      "answer": "Yes! As part of selected bundles or mentor pathways, we invite guest speakers and creators for Q&As, live strategy rooms, and closed-group discussions. These are bonus add-ons that bring real-world experience into your journey."
+    },
+    {
+      "question": "What if I miss a day of the course?",
+      "answer": "No problem! All course messages stay in your WhatsApp — you can catch up anytime, at your pace."
+    },
+    {
+      "question": "Can I get a refund if I don't like the course?",
+      "answer": "Since our courses are short and digital, we don't offer refunds, but we're happy to credit your amount toward another course or a mentor call if you're not satisfied. Just message us on hello@startsolo.in"
+    },
+    {
+      "question": "How long do I have access to the course content?",
+      "answer": "You'll have lifetime access to all messages, templates, and tasks delivered. Save them, reuse them, revisit them."
+    },
+    {
+      "question": "Can I speak to someone before signing up?",
+      "answer": "Of course. Use the \"Talk to a Mentor\" form and we'll get in touch to guide you based on your situation."
+    }
+  ],
+  "contactOptions": {
+    "email": "hello@startsolo.in",
+    "whatsappText": "Ask in WhatsApp Hub",
+    "registerText": "Register for Session"
+  }
+}

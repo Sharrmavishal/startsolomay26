@@ -1,0 +1,33 @@
+{
+  "title": "Stuck isn't a Strategy.",
+  "subtitle": "Join our 90-minute Solo Accelerator Session and discover the proven framework that has helped 2800+ solopreneurs build successful businesses.",
+  "sessionDetails": {
+    "datesInfo": "Multiple dates available",
+    "duration": "90 minutes per session",
+    "seatsInfo": "Limited slots per session"
+  },
+  "pricing": {
+    "price": "₹99",
+    "originalPrice": "₹999",
+    "priceSubtitle": "Solo Accelerator Session fee"
+  },
+  "ctaButton": {
+    "text": "Reserve Your Spot",
+    "url": "#webinar-dates",
+    "trackingId": "cta-register-button"
+  },
+  "guaranteeText": "100% Money-Back Guarantee",
+  "bonuses": {
+    "title": "Exclusive Session Bonuses",
+    "description": "All participants will receive:",
+    "items": [
+      "A special discount (upto 70%) on the full course",
+      "Priority access to future advanced modules, bootcamps, guest sessions",
+      "Free Solo Business Starter Kit (₹1,997 value)"
+    ]
+  },
+  "urgencyMessage": {
+    "text": "HURRY! Next cohort starts June 15, 2025. The last 3 sessions sold out completely. Register now to guarantee your spot and access to the special course discount.",
+    "icon": "AlertCircle"
+  }
+}
