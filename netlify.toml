@@ -9,7 +9,7 @@
   status = 301
   force = true
 
-# Proxy redirect for kickoffworkshop - MOVED ABOVE SPA REDIRECT
+# Proxy redirect for kickoffworkshop
 [[redirects]]
   from = "/kickoffworkshop/*"
   to = "https://kickoffworkshop.netlify.app/kickoffworkshop/:splat"
@@ -21,7 +21,6 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
 
 # Set up headers for security
 [[headers]]
