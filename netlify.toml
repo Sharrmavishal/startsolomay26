@@ -1,3 +1,4 @@
+toml
 [build]
   command = "npm run build"
   publish = "dist"
@@ -9,7 +10,7 @@
   status = 301
   force = true
 
-# Proxy redirect for kickoffworkshop
+# Proxy redirect for kickoffworkshop - MOVED ABOVE SPA REDIRECT
 [[redirects]]
   from = "/kickoffworkshop/*"
   to = "https://kickoffworkshop.netlify.app/kickoffworkshop/:splat"
@@ -21,6 +22,7 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
 
 # Set up headers for security
 [[headers]]
