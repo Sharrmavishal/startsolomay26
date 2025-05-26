@@ -15,6 +15,14 @@
   to = "https://kickoffworkshop.netlify.app/kickoffworkshop/:splat"
   status = 200
   force = true
+  headers = {X-From = "Netlify"}
+
+# Handle the base /kickoffworkshop path (without trailing slash)
+[[redirects]]
+  from = "/kickoffworkshop"
+  to = "https://kickoffworkshop.netlify.app/kickoffworkshop"
+  status = 200
+  force = true
 
 # Redirect all requests to index.html for SPA routing
 [[redirects]]
