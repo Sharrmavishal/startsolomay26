@@ -9,6 +9,13 @@
   status = 301
   force = true
 
+# Proxy redirect for kickoffworkshop
+[[redirects]]
+  from = "/kickoffworkshop/*"
+  to = "https://kickoffworkshop.netlify.app/kickoffworkshop/:splat"
+  status = 200
+  force = true
+
 # Redirect all requests to index.html for SPA routing
 [[redirects]]
   from = "/*"
