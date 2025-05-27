@@ -1,11 +1,14 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// Get environment variables or use fallbacks for development
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables');
-}
+// Check if we're in a production environment
+const isProduction = import.meta.env.PROD;
+
+// Flag to check if Supabase is actually being used and log appropriate warnings
+let supabaseInitialized = false;
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
@@ -20,6 +23,16 @@ export interface QuizLead {
 
 export const saveQuizLead = async (lead: QuizLead) => {
   try {
+    // Mark that Supabase is being used
+    supabaseInitialized = true;
+    
+    // Check if Supabase credentials are missing
+    if (!supabaseUrl || !supabaseAnonKey) {
+      console.warn('Supabase credentials not configured - quiz lead data will not be saved');
+      // Return mock success response in non-production environments
+      return isProduction ? null : [{ id: 'mock-id', ...lead }];
+    }
+    
     // Validate required fields
     if (!lead.name || !lead.email || !lead.quiz_stage || !lead.quiz_persona) {
       console.error('Missing required fields:', lead);
