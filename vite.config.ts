@@ -14,7 +14,9 @@ export default defineConfig({
       }
     },
     // Make source maps for easier debugging
-    sourcemap: true
+    sourcemap: true,
+    // Ensure _redirects file is copied to dist
+    copyPublicDir: true
   },
   optimizeDeps: {
     exclude: ['lucide-react']

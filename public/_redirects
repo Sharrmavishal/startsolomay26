@@ -1,6 +1,1 @@
-# Workshop redirects
 /kickoffworkshop/*  https://kickoffworkshop.netlify.app/kickoffworkshop/:splat  200!
-/kickoffworkshop    /kickoffworkshop/  301
-
-# Add more workshop redirects here as needed:
-# /workshop-name/*  https://workshop-name.netlify.app/workshop-name/:splat  200!
