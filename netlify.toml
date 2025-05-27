@@ -24,18 +24,12 @@
   status = 301
   force = true
 
-# Ensure the SPA redirect doesn't catch our proxy path
+# Redirect all requests to index.html for SPA routing (but with lower priority than specific routes)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = false
-
-# Redirect all requests to index.html for SPA routing
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  force = true
 
 # Set up headers for security
 [[headers]]
