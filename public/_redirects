@@ -1,0 +1,11 @@
+# Force HTTPS
+http://*   https://:splat   301!
+
+# Proxy all requests under /kickoffworkshop to the workshop site
+/kickoffworkshop/*   https://kickoffworkshop.netlify.app/kickoffworkshop/:splat   200!
+
+# Handle the base path without trailing slash
+/kickoffworkshop   /kickoffworkshop/   301!
+
+# This needs to be the last rule
+/*   /index.html   200
