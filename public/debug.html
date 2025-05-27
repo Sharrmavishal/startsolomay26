@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debug Page</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .success { color: green; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Netlify Deployment Debug Page</h1>
+  <p>If you can see this page, the server is responding correctly.</p>
+  <div id="status"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const statusDiv = document.getElementById('status');
+      
+      // Basic page load check
+      statusDiv.innerHTML += '<p class="success">✓ Debug page loaded successfully</p>';
+      
+      // Check if we can fetch the main index.html
+      fetch('/')
+        .then(response => {
+          if (response.ok) {
+            statusDiv.innerHTML += '<p class="success">✓ Main page fetch successful</p>';
+          } else {
+            statusDiv.innerHTML += '<p class="error">✗ Main page fetch failed with status: ' + response.status + '</p>';
+          }
+          return response.text();
+        })
+        .then(html => {
+          // Check if it contains expected content
+          if (html.includes('id="root"')) {
+            statusDiv.innerHTML += '<p class="success">✓ Main page contains root element</p>';
+          } else {
+            statusDiv.innerHTML += '<p class="error">✗ Main page is missing root element</p>';
+          }
+        })
+        .catch(error => {
+          statusDiv.innerHTML += '<p class="error">✗ Error fetching main page: ' + error.message + '</p>';
+        });
+      
+      // Check browser info
+      statusDiv.innerHTML += '<p>Browser: ' + navigator.userAgent + '</p>';
+      
+      // Check current URL and path
+      statusDiv.innerHTML += '<p>Current URL: ' + window.location.href + '</p>';
+      statusDiv.innerHTML += '<p>Path: ' + window.location.pathname + '</p>';
+    });
+  </script>
+</body>
+</html>
