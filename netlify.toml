@@ -9,7 +9,7 @@
   status = 301
   force = true
 
-# Proxy all requests under /kickoffworkshop to the workshop site
+# Proxy requests to workshop site
 [[redirects]]
   from = "/kickoffworkshop/*"
   to = "https://kickoffworkshop.netlify.app/kickoffworkshop/:splat"
