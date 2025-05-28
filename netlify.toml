@@ -9,7 +9,7 @@
   status = 301
   force = true
 
-# Redirect all requests to index.html for SPA routing (but with lower priority than specific routes)
+# Handle all routes for client-side routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
