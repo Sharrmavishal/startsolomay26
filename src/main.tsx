@@ -5,6 +5,41 @@ import App from './App.tsx';
 import './index.css';
 import { ContentProvider } from './components/ContentProvider';
 
+// Add error boundary and better error handling
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error('React Error Boundary caught an error:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+          <h1>Something went wrong</h1>
+          <p>The application encountered an error. Please refresh the page.</p>
+          <details style={{ marginTop: '10px' }}>
+            <summary>Error details</summary>
+            <pre style={{ background: '#f5f5f5', padding: '10px', marginTop: '10px' }}>
+              {this.state.error?.toString()}
+            </pre>
+          </details>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
 // Add a visible error message in case of initialization failures
 const rootElement = document.getElementById('root');
 
@@ -28,6 +63,7 @@ if (!rootElement) {
     fallbackContent.innerHTML = `
       <h1>Start Solo by Diksha Sethi</h1>
       <p>There was a problem loading the application. Please refresh the page or try again later.</p>
+      <p>If this problem persists, please contact support at hello@startsolo.in</p>
     `;
     document.body.appendChild(fallbackContent);
     
@@ -35,11 +71,13 @@ if (!rootElement) {
     const root = createRoot(rootElement);
     root.render(
       <StrictMode>
-        <BrowserRouter>
-          <ContentProvider>
-            <App />
-          </ContentProvider>
-        </BrowserRouter>
+        <ErrorBoundary>
+          <BrowserRouter>
+            <ContentProvider>
+              <App />
+            </ContentProvider>
+          </BrowserRouter>
+        </ErrorBoundary>
       </StrictMode>
     );
     
@@ -48,11 +86,17 @@ if (!rootElement) {
       const appMayHaveRendered = rootElement.childNodes.length > 0;
       if (!appMayHaveRendered) {
         console.error('React may have failed to render');
-        document.getElementById('react-fallback')!.style.display = 'block';
+        const fallback = document.getElementById('react-fallback');
+        if (fallback) {
+          fallback.style.display = 'block';
+        }
       }
     }, 2000);
   } catch (error) {
     console.error('Error initializing React app:', error);
-    document.getElementById('react-fallback')!.style.display = 'block';
+    const fallback = document.getElementById('react-fallback');
+    if (fallback) {
+      fallback.style.display = 'block';
+    }
   }
 }
