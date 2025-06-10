@@ -13,6 +13,7 @@ import { useContent } from './components/ContentProvider';
 import SEOHead from './components/SEOHead';
 import DynamicPages from './components/DynamicPages';
 import StickyWhatsAppCTA from './components/StickyWhatsAppCTA';
+import PopupModal from './components/PopupModal';
 import Quiz from './components/quiz/Quiz';
 
 function App() {
@@ -44,6 +45,9 @@ function App() {
     <div className="min-h-screen bg-white">
       <SEOHead />
       <Header />
+      
+      {/* Popup Modal - Shows on all pages */}
+      <PopupModal />
       
       <Routes>
         <Route path="/" element={
