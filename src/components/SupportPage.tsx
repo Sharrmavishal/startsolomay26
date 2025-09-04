@@ -9,7 +9,7 @@ const SupportPage: React.FC = () => {
     message: '',
     submitted: false,
     submitting: false,
-    error: null
+    error: ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -51,42 +51,42 @@ const SupportPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20 pb-16">
+    <div className="min-h-screen bg-brand-gray-50 pt-20 pb-16">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <a 
             href="/" 
-            className="inline-flex items-center text-primary hover:text-primary-dark mb-8"
+            className="inline-flex items-center text-brand-teal hover:text-brand-teal mb-8"
           >
             <ArrowLeft className="h-4 w-4 mr-1" /> Back to home
           </a>
           
-          <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 mb-12">
+          <div className="card-brand shadow-md overflow-hidden mb-12">
             <div className="p-8">
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Support & Contact</h1>
+              <h1 className="text-3xl md:text-4xl heading-brand mb-6">Support & Contact</h1>
               
-              <div className="prose max-w-none">
-                <p className="text-lg text-gray-700 mb-6">
+              <div className="prose max-w-none body-brand">
+                <p className="text-lg text-gray-900 mb-6">
                   We're here to help you on your solo business journey. Whether you have questions about our sessions, need technical support, or just want to connect, we're just a message away.
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-100 text-center">
-                    <Mail className="h-10 w-10 text-primary mx-auto mb-3" />
-                    <h3 className="font-bold text-gray-900 mb-2">Email Support</h3>
-                    <p className="text-gray-700 mb-3 text-sm">For general inquiries and support</p>
-                    <a href="mailto:hello@startsolo.in" className="text-primary hover:text-primary-dark transition font-medium">
+                  <div className="card-brand p-6 text-center">
+                    <Mail className="h-10 w-10 text-brand-teal mx-auto mb-3" />
+                    <h3 className="font-bold text-brand-navy mb-2">Email Support</h3>
+                    <p className="text-brand-gray-900 mb-3 text-sm">For general inquiries and support</p>
+                    <a href="mailto:hello@startsolo.in" className="text-brand-teal hover:text-brand-teal transition font-medium">
                       hello@startsolo.in
                     </a>
                   </div>
                   
-                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-100 text-center">
-                    <MessageCircle className="h-10 w-10 text-[#25D366] mx-auto mb-3" />
-                    <h3 className="font-bold text-gray-900 mb-2">WhatsApp Support</h3>
-                    <p className="text-gray-700 mb-3 text-sm">Quick responses for urgent queries</p>
+                  <div className="card-brand p-6 text-center">
+                    <MessageCircle className="h-10 w-10 text-brand-teal mx-auto mb-3" />
+                    <h3 className="font-bold text-brand-navy mb-2">WhatsApp Support</h3>
+                    <p className="text-brand-gray-900 mb-3 text-sm">Quick responses for urgent queries</p>
                     <a 
                       href="https://chat.whatsapp.com/CgrHI3AQbb6IX3gWKDa5Ij" 
-                      className="text-[#25D366] hover:text-[#128C7E] transition font-medium"
+                      className="text-brand-teal hover:text-brand-teal transition font-medium"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -95,20 +95,23 @@ const SupportPage: React.FC = () => {
                   </div>
                 </div>
                 
-                <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-6">Contact Form</h2>
+                <h2 className="text-2xl font-bold text-brand-navy mt-10 mb-6">Contact Form</h2>
                 
                 {formState.submitted ? (
-                  <div className="bg-green-50 border border-green-100 rounded-lg p-6 text-center">
-                    <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Thank You!</h3>
-                    <p className="text-gray-700 mb-4">
+                  <div className="bg-brand-sky border-brand-sky rounded-lg p-6 text-center">
+                    <CheckCircle className="h-12 w-12 text-brand-teal mx-auto mb-4" />
+                    <h3 className="text-xl font-bold text-brand-navy mb-2">Thank You!</h3>
+                    <p className="text-brand-gray-900 mb-4">
                       Your message has been received. We'll get back to you as soon as possible.
                     </p>
                     <button
                       onClick={() => setFormState({ ...formState, submitted: false })}
-                      className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition"
+                      className="bg-cta text-cta-text px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0"
                     >
-                      Send Another Message
+                      <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
+                      <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center">
+                        Send Another Message
+                      </span>
                     </button>
                   </div>
                 ) : (
@@ -130,7 +133,7 @@ const SupportPage: React.FC = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label htmlFor="name" className="block text-sm font-medium text-brand-gray-900 mb-1">
                           Your Name *
                         </label>
                         <input
@@ -140,12 +143,12 @@ const SupportPage: React.FC = () => {
                           value={formState.name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                          className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-brand-primary focus:border-brand-primary text-base"
                         />
                       </div>
                       
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label htmlFor="email" className="block text-sm font-medium text-brand-gray-900 mb-1">
                           Email Address *
                         </label>
                         <input
@@ -155,13 +158,13 @@ const SupportPage: React.FC = () => {
                           value={formState.email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                          className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-brand-primary focus:border-brand-primary text-base"
                         />
                       </div>
                     </div>
                     
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="subject" className="block text-sm font-medium text-brand-gray-900 mb-1">
                         Subject *
                       </label>
                       <select
@@ -170,7 +173,7 @@ const SupportPage: React.FC = () => {
                         value={formState.subject}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                        className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-brand-primary focus:border-brand-primary text-base"
                       >
                         <option value="">Please select a subject</option>
                         <option value="Session Inquiry">Session Inquiry</option>
@@ -183,7 +186,7 @@ const SupportPage: React.FC = () => {
                     </div>
                     
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="message" className="block text-sm font-medium text-brand-gray-900 mb-1">
                         Your Message *
                       </label>
                       <textarea
@@ -193,7 +196,7 @@ const SupportPage: React.FC = () => {
                         onChange={handleChange}
                         required
                         rows={6}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                        className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-brand-primary focus:border-brand-primary text-base"
                       ></textarea>
                     </div>
                     
@@ -207,48 +210,49 @@ const SupportPage: React.FC = () => {
                       <button
                         type="submit"
                         disabled={formState.submitting}
-                        className={`bg-primary text-white px-6 py-3 rounded-md hover:bg-primary-dark transition flex items-center justify-center ${
-                          formState.submitting ? 'opacity-70 cursor-not-allowed' : ''
-                        }`}
+                        className="w-full bg-cta text-cta-text px-4 py-2 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0 disabled:opacity-70 disabled:cursor-not-allowed"
                       >
-                        {formState.submitting ? (
-                          <>
-                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                            Sending...
-                          </>
-                        ) : (
-                          <>
-                            Send Message <Send className="ml-2 h-5 w-5" />
-                          </>
-                        )}
+                        {!formState.submitting && <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>}
+                        <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center">
+                          {formState.submitting ? (
+                            <>
+                              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                              </svg>
+                              Sending...
+                            </>
+                          ) : (
+                            <>
+                              Send Message <Send className="ml-2 h-5 w-5" />
+                            </>
+                          )}
+                        </span>
                       </button>
                     </div>
                   </form>
                 )}
                 
-                <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Frequently Asked Support Questions</h2>
+                <h2 className="text-2xl font-bold text-brand-navy mt-12 mb-6">Frequently Asked Support Questions</h2>
                 
                 <div className="space-y-6 mb-8">
-                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
-                    <h3 className="font-bold text-gray-900 mb-2">How do I get a refund?</h3>
-                    <p className="text-gray-700">
+                  <div className="card-brand p-6">
+                    <h3 className="font-bold text-navy mb-2">How do I get a refund?</h3>
+                    <p className="text-brand-gray-900">
                       If you're not satisfied with your Session, email us at hello@startsolo.in with details, and we will address your query as per the refund and terms & conditions policy.
                     </p>
                   </div>
                   
-                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
-                    <h3 className="font-bold text-gray-900 mb-2">I missed my scheduled session. Can I reschedule?</h3>
-                    <p className="text-gray-700">
+                  <div className="card-brand p-6">
+                    <h3 className="font-bold text-navy mb-2">I missed my scheduled session. Can I reschedule?</h3>
+                    <p className="text-brand-gray-900">
                       Yes! If you missed your session, you can reschedule for another available date. Please contact us with your original booking details, and we'll help you find a new session date.
                     </p>
                   </div>
                   
-                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
-                    <h3 className="font-bold text-gray-900 mb-2">How do I access the course materials?</h3>
-                    <p className="text-gray-700">
+                  <div className="card-brand p-6">
+                    <h3 className="font-bold text-navy mb-2">How do I access the course materials?</h3>
+                    <p className="text-brand-gray-900">
                       After enrolling in the full course, you'll receive login credentials to our learning platform where all course materials are hosted, or you will get access via WhatsApp, depending on the delivery format mechanism of the course. If you're having trouble accessing your materials, please contact our support team.
                     </p>
                   </div>

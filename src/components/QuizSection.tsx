@@ -18,7 +18,7 @@ const QuizSection = () => {
           <div className="inline-block bg-secondary-light/20 text-secondary-dark px-4 py-1 rounded-full mb-4 font-medium">
             DISCOVER YOUR PATH
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
             Take the first step with a quick quiz.
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -34,7 +34,7 @@ const QuizSection = () => {
                   <div className="bg-secondary-light/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Brain className="h-8 w-8 text-secondary" />
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2">2-Minute Quiz</h3>
+                  <h3 className="font-bold text-brand-navy mb-2">2-Minute Quiz</h3>
                   <p className="text-gray-600 text-sm">Assess where you are in under 2 minutes</p>
                 </div>
                 
@@ -42,7 +42,7 @@ const QuizSection = () => {
                   <div className="bg-secondary-light/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Target className="h-8 w-8 text-secondary" />
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2">Personalized Report</h3>
+                  <h3 className="font-bold text-brand-navy mb-2">Personalized Report</h3>
                   <p className="text-gray-600 text-sm">Get stage-based insights + action steps</p>
                 </div>
                 
@@ -50,7 +50,7 @@ const QuizSection = () => {
                   <div className="bg-secondary-light/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Rocket className="h-8 w-8 text-secondary" />
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2">Action Steps</h3>
+                  <h3 className="font-bold text-brand-navy mb-2">Action Steps</h3>
                   <p className="text-gray-600 text-sm">Your next step delivered directly on WhatsApp</p>
                 </div>
               </div>
@@ -59,9 +59,12 @@ const QuizSection = () => {
                 <a 
                   href="/quiz"
                   onClick={handleQuizClick}
-                  className="inline-flex items-center bg-secondary text-white px-8 py-4 rounded-lg hover:bg-secondary-dark transition transform hover:translate-y-[-2px]"
+                  className="bg-cta text-cta-text px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0"
                 >
-                  Get Instant Recommendations <ArrowRight className="ml-2 h-5 w-5" />
+                  <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
+                  <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center">
+                    Get Instant Recommendations <ArrowRight className="ml-2 h-5 w-5" />
+                  </span>
                 </a>
                 <p className="text-sm text-gray-500 mt-4">
                   Free. No login. Results + Roadmap in 2 minutes

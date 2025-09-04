@@ -94,13 +94,13 @@ const FeaturedInSection = () => {
   }, []);
 
   return (
-    <section className="py-4 bg-gray-50 border-y border-gray-100 overflow-hidden">
+    <section className="py-4 bg-brand-gray-50 border-brand-y border-brand-gray-100 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Title and Logo Ticker - Hidden on mobile */}
         <div className="hidden md:block">
           <div className="flex items-center mb-2">
-            <h3 className="text-sm font-medium text-gray-600 uppercase tracking-wider mr-4">Past Trainings and Workshops</h3>
-            <div className="h-px bg-gray-200 flex-grow"></div>
+            <h3 className="text-sm font-medium text-brand-gray-600 uppercase tracking-wider mr-4">Past Trainings and Workshops</h3>
+            <div className="h-px bg-brand-gray-200 flex-grow"></div>
           </div>
 
           <div className="relative">
@@ -123,7 +123,7 @@ const FeaturedInSection = () => {
                       loading="lazy"
                     />
                     {/* Tooltip */}
-                    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+                    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-brand-gray-900 text-brand-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
                       {client.name}
                     </div>
                   </div>

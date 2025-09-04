@@ -1,30 +1,32 @@
-import React from 'react';
 import { Check, X, ArrowRight } from 'lucide-react';
 
 const PricingSection = () => {
   return (
-    <section id="pricing" className="py-20 bg-gray-50">
+    <section id="pricing" className="py-20 bg-brand-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Affordable Investment, Priceless Returns</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-gray-900 mb-4">Affordable Investment, Priceless Returns</h2>
+          <p className="text-xl text-brand-gray-600 max-w-3xl mx-auto">
             Choose the plan that works best for your goals and budget.
           </p>
         </div>
         
         <div className="flex flex-col lg:flex-row gap-8 max-w-5xl mx-auto">
           {/* Basic Plan */}
-          <div className="lg:w-1/2 bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+          <div className="lg:w-1/2 bg-brand-white rounded-xl shadow-lg overflow-hidden border border-brand-gray-100">
             <div className="p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Self-Guided</h3>
-              <p className="text-gray-600 mb-6">Perfect for self-starters who want the complete blueprint.</p>
+              <h3 className="text-2xl font-bold text-brand-gray-900 mb-2">Self-Guided</h3>
+              <p className="text-brand-gray-600 mb-6">Perfect for self-starters who want the complete blueprint.</p>
               <div className="flex items-end mb-6">
-                <span className="text-4xl font-bold text-gray-900">$197</span>
-                <span className="text-lg line-through text-gray-500 ml-2">$297</span>
-                <span className="text-sm text-gray-600 ml-2">one-time payment</span>
+                <span className="text-4xl font-bold text-brand-gray-900">$197</span>
+                <span className="text-lg line-through text-brand-gray-500 ml-2">$297</span>
+                <span className="text-sm text-brand-gray-600 ml-2">one-time payment</span>
               </div>
-              <button className="w-full bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition mb-6">
-                Get Started
+              <button className="w-full bg-cta text-cta-text px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold mb-6 relative overflow-hidden group hover:shadow-lg z-0">
+                <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                  Get Started
+                </span>
               </button>
               <div className="space-y-3">
                 {[
@@ -35,8 +37,8 @@ const PricingSection = () => {
                   "Lifetime updates"
                 ].map((feature, index) => (
                   <div key={index} className="flex items-start">
-                    <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{feature}</span>
+                    <Check className="h-5 w-5 text-brand-success mr-2 flex-shrink-0 mt-0.5" />
+                    <span className="text-brand-gray-700">{feature}</span>
                   </div>
                 ))}
                 {[
@@ -45,8 +47,8 @@ const PricingSection = () => {
                   "Business audit & feedback"
                 ].map((feature, index) => (
                   <div key={index} className="flex items-start opacity-50">
-                    <X className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{feature}</span>
+                    <X className="h-5 w-5 text-brand-error mr-2 flex-shrink-0 mt-0.5" />
+                    <span className="text-brand-gray-700">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -54,20 +56,23 @@ const PricingSection = () => {
           </div>
           
           {/* Premium Plan */}
-          <div className="lg:w-1/2 bg-white rounded-xl shadow-lg overflow-hidden border-2 border-indigo-600 relative">
-            <div className="absolute top-0 right-0 bg-indigo-600 text-white px-4 py-1 text-sm font-bold">
+          <div className="lg:w-1/2 bg-brand-white rounded-xl shadow-lg overflow-hidden border-2 border-indigo-600 relative">
+            <div className="absolute top-0 right-0 bg-cta text-cta-text px-4 py-1 text-sm font-bold transition-all duration-300 group-hover:bg-cta-text group-hover:text-white">
               MOST POPULAR
             </div>
             <div className="p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Guided Journey</h3>
-              <p className="text-gray-600 mb-6">For those who want personalized guidance and faster results.</p>
+              <h3 className="text-2xl font-bold text-brand-gray-900 mb-2">Guided Journey</h3>
+              <p className="text-brand-gray-600 mb-6">For those who want personalized guidance and faster results.</p>
               <div className="flex items-end mb-6">
-                <span className="text-4xl font-bold text-gray-900">$497</span>
-                <span className="text-lg line-through text-gray-500 ml-2">$697</span>
-                <span className="text-sm text-gray-600 ml-2">one-time payment</span>
+                <span className="text-4xl font-bold text-brand-gray-900">$497</span>
+                <span className="text-lg line-through text-brand-gray-500 ml-2">$697</span>
+                <span className="text-sm text-brand-gray-600 ml-2">one-time payment</span>
               </div>
-              <button className="w-full bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition mb-6">
-                Enroll Now
+              <button className="w-full bg-cta text-cta-text px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold mb-6 relative overflow-hidden group hover:shadow-lg z-0">
+                <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                  Enroll Now
+                </span>
               </button>
               <div className="space-y-3">
                 {[
@@ -80,8 +85,8 @@ const PricingSection = () => {
                   "Bonus: Advanced marketing masterclass"
                 ].map((feature, index) => (
                   <div key={index} className="flex items-start">
-                    <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{feature}</span>
+                    <Check className="h-5 w-5 text-brand-success mr-2 flex-shrink-0 mt-0.5" />
+                    <span className="text-brand-gray-700">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -89,14 +94,17 @@ const PricingSection = () => {
           </div>
         </div>
         
-        <div className="mt-12 bg-white rounded-xl p-8 shadow-md max-w-5xl mx-auto">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">100% Risk-Free Guarantee</h3>
-          <p className="text-gray-700 text-center mb-6">
+        <div className="mt-12 bg-brand-white rounded-xl p-8 shadow-md max-w-5xl mx-auto">
+          <h3 className="text-2xl font-bold text-brand-gray-900 mb-4 text-center">100% Risk-Free Guarantee</h3>
+          <p className="text-brand-gray-700 text-center mb-6">
             If you're not completely satisfied with the course within 30 days, we'll refund your investment in full. No questions asked.
           </p>
           <div className="flex justify-center">
-            <button className="bg-indigo-600 text-white px-8 py-4 rounded-md hover:bg-indigo-700 transition flex items-center">
-              Secure Your Spot Today <ArrowRight className="ml-2 h-5 w-5" />
+            <button className="bg-cta text-cta-text px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0">
+              <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
+              <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center">
+                Secure Your Spot Today <ArrowRight className="ml-2 h-5 w-5" />
+              </span>
             </button>
           </div>
         </div>

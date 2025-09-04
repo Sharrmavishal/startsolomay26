@@ -91,7 +91,7 @@ const Quiz: React.FC = () => {
               {!state.isComplete ? (
                 <>
                   <div className="text-center mb-6 md:mb-8">
-                    <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+                    <h2 className="text-xl md:text-2xl font-bold text-brand-navy mb-2">
                       No wrong answers in this quiz.
                     </h2>
                     <p className="text-sm md:text-base text-gray-600">

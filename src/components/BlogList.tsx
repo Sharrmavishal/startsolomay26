@@ -83,7 +83,7 @@ const BlogList: React.FC = () => {
         <div className="mt-12 text-center">
           <a 
             href="#webinar-dates" 
-            className="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary-dark transition inline-flex items-center"
+            className="bg-cta hover:bg-cta-dark text-cta-text px-6 py-3 rounded-lg transition flex items-center justify-center text-sm md:text-base font-semibold inline-block"
           >
             Join Our Solo Accelerator Session <ArrowRight className="ml-2 h-5 w-5" />
           </a>

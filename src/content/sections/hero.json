@@ -1,13 +1,8 @@
 {
   "highlight": "NEXT COHORT STARTS {cohortStartDate} - JUST ₹99",
-  "heading": "Start a Profitable Solo Business, But Not Alone",
-  "subheading": "Tired of waiting for the \"right time\" to start? The Start Solo Blueprint is your game-changer. No fluff, no overwhelming jargon—just a clear, actionable roadmap to help you launch, grow, and scale as a Solopreneur.",
-  "keyPoints": [
-    "The Step by Step Solopreneur's Blueprint to build a profitable solo business",
-    "Branding & marketing hacks that actually work",
-    "How to attract & retain clients (without being pushy for sales)",
-    "The mindset shifts you need to succeed"
-  ],
+  "heading": "Your dream business starts with you — and you don't have to build it alone.",
+  "subheading": "No big funding. No big team. Just your skills, your passion, and the right guidance to turn ideas into income.",
+  "keyPoints": [],
   "whoShouldAttend": [
     "Freelancers, consultants, coaches & small business owners",
     "Side hustlers ready to go full-time",
@@ -15,12 +10,12 @@
   ],
   "whyAttend": "Because you deserve more than just a pay-check—you deserve freedom, fulfilment, and a thriving business. Let's make it happen! 🚀",
   "primaryButton": {
-    "text": "Register Now - Just ₹99",
+    "text": "Unlock My Solo Business Idea",
     "url": "#webinar-dates",
     "trackingId": "hero-cta"
   },
   "secondaryButton": {
-    "text": "Meet Your Instructor",
+    "text": "Get 10 Solo Business Ideas That Don't Need VC",
     "url": "#instructor",
     "trackingId": "hero-secondary-cta"
   },
@@ -40,6 +35,6 @@
     "text": "90% off this week only!"
   },
   "trustBadge": {
-    "text": "100% Money-Back Guarantee"
+    "text": ""
   }
 }

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, ArrowRight, AlertCircle, Calendar } from 'lucide-react';
-import { useContent } from './ContentProvider';
-import { smoothScrollTo } from '../utils/scrollUtils';
+import { ArrowRight, AlertCircle } from 'lucide-react';
 
 const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -126,13 +124,16 @@ const CountdownTimer = () => {
           <a 
             href={currentPaymentLink}
             onClick={handleClick}
-            className="md:ml-6 mt-4 md:mt-0 bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-md font-medium transition flex items-center shadow-md"
+            className="bg-cta text-cta-text px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold md:ml-6 mt-4 md:mt-0 relative overflow-hidden group hover:shadow-lg z-0"
             aria-label="Reserve your spot for the Solo Accelerator Session"
             data-tracking="countdown-cta"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Reserve Your Spot <ArrowRight className="ml-2 h-4 w-4" />
+            <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
+            <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center">
+              Reserve Your Spot <ArrowRight className="ml-2 h-4 w-4" />
+            </span>
           </a>
         </div>
       </div>

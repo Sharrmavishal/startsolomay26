@@ -3,16 +3,24 @@
   "subtitle": "Everything you need to know about our courses and community",
   "faqs": [
     {
-      "question": "Do I need to have an idea before I start a course?",
-      "answer": "Not at all. The quiz and courses are designed to meet you where you are — even if you're still exploring. Start with the Idea Spark sprint to find your direction."
+      "question": "Do I need business experience?",
+      "answer": "No. Just your commitment and willingness to learn."
+    },
+    {
+      "question": "Do I need funding?",
+      "answer": "No VC or big capital needed — we focus on lean launches."
+    },
+    {
+      "question": "Do I need a team?",
+      "answer": "No — you can build solo and scale at your pace."
+    },
+    {
+      "question": "Can I join anytime?",
+      "answer": "Yes, workshops and resources are available year-round."
     },
     {
       "question": "How are the courses delivered?",
-      "answer": "All courses are delivered directly via WhatsApp and some are LIVE sessions too. You'll receive course info or task each day for the course duration — no dashboards, no logins, just clear nudges where you're already active."
-    },
-    {
-      "question": "What happens after I take the quiz?",
-      "answer": "You'll get a personalized recommendation, a short summary of where you are, and course recommendations that match your journey. You will be emailed a surprise starter pack too. You can start instantly."
+      "answer": "All courses are delivered directly via our online platform and/or WhatsApp and some are LIVE sessions too."
     },
     {
       "question": "Can I take more than one course?",
@@ -28,15 +36,11 @@
     },
     {
       "question": "Are the mentor sessions live or recorded?",
-      "answer": "Mentor calls are live and personalized. For some group sessions (like in the Relaunch track), you may also get access to recordings."
+      "answer": "Mentor calls are live and personalized."
     },
     {
       "question": "Do you host guest sessions or expert AMAs?",
       "answer": "Yes! As part of selected bundles or mentor pathways, we invite guest speakers and creators for Q&As, live strategy rooms, and closed-group discussions. These are bonus add-ons that bring real-world experience into your journey."
-    },
-    {
-      "question": "What if I miss a day of the course?",
-      "answer": "No problem! All course messages stay in your WhatsApp — you can catch up anytime, at your pace."
     },
     {
       "question": "Can I get a refund if I don't like the course?",
@@ -45,15 +49,11 @@
     {
       "question": "How long do I have access to the course content?",
       "answer": "You'll have lifetime access to all messages, templates, and tasks delivered. Save them, reuse them, revisit them."
-    },
-    {
-      "question": "Can I speak to someone before signing up?",
-      "answer": "Of course. Use the \"Talk to a Mentor\" form and we'll get in touch to guide you based on your situation."
     }
   ],
   "contactOptions": {
     "email": "hello@startsolo.in",
-    "whatsappText": "Ask in WhatsApp Hub",
+    "whatsappText": "WhatsApp: 8587996935",
     "registerText": "Register for Session"
   }
 }

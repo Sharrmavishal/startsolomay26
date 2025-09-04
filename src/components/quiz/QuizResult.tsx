@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { ArrowRight, MessageCircle, Sparkles, Target, Rocket, TrendingUp, RefreshCcw, CheckCircle, Star } from 'lucide-react';
 import { QuizResult as ResultType } from './types';
-import { saveQuizLead } from '../../lib/supabase';
+// import { saveQuizLead } from '../../lib/supabase';
+// TODO: Migrate quiz lead saving to Netlify forms and remove all supabase references.
 
 interface QuizResultProps {
   result: ResultType;
@@ -40,8 +41,7 @@ const QuizResult: React.FC<QuizResultProps> = ({ result, score }) => {
       };
 
       console.log('Submitting quiz lead:', quizLead);
-      await saveQuizLead(quizLead);
-      
+      // TODO: Implement Netlify form submission for quiz lead here.
       setFormSubmitted(true);
       setUserDetails({ name: '', email: '', optIn: false });
     } catch (err) {
@@ -80,7 +80,7 @@ const QuizResult: React.FC<QuizResultProps> = ({ result, score }) => {
           <div className="inline-block bg-secondary-light/20 text-secondary-dark px-6 py-2 rounded-full mb-4 font-medium text-lg">
             {result.stage}
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl font-bold text-brand-navy mb-4">
             You're a {result.persona}
           </h2>
           <p className="text-xl text-gray-700 mb-6 max-w-2xl mx-auto">{result.summary}</p>
@@ -88,7 +88,7 @@ const QuizResult: React.FC<QuizResultProps> = ({ result, score }) => {
       </div>
 
       <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-4">Your Current Stage</h3>
+        <h3 className="text-xl font-bold text-brand-navy mb-4">Your Current Stage</h3>
         <p className="text-gray-700 mb-4">{result.description}</p>
         <div className="bg-secondary-light/10 p-4 rounded-lg">
           <p className="text-gray-800 font-medium">{result.helpText}</p>
@@ -101,11 +101,11 @@ const QuizResult: React.FC<QuizResultProps> = ({ result, score }) => {
             <div className="p-6">
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{course.name}</h3>
+                  <h3 className="text-xl font-bold text-brand-navy mb-2">{course.name}</h3>
                   <p className="text-gray-600">{course.description}</p>
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-bold text-gray-900">₹{course.price.toLocaleString()}</div>
+                  <div className="text-2xl font-bold text-brand-navy">₹{course.price.toLocaleString()}</div>
                   {course.originalPrice && (
                     <div className="text-sm text-gray-500">
                       <span className="line-through">₹{course.originalPrice.toLocaleString()}</span>
@@ -118,7 +118,7 @@ const QuizResult: React.FC<QuizResultProps> = ({ result, score }) => {
               </div>
               
               <div className="bg-gray-50 p-4 rounded-lg border border-gray-100 mb-6">
-                <h4 className="font-medium text-gray-900 mb-3 flex items-center">
+                <h4 className="font-medium text-brand-navy mb-3 flex items-center">
                   <Star className="h-5 w-5 text-accent mr-2" />
                   What you'll learn:
                 </h4>
@@ -147,7 +147,7 @@ const QuizResult: React.FC<QuizResultProps> = ({ result, score }) => {
 
       {!formSubmitted ? (
         <div className="bg-gradient-to-br from-primary-light/10 to-white rounded-xl p-6 border border-primary-light/20 mb-8">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">Get Your Personalized Roadmap</h3>
+          <h3 className="text-xl font-bold text-brand-navy mb-4">Get Your Personalized Roadmap</h3>
           {error && (
             <div className="bg-red-50 text-red-600 p-3 rounded-lg mb-4">
               {error}
@@ -230,7 +230,7 @@ const QuizResult: React.FC<QuizResultProps> = ({ result, score }) => {
           <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle className="h-6 w-6 text-green-600" />
           </div>
-          <h3 className="text-xl font-bold text-gray-900 mb-2">Thank You!</h3>
+          <h3 className="text-xl font-bold text-brand-navy mb-2">Thank You!</h3>
           <p className="text-gray-700">
             We'll send your personalized roadmap to your email shortly.
           </p>

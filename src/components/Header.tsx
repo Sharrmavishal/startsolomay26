@@ -6,9 +6,13 @@ import { smoothScrollTo } from '../utils/scrollUtils';
 
 const Header = () => {
   const { header } = useContent();
+
+  if (!header) {
+    console.warn('Header content is missing from context.');
+  }
+  // Fallback in case header content is missing
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [logoError, setLogoError] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -58,7 +62,7 @@ const Header = () => {
   };
 
   return (
-    <header className={`bg-white sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-md py-2' : 'shadow-sm py-4'}`}>
+    <header className={`bg-brand-white sticky top-0 z-50 transition-all duration-300 border-b border-brand-yellow-200 ${isScrolled ? 'shadow-md py-2' : 'shadow-sm py-4'}`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <a 
@@ -68,21 +72,15 @@ const Header = () => {
             aria-label="Return to homepage"
           >
             <img 
-              src="https://res.cloudinary.com/dnm2ejglr/image/upload/v1741547630/logos_250_x_50_ma4vuc.svg"
+              src="https://res.cloudinary.com/dnm2ejglr/image/upload/v1741331994/Start_SOLO_logos_250_x_50_1_czoxog.png"
               alt="Start Solo Logo"
-              className="h-8 md:h-10 w-auto"
-              onError={(e) => {
-                if (!logoError) {
-                  setLogoError(true);
-                  e.currentTarget.src = "https://res.cloudinary.com/dnm2ejglr/image/upload/v1741331994/Start_SOLO_logos_250_x_50_1_czoxog.png";
-                }
-              }}
+              className="h-10 md:h-12 w-auto"
             />
           </a>
           
           {/* Mobile menu button */}
           <button 
-            className="md:hidden text-gray-600 hover:text-primary"
+            className="md:hidden text-brand-navy hover:text-brand-yellow-dark transition"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -95,8 +93,8 @@ const Header = () => {
               <a 
                 key={index}
                 href={link.url}
-                className={`text-gray-600 hover:text-primary transition ${
-                  link.label === "Join as a Mentor" ? "font-medium text-primary" : ""
+                className={`text-brand-navy hover:text-brand-yellow-dark transition font-medium ${
+                  link.label === "Join as a Mentor" ? "text-yellow" : ""
                 }`}
                 onClick={handleNavClick}
               >
@@ -105,12 +103,12 @@ const Header = () => {
             ))}
 
             {/* Social Media Links */}
-            <div className="flex items-center space-x-3 ml-4 border-l border-gray-200 pl-4">
+            <div className="flex items-center space-x-3 ml-4 border-l border-brand-yellow-200 pl-4">
               <a 
                 href="https://www.linkedin.com/company/start-solo" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-gray-400 hover:text-primary transition"
+                className="text-brand-navy hover:text-yellow transition"
                 aria-label="Follow us on LinkedIn"
               >
                 <Linkedin className="h-4 w-4" />
@@ -119,7 +117,7 @@ const Header = () => {
                 href="https://www.instagram.com/start.solo/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-gray-400 hover:text-primary transition"
+                className="text-brand-navy hover:text-yellow transition"
                 aria-label="Follow us on Instagram"
               >
                 <Instagram className="h-4 w-4" />
@@ -131,7 +129,7 @@ const Header = () => {
               href="http://hub.startsolo.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-white px-3 py-1.5 rounded-md hover:bg-primary-dark transition flex items-center text-sm"
+              className="bg-brand-yellow text-brand-white px-3 py-1.5 rounded-md hover:bg-brand-yellow-dark transition flex items-center text-sm"
             >
               <LogIn className="h-3.5 w-3.5 mr-1.5" />
               Student Login
@@ -140,14 +138,14 @@ const Header = () => {
           
           {/* Mobile menu */}
           {isMenuOpen && (
-            <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg p-4 border-t border-gray-100 z-50">
+            <div className="md:hidden absolute top-full left-0 right-0 bg-brand-white shadow-lg p-4 border-t border-brand-yellow-200 z-50">
               <nav className="flex flex-col space-y-4">
                 {header.navLinks.map((link, index) => (
                   <a 
                     key={index}
                     href={link.url}
-                    className={`text-gray-600 hover:text-primary transition py-2 ${
-                      link.label === "Join as a Mentor" ? "font-medium text-primary" : ""
+                    className={`text-brand-steel hover:text-yellow transition py-2 ${
+                      link.label === "Join as a Mentor" ? "font-medium text-yellow" : ""
                     }`}
                     onClick={handleNavClick}
                   >
@@ -156,12 +154,12 @@ const Header = () => {
                 ))}
                 
                 {/* Social Media Links for Mobile */}
-                <div className="flex items-center space-x-4 py-2 border-t border-gray-100">
+                <div className="flex items-center space-x-4 py-2 border-t border-brand-yellow-200">
                   <a 
                     href="https://www.linkedin.com/company/start-solo" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-gray-400 hover:text-primary transition"
+                    className="text-brand-navy hover:text-yellow transition"
                     aria-label="Follow us on LinkedIn"
                   >
                     <Linkedin className="h-5 w-5" />
@@ -170,19 +168,19 @@ const Header = () => {
                     href="https://www.instagram.com/start.solo/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-gray-400 hover:text-primary transition"
+                    className="text-brand-navy hover:text-yellow transition"
                     aria-label="Follow us on Instagram"
                   >
                     <Instagram className="h-5 w-5" />
                   </a>
                 </div>
 
-                <div className="pt-2 border-t border-gray-100">
+                <div className="pt-2 border-t border-brand-yellow-200">
                   <a 
                     href="http://hub.startsolo.in/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition text-center flex items-center justify-center"
+                    className="block bg-brand-yellow text-brand-white px-4 py-2 rounded-md hover:bg-brand-yellow-dark transition text-center flex items-center justify-center"
                   >
                     <LogIn className="h-4 w-4 mr-2" />
                     Student Login

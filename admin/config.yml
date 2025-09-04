@@ -1,7 +1,7 @@
 backend:
   name: github
-  repo: Sharrmavishal/startsolo_new_v7
-  branch: rollbackbranch
+  repo: Sharrmavishal/startsolomay26
+  branch: main
   commit_messages:
     create: 'Create {{collection}} "{{slug}}"'
     update: 'Update {{collection}} "{{slug}}"'

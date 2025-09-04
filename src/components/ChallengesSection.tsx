@@ -100,14 +100,14 @@ const ChallengesSection = () => {
   };
 
   return (
-    <section className="py-8 md:py-16 bg-gradient-to-br from-secondary-light/5 via-white to-primary-light/5">
+    <section className="py-8 md:py-16 bg-brand-gradient-challenges">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-brand-gray-900 mb-3">
               What's Holding You Back
             </h2>
-            <p className="text-lg md:text-xl text-gray-600">
+            <p className="text-lg md:text-xl text-brand-gray-600">
               Tap the one that sounds like you — we've mapped your next move.
             </p>
           </div>
@@ -128,43 +128,43 @@ const ChallengesSection = () => {
                   role="button"
                   tabIndex={0}
                 >
-                  <div className="bg-white rounded-xl border border-gray-200 hover:border-primary/20 hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden">
+                  <div className="bg-brand-white rounded-xl border border-brand-gray-200 hover:border-brand-primary/20 hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden">
                     {/* Base State */}
                     <div className={`p-4 md:p-6 ${hoveredIndex === index ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-3 md:space-x-4">
-                          <div className="bg-secondary-light/10 p-2 md:p-3 rounded-lg flex-shrink-0">
-                            <Icon className="h-5 w-5 md:h-6 md:w-6 text-secondary" />
+                          <div className="bg-brand-secondary-light/10 p-2 md:p-3 rounded-lg flex-shrink-0">
+                            <Icon className="h-5 w-5 md:h-6 md:w-6 text-brand-secondary" />
                           </div>
-                          <p className="text-sm md:text-base text-gray-700 font-medium">
+                          <p className="text-sm md:text-base text-brand-gray-700 font-medium">
                             {challenge.problem}
                           </p>
                         </div>
-                        <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-secondary flex-shrink-0" />
+                        <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-brand-secondary flex-shrink-0" />
                       </div>
                     </div>
 
                     {/* Hover/Active State */}
                     <div 
-                      className={`absolute inset-0 p-4 md:p-6 bg-gradient-to-r from-secondary-light/10 to-primary-light/10 ${
+                      className={`absolute inset-0 p-4 md:p-6 bg-brand-gradient-challenges-hover ${
                         hoveredIndex === index ? 'opacity-100' : 'opacity-0'
                       } transition-opacity duration-300`}
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-3 md:space-x-4">
-                          <div className="bg-primary/10 p-2 md:p-3 rounded-lg flex-shrink-0">
-                            <Icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
+                          <div className="bg-brand-primary/10 p-2 md:p-3 rounded-lg flex-shrink-0">
+                            <Icon className="h-5 w-5 md:h-6 md:w-6 text-brand-primary" />
                           </div>
                           <div>
-                            <p className="text-sm md:text-base text-primary font-medium">
+                            <p className="text-sm md:text-base text-brand-primary font-medium">
                               {challenge.solution}
                             </p>
-                            <p className="text-xs md:text-sm text-gray-600 mt-1">
+                            <p className="text-xs md:text-sm text-brand-gray-600 mt-1">
                               {challenge.details}
                             </p>
                           </div>
                         </div>
-                        <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-primary flex-shrink-0" />
+                        <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-brand-primary flex-shrink-0" />
                       </div>
                     </div>
                   </div>
@@ -176,11 +176,11 @@ const ChallengesSection = () => {
           <div className="mt-8 md:mt-12 text-center">
             <button
               onClick={handleQuizClick}
-              className="inline-flex items-center bg-primary text-white px-5 py-2.5 md:px-6 md:py-3 rounded-lg hover:bg-primary-dark transition transform hover:translate-y-[-2px] text-sm md:text-base"
+              className="inline-flex items-center bg-primary text-brand-white px-5 py-2.5 md:px-6 md:py-3 rounded-lg hover:bg-brand-primary-dark transition transform hover:translate-y-[-2px] text-sm md:text-base"
             >
               Find Your Starting Point <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
             </button>
-            <p className="text-xs md:text-sm text-gray-500 mt-2 md:mt-3">
+            <p className="text-xs md:text-sm text-brand-gray-500 mt-2 md:mt-3">
               2-minute quiz • Free • No login needed
             </p>
           </div>

@@ -58,7 +58,7 @@ const WebinarCalendar = () => {
           <div className="inline-block bg-primary-light/20 text-primary-dark px-4 py-1 rounded-full mb-3 font-medium">
             RESERVE YOUR SPOT
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+          <h2 className="text-2xl md:text-3xl font-bold text-brand-navy mb-3">
             Choose Your Solo Accelerator Session Date
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -72,7 +72,7 @@ const WebinarCalendar = () => {
               <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
                 {/* Date Selection - Takes 3 columns */}
                 <div className="md:col-span-3 space-y-3">
-                  <h3 className="font-bold text-gray-900 mb-4">Available Dates</h3>
+                  <h3 className="font-bold text-brand-navy mb-4">Available Dates</h3>
                   {availableDates.map((date) => (
                     <button
                       key={date.id}
@@ -85,7 +85,7 @@ const WebinarCalendar = () => {
                     >
                       <div className="flex justify-between items-center">
                         <div>
-                          <div className="font-medium text-gray-900">{date.day}, {date.date}</div>
+                          <div className="font-medium text-brand-navy">{date.day}, {date.date}</div>
                           <div className="text-sm text-gray-600 flex items-center mt-1">
                             <Clock className="h-4 w-4 mr-1" />
                             {date.time} {date.timeZone}
@@ -112,7 +112,7 @@ const WebinarCalendar = () => {
                   {selectedDate && (
                     <>
                       <div className="text-center mb-4">
-                        <div className="text-3xl font-bold text-gray-900">₹99</div>
+                        <div className="text-3xl font-bold text-brand-navy">₹99</div>
                         <div className="text-sm text-gray-600 flex items-center justify-center">
                           <span className="line-through text-gray-400 mr-2">₹999</span>
                           <span className="bg-highlight/10 text-highlight px-2 py-0.5 rounded-full text-xs">

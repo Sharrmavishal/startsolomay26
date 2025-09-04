@@ -3,7 +3,10 @@ import { useContent } from './ContentProvider';
 
 const SEOHead: React.FC = () => {
   const { general } = useContent();
-  
+
+  if (!general) {
+    console.warn('General content is missing from context in SEOHead.');
+  }
   // Get cohort start date from CMS or use fallback
   const cohortStartDate = general?.cohortStartDate || "March 22, 2025";
   

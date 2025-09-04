@@ -12,11 +12,11 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="py-8 bg-white">
+    <section className="py-8 bg-brand-gray-50">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-gray-50 rounded-2xl p-8">
-            <h2 className="text-lg text-gray-900 text-center mb-6">
+          <div className="bg-brand-gray-50 rounded-2xl p-8">
+            <h2 className="text-lg text-brand-navy text-center mb-6">
               Still have questions about the upcoming sessions?
             </h2>
             
@@ -24,10 +24,10 @@ const ContactSection = () => {
               {/* Email */}
               <a 
                 href="mailto:hello@startsolo.in"
-                className="flex-1 bg-white rounded-xl p-4 hover:shadow-md transition-all duration-300 flex items-center justify-center gap-3 border border-gray-200 group"
+                className="flex-1 bg-brand-white rounded-xl p-4 hover:shadow-md transition-all duration-300 flex items-center justify-center gap-3 border border-brand-gray-200 group"
               >
-                <Mail className="h-5 w-5 text-primary" />
-                <span className="font-medium text-gray-900">Contact Us</span>
+                <Mail className="h-5 w-5 text-brand-yellow" />
+                <span className="font-medium text-brand-navy">Contact Us</span>
               </a>
 
               {/* WhatsApp */}
@@ -35,20 +35,23 @@ const ContactSection = () => {
                 href="https://chat.whatsapp.com/CgrHI3AQbb6IX3gWKDa5Ij"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 bg-[#25D366] rounded-xl p-4 hover:bg-[#128C7E] transition-all duration-300 flex items-center justify-center gap-3 text-white"
+                className="flex-1 bg-brand-whatsapp rounded-xl p-4 hover:bg-brand-whatsapp-dark transition-all duration-300 flex items-center justify-center gap-3 text-brand-white"
               >
                 <MessageCircle className="h-5 w-5" />
-                <span className="font-medium">Ask in WhatsApp Hub</span>
+                <span className="font-medium text-brand-steel">Ask in WhatsApp Hub</span>
               </a>
 
               {/* Register */}
               <a 
                 href="#webinar-dates"
                 onClick={handleClick}
-                className="flex-1 bg-primary rounded-xl p-4 hover:bg-primary-dark transition-all duration-300 flex items-center justify-center gap-3 text-white"
+                className="flex-1 bg-cta text-cta-text px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold gap-3 relative overflow-hidden group hover:shadow-lg z-0"
               >
-                <span className="font-medium">Register for Session</span>
-                <ArrowRight className="h-5 w-5" />
+                <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center gap-3">
+                  <span className="font-medium">Register for Session</span>
+                  <ArrowRight className="h-5 w-5" />
+                </span>
               </a>
             </div>
           </div>

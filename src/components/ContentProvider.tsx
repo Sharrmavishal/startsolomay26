@@ -6,13 +6,23 @@ import generalSettings from '../content/settings/general.json';
 import headerSettings from '../content/settings/header.json';
 import webinarDatesContent from '../content/sections/webinarDates.json';
 import faqContent from '../content/sections/faq.json';
+import heroContent from '../content/sections/hero.json';
+import courseContent from '../content/sections/course.json';
+import journeyContent from '../content/sections/journey.json';
+import whatsappHubContent from '../content/sections/whatsappHub.json';
+import webinarInfoContent from '../content/sections/webinarInfo.json';
 
 // Default content values
 const defaultContent = {
   general: generalSettings,
   header: headerSettings,
   webinarDates: webinarDatesContent,
-  faq: faqContent
+  faq: faqContent,
+  hero: heroContent,
+  course: courseContent,
+  journey: journeyContent,
+  whatsappHub: whatsappHubContent,
+  webinarInfo: webinarInfoContent
 };
 
 // Create the context
@@ -41,3 +51,5 @@ export const useContent = () => {
   }
   return context;
 };
+
+export default ContentProvider;

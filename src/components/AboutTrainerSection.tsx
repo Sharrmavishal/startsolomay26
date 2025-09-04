@@ -20,22 +20,22 @@ const AboutTrainerSection = () => {
   }, []);
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-brand-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="inline-block bg-primary-light/20 text-primary-dark px-4 py-1 rounded-full mb-4 font-medium">
+          <div className="inline-block bg-brand-primary-light/20 text-brand-primary-dark px-4 py-1 rounded-full mb-4 font-medium">
             LEARN FROM THE BEST
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-gray-900 mb-4">
             Meet Your Trainer & Expert Speakers
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-brand-gray-600 max-w-3xl mx-auto">
             Learn from industry leaders, innovators, and challengers who bring real-world expertise to help you launch, grow, and thrive as a solopreneur.
           </p>
         </div>
 
         <div className="max-w-5xl mx-auto">
-          <div className="bg-white rounded-xl shadow-xl overflow-hidden">
+          <div className="bg-brand-white rounded-xl shadow-xl overflow-hidden">
             <div className="flex flex-col md:flex-row">
               <div className="md:w-2/5 relative">
                 <img
@@ -49,60 +49,60 @@ const AboutTrainerSection = () => {
                 />
               </div>
               <div className="md:w-3/5 p-8 md:p-10">
-                <div className="inline-block bg-primary-light/20 text-primary-dark px-3 py-1 rounded-full mb-3 text-sm font-medium">
+                <div className="inline-block bg-brand-primary-light/20 text-brand-primary-dark px-3 py-1 rounded-full mb-3 text-sm font-medium">
                   YOUR LEAD TRAINER
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-2">Diksha Sethi</h3>
+                <h3 className="text-3xl font-bold text-brand-gray-900 mb-2">Diksha Sethi</h3>
                 <p className="text-primary font-medium mb-4">Founder, Start Solo</p>
 
-                <p className="text-gray-700 mb-6">
+                <p className="text-brand-gray-700 mb-6">
                   Meet Diksha Sethi—Communications Specialist, brand whisperer, and solopreneur champion. With 18 years of experience leading brands like Mastercard, Ford, IndiGo, SpiceJet, and Qualcomm, she's navigated boardrooms, crisis war rooms, and major brand launches.
                 </p>
 
-                <p className="text-gray-700 mb-6">
+                <p className="text-brand-gray-700 mb-6">
                   Corporate life, however, couldn't contain her curiosity. She built <strong>Different Strokes</strong>, an award-winning podcast, became a certified corporate trainer coaching 2,800+ professionals, and deepened her expertise as an NLP and Gestalt practitioner, counseling therapist, and mental health advocate.
                 </p>
 
-                <p className="text-gray-700 mb-6">
+                <p className="text-brand-gray-700 mb-6">
                   Now, as Co-founder of <strong>Start Solo</strong>, she's on a mission to help solopreneurs <strong>learn, launch, and grow—minus the fluff, plus all the fun.</strong> If you're ready to bet on yourself, Diksha's got your back.
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="flex items-center">
                     <Briefcase className="h-5 w-5 text-primary mr-2" />
-                    <span className="text-gray-700">18+ years of proven agency leadership expertise</span>
+                    <span className="text-brand-gray-700">18+ years of proven agency leadership expertise</span>
                   </div>
                   <div className="flex items-center">
                     <Users className="h-5 w-5 text-primary mr-2" />
-                    <span className="text-gray-700">Empowered 2,800+ solopreneurs</span>
+                    <span className="text-brand-gray-700">Empowered 2,800+ solopreneurs</span>
                   </div>
                   <div className="flex items-center">
                     <BookOpen className="h-5 w-5 text-primary mr-2" />
-                    <span className="text-gray-700">High impact 20,000 training hours clocked and counting</span>
+                    <span className="text-brand-gray-700">High impact 20,000 training hours clocked and counting</span>
                   </div>
                   <div className="flex items-center">
                     <Award className="h-5 w-5 text-primary mr-2" />
-                    <span className="text-gray-700">Award-winning podcaster & NLP practitioner</span>
+                    <span className="text-brand-gray-700">Award-winning podcaster & NLP practitioner</span>
                   </div>
                 </div>
 
-                <div className="bg-gray-50 p-4 rounded-lg border border-gray-100 mb-6">
-                  <p className="italic text-gray-700 mb-3">
+                <div className="bg-brand-gray-50 p-4 rounded-lg border border-brand-gray-100 mb-6">
+                  <p className="italic text-brand-gray-700 mb-3">
                     "I believe in our motto 'Start Solo—but not alone.' My mission is to help people look beyond the 9-to-5 and explore their passion leading to financial freedom. Start Solo is that community that incubates, mentors, and supports solopreneurs all through the way."
                   </p>
-                  <p className="font-medium text-gray-900">— Diksha Sethi</p>
+                  <p className="font-medium text-brand-gray-900">— Diksha Sethi</p>
                 </div>
 
                 <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
                   <a 
                     href="https://hub.startsolo.in/l/f2e5a74f31" 
-                    className="inline-flex items-center bg-primary text-white px-6 py-3 rounded-md hover:bg-primary-dark transition"
+                    className="inline-flex items-center bg-primary text-brand-white px-6 py-3 rounded-md hover:bg-brand-primary-dark transition"
                   >
                     Register for Session <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
                   <a 
                     href="#redirect to the course curriculum section" 
-                    className="inline-flex items-center border border-primary text-primary px-6 py-3 rounded-md hover:bg-primary-light/10 transition"
+                    className="inline-flex items-center border border-brand-primary text-primary px-6 py-3 rounded-md hover:bg-brand-primary-light/10 transition"
                   >
                     View Course Curriculum <ArrowRight className="ml-2 h-5 w-5" />
                   </a>

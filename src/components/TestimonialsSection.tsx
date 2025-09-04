@@ -63,16 +63,16 @@ const TestimonialsSection = () => {
 
     for (let i = 0; i < fullStars; i++) {
       stars.push(
-        <Star key={`full-${i}`} className="h-4 w-4 fill-current text-accent" />
+        <Star key={`full-${i}`} className="h-4 w-4 fill-current text-brand-accent" />
       );
     }
 
     if (hasHalfStar) {
       stars.push(
         <div key="half" className="relative">
-          <Star className="h-4 w-4 text-accent/30" />
+          <Star className="h-4 w-4 text-brand-accent/30" />
           <div className="absolute top-0 left-0 w-1/2 overflow-hidden">
-            <Star className="h-4 w-4 fill-current text-accent" />
+            <Star className="h-4 w-4 fill-current text-brand-accent" />
           </div>
         </div>
       );
@@ -81,7 +81,7 @@ const TestimonialsSection = () => {
     const emptyStars = 5 - Math.ceil(rating);
     for (let i = 0; i < emptyStars; i++) {
       stars.push(
-        <Star key={`empty-${i}`} className="h-4 w-4 text-accent/30" />
+        <Star key={`empty-${i}`} className="h-4 w-4 text-brand-accent/30" />
       );
     }
 
@@ -107,34 +107,34 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section id="testimonials" className="py-16 bg-gradient-to-br from-white to-gray-50">
+    <section id="testimonials" className="py-16 bg-brand-gradient-to-br">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <div className="inline-block bg-accent-light/20 text-accent-dark px-4 py-1 rounded-full mb-4 font-medium">
+          <div className="inline-block bg-brand-accent-light/20 text-brand-accent-dark px-4 py-1 rounded-full mb-4 font-medium">
             SUCCESS STORIES
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Real Experiences, Real Impact</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-navy mb-4">Real Experiences, Real Impact</h2>
+          <p className="text-lg text-brand-gray-600 max-w-3xl mx-auto">
             Discover how professionals and entrepreneurs have transformed their careers through our workshops and mentoring
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="relative bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+          <div className="relative bg-brand-white rounded-xl shadow-lg p-6 border border-brand-gray-100">
             <button
               onClick={handlePrevious}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white rounded-full p-2 shadow-lg z-10 hover:bg-gray-50"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-brand-white rounded-full p-2 shadow-lg z-10 hover:bg-brand-gray-50"
               aria-label="Previous testimonial"
             >
-              <ChevronLeft className="h-6 w-6 text-gray-600" />
+              <ChevronLeft className="h-6 w-6 text-brand-gray-600" />
             </button>
             
             <button
               onClick={handleNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white rounded-full p-2 shadow-lg z-10 hover:bg-gray-50"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-brand-white rounded-full p-2 shadow-lg z-10 hover:bg-brand-gray-50"
               aria-label="Next testimonial"
             >
-              <ChevronRight className="h-6 w-6 text-gray-600" />
+              <ChevronRight className="h-6 w-6 text-brand-gray-600" />
             </button>
 
             <div className="overflow-hidden">
@@ -153,12 +153,12 @@ const TestimonialsSection = () => {
                         <div className="flex mb-4">
                           {renderStars(testimonial.stars)}
                         </div>
-                        <p className="text-gray-700 italic text-lg mb-6 max-w-2xl">
+                        <p className="text-brand-gray-700 italic text-lg mb-6 max-w-2xl">
                           "{testimonial.quote}"
                         </p>
                         <div>
-                          <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                          <p className="text-primary-dark">{testimonial.role}</p>
+                          <h4 className="font-bold text-brand-gray-900">{testimonial.name}</h4>
+                          <p className="text-brand-primary-dark">{testimonial.role}</p>
                         </div>
                       </div>
                     </div>
@@ -173,7 +173,7 @@ const TestimonialsSection = () => {
                   key={index}
                   onClick={() => setActiveIndex(index)}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    activeIndex === index ? 'bg-primary w-6' : 'bg-gray-300'
+                    activeIndex === index ? 'bg-cta w-6' : 'bg-brand-gray-300'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -185,9 +185,13 @@ const TestimonialsSection = () => {
             <a 
               href="/learn"
               onClick={handleClick}
-              className="inline-flex items-center bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition"
+              className="bg-cta text-cta-text px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0"
+              data-tracking="testimonials-cta"
             >
-              Start Your Solo Journey <ArrowRight className="ml-2 h-5 w-5" />
+              <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
+              <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center">
+                Start Your Solo Journey <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+              </span>
             </a>
           </div>
         </div>

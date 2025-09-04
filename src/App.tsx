@@ -1,25 +1,23 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLocation, Routes, Route } from 'react-router-dom';
-import CountdownTimer from './components/CountdownTimer';
+import HighConversionLanding from './components/HighConversionLanding';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
-import ChallengesSection from './components/ChallengesSection';
+import PathSelectionSection from './components/PathSelectionSection';
+import WorkshopMentorshipSection from './components/WorkshopMentorshipSection';
 import InstructorAndExpertsSection from './components/InstructorAndExpertsSection';
-import CTASection from './components/CTASection';
+import LeadMagnetSection from './components/LeadMagnetSection';
+import SupportSection from './components/SupportSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
-import { useContent } from './components/ContentProvider';
 import SEOHead from './components/SEOHead';
 import DynamicPages from './components/DynamicPages';
 import StickyWhatsAppCTA from './components/StickyWhatsAppCTA';
-import PopupModal from './components/PopupModal';
 import Quiz from './components/quiz/Quiz';
 
 function App() {
-  const { general } = useContent();
   const location = useLocation();
-  const isHomePage = location.pathname === '/' || location.pathname === '';
 
   // Handle scroll to section after navigation
   useEffect(() => {
@@ -46,23 +44,24 @@ function App() {
       <SEOHead />
       <Header />
       
-      {/* Popup Modal - Shows on all pages */}
-      <PopupModal />
       
       <Routes>
         <Route path="/" element={
           <>
             <HeroSection />
-            <ChallengesSection />
+            <PathSelectionSection />
+            <WorkshopMentorshipSection />
             <InstructorAndExpertsSection />
+            <LeadMagnetSection />
             <TestimonialsSection />
+            <SupportSection />
             <FAQSection />
-            <CTASection />
             <StickyWhatsAppCTA />
           </>
         } />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/*" element={<DynamicPages />} />
+        <Route path="/test-landing" element={<HighConversionLanding />} />
       </Routes>
       
       <Footer />

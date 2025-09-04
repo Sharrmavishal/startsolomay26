@@ -1,19 +1,18 @@
-import React from 'react';
-import { CheckCircle, Target, TrendingUp, Shield, Clock, Calendar } from 'lucide-react';
+import { Calendar, Clock } from 'lucide-react';
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="py-20 bg-gray-50">
+    <section id="features" className="py-20 bg-brand-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What You'll Learn in This Webinar</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">What You'll Learn in This Webinar</h2>
+          <p className="text-xl text-brand-steel max-w-3xl mx-auto">
             Discover the exact framework used by successful solo entrepreneurs to build profitable businesses.
           </p>
         </div>
         
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-xl shadow-xl overflow-hidden">
+          <div className="bg-brand-white rounded-xl shadow-xl overflow-hidden">
             <div className="p-8 md:p-12">
               <div className="space-y-8">
                 {[
@@ -40,34 +39,35 @@ const FeaturesSection = () => {
                 ].map((item, index) => (
                   <div key={index} className="flex">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="flex items-center justify-center h-8 w-8 rounded-full bg-primary-light/20 text-primary font-bold">
+                      <div className="flex items-center justify-center h-8 w-8 rounded-full bg-brand-primary/10 text-brand-primary font-bold">
                         {index + 1}
                       </div>
                     </div>
                     <div className="ml-4">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                      <p className="text-gray-600">{item.description}</p>
+                      <h3 className="text-xl font-bold text-brand-navy mb-2">{item.title}</h3>
+                      <p className="text-brand-steel">{item.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
               
-              <div className="mt-12 bg-secondary-light/10 p-6 rounded-lg border border-secondary-light/20">
+              <div className="mt-12 bg-brand-primary/5 p-6 rounded-lg border border-brand-primary/10">
                 <div className="flex flex-col md:flex-row items-center">
                   <div className="md:w-1/3 mb-6 md:mb-0 text-center">
-                    <Calendar className="h-12 w-12 text-secondary mx-auto mb-2" />
-                    <h4 className="font-bold text-gray-900">Multiple Dates</h4>
-                    <p className="text-gray-600">Choose what works for you</p>
+                    <Calendar className="h-12 w-12 text-brand-primary mx-auto mb-2" />
+                    <h4 className="font-bold text-brand-navy">Multiple Dates</h4>
+                    <p className="text-brand-steel">Choose what works for you</p>
                   </div>
                   <div className="md:w-1/3 mb-6 md:mb-0 text-center">
-                    <Clock className="h-12 w-12 text-secondary mx-auto mb-2" />
-                    <h4 className="font-bold text-gray-900">90 Minutes</h4>
-                    <p className="text-gray-600">Packed with value</p>
+                    <Clock className="h-12 w-12 text-brand-primary mx-auto mb-2" />
+                    <h4 className="font-bold text-brand-navy">90 Minutes</h4>
+                    <p className="text-brand-steel">Packed with value</p>
                   </div>
                   <div className="md:w-1/3 text-center">
-                    <div className="bg-white text-primary rounded-full p-4 inline-block">
-                      <div className="text-3xl font-bold">$1</div>
-                      <div className="text-sm">Registration Fee</div>
+                    <div className="bg-cta text-cta-text px-6 py-3 rounded-lg transition-all duration-300 flex flex-col items-center justify-center relative overflow-hidden group hover:shadow-lg z-0">
+                      <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
+                      <div className="text-3xl font-bold relative z-10 group-hover:text-white transition-colors duration-300">$1</div>
+                      <div className="text-sm relative z-10 group-hover:text-white transition-colors duration-300">Registration Fee</div>
                     </div>
                   </div>
                 </div>

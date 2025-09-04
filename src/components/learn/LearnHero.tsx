@@ -20,12 +20,12 @@ const LearnHero: React.FC<Props> = ({ content }) => {
       />
       
       {/* Text Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-center justify-center text-center">
+      <div className="absolute inset-0 bg-brand-gradient-learnhero flex items-center justify-center text-center">
         <div className="max-w-3xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             {content.title}
           </h1>
-          <p className="text-xl text-white/90">
+          <p className="text-xl text-brand-white/90">
             {content.subtitle}
           </p>
         </div>

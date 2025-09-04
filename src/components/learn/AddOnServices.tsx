@@ -66,9 +66,12 @@ const AddOnServices: React.FC<Props> = ({ addons }) => {
               
               <a
                 href={addon.ctaUrl}
-                className="inline-flex items-center bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition w-full justify-center"
+                className="bg-cta text-cta-text px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold w-full relative overflow-hidden group hover:shadow-lg z-0"
               >
-                {addon.ctaText} <ArrowRight className="ml-2 h-4 w-4" />
+                <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center">
+                  {addon.ctaText} <ArrowRight className="ml-2 h-4 w-4" />
+                </span>
               </a>
             </div>
           </div>

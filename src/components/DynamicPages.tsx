@@ -3,13 +3,15 @@ import { useLocation } from 'react-router-dom';
 import AboutPage from './AboutPage';
 import SupportPage from './SupportPage';
 import BlogList from './BlogList';
-import BlogPost from './BlogPost';
 import CourseOverviewSection from './CourseOverviewSection';
 import PolicyPage from './PolicyPage';
 import MentorRegistrationPage from './MentorRegistrationPage';
 import SolosprintBootcampPage from './SolosprintBootcampPage';
 import LearnPage from './learn/LearnPage';
 import QuizPage from './QuizPage';
+import WomenEntrepreneursPage from './WomenEntrepreneursPage';
+import LaidOffEngineersPage from './LaidOffEngineersPage';
+import GraduatesStudentsPage from './GraduatesStudentsPage';
 
 const DynamicPages: React.FC = () => {
   const location = useLocation();
@@ -32,6 +34,12 @@ const DynamicPages: React.FC = () => {
         return <SolosprintBootcampPage />;
       case 'quiz':
         return <QuizPage />;
+      case 'path/women-entrepreneurs':
+        return <WomenEntrepreneursPage />;
+      case 'path/laid-off-engineers':
+        return <LaidOffEngineersPage />;
+      case 'path/graduates-students':
+        return <GraduatesStudentsPage />;
       case 'course':
         return (
           <div className="min-h-screen bg-gray-50 pt-20 pb-16">

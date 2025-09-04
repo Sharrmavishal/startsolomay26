@@ -141,28 +141,31 @@ const MentorRegistrationPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20 pb-16">
+    <div className="min-h-screen bg-brand-gray-50 pt-20 pb-16">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <a 
             href="/" 
-            className="inline-flex items-center text-primary hover:text-primary-dark mb-8"
+            className="inline-flex items-center text-brand-teal hover:text-brand-teal-dark mb-8"
           >
             <ArrowLeft className="h-4 w-4 mr-1" /> Back to home
           </a>
 
-          <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+          <div className="bg-brand-white rounded-xl shadow-md overflow-hidden border border-brand-gray-200">
             {/* Hero Image */}
             <div className="relative h-64 overflow-hidden">
+              <div className="absolute inset-0 bg-brand-navy z-10"></div>
               <img 
                 src="https://res.cloudinary.com/dnm2ejglr/image/upload/v1743151891/Untitled_design_6_reaw6k.png"
                 alt="Mentorship at Start Solo"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover opacity-40 relative z-0"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                <div className="p-8 text-white">
-                  <h1 className="text-3xl font-bold mb-2">Join as a Mentor</h1>
-                  <p className="text-lg text-white/90">
+              <div className="absolute inset-0 z-20 flex items-center">
+                <div className="p-8 text-center w-full">
+                  <h1 className="text-3xl font-bold mb-3 text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]">
+                    Join as a Mentor
+                  </h1>
+                  <p className="text-lg text-white max-w-2xl mx-auto drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                     Share your expertise and help shape the next generation of successful solopreneurs.
                   </p>
                 </div>
@@ -171,19 +174,22 @@ const MentorRegistrationPage = () => {
 
             <div className="p-8">
               {formData.submitted ? (
-                <div className="bg-green-50 border border-green-100 rounded-lg p-6 text-center">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Shield className="h-8 w-8 text-green-600" />
+                <div className="bg-brand-sky border border-brand-teal rounded-lg p-6 text-center">
+                  <div className="w-16 h-16 bg-brand-sky rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Shield className="h-8 w-8 text-brand-teal" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Thank You for Your Interest!</h3>
-                  <p className="text-gray-700 mb-6">
+                  <h3 className="text-xl font-bold text-brand-navy mb-2">Thank You for Your Interest!</h3>
+                  <p className="text-brand-gray-900 mb-6 body-brand">
                     We've received your application to join our mentor network. Our team will review your profile and get back to you within 2-3 business days.
                   </p>
                   <button
                     onClick={() => setFormData(prev => ({ ...prev, submitted: false }))}
-                    className="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary-dark transition"
+                    className="bg-yellow text-brand-gray-900 px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0"
                   >
-                    Submit Another Application
+                    <span className="absolute inset-0 bg-yellow-dark transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
+                    <span className="relative z-10 transition-colors duration-300 flex items-center">
+                      Submit Another Application
+                    </span>
                   </button>
                 </div>
               ) : (
@@ -205,7 +211,7 @@ const MentorRegistrationPage = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="name" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
                         Full Name *
                       </label>
                       <input
@@ -215,12 +221,12 @@ const MentorRegistrationPage = () => {
                         value={formData.name}
                         onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                        className="w-full px-4 py-2 border border-brand-gray-200 rounded-md focus:ring-brand-primary focus:border-brand-primary"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="email" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
                         Email Address *
                       </label>
                       <input
@@ -230,13 +236,13 @@ const MentorRegistrationPage = () => {
                         value={formData.email}
                         onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                        className="w-full px-4 py-2 border border-brand-gray-200 rounded-md focus:ring-brand-primary focus:border-brand-primary"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="phone" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
                       Phone Number *
                     </label>
                     <input
@@ -246,12 +252,12 @@ const MentorRegistrationPage = () => {
                       value={formData.phone}
                       onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                       required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                      className="w-full px-4 py-2 border border-brand-gray-200 rounded-md focus:ring-brand-primary focus:border-brand-primary"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="yearsOfExperience" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="yearsOfExperience" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
                       Years of Experience *
                     </label>
                     <select
@@ -260,7 +266,7 @@ const MentorRegistrationPage = () => {
                       value={formData.yearsOfExperience}
                       onChange={(e) => setFormData(prev => ({ ...prev, yearsOfExperience: e.target.value }))}
                       required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                      className="w-full px-4 py-2 border border-brand-gray-200 rounded-md focus:ring-brand-primary focus:border-brand-primary"
                     >
                       <option value="">Select years of experience</option>
                       <option value="1-3">1-3 years</option>
@@ -272,7 +278,7 @@ const MentorRegistrationPage = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="background" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="background" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
                       Professional Background *
                     </label>
                     <textarea
@@ -282,13 +288,13 @@ const MentorRegistrationPage = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, background: e.target.value }))}
                       required
                       rows={4}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                      className="w-full px-4 py-2 border border-brand-gray-200 rounded-md focus:ring-brand-primary focus:border-brand-primary"
                       placeholder="Brief overview of your professional experience and achievements..."
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
                       I want to join as: *
                     </label>
                     <div className="flex space-x-4">
@@ -318,14 +324,14 @@ const MentorRegistrationPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-3">
-                      Areas of Expertise * <span className="text-gray-500 text-xs">(Select all that apply)</span>
+                    <label className="block text-sm font-medium text-brand-gray-900 mb-3 body-brand">
+                      Areas of Expertise * <span className="text-brand-gray-500 text-xs">(Select all that apply)</span>
                     </label>
                     <div className="space-y-3">
                       {expertiseAreas.map((area, index) => (
                         <div 
                           key={index} 
-                          className={`bg-gray-50 rounded-lg border border-gray-200 transition-all duration-200 ${
+                          className={`bg-brand-gray-50 rounded-lg border border-brand-gray-200 transition-all duration-200 ${
                             area.isOpen ? 'shadow-md' : ''
                           }`}
                         >
@@ -335,17 +341,17 @@ const MentorRegistrationPage = () => {
                             className="w-full px-4 py-3 flex items-center justify-between text-left"
                           >
                             <div>
-                              <h4 className="font-medium text-gray-900">{area.category}</h4>
+                              <h4 className="font-medium text-brand-navy heading-brand">{area.category}</h4>
                               {getSelectedCount(area.skills) > 0 && (
-                                <p className="text-sm text-primary">
+                                <p className="text-sm text-brand-teal body-brand">
                                   {getSelectedCount(area.skills)} selected
                                 </p>
                               )}
                             </div>
                             {area.isOpen ? (
-                              <ChevronUp className="h-5 w-5 text-gray-500" />
+                              <ChevronUp className="h-5 w-5 text-brand-gray-500" />
                             ) : (
-                              <ChevronDown className="h-5 w-5 text-gray-500" />
+                              <ChevronDown className="h-5 w-5 text-brand-gray-500" />
                             )}
                           </button>
                           
@@ -361,18 +367,18 @@ const MentorRegistrationPage = () => {
                                       onClick={() => toggleExpertise(skill)}
                                       className={`flex items-center p-2 rounded-md text-left transition-all ${
                                         isSelected 
-                                          ? 'bg-primary text-white' 
-                                          : 'bg-white text-gray-700 hover:bg-gray-100'
+                                          ? 'bg-brand-yellow text-brand-white' 
+                                          : 'bg-brand-white text-brand-gray-900 hover:bg-brand-gray-100'
                                       }`}
                                     >
                                       <div className={`w-5 h-5 rounded-md border flex items-center justify-center mr-2 ${
                                         isSelected 
-                                          ? 'bg-white border-white' 
-                                          : 'border-gray-300'
+                                          ? 'bg-brand-white border-brand-white' 
+                                          : 'border-brand-gray-200'
                                       }`}>
-                                        {isSelected && <Check className={`h-4 w-4 ${isSelected ? 'text-primary' : 'text-transparent'}`} />}
+                                        {isSelected && <Check className={`h-4 w-4 ${isSelected ? 'text-brand-teal' : 'text-transparent'}`} />}
                                       </div>
-                                      <span className="flex-1">{skill}</span>
+                                      <span className="flex-1 body-brand">{skill}</span>
                                     </button>
                                   );
                                 })}
@@ -384,7 +390,7 @@ const MentorRegistrationPage = () => {
                     </div>
 
                     <div className="mt-4">
-                      <label htmlFor="otherExpertise" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="otherExpertise" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
                         Other Areas of Expertise
                       </label>
                       <input
@@ -393,14 +399,14 @@ const MentorRegistrationPage = () => {
                         name="otherExpertise"
                         value={formData.otherExpertise}
                         onChange={(e) => setFormData(prev => ({ ...prev, otherExpertise: e.target.value }))}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                        className="w-full px-4 py-2 border border-brand-gray-200 rounded-md focus:ring-brand-primary focus:border-brand-primary"
                         placeholder="Enter any additional areas of expertise..."
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="whyInterested" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="whyInterested" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
                       Why are you interested in mentoring? *
                     </label>
                     <textarea
@@ -410,19 +416,19 @@ const MentorRegistrationPage = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, whyInterested: e.target.value }))}
                       required
                       rows={4}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                      className="w-full px-4 py-2 border border-brand-gray-200 rounded-md focus:ring-brand-primary focus:border-brand-primary"
                       placeholder="Tell us why you'd like to join our mentor network and what you hope to contribute..."
                     />
                   </div>
 
-                  <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                    <h4 className="font-medium text-gray-900 mb-2">Vetting Process</h4>
-                    <p className="text-sm text-gray-600 mb-4">
+                  <div className="bg-brand-gray-50 p-4 rounded-lg border border-brand-gray-200">
+                    <h4 className="font-medium text-brand-navy mb-2 heading-brand">Vetting Process</h4>
+                    <p className="text-sm text-brand-steel mb-4 body-brand">
                       All applications are carefully reviewed by our team to ensure the highest quality of mentorship for our community. The review process typically takes 2-3 business days.
                     </p>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-brand-steel body-brand">
                       For any questions about the application process, please contact us at{' '}
-                      <a href="mailto:hello@startsolo.in" className="text-primary hover:text-primary-dark">
+                      <a href="mailto:hello@startsolo.in" className="text-brand-teal hover:text-brand-teal-dark">
                         hello@startsolo.in
                       </a>
                     </p>
@@ -432,21 +438,24 @@ const MentorRegistrationPage = () => {
                     <button
                       type="submit"
                       disabled={formData.submitting}
-                      className="w-full bg-primary text-white px-6 py-3 rounded-md hover:bg-primary-dark transition flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="w-full bg-cta text-cta-text px-4 py-2 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
-                      {formData.submitting ? (
-                        <>
-                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                          </svg>
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          Sign Up <Send className="ml-2 h-5 w-5" />
-                        </>
-                      )}
+                      {!formData.submitting && <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>}
+                      <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center">
+                        {formData.submitting ? (
+                          <>
+                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-brand-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Submitting...
+                          </>
+                        ) : (
+                          <>
+                            Sign Up <Send className="ml-2 h-5 w-5" />
+                          </>
+                        )}
+                      </span>
                     </button>
                   </div>
                 </form>

@@ -25,7 +25,7 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({ question, onAnswer, isAnima
 
   return (
     <div className={`transition-opacity duration-300 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
-      <h3 className="text-xl font-bold text-gray-900 mb-6">{question.text}</h3>
+      <h3 className="text-xl font-bold text-brand-navy mb-6">{question.text}</h3>
       <div className="space-y-3">
         {question.options.map((option, index) => (
           <button

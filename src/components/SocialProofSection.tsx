@@ -47,10 +47,10 @@ const SocialProofSection = () => {
   ];
 
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-12 bg-brand-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <p className="text-lg font-medium text-gray-600">AS FEATURED IN</p>
+          <p className="text-lg font-medium text-brand-gray-600">AS FEATURED IN</p>
         </div>
         
         {/* Logo Grid */}
@@ -72,19 +72,19 @@ const SocialProofSection = () => {
         
         {/* Award Recognition Card */}
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100">
+          <div className="bg-brand-white rounded-xl shadow-md p-8 border border-brand-gray-100">
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-1/4 mb-6 md:mb-0 text-center">
-                <Mic className="h-16 w-16 text-accent mx-auto mb-3" />
-                <h3 className="text-xl font-bold text-gray-900">Dynamic LIVE Sessions</h3>
+                <Mic className="h-16 w-16 text-brand-accent mx-auto mb-3" />
+                <h3 className="text-xl font-bold text-brand-gray-900">Dynamic LIVE Sessions</h3>
               </div>
-              <div className="md:w-3/4 md:pl-8 md:border-l md:border-gray-200">
-                <p className="text-gray-700 mb-4">
+              <div className="md:w-3/4 md:pl-8 md:border-l md:border-brand-gray-200">
+                <p className="text-brand-gray-700 mb-4">
                   The Start Solo Blueprint level course consistently maintains a 4.9-star rating from participants and is recognized as a high-impact session that delivers value without fluff.
                 </p>
                 <a 
                   href="#testimonials" 
-                  className="text-primary font-medium flex items-center hover:text-primary-dark transition"
+                  className="text-brand-primary font-medium flex items-center hover:text-brand-primary-dark transition"
                 >
                   Read the case study <ExternalLink className="h-4 w-4 ml-1" />
                 </a>

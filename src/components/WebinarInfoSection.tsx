@@ -5,6 +5,10 @@ import { smoothScrollTo } from '../utils/scrollUtils';
 
 const WebinarInfoSection = () => {
   const { webinarInfo } = useContent();
+
+  if (!webinarInfo) {
+    console.warn('WebinarInfo content is missing from context.');
+  }
   
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -44,7 +48,7 @@ const WebinarInfoSection = () => {
           <div className="inline-block bg-primary-light/20 text-primary-dark px-4 py-1 rounded-full mb-4 font-medium">
             WHY ATTEND THIS SESSION
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
             The 90-Min Solo Accelerator Session: Your Launchpad to Freedom!
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -58,7 +62,7 @@ const WebinarInfoSection = () => {
             {learningPoints.map((point, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300">
                 <div className="mb-4">{point.icon}</div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{point.title}</h3>
+                <h3 className="text-lg font-bold text-brand-navy mb-2">{point.title}</h3>
                 <p className="text-gray-600 text-sm">{point.description}</p>
               </div>
             ))}
@@ -70,12 +74,12 @@ const WebinarInfoSection = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
                 <div className="text-center">
                   <Calendar className="h-10 w-10 text-primary mx-auto mb-2" />
-                  <h4 className="font-bold text-gray-900">Next Session</h4>
+                  <h4 className="font-bold text-brand-navy">Next Session</h4>
                   <p className="text-gray-600">March 22, 2025</p>
                 </div>
                 <div className="text-center">
                   <Clock className="h-10 w-10 text-primary mx-auto mb-2" />
-                  <h4 className="font-bold text-gray-900">90 Minutes</h4>
+                  <h4 className="font-bold text-brand-navy">90 Minutes</h4>
                   <p className="text-gray-600">Packed with value</p>
                 </div>
                 <div className="text-center">
@@ -90,9 +94,12 @@ const WebinarInfoSection = () => {
                 <a 
                   href="#webinar-dates"
                   onClick={handleClick}
-                  className="inline-flex items-center bg-primary text-white px-6 py-3 rounded-md hover:bg-primary-dark transition"
+                  className="bg-cta text-cta-text px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0"
                 >
-                  Reserve Your Spot Now! <ArrowRight className="ml-2 h-5 w-5" />
+                  <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
+                  <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center">
+                    Reserve Your Spot Now! <ArrowRight className="ml-2 h-5 w-5" />
+                  </span>
                 </a>
               </div>
             </div>

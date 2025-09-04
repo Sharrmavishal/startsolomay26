@@ -1,5 +1,5 @@
 ---
-heading: "Start a Profitable Solo Business, But Not Alone"
+heading: "Your dream business starts with you — and you don't have to build it alone."
 subheading: "Tired of waiting for the \"right time\" to start? The Start Solo Blueprint is your game-changer. No fluff, no overwhelming jargon—just a clear, actionable roadmap to help you launch, grow, and scale as a Solopreneur."
 cta_text: "Register Now - Just ₹99"
 cta_link: "#webinar-dates"

@@ -1,10 +1,14 @@
 import React from 'react';
-import { MessageCircle, Users, FileText, Video, Calendar, ArrowRight, Bell } from 'lucide-react';
+import { MessageCircle, Users, FileText, Video, ArrowRight, Bell } from 'lucide-react';
 import { useContent } from './ContentProvider';
 import { smoothScrollTo } from '../utils/scrollUtils';
 
 const WhatsAppHubSection = () => {
   const { whatsappHub } = useContent();
+
+  if (!whatsappHub) {
+    console.warn('WhatsAppHub content is missing from context.');
+  }
   
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -55,14 +59,14 @@ const WhatsAppHubSection = () => {
           <div className="inline-block bg-green-100 text-green-800 px-4 py-1 rounded-full mb-4 font-medium">
             EXCLUSIVE COMMUNITY ACCESS
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Join Our Start Solo Hub on WhatsApp</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Join Our Start Solo Hub on WhatsApp</h2>
+          <p className="text-lg text-brand-steel max-w-2xl mx-auto">
             Connect with like-minded solopreneurs and get exclusive resources
           </p>
         </div>
         
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+          <div className="bg-brand-white rounded-xl shadow-lg overflow-hidden border border-brand-gray-100">
             <div className="md:flex">
               {/* Left Section */}
               <div className="md:w-1/2 bg-[#25D366] text-white p-6">
@@ -75,7 +79,7 @@ const WhatsAppHubSection = () => {
                 </p>
                 <div className="grid grid-cols-2 gap-3">
                   {features.map((feature, index) => (
-                    <div key={index} className="bg-white/10 rounded-lg p-3">
+                    <div key={index} className="bg-brand-white/10 rounded-lg p-3">
                       <div className="flex items-center mb-2">
                         {renderIcon(feature.icon)}
                         <h4 className="ml-2 font-bold text-sm">{feature.title}</h4>
@@ -87,10 +91,10 @@ const WhatsAppHubSection = () => {
               </div>
 
               {/* Right Section */}
-              <div className="md:w-1/2 p-6 bg-gray-50">
+              <div className="md:w-1/2 p-6 bg-brand-gray-50">
                 <div className="mb-6">
-                  <h4 className="font-bold text-gray-900 mb-2">Join Now - It's Free!</h4>
-                  <p className="text-gray-600 text-sm">
+                  <h4 className="font-bold text-brand-navy mb-2">Join Now - It's Free!</h4>
+                  <p className="text-brand-steel text-sm">
                     Get instant access to our community and resources. All session participants and course students are automatically invited to join.
                   </p>
                 </div>
@@ -109,10 +113,13 @@ const WhatsAppHubSection = () => {
                   <a 
                     href="#webinar-dates"
                     onClick={handleClick}
-                    className="bg-primary text-white px-4 py-3 rounded-md hover:bg-primary-dark transition flex items-center justify-center w-full"
+                    className="bg-cta text-cta-text px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold w-full relative overflow-hidden group hover:shadow-lg z-0"
                     data-tracking="whatsapp-hub-session-button"
                   >
-                    Register for Session <ArrowRight className="ml-2 h-5 w-5" />
+                    <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
+                    <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center">
+                      Register for Session <ArrowRight className="ml-2 h-5 w-5" />
+                    </span>
                   </a>
                 </div>
               </div>
