@@ -102,7 +102,7 @@ const PathSelectionSection = () => {
                     {option.description}
                   </p>
                   <a 
-                    href={`/path/${option.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={`/path/${option.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '')}`}
                     className="bg-cta text-white px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0"
                   >
                     <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
