@@ -44,7 +44,6 @@ function App() {
       <SEOHead />
       <Header />
       
-      
       <Routes>
         <Route path="/" element={
           <>
@@ -57,14 +56,34 @@ function App() {
             <SupportSection />
             <FAQSection />
             <StickyWhatsAppCTA />
+            <Footer />
           </>
         } />
-        <Route path="/quiz" element={<Quiz />} />
-        <Route path="/*" element={<DynamicPages />} />
-        <Route path="/test-landing" element={<HighConversionLanding />} />
+        <Route path="/quiz" element={
+          <>
+            <Quiz />
+            <Footer />
+          </>
+        } />
+        <Route path="/path/*" element={
+          <>
+            <DynamicPages />
+            <Footer />
+          </>
+        } />
+        <Route path="/*" element={
+          <>
+            <DynamicPages />
+            <Footer />
+          </>
+        } />
+        <Route path="/test-landing" element={
+          <>
+            <HighConversionLanding />
+            <Footer />
+          </>
+        } />
       </Routes>
-      
-      <Footer />
     </div>
   );
 }
