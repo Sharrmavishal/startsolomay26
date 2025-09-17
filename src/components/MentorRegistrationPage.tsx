@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Send, Shield, Check, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowLeft, Send, Shield, Check, ChevronDown, ChevronUp, ArrowRight, User, Briefcase, Target } from 'lucide-react';
 
 interface FormData {
   name: string;
@@ -13,6 +13,7 @@ interface FormData {
   yearsOfExperience: string;
   submitted: boolean;
   submitting: boolean;
+  currentStep: number;
 }
 
 const MentorRegistrationPage = () => {
@@ -27,71 +28,50 @@ const MentorRegistrationPage = () => {
     whyInterested: '',
     yearsOfExperience: '',
     submitted: false,
-    submitting: false
+    submitting: false,
+    currentStep: 1
   });
 
-  const [expertiseAreas, setExpertiseAreas] = useState([
-    {
-      category: "Business Development",
-      skills: ["Business Planning", "Market Research", "Strategy Development", "Entrepreneurship"],
-      isOpen: false
-    },
-    {
-      category: "Marketing and Sales",
-      skills: ["Digital Marketing", "Social Media Marketing", "Content Marketing", "Sales Strategy", "Branding"],
-      isOpen: false
-    },
-    {
-      category: "Financial Management",
-      skills: ["Accounting", "Bookkeeping", "Tax Planning", "Financial Analysis", "Budgeting"],
-      isOpen: false
-    },
-    {
-      category: "Productivity and Time Management",
-      skills: ["Goal Setting", "Prioritization", "Time Management Tools", "Productivity Techniques"],
-      isOpen: false
-    },
-    {
-      category: "Technology and IT",
-      skills: ["Web Development", "Front-end Development", "Back-end Development", "Cybersecurity", "Data Analysis"],
-      isOpen: false
-    },
-    {
-      category: "Communication and Content Creation",
-      skills: ["Writing (Copywriting, Blogging)", "Graphic Design", "Video Production", "Photography", "Public Speaking"],
-      isOpen: false
-    },
-    {
-      category: "Education and Training",
-      skills: ["Course Creation", "Online Teaching", "Curriculum Development", "Educational Technology"],
-      isOpen: false
-    },
-    {
-      category: "Personal Development and Emotional Intelligence",
-      skills: ["Mindfulness", "Emotional Intelligence", "Leadership Development", "Motivation", "Career Coaching", "Conflict Resolution", "Team Building", "Empathy and Active Listening"],
-      isOpen: false
-    },
-    {
-      category: "Legal and Compliance",
-      skills: ["Business Law", "Intellectual Property", "Contract Negotiation", "Regulatory Compliance"],
-      isOpen: false
-    },
-    {
-      category: "Operations and Logistics",
-      skills: ["Supply Chain Management", "Project Management", "Customer Service", "Operations Strategy"],
-      isOpen: false
-    },
-    {
-      category: "Data Science and Analytics",
-      skills: ["Data Engineering", "Machine Learning", "Data Visualization", "Business Intelligence"],
-      isOpen: false
-    },
-    {
-      category: "Language and Localization",
-      skills: ["Translation", "Interpretation", "Localization", "Language Teaching"],
-      isOpen: false
-    }
-  ]);
+  // Simplified expertise categories with most popular options
+  const popularExpertise = [
+    "Business Strategy & Planning",
+    "Digital Marketing",
+    "Sales & Business Development", 
+    "Financial Management",
+    "Web Development",
+    "Content Creation & Writing",
+    "Leadership & Team Management",
+    "Productivity & Time Management",
+    "Career Coaching",
+    "Project Management"
+  ];
+
+  const allExpertise = [
+    "Business Strategy & Planning",
+    "Digital Marketing", 
+    "Sales & Business Development",
+    "Financial Management",
+    "Web Development",
+    "Content Creation & Writing",
+    "Leadership & Team Management",
+    "Productivity & Time Management",
+    "Career Coaching",
+    "Project Management",
+    "Data Analysis",
+    "Graphic Design",
+    "Video Production",
+    "Public Speaking",
+    "Legal & Compliance",
+    "Operations Management",
+    "Customer Service",
+    "Branding & Design",
+    "Social Media Marketing",
+    "E-commerce",
+    "Mobile App Development",
+    "Cybersecurity",
+    "Machine Learning",
+    "Other"
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -129,15 +109,25 @@ const MentorRegistrationPage = () => {
     }));
   };
 
-  const toggleSection = (index: number) => {
-    setExpertiseAreas(prev => prev.map((area, i) => 
-      i === index ? { ...area, isOpen: !area.isOpen } : area
-    ));
+  const nextStep = () => {
+    setFormData(prev => ({ ...prev, currentStep: prev.currentStep + 1 }));
   };
 
-  // Get selected skills count for each category
-  const getSelectedCount = (skills: string[]) => {
-    return skills.filter(skill => formData.expertise.includes(skill)).length;
+  const prevStep = () => {
+    setFormData(prev => ({ ...prev, currentStep: prev.currentStep - 1 }));
+  };
+
+  const isStepValid = (step: number) => {
+    switch (step) {
+      case 1:
+        return formData.name && formData.email && formData.phone;
+      case 2:
+        return formData.background && formData.yearsOfExperience;
+      case 3:
+        return formData.expertise.length > 0 && formData.whyInterested;
+      default:
+        return true;
+    }
   };
 
   return (
@@ -174,28 +164,24 @@ const MentorRegistrationPage = () => {
 
             <div className="p-8">
               {formData.submitted ? (
-                <div className="bg-brand-sky border border-brand-teal rounded-lg p-6 text-center">
-                  <div className="w-16 h-16 bg-brand-sky rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Shield className="h-8 w-8 text-brand-teal" />
+                <div className="bg-white border border-gray-200 rounded-lg p-8 text-center">
+                  <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Shield className="h-6 w-6 text-gray-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-brand-navy mb-2">Thank You for Your Interest!</h3>
-                  <p className="text-brand-gray-900 mb-6 body-brand">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Thank You for Your Interest!</h3>
+                  <p className="text-gray-600 mb-8 max-w-md mx-auto">
                     We've received your application to join our mentor network. Our team will review your profile and get back to you within 2-3 business days.
                   </p>
                   <button
-                    onClick={() => setFormData(prev => ({ ...prev, submitted: false }))}
-                    className="bg-yellow text-brand-gray-900 px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0"
+                    onClick={() => setFormData(prev => ({ ...prev, submitted: false, currentStep: 1 }))}
+                    className="bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors duration-200 hover:bg-gray-800 font-medium"
                   >
-                    <span className="absolute inset-0 bg-yellow-dark transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
-                    <span className="relative z-10 transition-colors duration-300 flex items-center">
-                      Submit Another Application
-                    </span>
+                    Submit Another Application
                   </button>
                 </div>
               ) : (
                 <form 
                   onSubmit={handleSubmit}
-                  className="space-y-6"
                   name="mentor-registration"
                   method="POST"
                   data-netlify="true"
@@ -209,254 +195,350 @@ const MentorRegistrationPage = () => {
                     </label>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                        required
-                        className="w-full px-4 py-2 border border-brand-gray-200 rounded-md focus:ring-brand-primary focus:border-brand-primary"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                        required
-                        className="w-full px-4 py-2 border border-brand-gray-200 rounded-md focus:ring-brand-primary focus:border-brand-primary"
-                      />
-                    </div>
-                  </div>
-
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                      required
-                      className="w-full px-4 py-2 border border-brand-gray-200 rounded-md focus:ring-brand-primary focus:border-brand-primary"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="yearsOfExperience" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
-                      Years of Experience *
-                    </label>
-                    <select
-                      id="yearsOfExperience"
-                      name="yearsOfExperience"
-                      value={formData.yearsOfExperience}
-                      onChange={(e) => setFormData(prev => ({ ...prev, yearsOfExperience: e.target.value }))}
-                      required
-                      className="w-full px-4 py-2 border border-brand-gray-200 rounded-md focus:ring-brand-primary focus:border-brand-primary"
-                    >
-                      <option value="">Select years of experience</option>
-                      <option value="1-3">1-3 years</option>
-                      <option value="4-6">4-6 years</option>
-                      <option value="7-10">7-10 years</option>
-                      <option value="11-15">11-15 years</option>
-                      <option value="15+">15+ years</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="background" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
-                      Professional Background *
-                    </label>
-                    <textarea
-                      id="background"
-                      name="background"
-                      value={formData.background}
-                      onChange={(e) => setFormData(prev => ({ ...prev, background: e.target.value }))}
-                      required
-                      rows={4}
-                      className="w-full px-4 py-2 border border-brand-gray-200 rounded-md focus:ring-brand-primary focus:border-brand-primary"
-                      placeholder="Brief overview of your professional experience and achievements..."
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
-                      I want to join as: *
-                    </label>
-                    <div className="flex space-x-4">
-                      <label className="flex items-center">
-                        <input
-                          type="radio"
-                          name="role"
-                          value="mentor"
-                          checked={formData.role === 'mentor'}
-                          onChange={(e) => setFormData(prev => ({ ...prev, role: e.target.value }))}
-                          className="mr-2"
-                        />
-                        Mentor
-                      </label>
-                      <label className="flex items-center">
-                        <input
-                          type="radio"
-                          name="role"
-                          value="guest_speaker"
-                          checked={formData.role === 'guest_speaker'}
-                          onChange={(e) => setFormData(prev => ({ ...prev, role: e.target.value }))}
-                          className="mr-2"
-                        />
-                        Guest Speaker
-                      </label>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-brand-gray-900 mb-3 body-brand">
-                      Areas of Expertise * <span className="text-brand-gray-500 text-xs">(Select all that apply)</span>
-                    </label>
-                    <div className="space-y-3">
-                      {expertiseAreas.map((area, index) => (
-                        <div 
-                          key={index} 
-                          className={`bg-brand-gray-50 rounded-lg border border-brand-gray-200 transition-all duration-200 ${
-                            area.isOpen ? 'shadow-md' : ''
-                          }`}
-                        >
-                          <button
-                            type="button"
-                            onClick={() => toggleSection(index)}
-                            className="w-full px-4 py-3 flex items-center justify-between text-left"
-                          >
-                            <div>
-                              <h4 className="font-medium text-brand-navy heading-brand">{area.category}</h4>
-                              {getSelectedCount(area.skills) > 0 && (
-                                <p className="text-sm text-brand-teal body-brand">
-                                  {getSelectedCount(area.skills)} selected
-                                </p>
-                              )}
-                            </div>
-                            {area.isOpen ? (
-                              <ChevronUp className="h-5 w-5 text-brand-gray-500" />
-                            ) : (
-                              <ChevronDown className="h-5 w-5 text-brand-gray-500" />
-                            )}
-                          </button>
-                          
-                          {area.isOpen && (
-                            <div className="px-4 pb-4">
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                {area.skills.map((skill, skillIndex) => {
-                                  const isSelected = formData.expertise.includes(skill);
-                                  return (
-                                    <button
-                                      key={skillIndex}
-                                      type="button"
-                                      onClick={() => toggleExpertise(skill)}
-                                      className={`flex items-center p-2 rounded-md text-left transition-all ${
-                                        isSelected 
-                                          ? 'bg-brand-yellow text-brand-white' 
-                                          : 'bg-brand-white text-brand-gray-900 hover:bg-brand-gray-100'
-                                      }`}
-                                    >
-                                      <div className={`w-5 h-5 rounded-md border flex items-center justify-center mr-2 ${
-                                        isSelected 
-                                          ? 'bg-brand-white border-brand-white' 
-                                          : 'border-brand-gray-200'
-                                      }`}>
-                                        {isSelected && <Check className={`h-4 w-4 ${isSelected ? 'text-brand-teal' : 'text-transparent'}`} />}
-                                      </div>
-                                      <span className="flex-1 body-brand">{skill}</span>
-                                    </button>
-                                  );
-                                })}
-                              </div>
-                            </div>
+                    {/* Progress Steps */}
+                  <div className="flex items-center justify-center mb-8">
+                    <div className="flex items-center space-x-4">
+                      {[1, 2, 3].map((step) => (
+                        <div key={step} className="flex items-center">
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                            formData.currentStep >= step 
+                              ? 'bg-brand-teal text-white' 
+                              : 'bg-gray-200 text-gray-600'
+                          }`}>
+                            {step}
+                          </div>
+                          {step < 3 && (
+                            <div className={`w-12 h-1 mx-2 ${
+                              formData.currentStep > step ? 'bg-brand-teal' : 'bg-gray-200'
+                            }`} />
                           )}
                         </div>
                       ))}
                     </div>
+                  </div>
 
-                    <div className="mt-4">
-                      <label htmlFor="otherExpertise" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
-                        Other Areas of Expertise
-                      </label>
-                      <input
-                        type="text"
-                        id="otherExpertise"
-                        name="otherExpertise"
-                        value={formData.otherExpertise}
-                        onChange={(e) => setFormData(prev => ({ ...prev, otherExpertise: e.target.value }))}
-                        className="w-full px-4 py-2 border border-brand-gray-200 rounded-md focus:ring-brand-primary focus:border-brand-primary"
-                        placeholder="Enter any additional areas of expertise..."
-                      />
+                  {/* Step Content */}
+                  {formData.currentStep === 1 && (
+                    <div className="space-y-6">
+                      <div className="text-center mb-8">
+                        <User className="h-12 w-12 text-brand-teal mx-auto mb-4" />
+                        <h2 className="text-2xl font-bold text-brand-navy mb-2">Basic Information</h2>
+                        <p className="text-brand-gray-900">Let's start with your contact details</p>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label htmlFor="name" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
+                            Full Name *
+                          </label>
+                          <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={formData.name}
+                            onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                            required
+                            className="w-full px-4 py-3 border border-brand-gray-200 rounded-lg focus:ring-brand-primary focus:border-brand-primary"
+                            placeholder="Enter your full name"
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="email" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
+                            Email Address *
+                          </label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                            required
+                            className="w-full px-4 py-3 border border-brand-gray-200 rounded-lg focus:ring-brand-primary focus:border-brand-primary"
+                            placeholder="Enter your email"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label htmlFor="phone" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
+                          Phone Number *
+                        </label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+                          required
+                          className="w-full px-4 py-3 border border-brand-gray-200 rounded-lg focus:ring-brand-primary focus:border-brand-primary"
+                          placeholder="Enter your phone number"
+                        />
+                      </div>
+
+                      <div className="flex justify-end">
+                        <button
+                          type="button"
+                          onClick={nextStep}
+                          disabled={!isStepValid(1)}
+                          className="bg-brand-teal text-white px-6 py-3 rounded-lg transition-all duration-300 flex items-center disabled:opacity-50 disabled:cursor-not-allowed hover:bg-brand-teal-dark"
+                        >
+                          Next Step <ArrowRight className="ml-2 h-4 w-4" />
+                        </button>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
-                  <div>
-                    <label htmlFor="whyInterested" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
-                      Why are you interested in mentoring? *
-                    </label>
-                    <textarea
-                      id="whyInterested"
-                      name="whyInterested"
-                      value={formData.whyInterested}
-                      onChange={(e) => setFormData(prev => ({ ...prev, whyInterested: e.target.value }))}
-                      required
-                      rows={4}
-                      className="w-full px-4 py-2 border border-brand-gray-200 rounded-md focus:ring-brand-primary focus:border-brand-primary"
-                      placeholder="Tell us why you'd like to join our mentor network and what you hope to contribute..."
-                    />
-                  </div>
+                  {formData.currentStep === 2 && (
+                    <div className="space-y-6">
+                      <div className="text-center mb-8">
+                        <Briefcase className="h-12 w-12 text-brand-teal mx-auto mb-4" />
+                        <h2 className="text-2xl font-bold text-brand-navy mb-2">Professional Background</h2>
+                        <p className="text-brand-gray-900">Tell us about your experience</p>
+                      </div>
 
-                  <div className="bg-brand-gray-50 p-4 rounded-lg border border-brand-gray-200">
-                    <h4 className="font-medium text-brand-navy mb-2 heading-brand">Vetting Process</h4>
-                    <p className="text-sm text-brand-steel mb-4 body-brand">
-                      All applications are carefully reviewed by our team to ensure the highest quality of mentorship for our community. The review process typically takes 2-3 business days.
-                    </p>
-                    <p className="text-sm text-brand-steel body-brand">
-                      For any questions about the application process, please contact us at{' '}
-                      <a href="mailto:hello@startsolo.in" className="text-brand-teal hover:text-brand-teal-dark">
-                        hello@startsolo.in
-                      </a>
-                    </p>
-                  </div>
+                      <div>
+                        <label htmlFor="yearsOfExperience" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
+                          Years of Experience *
+                        </label>
+                        <select
+                          id="yearsOfExperience"
+                          name="yearsOfExperience"
+                          value={formData.yearsOfExperience}
+                          onChange={(e) => setFormData(prev => ({ ...prev, yearsOfExperience: e.target.value }))}
+                          required
+                          className="w-full px-4 py-3 border border-brand-gray-200 rounded-lg focus:ring-brand-primary focus:border-brand-primary"
+                        >
+                          <option value="">Select years of experience</option>
+                          <option value="1-3">1-3 years</option>
+                          <option value="4-6">4-6 years</option>
+                          <option value="7-10">7-10 years</option>
+                          <option value="11-15">11-15 years</option>
+                          <option value="15+">15+ years</option>
+                        </select>
+                      </div>
 
-                  <div>
-                    <button
-                      type="submit"
-                      disabled={formData.submitting}
-                      className="w-full bg-cta text-cta-text px-4 py-2 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0 disabled:opacity-70 disabled:cursor-not-allowed"
-                    >
-                      {!formData.submitting && <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>}
-                      <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center">
-                        {formData.submitting ? (
-                          <>
-                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-brand-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                            Submitting...
-                          </>
-                        ) : (
-                          <>
-                            Sign Up <Send className="ml-2 h-5 w-5" />
-                          </>
+                      <div>
+                        <label htmlFor="background" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
+                          Professional Background *
+                        </label>
+                        <textarea
+                          id="background"
+                          name="background"
+                          value={formData.background}
+                          onChange={(e) => setFormData(prev => ({ ...prev, background: e.target.value }))}
+                          required
+                          rows={4}
+                          className="w-full px-4 py-3 border border-brand-gray-200 rounded-lg focus:ring-brand-primary focus:border-brand-primary"
+                          placeholder="Brief overview of your professional experience and achievements..."
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-brand-gray-900 mb-3 body-brand">
+                          I want to join as: *
+                        </label>
+                        <div className="flex space-x-6">
+                          <label className="flex items-center cursor-pointer">
+                            <input
+                              type="radio"
+                              name="role"
+                              value="mentor"
+                              checked={formData.role === 'mentor'}
+                              onChange={(e) => setFormData(prev => ({ ...prev, role: e.target.value }))}
+                              className="mr-3 h-4 w-4 text-brand-teal"
+                            />
+                            <span className="text-brand-gray-900">Mentor</span>
+                          </label>
+                          <label className="flex items-center cursor-pointer">
+                            <input
+                              type="radio"
+                              name="role"
+                              value="guest_speaker"
+                              checked={formData.role === 'guest_speaker'}
+                              onChange={(e) => setFormData(prev => ({ ...prev, role: e.target.value }))}
+                              className="mr-3 h-4 w-4 text-brand-teal"
+                            />
+                            <span className="text-brand-gray-900">Guest Speaker</span>
+                          </label>
+                        </div>
+                      </div>
+
+                      <div className="flex justify-between">
+                        <button
+                          type="button"
+                          onClick={prevStep}
+                          className="flex items-center text-brand-gray-600 hover:text-brand-gray-900 transition-colors"
+                        >
+                          <ArrowLeft className="mr-2 h-4 w-4" />
+                          Previous
+                        </button>
+                        <button
+                          type="button"
+                          onClick={nextStep}
+                          disabled={!isStepValid(2)}
+                          className="bg-brand-teal text-white px-6 py-3 rounded-lg transition-all duration-300 flex items-center disabled:opacity-50 disabled:cursor-not-allowed hover:bg-brand-teal-dark"
+                        >
+                          Next Step <ArrowRight className="ml-2 h-4 w-4" />
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
+                  {formData.currentStep === 3 && (
+                    <div className="space-y-6">
+                      <div className="text-center mb-8">
+                        <Target className="h-12 w-12 text-brand-teal mx-auto mb-4" />
+                        <h2 className="text-2xl font-bold text-brand-navy mb-2">Areas of Expertise</h2>
+                        <p className="text-brand-gray-900">Select your areas of expertise (choose 3-5)</p>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-brand-gray-900 mb-4 body-brand">
+                          Popular Areas *
+                        </label>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+                          {popularExpertise.map((skill) => {
+                            const isSelected = formData.expertise.includes(skill);
+                            return (
+                              <button
+                                key={skill}
+                                type="button"
+                                onClick={() => toggleExpertise(skill)}
+                                className={`p-3 rounded-lg text-left transition-all ${
+                                  isSelected 
+                                    ? 'bg-brand-teal text-white border-2 border-brand-teal' 
+                                    : 'bg-white text-brand-gray-900 border-2 border-gray-200 hover:border-brand-teal'
+                                }`}
+                              >
+                                <div className="flex items-center">
+                                  <div className={`w-4 h-4 rounded border mr-2 flex items-center justify-center ${
+                                    isSelected 
+                                      ? 'bg-white border-white' 
+                                      : 'border-gray-300'
+                                  }`}>
+                                    {isSelected && <Check className="h-3 w-3 text-brand-teal" />}
+                                  </div>
+                                  <span className="text-sm font-medium">{skill}</span>
+                                </div>
+                              </button>
+                            );
+                          })}
+                        </div>
+
+                        <details className="mb-6">
+                          <summary className="cursor-pointer text-brand-teal hover:text-brand-teal-dark font-medium mb-4">
+                            View all expertise areas
+                          </summary>
+                          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            {allExpertise.filter(skill => !popularExpertise.includes(skill)).map((skill) => {
+                              const isSelected = formData.expertise.includes(skill);
+                              return (
+                                <button
+                                  key={skill}
+                                  type="button"
+                                  onClick={() => toggleExpertise(skill)}
+                                  className={`p-3 rounded-lg text-left transition-all ${
+                                    isSelected 
+                                      ? 'bg-brand-teal text-white border-2 border-brand-teal' 
+                                      : 'bg-white text-brand-gray-900 border-2 border-gray-200 hover:border-brand-teal'
+                                  }`}
+                                >
+                                  <div className="flex items-center">
+                                    <div className={`w-4 h-4 rounded border mr-2 flex items-center justify-center ${
+                                      isSelected 
+                                        ? 'bg-white border-white' 
+                                        : 'border-gray-300'
+                                    }`}>
+                                      {isSelected && <Check className="h-3 w-3 text-brand-teal" />}
+                                    </div>
+                                    <span className="text-sm font-medium">{skill}</span>
+                                  </div>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </details>
+
+                        {formData.expertise.includes('Other') && (
+                          <div className="mb-6">
+                            <label htmlFor="otherExpertise" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
+                              Please specify other areas
+                            </label>
+                            <input
+                              type="text"
+                              id="otherExpertise"
+                              name="otherExpertise"
+                              value={formData.otherExpertise}
+                              onChange={(e) => setFormData(prev => ({ ...prev, otherExpertise: e.target.value }))}
+                              className="w-full px-4 py-3 border border-brand-gray-200 rounded-lg focus:ring-brand-primary focus:border-brand-primary"
+                              placeholder="Enter other areas of expertise..."
+                            />
+                          </div>
                         )}
-                      </span>
-                    </button>
+                      </div>
+
+                      <div>
+                        <label htmlFor="whyInterested" className="block text-sm font-medium text-brand-gray-900 mb-1 body-brand">
+                          Why are you interested in mentoring? *
+                        </label>
+                        <textarea
+                          id="whyInterested"
+                          name="whyInterested"
+                          value={formData.whyInterested}
+                          onChange={(e) => setFormData(prev => ({ ...prev, whyInterested: e.target.value }))}
+                          required
+                          rows={4}
+                          className="w-full px-4 py-3 border border-brand-gray-200 rounded-lg focus:ring-brand-primary focus:border-brand-primary"
+                          placeholder="Tell us why you'd like to join our mentor network and what you hope to contribute..."
+                        />
+                      </div>
+
+                      <div className="bg-brand-gray-50 p-4 rounded-lg border border-brand-gray-200">
+                        <h4 className="font-medium text-brand-navy mb-2 heading-brand">Vetting Process</h4>
+                        <p className="text-sm text-brand-steel mb-4 body-brand">
+                          All applications are carefully reviewed by our team to ensure the highest quality of mentorship for our community. The review process typically takes 2-3 business days.
+                        </p>
+                        <p className="text-sm text-brand-steel body-brand">
+                          For any questions about the application process, please contact us at{' '}
+                          <a href="mailto:hello@startsolo.in" className="text-brand-teal hover:text-brand-teal-dark">
+                            hello@startsolo.in
+                          </a>
+                        </p>
+                      </div>
+
+                      <div className="flex justify-between">
+                        <button
+                          type="button"
+                          onClick={prevStep}
+                          className="flex items-center text-brand-gray-600 hover:text-brand-gray-900 transition-colors"
+                        >
+                          <ArrowLeft className="mr-2 h-4 w-4" />
+                          Previous
+                        </button>
+                        <button
+                          type="submit"
+                          disabled={!isStepValid(3) || formData.submitting}
+                          className="bg-brand-teal text-white px-6 py-3 rounded-lg transition-all duration-300 flex items-center disabled:opacity-50 disabled:cursor-not-allowed hover:bg-brand-teal-dark"
+                        >
+                          {formData.submitting ? (
+                            <>
+                              <svg className="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                              </svg>
+                              Submitting...
+                            </>
+                          ) : (
+                            <>
+                              Submit Application <Send className="ml-2 h-4 w-4" />
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    </div>
+                  )}
                   </div>
                 </form>
               )}

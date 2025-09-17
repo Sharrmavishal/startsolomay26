@@ -56,7 +56,7 @@ const MentorForm: React.FC<MentorFormProps> = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-xl shadow-xl max-w-md w-full relative">
+      <div className="bg-white rounded-xl shadow-xl max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
@@ -68,21 +68,34 @@ const MentorForm: React.FC<MentorFormProps> = ({ onClose }) => {
         <div className="p-6">
           {formData.submitted ? (
             <div className="text-center py-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Thank You!</h3>
-              <p className="text-gray-700 mb-2">
+              <div className="w-12 h-12 bg-[color:var(--color-cta)] rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-[color:var(--color-cta-text)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[color:var(--color-navy)] mb-3">Thank You!</h3>
+              <p className="text-[color:var(--color-gray-900)] mb-4 text-sm">
                 We'll be in touch via WhatsApp within 12 hours to book your slot!
               </p>
-              <div className="bg-primary/10 p-4 rounded-lg border border-primary mt-4">
-                <p className="text-primary font-medium">
+              <div className="bg-[color:var(--color-navy)] bg-opacity-10 p-4 rounded-lg border border-[color:var(--color-navy)] border-opacity-20">
+                <p className="text-[color:var(--color-navy)] font-medium mb-2 text-sm">
                   Please wait while we redirect you to confirm your session...
                 </p>
+                <div className="w-full bg-[color:var(--color-gray-200)] rounded-full h-1.5">
+                  <div className="bg-[color:var(--color-cta)] h-1.5 rounded-full animate-pulse" style={{width: '60%'}}></div>
+                </div>
               </div>
             </div>
           ) : (
             <>
-              <h2 className="text-xl font-bold text-gray-900 mb-4">
-                Let's Talk. One Mentor Call Can Save You Weeks.
-              </h2>
+              <div className="text-center mb-4">
+                <h2 className="text-xl font-bold text-[color:var(--color-navy)] mb-1">
+                  Let's Talk. One Mentor Call Can Save You Weeks.
+                </h2>
+                <p className="text-[color:var(--color-gray-900)] text-sm">
+                  Get personalized guidance from experienced entrepreneurs
+                </p>
+              </div>
 
               <form 
                 onSubmit={handleSubmit}
@@ -101,22 +114,23 @@ const MentorForm: React.FC<MentorFormProps> = ({ onClose }) => {
                 </div>
 
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Name *
+                  <label htmlFor="name" className="block text-sm font-medium text-[color:var(--color-gray-900)] mb-1">
+                    Full Name *
                   </label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     required
-                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-primary focus:border-brand-primary text-base"
+                    placeholder="Enter your full name"
+                    className="w-full border border-[color:var(--color-gray-200)] rounded-lg px-3 py-2 focus:ring-2 focus:ring-[color:var(--color-navy)] focus:border-[color:var(--color-navy)] text-sm transition-colors"
                     value={formData.name}
                     onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="email" className="block text-sm font-medium text-[color:var(--color-gray-900)] mb-1">
                     Email Address *
                   </label>
                   <input
@@ -124,14 +138,15 @@ const MentorForm: React.FC<MentorFormProps> = ({ onClose }) => {
                     id="email"
                     name="email"
                     required
-                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-primary focus:border-brand-primary text-base"
+                    placeholder="your.email@example.com"
+                    className="w-full border border-[color:var(--color-gray-200)] rounded-lg px-3 py-2 focus:ring-2 focus:ring-[color:var(--color-navy)] focus:border-[color:var(--color-navy)] text-sm transition-colors"
                     value={formData.email}
                     onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="whatsapp" className="block text-sm font-medium text-[color:var(--color-gray-900)] mb-1">
                     WhatsApp Number *
                   </label>
                   <input
@@ -139,21 +154,25 @@ const MentorForm: React.FC<MentorFormProps> = ({ onClose }) => {
                     id="whatsapp"
                     name="whatsapp"
                     required
-                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-primary focus:border-brand-primary text-base"
+                    placeholder="+91 98765 43210"
+                    className="w-full border border-[color:var(--color-gray-200)] rounded-lg px-3 py-2 focus:ring-2 focus:ring-[color:var(--color-navy)] focus:border-[color:var(--color-navy)] text-sm transition-colors"
                     value={formData.whatsapp}
                     onChange={(e) => setFormData(prev => ({ ...prev, whatsapp: e.target.value }))}
                   />
+                  <p className="text-xs text-[color:var(--color-gray-900)] mt-1">
+                    Include country code (e.g., +91 for India)
+                  </p>
                 </div>
 
                 <div>
-                  <label htmlFor="agenda" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="agenda" className="block text-sm font-medium text-[color:var(--color-gray-900)] mb-1">
                     What would you like help with? *
                   </label>
                   <select
                     id="agenda"
                     name="agenda"
                     required
-                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-primary focus:border-brand-primary text-base"
+                    className="w-full border border-[color:var(--color-gray-200)] rounded-lg px-3 py-2 focus:ring-2 focus:ring-[color:var(--color-navy)] focus:border-[color:var(--color-navy)] text-sm transition-colors"
                     value={formData.agenda}
                     onChange={(e) => setFormData(prev => ({ ...prev, agenda: e.target.value }))}
                   >
@@ -165,41 +184,38 @@ const MentorForm: React.FC<MentorFormProps> = ({ onClose }) => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="message" className="block text-sm font-medium text-[color:var(--color-gray-900)] mb-1">
                     Anything specific you'd like to discuss? (Optional)
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={2}
-                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-primary focus:border-brand-primary text-base"
+                    placeholder="Tell us more about your situation, goals, or specific challenges..."
+                    className="w-full border border-[color:var(--color-gray-200)] rounded-lg px-3 py-2 focus:ring-2 focus:ring-[color:var(--color-navy)] focus:border-[color:var(--color-navy)] text-sm transition-colors resize-none"
                     value={formData.message}
                     onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
                   ></textarea>
                 </div>
 
-                <div className="flex items-start">
-                  <div className="flex items-center h-5">
-                    <input
-                      id="emailOptIn"
-                      name="emailOptIn"
-                      type="checkbox"
-                      checked={formData.emailOptIn}
-                      onChange={(e) => setFormData(prev => ({ ...prev, emailOptIn: e.target.checked }))}
-                      className="h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary"
-                    />
-                  </div>
-                  <div className="ml-2">
-                    <label htmlFor="emailOptIn" className="text-xs text-gray-600">
-                      I'd like to receive updates about courses and resources. You can unsubscribe anytime.
-                    </label>
-                  </div>
+                <div className="flex items-start space-x-2 p-3 bg-[color:var(--color-gray-50)] rounded-lg">
+                  <input
+                    id="emailOptIn"
+                    name="emailOptIn"
+                    type="checkbox"
+                    checked={formData.emailOptIn}
+                    onChange={(e) => setFormData(prev => ({ ...prev, emailOptIn: e.target.checked }))}
+                    className="mt-0.5 h-3 w-3 text-[color:var(--color-navy)] border-[color:var(--color-gray-200)] rounded focus:ring-[color:var(--color-navy)]"
+                  />
+                  <label htmlFor="emailOptIn" className="text-xs text-[color:var(--color-gray-900)]">
+                    I'd like to receive updates about courses and resources. You can unsubscribe anytime.
+                  </label>
                 </div>
 
                 <button
                   type="submit"
                   disabled={formData.submitting}
-                  className="w-full bg-cta hover:bg-cta-dark text-cta-text px-4 py-2 rounded-lg transition flex items-center justify-center text-sm md:text-base font-semibold disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full bg-[color:var(--color-cta)] hover:bg-[color:var(--color-cta-dark)] text-[color:var(--color-cta-text)] px-4 py-3 rounded-lg transition-all duration-200 flex items-center justify-center text-sm font-semibold disabled:opacity-70 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
                   {formData.submitting ? (
                     <>
@@ -216,9 +232,14 @@ const MentorForm: React.FC<MentorFormProps> = ({ onClose }) => {
                   )}
                 </button>
 
-                <p className="text-center text-xs text-gray-500 italic">
-                  Non-refundable commitment fee. Helps us prioritise serious requests.
-                </p>
+                <div className="text-center">
+                  <p className="text-xs text-[color:var(--color-gray-900)] mb-2">
+                    <span className="font-semibold">₹999 commitment fee</span> - Non-refundable
+                  </p>
+                  <p className="text-xs text-[color:var(--color-gray-900)]">
+                    Helps us prioritize serious requests and ensure quality mentorship
+                  </p>
+                </div>
               </form>
             </>
           )}

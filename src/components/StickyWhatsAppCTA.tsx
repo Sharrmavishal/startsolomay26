@@ -56,7 +56,7 @@ const StickyWhatsAppCTA: React.FC = () => {
     >
       <a 
         href="https://chat.whatsapp.com/CgrHI3AQbb6IX3gWKDa5Ij"
-        className="flex items-center bg-[#25D366] text-white px-4 py-3 rounded-full shadow-lg hover:bg-[#128C7E] transition-all duration-300 group"
+        className="flex items-center bg-[color:var(--color-whatsapp)] text-white px-4 py-3 rounded-full shadow-lg hover:bg-[color:var(--color-whatsapp-dark)] transition-all duration-300 group"
         aria-label="Join our WhatsApp Hub"
         data-tracking={`sticky-whatsapp-${currentSection}`}
         target="_blank"

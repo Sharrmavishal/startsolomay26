@@ -4,12 +4,20 @@
 
 :root {
   font-size: var(--font-size-base, 16px);
-  --color-primary: #3A6EA5; /* New CTA color */
+  --color-primary: #3A6EA5; /* Medium blue */
   --color-primary-dark: #2E5A8A; /* Slightly darker for hover/focus */
   --color-navy: #1D3A6B;
-  --color-cta: #fac464;
-  --color-cta-dark: #f0b44a;
-  --color-cta-text: #3A6EA5;
+  
+  /* Sophisticated CTA colors matching internal pages */
+  --color-cta: #EEB44E; /* Golden Yellow - primary CTA (like internal pages) */
+  --color-cta-dark: #D49E3C; /* Darker yellow for hover */
+  --color-cta-text: #333333; /* Dark text on yellow */
+  --color-cta-secondary: #1D3A6B; /* Navy - secondary CTA */
+  --color-cta-secondary-dark: #152A4F; /* Darker navy for hover */
+  --color-cta-accent: #5FA6A0; /* Teal - accent CTA */
+  --color-cta-accent-dark: #4A8B85; /* Darker teal for hover */
+  
+  /* Legacy colors from your palette */
   --color-yellow: #EEB44E;
   --color-yellow-dark: #D49E3C;
   --color-teal: #5FA6A0;
@@ -20,6 +28,17 @@
   --color-gray-100: #E4E5E7;
   --color-gray-200: #C7CBD3;
   --color-gray-900: #333333;
+  
+  /* Additional palette colors */
+  --color-orange: #e57341;
+  --color-red: #e44041;
+  --color-dark-green: #009762;
+  --color-olive-green: #6c936a;
+  --color-dark-brown: #3e1311;
+  
+  /* WhatsApp brand colors */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #128C7E;
 }
 
 body {

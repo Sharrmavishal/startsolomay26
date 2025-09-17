@@ -47,7 +47,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-cta/10 text-brand-white pt-16 pb-8">
+    <footer className="bg-[color:var(--color-navy)] pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand and Description */}
@@ -56,49 +56,49 @@ const Footer = () => {
               <img 
                 src="https://res.cloudinary.com/dnm2ejglr/image/upload/v1741677468/Start_solo_Inverted_icon_100x100_qroif2.svg" 
                 alt="Start Solo Logo" 
-                className="h-10 w-10 bg-white rounded-full p-1"
+                className="h-10 w-10"
               />
-              <span className="font-bold text-xl">Start Solo</span>
+              <span className="font-bold text-xl text-white">Start Solo</span>
             </div>
-            <p className="text-brand-navy mb-4">
+            <p className="text-gray-300 mb-4">
               Start Solo, but not alone
             </p>
           </div>
           
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Quick Links</h4>
+            <h4 className="font-bold text-lg mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="/" onClick={handleClick} className="text-brand-navy hover:text-brand-yellow-dark transition">Home</a></li>
-              <li><a href="/about" onClick={handleClick} className="text-brand-navy hover:text-brand-yellow-dark transition">About Us</a></li>
-              <li><a href="/#path-selection" onClick={handleClick} className="text-brand-navy hover:text-brand-yellow-dark transition">Choose Your Path</a></li>
-              <li><a href="/#instructor" onClick={handleClick} className="text-brand-navy hover:text-brand-yellow-dark transition">Mentors</a></li>
-              <li><a href="/quiz" onClick={handleClick} className="text-brand-navy hover:text-brand-yellow-dark transition">Quiz</a></li>
-              <li><a href="/#testimonials" onClick={handleClick} className="text-brand-navy hover:text-brand-yellow-dark transition">Success Stories</a></li>
-              <li><a href="/#faq" onClick={handleClick} className="text-brand-navy hover:text-brand-yellow-dark transition">FAQs</a></li>
-              <li><a href="/solosprint-bootcamp" onClick={handleClick} className="text-brand-navy hover:text-brand-yellow-dark transition">Solosprint Bootcamp</a></li>
+              <li><a href="/" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Home</a></li>
+              <li><a href="/about" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+              <li><a href="/#path-selection" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Choose Your Path</a></li>
+              <li><a href="/#instructor" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Mentors</a></li>
+              <li><a href="/quiz" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Quiz</a></li>
+              <li><a href="/#testimonials" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Success Stories</a></li>
+              <li><a href="/#faq" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">FAQs</a></li>
+              <li><a href="/solosprint-bootcamp" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Solosprint Bootcamp</a></li>
             </ul>
           </div>
           
           {/* Resources */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Resources</h4>
+            <h4 className="font-bold text-lg mb-4 text-white">Resources</h4>
             <ul className="space-y-2">
               <li>
                 <a 
                   href="https://chat.whatsapp.com/CgrHI3AQbb6IX3gWKDa5Ij" 
                   target="_blank"
                   rel="noopener noreferrer" 
-                  className="text-brand-navy hover:text-brand-yellow-dark transition flex items-center"
+                  className="text-gray-300 hover:text-white transition-colors flex items-center"
                 >
-                  <MessageCircle className="h-4 w-4 mr-1 text-green-400" />
+                  <MessageCircle className="h-4 w-4 mr-1 text-green-600" />
                   <span>WhatsApp Hub</span>
                 </a>
               </li>
-              <li><a href="/#lead-magnet" onClick={handleClick} className="text-brand-navy hover:text-brand-yellow-dark transition">Downloads</a></li>
-              <li><a href="/#testimonials" onClick={handleClick} className="text-brand-navy hover:text-brand-yellow-dark transition">Success Stories</a></li>
+              <li><a href="/#lead-magnet" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Downloads</a></li>
+              <li><a href="/#testimonials" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Success Stories</a></li>
               <li>
-                <a href="/join-mentor" onClick={handleClick} className="text-brand-navy hover:text-brand-yellow-dark transition">
+                <a href="/join-mentor" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">
                   Join as a Mentor
                 </a>
               </li>
@@ -106,7 +106,7 @@ const Footer = () => {
                 <a 
                   href="/policies/privacy" 
                   onClick={handleClick}
-                  className="text-brand-navy hover:text-brand-yellow-dark transition"
+                  className="text-gray-300 hover:text-white transition-colors"
                 >
                   Privacy Policy
                 </a>
@@ -115,7 +115,7 @@ const Footer = () => {
                 <a 
                   href="/policies/terms" 
                   onClick={handleClick}
-                  className="text-brand-navy hover:text-brand-yellow-dark transition"
+                  className="text-gray-300 hover:text-white transition-colors"
                 >
                   Terms of Service
                 </a>
@@ -124,7 +124,7 @@ const Footer = () => {
                 <a 
                   href="/policies/refund" 
                   onClick={handleClick}
-                  className="text-brand-navy hover:text-brand-yellow-dark transition"
+                  className="text-gray-300 hover:text-white transition-colors"
                 >
                   Refund Policy
                 </a>
@@ -134,27 +134,27 @@ const Footer = () => {
           
           {/* Contact */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Contact Us</h4>
-            <p className="text-brand-navy mb-4">
+            <h4 className="font-bold text-lg mb-4 text-white">Contact Us</h4>
+            <p className="text-gray-300 mb-4">
               Have questions about upcoming sessions or the course? We're here to help.
             </p>
             <div className="flex items-center mb-4">
-              <Mail className="h-5 w-5 text-brand-yellow-light mr-2" />
-              <a href="mailto:hello@startsolo.in" className="text-brand-navy hover:text-brand-yellow-dark transition">
+              <Mail className="h-5 w-5 text-white mr-2" />
+              <a href="mailto:hello@startsolo.in" className="text-gray-300 hover:text-white transition-colors">
                 hello@startsolo.in
               </a>
             </div>
             <a 
               href="/support" 
               onClick={handleClick}
-              className="bg-cta hover:bg-cta-dark text-cta-text px-4 py-2 rounded-lg transition flex items-center justify-center text-sm font-semibold"
+              className="bg-[color:var(--color-cta)] hover:bg-[color:var(--color-cta-dark)] text-[color:var(--color-cta-text)] px-4 py-2 rounded-lg transition-colors flex items-center justify-center text-sm font-semibold"
             >
               Contact Support
             </a>
           </div>
         </div>
         
-        <div className="border-t border-brand-yellow-light pt-8 text-center text-brand-navy text-sm">
+        <div className="border-t border-gray-600 pt-8 text-center text-gray-300 text-sm">
           <p className="mb-2">&copy; {new Date().getFullYear()} Start Solo. All rights reserved.</p>
           <p>Results achieved will vary based on individual commitment, execution effectiveness, and prevailing market dynamics.</p>
         </div>

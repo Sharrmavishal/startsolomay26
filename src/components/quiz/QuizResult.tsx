@@ -240,7 +240,7 @@ const QuizResult: React.FC<QuizResultProps> = ({ result, score }) => {
       <div className="text-center">
         <a
           href="https://chat.whatsapp.com/CgrHI3AQbb6IX3gWKDa5Ij"
-          className="inline-flex items-center text-[#25D366] hover:text-[#128C7E] transition font-medium"
+          className="inline-flex items-center text-[color:var(--color-whatsapp)] hover:text-[color:var(--color-whatsapp-dark)] transition font-medium"
           target="_blank"
           rel="noopener noreferrer"
         >

@@ -56,7 +56,7 @@ const WhatsAppHubSection = () => {
     <section id="whatsapp-hub" className="py-12 bg-gradient-to-br from-green-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <div className="inline-block bg-green-100 text-green-800 px-4 py-1 rounded-full mb-4 font-medium">
+          <div className="inline-block bg-[color:var(--color-whatsapp)] bg-opacity-20 text-[color:var(--color-whatsapp)] px-4 py-1 rounded-full mb-4 font-medium">
             EXCLUSIVE COMMUNITY ACCESS
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Join Our Start Solo Hub on WhatsApp</h2>
@@ -69,7 +69,7 @@ const WhatsAppHubSection = () => {
           <div className="bg-brand-white rounded-xl shadow-lg overflow-hidden border border-brand-gray-100">
             <div className="md:flex">
               {/* Left Section */}
-              <div className="md:w-1/2 bg-[#25D366] text-white p-6">
+              <div className="md:w-1/2 bg-[color:var(--color-whatsapp)] text-white p-6">
                 <div className="flex items-center mb-4">
                   <MessageCircle className="h-6 w-6 mr-2" />
                   <h3 className="text-xl font-bold">Start Solo Hub</h3>
@@ -104,7 +104,7 @@ const WhatsAppHubSection = () => {
                     href="https://chat.whatsapp.com/CgrHI3AQbb6IX3gWKDa5Ij"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-[#25D366] text-white px-4 py-3 rounded-md hover:bg-[#128C7E] transition flex items-center justify-center w-full"
+                    className="bg-[color:var(--color-whatsapp)] text-white px-4 py-3 rounded-md hover:bg-[color:var(--color-whatsapp-dark)] transition flex items-center justify-center w-full"
                     data-tracking="whatsapp-hub-join-button"
                   >
                     <MessageCircle className="mr-2 h-5 w-5" />

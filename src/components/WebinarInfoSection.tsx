@@ -42,7 +42,7 @@ const WebinarInfoSection = () => {
   ];
 
   return (
-    <section id="webinar-info" className="py-16 bg-gray-50">
+    <section id="webinar-info" className="py-16 bg-[color:var(--color-gray-50)]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <div className="inline-block bg-primary-light/20 text-primary-dark px-4 py-1 rounded-full mb-4 font-medium">
@@ -51,7 +51,7 @@ const WebinarInfoSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
             The 90-Min Solo Accelerator Session: Your Launchpad to Freedom!
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
             Thinking about starting your solo business but feeling stuck? This power-packed 90-minute webinar will give you the clarity, confidence, and game plan to take the leap—without any risks.
           </p>
         </div>
@@ -60,32 +60,32 @@ const WebinarInfoSection = () => {
           {/* Learning Points Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {learningPoints.map((point, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300">
+              <div key={index} className="bg-white p-6 rounded-xl shadow-md border border-[color:var(--color-gray-100)] hover:shadow-lg transition-all duration-300">
                 <div className="mb-4">{point.icon}</div>
                 <h3 className="text-lg font-bold text-brand-navy mb-2">{point.title}</h3>
-                <p className="text-gray-600 text-sm">{point.description}</p>
+                <p className="text-[color:var(--color-gray-900)] text-sm">{point.description}</p>
               </div>
             ))}
           </div>
 
           {/* Session Details Card */}
-          <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+          <div className="bg-white rounded-xl shadow-md overflow-hidden border border-[color:var(--color-gray-100)]">
             <div className="p-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
                 <div className="text-center">
                   <Calendar className="h-10 w-10 text-primary mx-auto mb-2" />
                   <h4 className="font-bold text-brand-navy">Next Session</h4>
-                  <p className="text-gray-600">March 22, 2025</p>
+                  <p className="text-[color:var(--color-gray-900)]">March 22, 2025</p>
                 </div>
                 <div className="text-center">
                   <Clock className="h-10 w-10 text-primary mx-auto mb-2" />
                   <h4 className="font-bold text-brand-navy">90 Minutes</h4>
-                  <p className="text-gray-600">Packed with value</p>
+                  <p className="text-[color:var(--color-gray-900)]">Packed with value</p>
                 </div>
                 <div className="text-center">
                   <div className="bg-primary-light/10 rounded-full p-4 inline-block">
                     <div className="text-3xl font-bold text-primary">₹99</div>
-                    <div className="text-sm text-gray-600">Registration Fee</div>
+                    <div className="text-sm text-[color:var(--color-gray-900)]">Registration Fee</div>
                   </div>
                 </div>
               </div>

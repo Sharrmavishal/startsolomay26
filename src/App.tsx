@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import { useLocation, Routes, Route } from 'react-router-dom';
-import HighConversionLanding from './components/HighConversionLanding';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import PathSelectionSection from './components/PathSelectionSection';
@@ -11,10 +10,14 @@ import SupportSection from './components/SupportSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
+import CoursePage from './components/CoursePage';
 import SEOHead from './components/SEOHead';
-import DynamicPages from './components/DynamicPages';
 import StickyWhatsAppCTA from './components/StickyWhatsAppCTA';
-import Quiz from './components/quiz/Quiz';
+
+// Lazy load heavy components
+const HighConversionLanding = lazy(() => import('./components/HighConversionLanding'));
+const DynamicPages = lazy(() => import('./components/DynamicPages'));
+const Quiz = lazy(() => import('./components/quiz/Quiz'));
 
 function App() {
   const location = useLocation();
@@ -45,44 +48,50 @@ function App() {
       <Header />
       
       <Routes>
-        <Route path="/" element={
-          <>
-            <HeroSection />
-            <PathSelectionSection />
-            <WorkshopMentorshipSection />
-            <InstructorAndExpertsSection />
-            <LeadMagnetSection />
-            <TestimonialsSection />
-            <SupportSection />
-            <FAQSection />
-            <StickyWhatsAppCTA />
-            <Footer />
-          </>
-        } />
+              <Route path="/" element={
+                <>
+                  <HeroSection />
+                  <WorkshopMentorshipSection />
+                  <PathSelectionSection />
+                  <InstructorAndExpertsSection />
+                  <LeadMagnetSection />
+                  <TestimonialsSection />
+                  <SupportSection />
+                  <FAQSection />
+                  <StickyWhatsAppCTA />
+                  <Footer />
+                </>
+              } />
         <Route path="/quiz" element={
-          <>
+          <Suspense fallback={<div className="flex justify-center items-center min-h-screen"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div></div>}>
             <Quiz />
             <Footer />
-          </>
+          </Suspense>
         } />
         <Route path="/path/*" element={
-          <>
+          <Suspense fallback={<div className="flex justify-center items-center min-h-screen"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div></div>}>
             <DynamicPages />
             <Footer />
-          </>
+          </Suspense>
         } />
         <Route path="/*" element={
-          <>
+          <Suspense fallback={<div className="flex justify-center items-center min-h-screen"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div></div>}>
             <DynamicPages />
             <Footer />
-          </>
+          </Suspense>
         } />
-        <Route path="/test-landing" element={
-          <>
-            <HighConversionLanding />
-            <Footer />
-          </>
-        } />
+              <Route path="/test-landing" element={
+                <Suspense fallback={<div className="flex justify-center items-center min-h-screen"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div></div>}>
+                  <HighConversionLanding />
+                  <Footer />
+                </Suspense>
+              } />
+              <Route path="/course" element={
+                <>
+                  <CoursePage />
+                  <Footer />
+                </>
+              } />
       </Routes>
     </div>
   );

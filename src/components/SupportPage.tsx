@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Mail, MessageCircle, Send, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Mail, MessageCircle, Send, CheckCircle, ChevronDown, ChevronUp } from 'lucide-react';
 
 const SupportPage: React.FC = () => {
   const [formState, setFormState] = useState({
@@ -11,6 +11,23 @@ const SupportPage: React.FC = () => {
     submitting: false,
     error: ''
   });
+
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      question: "How do I get a refund?",
+      answer: "If you're not satisfied with your Session, email us at hello@startsolo.in with details, and we will address your query as per the refund and terms & conditions policy."
+    },
+    {
+      question: "I missed my scheduled session. Can I reschedule?",
+      answer: "Yes! If you missed your session, you can reschedule for another available date. Please contact us with your original booking details, and we'll help you find a new session date."
+    },
+    {
+      question: "How do I access the course materials?",
+      answer: "After enrolling in the full course, you'll receive login credentials to our learning platform where all course materials are hosted, or you will get access via WhatsApp, depending on the delivery format mechanism of the course. If you're having trouble accessing your materials, please contact our support team."
+    }
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormState({
@@ -51,213 +68,215 @@ const SupportPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-brand-gray-50 pt-20 pb-16">
+    <div className="min-h-screen bg-gray-50 pt-20 pb-16">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <a 
             href="/" 
-            className="inline-flex items-center text-brand-teal hover:text-brand-teal mb-8"
+            className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-8 transition-colors"
           >
             <ArrowLeft className="h-4 w-4 mr-1" /> Back to home
           </a>
           
-          <div className="card-brand shadow-md overflow-hidden mb-12">
-            <div className="p-8">
-              <h1 className="text-3xl md:text-4xl heading-brand mb-6">Support & Contact</h1>
-              
-              <div className="prose max-w-none body-brand">
-                <p className="text-lg text-gray-900 mb-6">
-                  We're here to help you on your solo business journey. Whether you have questions about our sessions, need technical support, or just want to connect, we're just a message away.
+          {/* Hero Section */}
+          <div className="text-center mb-12">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Support & Contact</h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              We're here to help you on your solo business journey. Get in touch with us through any of the channels below.
+            </p>
+          </div>
+
+          {/* Contact Options */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center hover:shadow-md transition-shadow">
+              <Mail className="h-8 w-8 text-gray-600 mx-auto mb-4" />
+              <h3 className="font-semibold text-gray-900 mb-2">Email Support</h3>
+              <p className="text-gray-600 mb-4 text-sm">For general inquiries and support</p>
+              <a 
+                href="mailto:hello@startsolo.in" 
+                className="text-blue-600 hover:text-blue-700 transition-colors font-medium"
+              >
+                hello@startsolo.in
+              </a>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center hover:shadow-md transition-shadow">
+              <MessageCircle className="h-8 w-8 text-gray-600 mx-auto mb-4" />
+              <h3 className="font-semibold text-gray-900 mb-2">WhatsApp Support</h3>
+              <p className="text-gray-600 mb-4 text-sm">Quick responses for urgent queries</p>
+              <a 
+                href="https://chat.whatsapp.com/CgrHI3AQbb6IX3gWKDa5Ij" 
+                className="text-green-600 hover:text-green-700 transition-colors font-medium"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Message on WhatsApp
+              </a>
+            </div>
+          </div>
+          {/* Contact Form */}
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
+            
+            {formState.submitted ? (
+              <div className="text-center py-8">
+                <CheckCircle className="h-12 w-12 text-green-600 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Thank You!</h3>
+                <p className="text-gray-600 mb-6">
+                  Your message has been received. We'll get back to you as soon as possible.
                 </p>
+                <button
+                  onClick={() => setFormState({ ...formState, submitted: false })}
+                  className="bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors duration-200 hover:bg-gray-800 font-medium"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+              <form 
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+                name="support"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+              >
+                {/* Hidden field for Netlify form handling */}
+                <input type="hidden" name="form-name" value="support" />
+                <div className="hidden">
+                  <label>
+                    Don't fill this out if you're human: <input name="bot-field" />
+                  </label>
+                </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                  <div className="card-brand p-6 text-center">
-                    <Mail className="h-10 w-10 text-brand-teal mx-auto mb-3" />
-                    <h3 className="font-bold text-brand-navy mb-2">Email Support</h3>
-                    <p className="text-brand-gray-900 mb-3 text-sm">For general inquiries and support</p>
-                    <a href="mailto:hello@startsolo.in" className="text-brand-teal hover:text-brand-teal transition font-medium">
-                      hello@startsolo.in
-                    </a>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
+                      Your Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formState.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      placeholder="Enter your full name"
+                    />
                   </div>
                   
-                  <div className="card-brand p-6 text-center">
-                    <MessageCircle className="h-10 w-10 text-brand-teal mx-auto mb-3" />
-                    <h3 className="font-bold text-brand-navy mb-2">WhatsApp Support</h3>
-                    <p className="text-brand-gray-900 mb-3 text-sm">Quick responses for urgent queries</p>
-                    <a 
-                      href="https://chat.whatsapp.com/CgrHI3AQbb6IX3gWKDa5Ij" 
-                      className="text-brand-teal hover:text-brand-teal transition font-medium"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Message on WhatsApp
-                    </a>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formState.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      placeholder="Enter your email address"
+                    />
                   </div>
                 </div>
                 
-                <h2 className="text-2xl font-bold text-brand-navy mt-10 mb-6">Contact Form</h2>
-                
-                {formState.submitted ? (
-                  <div className="bg-brand-sky border-brand-sky rounded-lg p-6 text-center">
-                    <CheckCircle className="h-12 w-12 text-brand-teal mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-brand-navy mb-2">Thank You!</h3>
-                    <p className="text-brand-gray-900 mb-4">
-                      Your message has been received. We'll get back to you as soon as possible.
-                    </p>
-                    <button
-                      onClick={() => setFormState({ ...formState, submitted: false })}
-                      className="bg-cta text-cta-text px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0"
-                    >
-                      <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
-                      <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center">
-                        Send Another Message
-                      </span>
-                    </button>
-                  </div>
-                ) : (
-                  <form 
-                    onSubmit={handleSubmit} 
-                    className="space-y-6"
-                    name="support"
-                    method="POST"
-                    data-netlify="true"
-                    netlify-honeypot="bot-field"
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-900 mb-2">
+                    Subject *
+                  </label>
+                  <select
+                    id="subject"
+                    name="subject"
+                    value={formState.subject}
+                    onChange={handleChange}
+                    required
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                   >
-                    {/* Hidden field for Netlify form handling */}
-                    <input type="hidden" name="form-name" value="support" />
-                    <div className="hidden">
-                      <label>
-                        Don't fill this out if you're human: <input name="bot-field" />
-                      </label>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-brand-gray-900 mb-1">
-                          Your Name *
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={formState.name}
-                          onChange={handleChange}
-                          required
-                          className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-brand-primary focus:border-brand-primary text-base"
-                        />
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-brand-gray-900 mb-1">
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formState.email}
-                          onChange={handleChange}
-                          required
-                          className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-brand-primary focus:border-brand-primary text-base"
-                        />
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-brand-gray-900 mb-1">
-                        Subject *
-                      </label>
-                      <select
-                        id="subject"
-                        name="subject"
-                        value={formState.subject}
-                        onChange={handleChange}
-                        required
-                        className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-brand-primary focus:border-brand-primary text-base"
-                      >
-                        <option value="">Please select a subject</option>
-                        <option value="Session Inquiry">Session Inquiry</option>
-                        <option value="Course Information">Course Information</option>
-                        <option value="Technical Support">Technical Support</option>
-                        <option value="Billing Question">Billing Question</option>
-                        <option value="Partnership Opportunity">Partnership Opportunity</option>
-                        <option value="Other">Other</option>
-                      </select>
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-brand-gray-900 mb-1">
-                        Your Message *
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        value={formState.message}
-                        onChange={handleChange}
-                        required
-                        rows={6}
-                        className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-brand-primary focus:border-brand-primary text-base"
-                      ></textarea>
-                    </div>
-                    
-                    {formState.error && (
-                      <div className="bg-red-50 text-red-700 p-3 rounded-md">
-                        {formState.error}
-                      </div>
-                    )}
-                    
-                    <div>
-                      <button
-                        type="submit"
-                        disabled={formState.submitting}
-                        className="w-full bg-cta text-cta-text px-4 py-2 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0 disabled:opacity-70 disabled:cursor-not-allowed"
-                      >
-                        {!formState.submitting && <span className="absolute inset-0 bg-cta-text transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>}
-                        <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center">
-                          {formState.submitting ? (
-                            <>
-                              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                              </svg>
-                              Sending...
-                            </>
-                          ) : (
-                            <>
-                              Send Message <Send className="ml-2 h-5 w-5" />
-                            </>
-                          )}
-                        </span>
-                      </button>
-                    </div>
-                  </form>
+                    <option value="">Please select a subject</option>
+                    <option value="Session Inquiry">Session Inquiry</option>
+                    <option value="Course Information">Course Information</option>
+                    <option value="Technical Support">Technical Support</option>
+                    <option value="Billing Question">Billing Question</option>
+                    <option value="Partnership Opportunity">Partnership Opportunity</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
+                    Your Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formState.message}
+                    onChange={handleChange}
+                    required
+                    rows={5}
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+                    placeholder="Tell us how we can help you..."
+                  ></textarea>
+                </div>
+                
+                {formState.error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg">
+                    {formState.error}
+                  </div>
                 )}
                 
-                <h2 className="text-2xl font-bold text-brand-navy mt-12 mb-6">Frequently Asked Support Questions</h2>
-                
-                <div className="space-y-6 mb-8">
-                  <div className="card-brand p-6">
-                    <h3 className="font-bold text-navy mb-2">How do I get a refund?</h3>
-                    <p className="text-brand-gray-900">
-                      If you're not satisfied with your Session, email us at hello@startsolo.in with details, and we will address your query as per the refund and terms & conditions policy.
-                    </p>
-                  </div>
-                  
-                  <div className="card-brand p-6">
-                    <h3 className="font-bold text-navy mb-2">I missed my scheduled session. Can I reschedule?</h3>
-                    <p className="text-brand-gray-900">
-                      Yes! If you missed your session, you can reschedule for another available date. Please contact us with your original booking details, and we'll help you find a new session date.
-                    </p>
-                  </div>
-                  
-                  <div className="card-brand p-6">
-                    <h3 className="font-bold text-navy mb-2">How do I access the course materials?</h3>
-                    <p className="text-brand-gray-900">
-                      After enrolling in the full course, you'll receive login credentials to our learning platform where all course materials are hosted, or you will get access via WhatsApp, depending on the delivery format mechanism of the course. If you're having trouble accessing your materials, please contact our support team.
-                    </p>
-                  </div>
+                <div>
+                  <button
+                    type="submit"
+                    disabled={formState.submitting}
+                    className="w-full bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors duration-200 hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed font-medium flex items-center justify-center"
+                  >
+                    {formState.submitting ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message <Send className="ml-2 h-5 w-5" />
+                      </>
+                    )}
+                  </button>
                 </div>
-              </div>
+              </form>
+            )}
+          </div>
+          {/* FAQ Section */}
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+            
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <div key={index} className="border border-gray-200 rounded-lg">
+                  <button
+                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                  >
+                    <h3 className="font-medium text-gray-900 pr-4">{faq.question}</h3>
+                    {openFaq === index ? (
+                      <ChevronUp className="h-5 w-5 text-gray-500 flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-gray-500 flex-shrink-0" />
+                    )}
+                  </button>
+                  
+                  {openFaq === index && (
+                    <div className="px-6 pb-4">
+                      <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>

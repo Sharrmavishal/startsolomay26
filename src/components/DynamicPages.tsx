@@ -34,22 +34,14 @@ const DynamicPages: React.FC = () => {
         return <SolosprintBootcampPage />;
       case 'quiz':
         return <QuizPage />;
+      case 'women-entrepreneurs':
+        return <WomenEntrepreneursPage />;
       case 'path/women-entrepreneurs':
         return <WomenEntrepreneursPage />;
       case 'path/laid-off-engineers':
         return <LaidOffEngineersPage />;
       case 'path/graduates-students':
         return <GraduatesStudentsPage />;
-      case 'course':
-        return (
-          <div className="min-h-screen bg-gray-50 pt-20 pb-16">
-            <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto">
-                <CourseOverviewSection />
-              </div>
-            </div>
-          </div>
-        );
       case 'policies/privacy':
         return <PolicyPage type="privacy" />;
       case 'policies/terms':

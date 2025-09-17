@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Send, MapPin, BookOpen, Calendar, Users, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Send, MapPin, BookOpen, Calendar, Users, CheckCircle, ChevronDown, ChevronUp } from 'lucide-react';
 
 interface FormData {
   locations: string[];
@@ -9,6 +9,7 @@ interface FormData {
   email: string;
   submitted: boolean;
   submitting: boolean;
+  currentStep: number;
 }
 
 const SolosprintBootcampPage = () => {
@@ -19,10 +20,13 @@ const SolosprintBootcampPage = () => {
     duration: '',
     email: '',
     submitted: false,
-    submitting: false
+    submitting: false,
+    currentStep: 1
   });
 
-  const cities = [
+  // Simplified cities list - most popular first
+  const popularCities = ['Delhi', 'Mumbai', 'Bangalore', 'Chennai', 'Hyderabad', 'Pune'];
+  const allCities = [
     'Delhi', 'Mumbai', 'Bangalore', 'Chennai', 'Hyderabad', 'Pune',
     'Jaipur', 'Ahmedabad', 'Kochi', 'Chandigarh', 'Indore', 'Lucknow'
   ];
@@ -35,6 +39,27 @@ const SolosprintBootcampPage = () => {
     'Time Management & Productivity Hacks',
     'Networking & Partnerships'
   ];
+
+  const nextStep = () => {
+    setFormData(prev => ({ ...prev, currentStep: prev.currentStep + 1 }));
+  };
+
+  const prevStep = () => {
+    setFormData(prev => ({ ...prev, currentStep: prev.currentStep - 1 }));
+  };
+
+  const isStepValid = (step: number) => {
+    switch (step) {
+      case 1:
+        return formData.locations.length > 0;
+      case 2:
+        return formData.topics.length > 0;
+      case 3:
+        return formData.duration !== '';
+      default:
+        return true;
+    }
+  };
 
   const handleLocationChange = (city: string) => {
     setFormData(prev => ({
@@ -88,196 +113,255 @@ const SolosprintBootcampPage = () => {
         <div className="max-w-4xl mx-auto">
           <a 
             href="/" 
-            className="inline-flex items-center text-primary hover:text-primary-dark mb-8"
+            className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-8 transition-colors"
           >
             <ArrowLeft className="h-4 w-4 mr-1" /> Back to home
           </a>
 
-          <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
-            {/* Hero Image */}
-            <div className="relative h-64 overflow-hidden">
-              <img 
-                src="https://res.cloudinary.com/dnm2ejglr/image/upload/v1743153844/Start_solo_website_creatives_xkrroj.png"
-                alt="Solosprint Bootcamp"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                <div className="p-8 text-white">
-                  <h1 className="text-3xl font-bold mb-2">Solosprint Bootcamp: Shape Your Future</h1>
-                  <p className="text-xl text-white/90">
-                    Help us create a bootcamp that truly meets your needs as a solopreneur
-                  </p>
+          {/* Hero Section */}
+          <div className="text-center mb-12">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Solosprint Bootcamp</h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+              Help us create a bootcamp that truly meets your needs as a solopreneur. Your preferences will shape the experience!
+            </p>
+            
+            {/* What is Solosprint Bootcamp */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">What is Solosprint Bootcamp?</h2>
+              <p className="text-gray-600 mb-6">
+                A dynamic, collaborative initiative designed to equip solopreneurs with actionable skills, insights, and networks they need to succeed.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="text-center">
+                  <Users className="h-8 w-8 text-blue-600 mx-auto mb-2" />
+                  <h3 className="font-semibold text-gray-900 mb-1">Collaboration</h3>
+                  <p className="text-sm text-gray-600">Co-created with solopreneurs like you</p>
+                </div>
+                <div className="text-center">
+                  <BookOpen className="h-8 w-8 text-blue-600 mx-auto mb-2" />
+                  <h3 className="font-semibold text-gray-900 mb-1">Value-Driven</h3>
+                  <p className="text-sm text-gray-600">Focused on real challenges and solutions</p>
+                </div>
+                <div className="text-center">
+                  <Calendar className="h-8 w-8 text-blue-600 mx-auto mb-2" />
+                  <h3 className="font-semibold text-gray-900 mb-1">Practical Learning</h3>
+                  <p className="text-sm text-gray-600">Actionable insights you can implement</p>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="p-8">
-              {formData.submitted ? (
-                <div className="bg-green-50 border border-green-100 rounded-lg p-6 text-center">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle className="h-8 w-8 text-green-600" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Thank You for Your Input!</h3>
-                  <p className="text-gray-700 mb-6">
-                    Your preferences will help us shape the Solosprint Bootcamp. We'll keep you updated on the locations and topics as they're finalized.
-                  </p>
-                  <button
-                    onClick={() => setFormData(prev => ({ ...prev, submitted: false }))}
-                    className="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary-dark transition"
-                  >
-                    Submit Another Response
-                  </button>
+          {/* Form Section */}
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+            {formData.submitted ? (
+              <div className="text-center py-8">
+                <CheckCircle className="h-12 w-12 text-green-600 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Thank You for Your Input!</h3>
+                <p className="text-gray-600 mb-6">
+                  Your preferences will help us shape the Solosprint Bootcamp. We'll keep you updated on the locations and topics as they're finalized.
+                </p>
+                <button
+                  onClick={() => setFormData(prev => ({ ...prev, submitted: false, currentStep: 1 }))}
+                  className="bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors duration-200 hover:bg-gray-800 font-medium"
+                >
+                  Submit Another Response
+                </button>
+              </div>
+            ) : (
+              <form 
+                onSubmit={handleSubmit}
+                name="solosprint-bootcamp"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+              >
+                {/* Hidden fields for Netlify */}
+                <input type="hidden" name="form-name" value="solosprint-bootcamp" />
+                <div className="hidden">
+                  <label>
+                    Don't fill this out if you're human: <input name="bot-field" />
+                  </label>
                 </div>
-              ) : (
-                <>
-                  {/* Introduction */}
-                  <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">What is Solosprint Bootcamp?</h2>
-                    <p className="text-gray-700 mb-4">
-                      A dynamic, collaborative initiative designed to equip solopreneurs with actionable skills, insights, and networks they need to succeed. We're making this bootcamp with you and for you – your preferences will shape the experience!
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                      <div className="bg-primary/5 p-4 rounded-lg border border-primary/10">
-                        <Users className="h-6 w-6 text-primary mb-2" />
-                        <h3 className="font-bold text-gray-900 mb-1">Collaboration</h3>
-                        <p className="text-sm text-gray-600">Co-created with solopreneurs like you</p>
+
+                <div>
+                  {/* Progress Steps */}
+                <div className="flex items-center justify-center mb-8">
+                  <div className="flex items-center space-x-4">
+                    {[1, 2, 3].map((step) => (
+                      <div key={step} className="flex items-center">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                          formData.currentStep >= step 
+                            ? 'bg-blue-600 text-white' 
+                            : 'bg-gray-200 text-gray-600'
+                        }`}>
+                          {step}
+                        </div>
+                        {step < 3 && (
+                          <div className={`w-12 h-1 mx-2 ${
+                            formData.currentStep > step ? 'bg-blue-600' : 'bg-gray-200'
+                          }`} />
+                        )}
                       </div>
-                      <div className="bg-primary/5 p-4 rounded-lg border border-primary/10">
-                        <BookOpen className="h-6 w-6 text-primary mb-2" />
-                        <h3 className="font-bold text-gray-900 mb-1">Value-Driven</h3>
-                        <p className="text-sm text-gray-600">Focused on real challenges and solutions</p>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Step Content */}
+                {formData.currentStep === 1 && (
+                  <div className="space-y-6">
+                    <div className="text-center mb-8">
+                      <MapPin className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                      <h2 className="text-2xl font-bold text-gray-900 mb-2">Preferred Locations</h2>
+                      <p className="text-gray-600">Select the cities where you'd like to attend the bootcamp</p>
+                    </div>
+
+                    <div>
+                      <h3 className="font-medium text-gray-900 mb-4">Popular Cities</h3>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+                        {popularCities.map((city) => (
+                          <button
+                            key={city}
+                            type="button"
+                            onClick={() => handleLocationChange(city)}
+                            className={`p-3 rounded-lg text-left transition-all ${
+                              formData.locations.includes(city)
+                                ? 'bg-blue-600 text-white border-2 border-blue-600' 
+                                : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-blue-600'
+                            }`}
+                          >
+                            <span className="font-medium">{city}</span>
+                          </button>
+                        ))}
                       </div>
-                      <div className="bg-primary/5 p-4 rounded-lg border border-primary/10">
-                        <Calendar className="h-6 w-6 text-primary mb-2" />
-                        <h3 className="font-bold text-gray-900 mb-1">Practical Learning</h3>
-                        <p className="text-sm text-gray-600">Actionable insights you can implement</p>
-                      </div>
+
+                      <details className="mb-6">
+                        <summary className="cursor-pointer text-blue-600 hover:text-blue-700 font-medium mb-4">
+                          View all cities
+                        </summary>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                          {allCities.filter(city => !popularCities.includes(city)).map((city) => (
+                            <button
+                              key={city}
+                              type="button"
+                              onClick={() => handleLocationChange(city)}
+                              className={`p-3 rounded-lg text-left transition-all ${
+                                formData.locations.includes(city)
+                                  ? 'bg-blue-600 text-white border-2 border-blue-600' 
+                                  : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-blue-600'
+                              }`}
+                            >
+                              <span className="font-medium">{city}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </details>
+                    </div>
+
+                    <div className="flex justify-end">
+                      <button
+                        type="button"
+                        onClick={nextStep}
+                        disabled={!isStepValid(1)}
+                        className="bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700"
+                      >
+                        Next Step
+                      </button>
                     </div>
                   </div>
+                )}
 
-                  {/* Feedback Form */}
-                  <form 
-                    onSubmit={handleSubmit}
-                    className="space-y-8"
-                    name="solosprint-bootcamp"
-                    method="POST"
-                    data-netlify="true"
-                    netlify-honeypot="bot-field"
-                  >
-                    {/* Hidden fields for Netlify */}
-                    <input type="hidden" name="form-name" value="solosprint-bootcamp" />
-                    <div className="hidden">
-                      <label>
-                        Don't fill this out if you're human: <input name="bot-field" />
+                {formData.currentStep === 2 && (
+                  <div className="space-y-6">
+                    <div className="text-center mb-8">
+                      <BookOpen className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                      <h2 className="text-2xl font-bold text-gray-900 mb-2">Preferred Topics</h2>
+                      <p className="text-gray-600">Select the topics you'd like to learn about</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+                      {topics.map((topic) => (
+                        <button
+                          key={topic}
+                          type="button"
+                          onClick={() => handleTopicChange(topic)}
+                          className={`p-4 rounded-lg text-left transition-all ${
+                            formData.topics.includes(topic)
+                              ? 'bg-blue-600 text-white border-2 border-blue-600' 
+                              : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-blue-600'
+                          }`}
+                        >
+                          <span className="font-medium">{topic}</span>
+                        </button>
+                      ))}
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Other Topics (Optional)
                       </label>
+                      <input
+                        type="text"
+                        name="otherTopic"
+                        value={formData.otherTopic}
+                        onChange={(e) => setFormData(prev => ({ ...prev, otherTopic: e.target.value }))}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        placeholder="Suggest additional topics you'd like to see covered"
+                      />
                     </div>
 
-                    {/* Preferred Locations */}
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                        <MapPin className="h-5 w-5 text-primary mr-2" />
-                        Preferred Location(s)
-                      </h3>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        {cities.map((city) => (
-                          <label 
-                            key={city}
-                            className={`flex items-center p-3 rounded-lg border cursor-pointer transition-all ${
-                              formData.locations.includes(city)
-                                ? 'bg-primary text-white border-primary'
-                                : 'bg-white text-gray-700 border-gray-200 hover:border-primary'
-                            }`}
-                          >
-                            <input
-                              type="checkbox"
-                              name="locations"
-                              value={city}
-                              checked={formData.locations.includes(city)}
-                              onChange={() => handleLocationChange(city)}
-                              className="sr-only"
-                            />
-                            <span className="ml-2">{city}</span>
-                          </label>
-                        ))}
-                      </div>
+                    <div className="flex justify-between">
+                      <button
+                        type="button"
+                        onClick={prevStep}
+                        className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+                      >
+                        <ArrowLeft className="mr-2 h-4 w-4" />
+                        Previous
+                      </button>
+                      <button
+                        type="button"
+                        onClick={nextStep}
+                        disabled={!isStepValid(2)}
+                        className="bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700"
+                      >
+                        Next Step
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {formData.currentStep === 3 && (
+                  <div className="space-y-6">
+                    <div className="text-center mb-8">
+                      <Calendar className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                      <h2 className="text-2xl font-bold text-gray-900 mb-2">Duration & Contact</h2>
+                      <p className="text-gray-600">Tell us your preferred duration and how to reach you</p>
                     </div>
 
-                    {/* Session Topics */}
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                        <BookOpen className="h-5 w-5 text-primary mr-2" />
-                        Preferred Topics
-                      </h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
-                        {topics.map((topic) => (
-                          <label 
-                            key={topic}
-                            className={`flex items-center p-3 rounded-lg border cursor-pointer transition-all ${
-                              formData.topics.includes(topic)
-                                ? 'bg-primary text-white border-primary'
-                                : 'bg-white text-gray-700 border-gray-200 hover:border-primary'
-                            }`}
-                          >
-                            <input
-                              type="checkbox"
-                              name="topics"
-                              value={topic}
-                              checked={formData.topics.includes(topic)}
-                              onChange={() => handleTopicChange(topic)}
-                              className="sr-only"
-                            />
-                            <span className="ml-2">{topic}</span>
-                          </label>
-                        ))}
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                          Other Topics (Optional)
-                        </label>
-                        <input
-                          type="text"
-                          name="otherTopic"
-                          value={formData.otherTopic}
-                          onChange={(e) => setFormData(prev => ({ ...prev, otherTopic: e.target.value }))}
-                          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
-                          placeholder="Suggest additional topics you'd like to see covered"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Duration Preference */}
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                        <Calendar className="h-5 w-5 text-primary mr-2" />
+                      <label className="block text-sm font-medium text-gray-900 mb-4">
                         Preferred Duration
-                      </h3>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                      </label>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
                         {['1 Day', '2 Days', 'More than 2 Days'].map((duration) => (
-                          <label 
+                          <button
                             key={duration}
-                            className={`flex items-center p-3 rounded-lg border cursor-pointer transition-all ${
+                            type="button"
+                            onClick={() => setFormData(prev => ({ ...prev, duration }))}
+                            className={`p-4 rounded-lg text-center transition-all ${
                               formData.duration === duration
-                                ? 'bg-primary text-white border-primary'
-                                : 'bg-white text-gray-700 border-gray-200 hover:border-primary'
+                                ? 'bg-blue-600 text-white border-2 border-blue-600' 
+                                : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-blue-600'
                             }`}
                           >
-                            <input
-                              type="radio"
-                              name="duration"
-                              value={duration}
-                              checked={formData.duration === duration}
-                              onChange={(e) => setFormData(prev => ({ ...prev, duration: e.target.value }))}
-                              className="sr-only"
-                            />
-                            <span className="ml-2">{duration}</span>
-                          </label>
+                            <span className="font-medium">{duration}</span>
+                          </button>
                         ))}
                       </div>
                     </div>
 
-                    {/* Email (Optional) */}
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
                         Email Address (Optional)
                       </label>
                       <input
@@ -285,21 +369,28 @@ const SolosprintBootcampPage = () => {
                         name="email"
                         value={formData.email}
                         onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                         placeholder="Enter your email to receive updates about the bootcamp"
                       />
                     </div>
 
-                    {/* Submit Button */}
-                    <div>
+                    <div className="flex justify-between">
+                      <button
+                        type="button"
+                        onClick={prevStep}
+                        className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+                      >
+                        <ArrowLeft className="mr-2 h-4 w-4" />
+                        Previous
+                      </button>
                       <button
                         type="submit"
-                        disabled={formData.submitting}
-                        className="w-full bg-primary text-white px-6 py-3 rounded-md hover:bg-primary-dark transition flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
+                        disabled={!isStepValid(3) || formData.submitting}
+                        className="bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700 flex items-center"
                       >
                         {formData.submitting ? (
                           <>
-                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                             </svg>
@@ -312,10 +403,11 @@ const SolosprintBootcampPage = () => {
                         )}
                       </button>
                     </div>
-                  </form>
-                </>
-              )}
-            </div>
+                  </div>
+                )}
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </div>

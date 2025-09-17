@@ -222,7 +222,7 @@ We're committed to ensuring your satisfaction and will work with you to resolve 
   const selectedPolicy = policies[type];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20 pb-16">
+    <div className="min-h-screen bg-[color:var(--color-gray-50)] pt-20 pb-16">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <a 
@@ -232,11 +232,11 @@ We're committed to ensuring your satisfaction and will work with you to resolve 
             <ArrowLeft className="h-4 w-4 mr-1" /> Back to home
           </a>
           
-          <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+          <div className="bg-white rounded-xl shadow-md overflow-hidden border border-[color:var(--color-gray-100)]">
             <div className="p-8">
               <div className="mb-8">
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">{selectedPolicy.title}</h1>
-                <p className="text-gray-600">Last Updated: {selectedPolicy.lastUpdated}</p>
+                <h1 className="text-3xl font-bold text-[color:var(--color-gray-900)] mb-2">{selectedPolicy.title}</h1>
+                <p className="text-[color:var(--color-gray-900)]">Last Updated: {selectedPolicy.lastUpdated}</p>
               </div>
               
               <div className="prose max-w-none">

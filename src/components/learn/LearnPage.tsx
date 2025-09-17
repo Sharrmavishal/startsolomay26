@@ -32,7 +32,7 @@ const LearnPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-[color:var(--color-gray-50)] pt-20">
       <div className="container mx-auto px-4">
         <a 
           href="/" 
@@ -62,40 +62,40 @@ const LearnPage: React.FC = () => {
 
         {/* Courses Section */}
         <div className="max-w-6xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Explore Programs</h2>
+          <h2 className="text-3xl font-bold text-[color:var(--color-gray-900)] mb-8 text-center">Explore Programs</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {allCourses.map((course, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300"
+                className="bg-white rounded-xl shadow-lg border border-[color:var(--color-gray-100)] overflow-hidden hover:shadow-xl transition-all duration-300"
               >
                 <div className="p-6">
                   <div className="flex items-center mb-4">
                     {getStageIcon(course.stageIndex)}
                     <div className="ml-4">
                       <div className="text-sm font-medium text-primary mb-1">{course.stage}</div>
-                      <h3 className="text-xl font-bold text-gray-900">{course.name}</h3>
+                      <h3 className="text-xl font-bold text-[color:var(--color-gray-900)]">{course.name}</h3>
                     </div>
                   </div>
 
-                  <p className="text-gray-600 mb-4">{course.description}</p>
+                  <p className="text-[color:var(--color-gray-900)] mb-4">{course.description}</p>
 
-                  <div className="bg-gray-50 p-4 rounded-lg mb-6">
-                    <h4 className="font-medium text-gray-900 mb-4">Course Curriculum:</h4>
+                  <div className="bg-[color:var(--color-gray-50)] p-4 rounded-lg mb-6">
+                    <h4 className="font-medium text-[color:var(--color-gray-900)] mb-4">Course Curriculum:</h4>
                     <div className="space-y-4">
                       {course.curriculum.map((item, i) => (
                         <div key={i} className="flex items-start">
                           <div className="flex-shrink-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-sm font-medium mr-3 mt-0.5">
                             {i + 1}
                           </div>
-                          <p className="text-gray-700">{item}</p>
+                          <p className="text-[color:var(--color-gray-900)]">{item}</p>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <div className="text-2xl font-bold text-gray-900">
+                    <div className="text-2xl font-bold text-[color:var(--color-gray-900)]">
                       ₹{course.price}
                     </div>
                     <a
@@ -117,10 +117,10 @@ const LearnPage: React.FC = () => {
         <div className="max-w-4xl mx-auto mb-16">
           <div className="bg-gradient-to-br from-secondary/10 to-primary/10 rounded-lg p-6 flex items-center justify-between">
             <div className="flex-1">
-              <h2 className="text-xl font-bold text-gray-900 mb-1">
+              <h2 className="text-xl font-bold text-[color:var(--color-gray-900)] mb-1">
                 Not Sure Where to Begin?
               </h2>
-              <p className="text-gray-600">
+              <p className="text-[color:var(--color-gray-900)]">
                 Take our quick quiz to discover your solopreneur stage
               </p>
             </div>
@@ -135,7 +135,7 @@ const LearnPage: React.FC = () => {
 
         {/* Mentorship Section */}
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Work with a Mentor</h2>
+          <h2 className="text-3xl font-bold text-[color:var(--color-gray-900)] mb-8 text-center">Work with a Mentor</h2>
           <MentorshipSection />
         </div>
       </div>

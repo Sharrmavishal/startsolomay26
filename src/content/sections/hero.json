@@ -1,7 +1,7 @@
 {
-  "highlight": "NEXT COHORT STARTS {cohortStartDate} - JUST ₹99",
-  "heading": "Your dream business starts with you — and you don't have to build it alone.",
-  "subheading": "No big funding. No big team. Just your skills, your passion, and the right guidance to turn ideas into income.",
+  "highlight": "Turn Your Idea Into Income. Start Today!",
+  "heading": "A First of its Kind Incubator for Solopreneurs",
+  "subheading": "You do not need venture capital, high-risk bets, or large investments. With your skill, passion, and commitment, you can build something meaningful. We help you turn that into reality.",
   "keyPoints": [],
   "whoShouldAttend": [
     "Freelancers, consultants, coaches & small business owners",
@@ -10,12 +10,12 @@
   ],
   "whyAttend": "Because you deserve more than just a pay-check—you deserve freedom, fulfilment, and a thriving business. Let's make it happen! 🚀",
   "primaryButton": {
-    "text": "Unlock My Solo Business Idea",
+    "text": "Join the Solopreneur Launchpad Program",
     "url": "#webinar-dates",
     "trackingId": "hero-cta"
   },
   "secondaryButton": {
-    "text": "Get 10 Solo Business Ideas That Don't Need VC",
+    "text": "Get 1:1 Mentorship",
     "url": "#instructor",
     "trackingId": "hero-secondary-cta"
   },
