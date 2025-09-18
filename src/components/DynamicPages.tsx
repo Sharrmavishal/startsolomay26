@@ -38,6 +38,8 @@ const DynamicPages: React.FC = () => {
         return <WomenEntrepreneursPage />;
       case 'path/women-entrepreneurs':
         return <WomenEntrepreneursPage />;
+      case 'engineers-in-career-transition':
+        return <LaidOffEngineersPage />;
       case 'path/laid-off-engineers':
         return <LaidOffEngineersPage />;
       case 'path/graduates-students':

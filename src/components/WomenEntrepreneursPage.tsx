@@ -118,10 +118,9 @@ const WomenEntrepreneursPage: React.FC = () => {
             <div className="w-full lg:w-1/2">
               <div className="relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                  src="https://res.cloudinary.com/ddrztw5i1/image/upload/v1758175545/women_pc1z5o.png" 
                   alt="Woman entrepreneur working" 
-                  className="rounded-lg shadow-xl w-full max-w-sm sm:max-w-md mx-auto lg:max-w-full h-auto object-cover"
-                  style={{ maxHeight: "400px" }}
+                  className="rounded-lg shadow-xl w-full max-w-sm sm:max-w-md mx-auto lg:max-w-full h-auto object-contain"
                 />
                 <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-white p-3 sm:p-4 rounded-lg shadow-lg hidden sm:block">
                   <p className="text-brand-navy font-bold text-sm sm:text-base">Join 570+ women</p>

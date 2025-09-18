@@ -103,7 +103,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
           <div className="w-full lg:w-1/2 mb-6 sm:mb-8 lg:mb-0 lg:pr-8 xl:pr-10">
-                        <div className="inline-block bg-[color:var(--color-teal)] bg-opacity-20 text-white px-3 py-1 md:px-4 md:py-1.5 rounded-full mb-4 md:mb-6 font-medium text-sm md:text-base shadow-sm uppercase">
+                        <div className="inline-block bg-gray-100 text-[color:var(--color-teal)] px-3 py-1 md:px-4 md:py-1.5 rounded-full mb-4 md:mb-6 font-medium text-sm md:text-base shadow-sm uppercase">
               {hero?.highlight?.replace('{cohortStartDate}', general?.cohortStartDate || 'TBA') || `Next cohort starts ${general?.cohortStartDate || 'TBA'}`}
             </div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[color:var(--color-navy)] leading-tight mb-4 sm:mb-5 md:mb-6">

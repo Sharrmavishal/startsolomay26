@@ -36,7 +36,7 @@ const CoursePage: React.FC = () => {
             {/* Left: Title/Meta */}
             <div className="lg:col-span-8">
               <div className="mb-3 text-sm text-gray-600">Start Solo • Professional Certificate</div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">Launchpad: The Start Solo Business Starter Course</h1>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1D3A6B] mb-4 leading-tight">Launchpad: The Start Solo Business Starter Course</h1>
               <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-4 text-gray-700">
                 <div className="flex items-center">
                   {[...Array(5)].map((_, i) => (
@@ -130,7 +130,7 @@ const CoursePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             <div className="lg:col-span-2">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">Skills you'll gain</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-[#1D3A6B] mb-4">Skills you'll gain</h3>
               <div className="flex flex-wrap gap-2">
                 {['Founder Mindset', 'Target Audience Profiling', 'Defining Your Niche', 'Idea Validation', 'Lean Financial Planning', 'Landing Your First Paying Client', 'Smart Content Marketing Strategy', 'One-Pager Business Planning'].map((skill) => (
                   <span key={skill} className="text-xs sm:text-sm bg-[color:var(--color-gray-50)] text-[color:var(--color-gray-700)] px-2 sm:px-3 py-1 rounded-full border border-[color:var(--color-gray-200)]">
@@ -140,7 +140,7 @@ const CoursePage: React.FC = () => {
               </div>
             </div>
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">Tools you'll use</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-[#1D3A6B] mb-4">Tools you'll use</h3>
               <div className="flex flex-wrap gap-2">
                 {['Niche Finder', 'Idea Generator', 'Audience Planner', 'MVP Creator', 'SMART Goals'].map((tool) => (
                   <span key={tool} className="text-xs sm:text-sm bg-[color:var(--color-gray-50)] text-[color:var(--color-gray-700)] px-2 sm:px-3 py-1 rounded-full border border-[color:var(--color-gray-200)]">
@@ -158,7 +158,7 @@ const CoursePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             <div className="lg:col-span-2">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">About This Course</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#1D3A6B] mb-4">About This Course</h3>
               <p className="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
                 Launchpad is a practical, hands-on, self-paced 4-week program designed to guide you step-by-step from idea to launch with confidence. Across 35–40 hours of learning and activities, you will develop a tested business idea, designed around your own skills and passions.
               </p>
@@ -229,7 +229,7 @@ const CoursePage: React.FC = () => {
       <section className="py-8 sm:py-12 bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Course Structure and Modules</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-[#1D3A6B] mb-6">Course Structure and Modules</h3>
             <div className="rounded-xl overflow-hidden border border-gray-200 bg-white">
               {[
                 { 
@@ -401,7 +401,7 @@ const CoursePage: React.FC = () => {
       <section className="py-8 sm:py-12 bg-white border-t border-gray-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Instructors</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-[#1D3A6B] mb-6">Instructors</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               {[
                 { 
@@ -445,7 +445,7 @@ const CoursePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             <div className="lg:col-span-2">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">What learners are saying</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#1D3A6B] mb-6">What learners are saying</h3>
               <div className="space-y-4 sm:space-y-6">
                 {[
                   { 
@@ -505,7 +505,7 @@ const CoursePage: React.FC = () => {
       <section className="py-12 sm:py-16 bg-white border-t border-gray-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8 sm:mb-10">Frequently Asked Questions</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1D3A6B] text-center mb-8 sm:mb-10">Frequently Asked Questions</h2>
             <div className="space-y-3 sm:space-y-4">
               {[
                 { q: 'How long will it take to complete the Launchpad course?', a: 'The course is designed as a 4-week, self-paced program with approximately 35-40 hours of learning, including videos, worksheets, and practical assignments. You can go at your own pace within this timeframe.' },

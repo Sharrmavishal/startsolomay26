@@ -130,11 +130,11 @@ const SpeakersSection = () => {
         
         <div className="mt-12 text-center">
           <a 
-            href="/courses" 
-            className="bg-yellow text-brand-gray-900 px-6 py-3 rounded-lg transition-all duration-300 inline-flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0"
+            href="/course" 
+            className="bg-[color:var(--color-cta)] text-[color:var(--color-cta-text)] px-6 py-3 rounded-lg transition-all duration-300 inline-flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0"
           >
-            <span className="absolute inset-0 bg-yellow-dark transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
-            <span className="relative z-10 transition-colors duration-300 flex items-center">
+            <span className="absolute inset-0 bg-[color:var(--color-cta-dark)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
+            <span className="relative z-10 transition-colors duration-300 flex items-center group-hover:text-white">
               Learn about the Courses <ArrowRight className="ml-2 h-4 w-4" />
             </span>
           </a>

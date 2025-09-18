@@ -88,7 +88,7 @@ const GraduatesStudentsPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <button 
                   onClick={() => setIsLeadMagnetFormOpen(true)}
-                  className="bg-[color:var(--color-yellow)] hover:bg-[color:var(--color-yellow-dark)] text-brand-gray-900 px-4 sm:px-6 py-3 sm:py-3.5 rounded-lg transition flex items-center justify-center text-sm sm:text-base font-semibold w-full sm:w-auto"
+                  className="bg-[#1D3A6B] hover:bg-[#152A4F] text-white px-4 sm:px-6 py-3 sm:py-3.5 rounded-lg transition flex items-center justify-center text-sm sm:text-base font-semibold w-full sm:w-auto"
                 >
                   Start Solo Idea Generator <Download className="ml-2 h-4 w-4" />
                 </button>
@@ -103,10 +103,9 @@ const GraduatesStudentsPage: React.FC = () => {
             <div className="w-full lg:w-1/2">
               <div className="relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                  src="https://res.cloudinary.com/ddrztw5i1/image/upload/v1758175545/graduates_m60jvm.png" 
                   alt="Graduate students collaborating" 
-                  className="rounded-lg shadow-xl w-full max-w-sm sm:max-w-md mx-auto lg:max-w-full h-auto object-cover"
-                  style={{ maxHeight: "400px" }}
+                  className="rounded-lg shadow-xl w-full max-w-sm sm:max-w-md mx-auto lg:max-w-full h-auto object-contain"
                 />
                 <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-white p-3 sm:p-4 rounded-lg shadow-lg hidden sm:block">
                   <p className="text-brand-navy font-bold text-sm sm:text-base">Join 450+ graduates</p>

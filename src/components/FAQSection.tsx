@@ -117,7 +117,7 @@ const FAQSection = () => {
                 <div className="text-center mt-6">
                   <button 
                     onClick={() => setIsExpanded(!isExpanded)}
-                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm"
+                    className="inline-flex items-center px-4 py-2 bg-[#EEB44E] text-[#333333] rounded-lg hover:bg-[#D49E3C] transition-colors font-medium text-sm"
                   >
                     {isExpanded ? (
                       <>
@@ -147,7 +147,7 @@ const FAQSection = () => {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a 
                 href="/support" 
-                className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm"
+                className="inline-flex items-center justify-center px-4 py-2 bg-[#1D3A6B] text-white rounded-lg hover:bg-[#152A4F] transition-colors font-medium text-sm"
               >
                 Contact Support
               </a>

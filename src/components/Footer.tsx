@@ -147,7 +147,7 @@ const Footer = () => {
             <a 
               href="/support" 
               onClick={handleClick}
-              className="bg-[color:var(--color-cta)] hover:bg-[color:var(--color-cta-dark)] text-[color:var(--color-cta-text)] px-4 py-2 rounded-lg transition-colors flex items-center justify-center text-sm font-semibold"
+              className="bg-[color:var(--color-teal)] hover:bg-[color:var(--color-cta-accent-dark)] text-white px-4 py-2 rounded-lg transition-colors flex items-center justify-center text-sm font-semibold"
             >
               Contact Support
             </a>

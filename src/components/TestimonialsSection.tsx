@@ -110,7 +110,7 @@ const TestimonialsSection = () => {
     <section id="testimonials" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <div className="inline-block bg-[color:var(--color-teal)] bg-opacity-20 text-[#E4E5E7] px-4 py-1 rounded-full mb-4 font-medium">
+          <div className="inline-block bg-gray-100 text-[color:var(--color-teal)] px-4 py-1 rounded-full mb-4 font-medium">
             SUCCESS STORIES
           </div>
           <h2 className="text-3xl font-bold text-[color:var(--color-navy)] mb-4">Real Experiences, Real Impact</h2>

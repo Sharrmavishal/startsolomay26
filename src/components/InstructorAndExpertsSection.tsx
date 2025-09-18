@@ -8,7 +8,7 @@ const InstructorAndExpertsSection = () => {
   
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    navigate('/learn');
+    navigate('/course');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -75,7 +75,7 @@ const InstructorAndExpertsSection = () => {
     <section id="instructor" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="inline-block bg-[color:var(--color-teal)] bg-opacity-20 text-[#E4E5E7] px-4 py-1 rounded-full mb-4 font-medium">
+          <div className="inline-block bg-gray-100 text-[color:var(--color-teal)] px-4 py-1 rounded-full mb-4 font-medium">
             LEARN FROM THE BEST
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--color-navy)] mb-4">Meet Your Mentor & Guest Speakers</h2>
@@ -96,7 +96,7 @@ const InstructorAndExpertsSection = () => {
                 />
               </div>
               <div className="md:w-3/5 p-8 md:p-10">
-                <div className="inline-block bg-[color:var(--color-cta)] bg-opacity-20 text-[color:var(--color-navy)] px-3 py-1 rounded-full mb-3 text-sm font-medium">
+                <div className="inline-block bg-gray-100 text-[color:var(--color-cta)] px-3 py-1 rounded-full mb-3 text-sm font-medium">
                   YOUR LEAD MENTOR
                 </div>
                 <h3 className="text-3xl font-bold text-[color:var(--color-navy)] mb-2">Diksha Sethi</h3>
@@ -134,7 +134,7 @@ const InstructorAndExpertsSection = () => {
                 
                 <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
                   <a 
-                    href="/learn"
+                    href="/course"
                     onClick={handleClick}
                     className="bg-[color:var(--color-cta)] hover:bg-[color:var(--color-cta-dark)] text-[color:var(--color-cta-text)] px-6 py-3 rounded-lg transition flex items-center justify-center text-sm md:text-base font-semibold"
                   >
@@ -193,7 +193,7 @@ const InstructorAndExpertsSection = () => {
                       <p className="text-[color:var(--color-teal)] text-sm font-medium">{speaker.role}</p>
                       <p className="text-[color:var(--color-gray-900)] text-sm mb-3">{speaker.company}</p>
                       
-                      <div className="bg-[color:var(--color-teal)] bg-opacity-10 p-3 rounded-lg mb-3">
+                      <div className="bg-gray-100 p-3 rounded-lg mb-3">
                         <div className="flex items-start">
                           <Mic className="h-4 w-4 text-[color:var(--color-teal)] mr-2 flex-shrink-0 mt-0.5" />
                           <p className="text-[color:var(--color-gray-900)] text-sm">{speaker.topic}</p>

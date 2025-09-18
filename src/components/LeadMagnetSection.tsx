@@ -79,7 +79,7 @@ const AnimatedTag = ({ text, color }: AnimatedTagProps) => {
   return (
     <div className="absolute -top-2 -right-2 z-10">
       <div className="relative">
-        <div className={`bg-[color:var(--color-cta)] text-[color:var(--color-navy)] text-xs font-bold py-1 px-2 rounded-full shadow-lg flex items-center`}>
+        <div className={`bg-[color:var(--color-cta)] text-[color:var(--color-cta-text)] text-xs font-bold py-1 px-2 rounded-full shadow-lg flex items-center`}>
           <Sparkles className="w-3 h-3 mr-1" />
           {text}
         </div>
