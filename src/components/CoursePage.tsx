@@ -52,7 +52,7 @@ const CoursePage: React.FC = () => {
                 This comprehensive self-paced 4-week program prepares you with the practical skills and confidence to launch your solo business. Designed for career changers, returning professionals, and fresh graduates, Launchpad eliminates guesswork and shows you how to build your business independently — no large teams, no VC funding, just your skills and passion.
               </p>
               <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <a href="#" className="inline-flex items-center justify-center bg-[color:var(--color-teal)] text-white hover:bg-[color:var(--color-teal-dark)] px-6 py-3 rounded-lg font-semibold transition-colors min-h-[48px]">
+                <a href="#" className="inline-flex items-center justify-center bg-[#1D3A6B] text-white hover:bg-[#152A4F] px-6 py-3 rounded-lg font-semibold transition-colors min-h-[48px]">
                   Enroll now <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
         <button
@@ -114,7 +114,7 @@ const CoursePage: React.FC = () => {
                     Save ₹2898
                   </div>
                 </div>
-                <a href="#" className="w-full bg-[color:var(--color-teal)] hover:bg-[color:var(--color-teal-dark)] text-white px-6 py-3 rounded-lg font-semibold mb-2 transition-all duration-300 hover:scale-105 inline-block text-center min-h-[48px] flex items-center justify-center">
+                <a href="#" className="w-full bg-[#1D3A6B] hover:bg-[#152A4F] text-white px-6 py-3 rounded-lg font-semibold mb-2 transition-all duration-300 hover:scale-105 inline-block text-center min-h-[48px] flex items-center justify-center">
                   Grab Offer
                 </a>
                 <div className="text-xs text-[color:var(--color-gray-600)] text-center">Special Bundle Price Offer.</div>
@@ -595,7 +595,7 @@ const CoursePage: React.FC = () => {
                     Save ₹2898
                   </div>
                 </div>
-                <a href="#" className="w-full bg-[color:var(--color-teal)] hover:bg-[color:var(--color-teal-dark)] text-white px-6 py-3 rounded-lg font-semibold mb-2 transition-all duration-300 hover:scale-105 inline-block text-center min-h-[48px] flex items-center justify-center">
+                <a href="#" className="w-full bg-[#1D3A6B] hover:bg-[#152A4F] text-white px-6 py-3 rounded-lg font-semibold mb-2 transition-all duration-300 hover:scale-105 inline-block text-center min-h-[48px] flex items-center justify-center">
                   Grab Offer
                 </a>
                 <div className="text-xs text-[color:var(--color-gray-600)] text-center">Special Bundle Price Offer.</div>
