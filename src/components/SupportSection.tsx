@@ -27,7 +27,7 @@ const SupportSection = () => {
       icon: <BookOpen className="h-8 w-8 text-white" />,
       image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
       ctaText: "Sign-up",
-      ctaAction: () => navigate('/webinar-landing') // Placeholder for webinar landing page
+      ctaAction: () => navigate('/course')
     },
     {
       title: "1:1 Mentorship",

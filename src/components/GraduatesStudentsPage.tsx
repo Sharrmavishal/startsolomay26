@@ -49,8 +49,8 @@ const GraduatesStudentsPage: React.FC = () => {
           onClose={handleLeadMagnetFormClose}
           leadMagnet={{
             title: "Solo Business Idea Generator",
-            downloadUrl: "/downloads/solo-business-idea-worksheet.pdf",
-            fileName: "solo-business-idea-worksheet.pdf"
+            downloadUrl: "https://res.cloudinary.com/ddrztw5i1/raw/upload/v1758279948/Skills_to_Solo_Business_Idea_Generator_ww5qqd.docx",
+            fileName: "Skills_to_Solo_Business_Idea_Generator.docx"
           }}
         />
       )}
@@ -60,8 +60,8 @@ const GraduatesStudentsPage: React.FC = () => {
           onClose={handleSkillMatchFormClose}
           leadMagnet={{
             title: "Solo Business Idea Generator",
-            downloadUrl: "/downloads/solo-business-idea-worksheet.pdf",
-            fileName: "solo-business-idea-worksheet.pdf"
+            downloadUrl: "https://res.cloudinary.com/ddrztw5i1/raw/upload/v1758279948/Skills_to_Solo_Business_Idea_Generator_ww5qqd.docx",
+            fileName: "Skills_to_Solo_Business_Idea_Generator.docx"
           }}
         />
       )}
@@ -103,7 +103,7 @@ const GraduatesStudentsPage: React.FC = () => {
             <div className="w-full lg:w-1/2">
               <div className="relative">
                 <img 
-                  src="https://res.cloudinary.com/ddrztw5i1/image/upload/v1758175545/graduates_m60jvm.png" 
+                  src="https://res.cloudinary.com/ddrztw5i1/image/upload/v1758181712/graduates_m60jvm.png" 
                   alt="Graduate students collaborating" 
                   className="rounded-lg shadow-xl w-full max-w-sm sm:max-w-md mx-auto lg:max-w-full h-auto object-contain"
                 />
@@ -501,12 +501,22 @@ const GraduatesStudentsPage: React.FC = () => {
             <p className="text-xl text-[color:var(--color-navy)] text-opacity-80 mb-8">
               Join hundreds of graduates who've turned their ideas into successful solo ventures. Start your journey today.
             </p>
-            <a 
-              href="/course" 
-              className="bg-[color:var(--color-yellow)] hover:bg-[color:var(--color-yellow-dark)] text-brand-gray-900 px-8 py-4 rounded-lg transition flex items-center justify-center text-lg font-semibold mx-auto w-fit"
-            >
-              Get Started <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a 
+                href="/course" 
+                className="bg-[color:var(--color-yellow)] hover:bg-[color:var(--color-yellow-dark)] text-brand-gray-900 px-8 py-4 rounded-lg transition flex items-center justify-center text-lg font-semibold w-full sm:w-auto"
+              >
+                Get Started <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
+              <a 
+                href="https://chat.whatsapp.com/FN08Rx57pBv5C1TtvikUWU?mode=ems_copy_t" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-[color:var(--color-navy)] bg-white text-[color:var(--color-navy)] hover:bg-[color:var(--color-navy)] hover:text-white px-8 py-4 rounded-lg transition flex items-center justify-center text-lg font-semibold w-full sm:w-auto"
+              >
+                Join Graduates Community <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
+            </div>
           </div>
         </div>
       </section>

@@ -37,7 +37,7 @@ const pathOptions = [
     textColorClass: "text-[color:var(--color-teal)]",
     hoverColorClass: "group-hover:text-[color:var(--color-navy)]",
     iconColor: "var(--color-teal)",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    image: "https://res.cloudinary.com/ddrztw5i1/image/upload/v1758278640/woman_soloprepreneur_mgqsz2.png",
     customPath: "/women-entrepreneurs"
   },
   {
@@ -48,7 +48,7 @@ const pathOptions = [
     textColorClass: "text-[color:var(--color-cta)]",
     hoverColorClass: "group-hover:text-[color:var(--color-navy)]",
     iconColor: "var(--color-cta)",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+    image: "https://res.cloudinary.com/ddrztw5i1/image/upload/v1758278803/indian_graduates_pgvcc5.png"
   },
   {
     title: "Engineers in Career Transition",
@@ -58,7 +58,7 @@ const pathOptions = [
     textColorClass: "text-[color:var(--color-sky)]",
     hoverColorClass: "group-hover:text-[color:var(--color-navy)]",
     iconColor: "var(--color-sky)",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    image: "https://res.cloudinary.com/ddrztw5i1/image/upload/v1758278936/indian_engineer_fcgro6.png",
     customPath: "/engineers-in-career-transition"
   }
 ];

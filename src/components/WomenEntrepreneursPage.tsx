@@ -52,9 +52,9 @@ const WomenEntrepreneursPage: React.FC = () => {
           isOpen={isPassionGuideFormOpen}
           onClose={handlePassionGuideFormClose}
           leadMagnet={{
-            title: "Free Passion Rediscovery Guide",
-            fileName: "passion-rediscovery-guide.pdf",
-            downloadUrl: "/downloads/passion-rediscovery-guide.pdf"
+            title: "Passion Rediscovery Guide",
+            fileName: "Passion_Rediscovery_Guide_for_Women.docx",
+            downloadUrl: "https://res.cloudinary.com/ddrztw5i1/raw/upload/v1758283876/Passion_Rediscovery_Guide_for_Women_testrj.docx"
           }}
         />
       )}
@@ -64,8 +64,8 @@ const WomenEntrepreneursPage: React.FC = () => {
           onClose={handleSupportToolkitFormClose}
           leadMagnet={{
             title: "Passion Rediscovery Guide (Free)",
-            fileName: "passion-rediscovery-guide.pdf",
-            downloadUrl: "/downloads/passion-rediscovery-guide.pdf"
+            fileName: "Passion_Rediscovery_Guide_for_Women.docx",
+            downloadUrl: "https://res.cloudinary.com/ddrztw5i1/raw/upload/v1758283876/Passion_Rediscovery_Guide_for_Women_testrj.docx"
           }}
         />
       )}
@@ -101,7 +101,7 @@ const WomenEntrepreneursPage: React.FC = () => {
                 >
                   <span className="absolute inset-0 bg-[color:var(--color-cta-dark)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-[-1]"></span>
                   <span className="relative z-10 transition-colors duration-300 flex items-center">
-                    Free Passion Rediscovery Guide <Download className="ml-2 h-4 w-4" />
+                    Passion Rediscovery Guide <Download className="ml-2 h-4 w-4" />
                   </span>
                 </button>
                 <button 
@@ -213,7 +213,7 @@ const WomenEntrepreneursPage: React.FC = () => {
               {/* Image */}
               <div>
                 <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                  src="https://res.cloudinary.com/ddrztw5i1/image/upload/v1758279375/WhatsApp_Image_2025-09-18_at_13.34.22_1_mczrmu.jpg" 
                   alt="Woman balancing work and life" 
                   className="w-full rounded-lg shadow-md"
                   style={{ maxHeight: "300px", objectFit: "cover" }}
@@ -448,7 +448,7 @@ const WomenEntrepreneursPage: React.FC = () => {
                 Join a WhatsApp-led community designed for women like you — a safe, supportive circle where experiences are shared, questions are welcomed, and every milestone is celebrated.
               </p>
               <a 
-                href="https://chat.whatsapp.com/CgrHI3AQbb6IX3gWKDa5Ij?mode=ems_copy_t" 
+                href="https://chat.whatsapp.com/E0LhzEaxMD63YkS3Y3kUDd?mode=ems_copy_t" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center bg-[color:var(--color-navy)] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[color:var(--color-cta)] hover:text-[color:var(--color-cta-text)] transition-all duration-300"

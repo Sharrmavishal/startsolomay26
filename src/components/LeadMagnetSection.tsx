@@ -15,8 +15,8 @@ const leadMagnets = [
     downloadCount: "2,457",
     tag: "Most Popular",
     tagColor: "yellow",
-    downloadUrl: "/downloads/solo-business-idea-worksheet.pdf",
-    fileName: "solo-business-idea-worksheet.pdf"
+    downloadUrl: "https://res.cloudinary.com/ddrztw5i1/raw/upload/v1758279948/Skills_to_Solo_Business_Idea_Generator_ww5qqd.docx",
+    fileName: "Skills_to_Solo_Business_Idea_Generator.docx"
   },
   {
     title: "10 Solo Business Ideas That Don't Need VC",
@@ -30,8 +30,8 @@ const leadMagnets = [
     downloadCount: "1,893",
     tag: "Quick Start",
     tagColor: "steel",
-    downloadUrl: "/downloads/solo-business-ideas.pdf",
-    fileName: "solo-business-ideas.pdf"
+    downloadUrl: "https://res.cloudinary.com/ddrztw5i1/image/upload/v1758279942/10_Solopreneur_Models_That_Don_t_Need_VC_spn4wp.pdf",
+    fileName: "10_Solopreneur_Models_That_Don_t_Need_VC.pdf"
   }
 ];
 

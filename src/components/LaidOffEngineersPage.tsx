@@ -5,7 +5,20 @@ import MentorForm from './MentorForm';
 
 const LaidOffEngineersPage: React.FC = () => {
   const [isLeadMagnetFormOpen, setIsLeadMagnetFormOpen] = useState(false);
+  const [isSkillMatchFormOpen, setIsSkillMatchFormOpen] = useState(false);
   const [isMentorFormOpen, setIsMentorFormOpen] = useState(false);
+
+  const handleLeadMagnetFormClose = () => {
+    setIsLeadMagnetFormOpen(false);
+  };
+
+  const handleSkillMatchFormClose = () => {
+    setIsSkillMatchFormOpen(false);
+  };
+
+  const handleMentorFormClose = () => {
+    setIsMentorFormOpen(false);
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -150,7 +163,7 @@ const LaidOffEngineersPage: React.FC = () => {
                     Identify opportunities you can launch in weeks, not months. Turn your technical expertise into market-ready solutions quickly.
                   </p>
                   <button 
-                    onClick={() => setIsLeadMagnetFormOpen(true)}
+                    onClick={() => setIsSkillMatchFormOpen(true)}
                     className="bg-[color:var(--color-yellow)] hover:bg-[color:var(--color-yellow-dark)] text-brand-gray-900 px-4 py-2 rounded-lg transition flex items-center w-fit text-sm font-semibold"
                   >
                     Match My Skills with a Business Idea <Download className="ml-1 h-3 w-3" />
@@ -515,7 +528,7 @@ const LaidOffEngineersPage: React.FC = () => {
                 Connect with a supportive network of professionals who understand your journey and have been there themselves. Join engineers who are building their own paths forward.
               </p>
               <a 
-                href="#" 
+                href="https://chat.whatsapp.com/CcUxmN9Rlb9E0sfnIZ6HZa?mode=ems_copy_t" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center bg-[color:var(--color-navy)] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[color:var(--color-cta)] hover:text-[color:var(--color-cta-text)] transition-all duration-300"
@@ -531,11 +544,24 @@ const LaidOffEngineersPage: React.FC = () => {
       {isLeadMagnetFormOpen && (
         <LeadMagnetForm
           isOpen={isLeadMagnetFormOpen}
-          onClose={() => setIsLeadMagnetFormOpen(false)}
+          onClose={handleLeadMagnetFormClose}
           leadMagnet={{
             title: "10 Low-Risk Solo Businesses",
-            fileName: "10-low-risk-solo-businesses.pdf",
-            downloadUrl: "/downloads/10-low-risk-solo-businesses.pdf"
+            fileName: "10_Solopreneur_Models_That_Don_t_Need_VC.pdf",
+            downloadUrl: "https://res.cloudinary.com/ddrztw5i1/image/upload/v1758279942/10_Solopreneur_Models_That_Don_t_Need_VC_spn4wp.pdf"
+          }}
+        />
+      )}
+
+      {/* Skill Match Form */}
+      {isSkillMatchFormOpen && (
+        <LeadMagnetForm
+          isOpen={isSkillMatchFormOpen}
+          onClose={handleSkillMatchFormClose}
+          leadMagnet={{
+            title: "Skills to Solo Business Idea Generator",
+            fileName: "Skills_to_Solo_Business_Idea_Generator.docx",
+            downloadUrl: "https://res.cloudinary.com/ddrztw5i1/raw/upload/v1758279948/Skills_to_Solo_Business_Idea_Generator_ww5qqd.docx"
           }}
         />
       )}
@@ -544,7 +570,7 @@ const LaidOffEngineersPage: React.FC = () => {
       {isMentorFormOpen && (
         <MentorForm
           isOpen={isMentorFormOpen}
-          onClose={() => setIsMentorFormOpen(false)}
+          onClose={handleMentorFormClose}
         />
       )}
     </div>
