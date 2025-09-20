@@ -40,7 +40,7 @@ const FAQSection = () => {
         {/* Header Section */}
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-3">{faq.title}</h2>
-          <p className="text-lg text-gray-600 max-w-xl mx-auto mb-6">{faq.subtitle}</p>
+          <p className="text-lg md:text-xl text-gray-600 max-w-xl mx-auto mb-6">{faq.subtitle}</p>
           
           {/* Search Bar */}
           <div className="max-w-sm mx-auto relative">

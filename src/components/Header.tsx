@@ -17,12 +17,21 @@ const Header = () => {
   const location = useLocation();
 
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        const scrolled = window.scrollY > 10;
+        setIsScrolled(scrolled);
+      }, 10); // Small delay to debounce rapid scroll events
     };
     
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   // Handle navigation
@@ -62,19 +71,25 @@ const Header = () => {
   };
 
   return (
-    <header className={`bg-white sticky top-0 z-50 transition-all duration-300 border-b border-gray-200 ${isScrolled ? 'shadow-md py-2' : 'shadow-sm py-4'}`}>
+    <header className={`bg-white sticky top-0 z-50 transition-all duration-200 ease-in-out border-b border-gray-200 ${isScrolled ? 'shadow-md py-3' : 'shadow-sm py-4'}`}>
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center header-content">
           <a 
             href="/" 
             onClick={handleNavClick}
-            className="flex items-center hover:opacity-80 transition-opacity duration-200"
+            className="flex items-center hover:opacity-80 transition-opacity duration-200 header-logo-container"
             aria-label="Return to homepage"
           >
             <img 
-              src="https://res.cloudinary.com/ddrztw5i1/image/upload/v1758036758/start_solo_svg_logo_jahqtw.svg"
+              src="https://res.cloudinary.com/dnm2ejglr/image/upload/v1758377695/start_solo_logo_200x60_masrm4.svg"
               alt="Start Solo Logo"
-              className="h-14 md:h-16 w-auto"
+              className="header-logo"
+              style={{ 
+                height: '60px',
+                width: '200px',
+                objectFit: 'contain',
+                objectPosition: 'left center'
+              }}
             />
           </a>
           
@@ -88,7 +103,7 @@ const Header = () => {
           </button>
           
           {/* Desktop navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-6 header-nav">
             {header.navLinks.map((link, index) => (
               <a 
                 key={index}

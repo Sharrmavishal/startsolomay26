@@ -12,7 +12,7 @@ const MentorForm: React.FC<MentorFormProps> = ({ onClose }) => {
     whatsapp: '',
     agenda: '',
     message: '',
-    emailOptIn: false,
+    consent: false,
     submitted: false,
     submitting: false
   });
@@ -200,15 +200,16 @@ const MentorForm: React.FC<MentorFormProps> = ({ onClose }) => {
 
                 <div className="flex items-start space-x-2 p-3 bg-[color:var(--color-gray-50)] rounded-lg">
                   <input
-                    id="emailOptIn"
-                    name="emailOptIn"
+                    id="consent"
+                    name="consent"
                     type="checkbox"
-                    checked={formData.emailOptIn}
-                    onChange={(e) => setFormData(prev => ({ ...prev, emailOptIn: e.target.checked }))}
+                    required
+                    checked={formData.consent}
+                    onChange={(e) => setFormData(prev => ({ ...prev, consent: e.target.checked }))}
                     className="mt-0.5 h-3 w-3 text-[color:var(--color-navy)] border-[color:var(--color-gray-200)] rounded focus:ring-[color:var(--color-navy)]"
                   />
-                  <label htmlFor="emailOptIn" className="text-xs text-[color:var(--color-gray-900)]">
-                    I'd like to receive updates about courses and resources. You can unsubscribe anytime.
+                  <label htmlFor="consent" className="text-xs text-[color:var(--color-gray-900)]">
+                    I agree to the <a href="/terms" target="_blank" className="text-[color:var(--color-teal)] hover:underline">Terms of Service</a> and <a href="/privacy" target="_blank" className="text-[color:var(--color-teal)] hover:underline">Privacy Policy</a>, and consent to receive updates. Unsubscribe anytime.
                   </label>
                 </div>
 

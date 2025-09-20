@@ -64,7 +64,7 @@ const SupportSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-[color:var(--color-navy)] mb-4">
             How We Support You
           </h2>
-          <p className="text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
             From spark to success — we're with you every step of the way.
           </p>
         </div>
@@ -82,6 +82,7 @@ const SupportSection = () => {
                   src={pillar.image} 
                   alt={pillar.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
                 />
                 
                 {/* Content overlay */}

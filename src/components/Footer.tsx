@@ -13,12 +13,6 @@ const Footer = () => {
     
     if (!href) return;
 
-    // For Quiz link
-    if (href === '/quiz') {
-      navigate('/quiz');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
 
     // For home logo or other links to home
     if (href === '/') {
@@ -71,9 +65,9 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><a href="/" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Home</a></li>
               <li><a href="/about" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+              <li><a href="/course" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Launchpad Course</a></li>
               <li><a href="/#path-selection" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Choose Your Path</a></li>
               <li><a href="/#instructor" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Mentors</a></li>
-              <li><a href="/quiz" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Quiz</a></li>
               <li><a href="/#testimonials" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Success Stories</a></li>
               <li><a href="/#faq" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">FAQs</a></li>
               <li><a href="/solosprint-bootcamp" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Solosprint Bootcamp</a></li>
@@ -96,7 +90,9 @@ const Footer = () => {
                 </a>
               </li>
               <li><a href="/#lead-magnet" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Downloads</a></li>
-              <li><a href="/#testimonials" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Success Stories</a></li>
+              <li><a href="/women-entrepreneurs" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">For Women</a></li>
+              <li><a href="/path/graduates-students" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">For Graduates</a></li>
+              <li><a href="/engineers-in-career-transition" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">For Engineers</a></li>
               <li>
                 <a href="/join-mentor" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">
                   Join as a Mentor

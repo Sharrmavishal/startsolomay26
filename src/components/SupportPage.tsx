@@ -94,7 +94,7 @@ const SupportPage: React.FC = () => {
               <p className="text-gray-600 mb-4 text-sm">For general inquiries and support</p>
               <a 
                 href="mailto:hello@startsolo.in" 
-                className="text-blue-600 hover:text-blue-700 transition-colors font-medium"
+                className="text-[color:var(--color-cta)] hover:text-[color:var(--color-cta-dark)] transition-colors font-medium"
               >
                 hello@startsolo.in
               </a>
@@ -161,7 +161,7 @@ const SupportPage: React.FC = () => {
                       value={formState.name}
                       onChange={handleChange}
                       required
-                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[color:var(--color-cta)] focus:border-[color:var(--color-cta)] transition-colors"
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -177,7 +177,7 @@ const SupportPage: React.FC = () => {
                       value={formState.email}
                       onChange={handleChange}
                       required
-                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[color:var(--color-cta)] focus:border-[color:var(--color-cta)] transition-colors"
                       placeholder="Enter your email address"
                     />
                   </div>
@@ -193,7 +193,7 @@ const SupportPage: React.FC = () => {
                     value={formState.subject}
                     onChange={handleChange}
                     required
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[color:var(--color-cta)] focus:border-[color:var(--color-cta)] transition-colors"
                   >
                     <option value="">Please select a subject</option>
                     <option value="Session Inquiry">Session Inquiry</option>
@@ -216,7 +216,7 @@ const SupportPage: React.FC = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[color:var(--color-cta)] focus:border-[color:var(--color-cta)] transition-colors resize-none"
                     placeholder="Tell us how we can help you..."
                   ></textarea>
                 </div>

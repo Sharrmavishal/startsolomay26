@@ -82,7 +82,7 @@ const GraduatesStudentsPage: React.FC = () => {
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[color:var(--color-navy)] mb-4 sm:mb-5 md:mb-6 leading-tight">
                 Don't Just Apply for Jobs — Create Your Own First Opportunity
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-[color:var(--color-gray-900)] mb-6 sm:mb-7 md:mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] mb-6 sm:mb-7 md:mb-8 leading-relaxed">
                 Start Solo helps graduates design careers beyond traditional jobs — turning passion and skills into solo ventures, or entrepreneurial journeys from day one.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
@@ -106,6 +106,7 @@ const GraduatesStudentsPage: React.FC = () => {
                   src="https://res.cloudinary.com/ddrztw5i1/image/upload/v1758181712/graduates_m60jvm.png" 
                   alt="Graduate students collaborating" 
                   className="rounded-lg shadow-xl w-full max-w-sm sm:max-w-md mx-auto lg:max-w-full h-auto object-contain"
+                  loading="lazy"
                 />
                 <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-white p-3 sm:p-4 rounded-lg shadow-lg hidden sm:block">
                   <p className="text-brand-navy font-bold text-sm sm:text-base">Join 450+ graduates</p>
@@ -130,7 +131,7 @@ const GraduatesStudentsPage: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--color-navy)] mb-4 leading-tight">
               We Understand Some Beginnings Can Be Tough
             </h2>
-            <p className="text-lg text-[color:var(--color-gray-900)] mb-6">
+            <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] mb-6">
               Whether you're waiting for your first opportunity or feel stuck where you are, Start Solo helps you turn skills and passion into meaningful direction. Your passion and drive can always be trusted. Use them—they're never outdated.
             </p>
           </div>
@@ -188,7 +189,7 @@ const GraduatesStudentsPage: React.FC = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-[color:var(--color-navy)] mb-4 leading-tight">
               Start Your Career by Launching Your First Solo Business
             </h2>
-            <p className="text-lg text-[color:var(--color-gray-900)] max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] max-w-2xl mx-auto">
               Skip the traditional job hunt. Build something that's uniquely yours from day one.
             </p>
           </div>
@@ -291,7 +292,7 @@ const GraduatesStudentsPage: React.FC = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--color-navy)] mb-6">A Guided Path to Purpose</h2>
-              <p className="text-xl text-[color:var(--color-gray-900)]">
+              <p className="text-lg md:text-xl text-[color:var(--color-gray-900)]">
                 With Start Solo, you move from ideas to action:
               </p>
             </div>
@@ -327,7 +328,7 @@ const GraduatesStudentsPage: React.FC = () => {
             </div>
             
             <div className="text-center mb-12">
-              <p className="text-xl text-[color:var(--color-gray-900)] font-medium">
+              <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] font-medium">
                 Each step builds confidence and clarity.
               </p>
             </div>
@@ -364,7 +365,7 @@ const GraduatesStudentsPage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--color-navy)] mb-6">Stories: Passion Into Possibility</h2>
-            <p className="text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
               Meet graduates who've transformed their skills into meaningful opportunities.
             </p>
           </div>
@@ -432,7 +433,7 @@ const GraduatesStudentsPage: React.FC = () => {
           </div>
           
           <div className="text-center mt-12">
-            <p className="text-xl text-[color:var(--color-gray-900)] italic max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] italic max-w-3xl mx-auto">
               They gave themselves permission—and found their niche.
             </p>
           </div>

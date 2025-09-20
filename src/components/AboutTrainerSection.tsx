@@ -39,13 +39,11 @@ const AboutTrainerSection = () => {
             <div className="flex flex-col md:flex-row">
               <div className="md:w-2/5 relative">
                 <img
-                  key={key} // Forces re-mounting of the image
-                  ref={imgRef}
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" // Temporary 1x1 transparent placeholder
+                  src={cloudinaryUrl}
                   alt="Diksha Sethi - Communications Specialist"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                   style={{ aspectRatio: '1/1' }}
-                  loading="eager"
                 />
               </div>
               <div className="md:w-3/5 p-8 md:p-10">

@@ -1,0 +1,194 @@
+/* Mobile Image Optimization Styles */
+
+/* Responsive image containers */
+.responsive-image-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #f3f4f6;
+}
+
+/* Loading states for images */
+.image-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Optimize images for different screen sizes */
+@media (max-width: 640px) {
+  .mobile-optimized-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  /* Reduce image quality on mobile for faster loading */
+  .mobile-optimized-image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .tablet-optimized-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 1025px) {
+  .desktop-optimized-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+/* Lazy loading optimization */
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* Intersection observer fallback */
+.no-intersection-observer .lazy-image {
+  opacity: 1;
+}
+
+/* WebP support detection */
+.webp .optimized-image {
+  background-image: url('data:image/webp;base64,UklGRnoAAABXRUJQVlA4TA4AAAAQAAAAEwAAEwAAQUxQSDIAAAARL0AmbZurmr57sl7IzMLoTkGzjprIaZ/pJzKc6b/1rFYZVk9vB5WZf+HAv2kR7VKmxVJhim/0akX6Swx0XZJ7RkIkTd4WgM2XK3zxlJ7Gk0g40WFdk1fJMTJcAm4kF5PLeJ2dnD2k24nInXkYGrgR4D25bSdA/3ZW2b70Fj9uT7gW0ZMQ0M9Phw4HpChkS8FH40YO8R/OQ41c66yaH2sA1p/oo5Vh8Fm+6LsoiLDgXde6mS3n+/b9s5p7M/ul19Zr6F2DxmzA3+2RzT5Ms+sGQAAAfZ8frYq5P2BvVDbeLefV9Lq8VJY7Q4SEmRselX63rd3wvB/ufMrv7iRc0Xw2D/4Nc4wiUw6xcZYpS5kqlr0YxNDe9RcZpTn9IIMMT1MkUQGkZRSSI+Fk2J+6A2KaYakvZI2LiSS2F5B5Wj05jk2LkLqaqj0D3BQoPaz8Bu8D4Wwx+7Oqr+0e8lXx9+sz6ff+9Z3bsk5Yjkh6Ui1T2UHVasvkb6nnK9R4I7f4q6D8B/U6vPvUy+1Ij3Zt9IbUdVWT8oH2Fet1mRrQra9BXRirzT1k7pq1Sq8F1XawBbbGxX94fU6+2oDzMCAwEAAQ==');
+}
+
+.no-webp .optimized-image {
+  background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k=');
+}
+
+/* Performance optimizations */
+.optimized-image {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .optimized-image {
+    transition: none;
+  }
+  
+  .image-loading {
+    animation: none;
+  }
+}
+
+/* High DPI display optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .high-dpi-optimized {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Print styles */
+@media print {
+  .optimized-image {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+  }
+}
+
+/* Header stability fixes - Keep header compact */
+header {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  max-height: 100px !important;
+  overflow: visible !important;
+}
+
+/* Prevent layout shifts during scroll */
+.header-content {
+  min-height: 80px; /* Ensure consistent height */
+  display: flex;
+  align-items: center;
+}
+
+/* Logo sizing fixes - Perfect 200x60 dimensions */
+.header-logo {
+  height: 60px !important;
+  width: 200px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  display: block !important;
+}
+
+/* Ensure logo container doesn't constrain the logo but keeps header compact */
+.header-logo-container {
+  display: flex !important;
+  align-items: center !important;
+  min-width: 200px !important;
+  height: 100% !important;
+  flex-shrink: 0 !important;
+}
+
+/* Smooth transitions for header elements */
+.header-logo {
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Mobile responsive logo adjustments */
+@media (max-width: 768px) {
+  .header-logo {
+    height: 50px !important;
+    width: 160px !important;
+  }
+  
+  .header-logo-container {
+    min-width: 160px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-logo {
+    height: 45px !important;
+    width: 140px !important;
+  }
+  
+  .header-logo-container {
+    min-width: 140px !important;
+  }
+}
+
+.header-nav {
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Reduce flickering on scroll */
+@media (prefers-reduced-motion: no-preference) {
+  header {
+    transition: box-shadow 0.2s ease-in-out, padding 0.2s ease-in-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header {
+    transition: none;
+  }
+}

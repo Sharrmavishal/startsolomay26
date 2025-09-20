@@ -10,6 +10,7 @@ const HeroSection = () => {
   const [isLeadFormOpen, setIsLeadFormOpen] = useState(false);
   const [isMentorFormOpen, setIsMentorFormOpen] = useState(false);
   const [currentPdf, setCurrentPdf] = useState({ title: '', pdfName: '' });
+  const [videoError, setVideoError] = useState(false);
 
   // Fallbacks for missing content
   if (!hero) {
@@ -168,20 +169,41 @@ const HeroSection = () => {
               <div className="bg-white rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:shadow-3xl border border-[color:var(--color-gray-100)]">
                 <div className="relative">
                   <div className="aspect-video">
-                    {hero?.videoId ? (
+                    {hero?.videoId && !videoError ? (
                       <iframe 
-                        src={`https://www.youtube.com/embed/${hero.videoId}`}
+                        src={`https://www.youtube.com/embed/${hero.videoId}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1&cc_load_policy=0&iv_load_policy=3&autohide=0`}
                         title="Solo Accelerator Session Preview"
                         className="w-full h-full"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
+                        loading="lazy"
+                        onError={() => setVideoError(true)}
                       ></iframe>
                     ) : hero?.previewImage ? (
-                      <img 
-                        src={hero.previewImage} 
-                        alt="Session Preview" 
-                        className="w-full h-full object-cover" 
-                      />
+                      <div className="relative w-full h-full">
+                        <img 
+                          src={hero.previewImage} 
+                          alt="Session Preview" 
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                        {hero?.videoId && (
+                          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                            <a 
+                              href={`https://www.youtube.com/watch?v=${hero.videoId}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full flex items-center space-x-2 transition-colors"
+                            >
+                              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                              </svg>
+                              <span>Watch on YouTube</span>
+                            </a>
+                          </div>
+                        )}
+                      </div>
                     ) : null}
                   </div>
                 </div>

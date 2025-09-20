@@ -51,12 +51,12 @@ function App() {
               <Route path="/" element={
                 <>
                   <HeroSection />
-                  <WorkshopMentorshipSection />
+                  <SupportSection />
                   <PathSelectionSection />
                   <InstructorAndExpertsSection />
                   <LeadMagnetSection />
+                  <WorkshopMentorshipSection />
                   <TestimonialsSection />
-                  <SupportSection />
                   <FAQSection />
                   <StickyWhatsAppCTA />
                   <Footer />

@@ -18,7 +18,7 @@ const AboutPage: React.FC = () => {
           {/* Hero Section */}
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About Start Solo</h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
               Helping solopreneurs build profitable businesses without burnout
             </p>
           </div>
@@ -37,7 +37,7 @@ const AboutPage: React.FC = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`px-4 py-2 rounded-lg whitespace-nowrap transition-colors ${
                     activeTab === tab.id
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-[color:var(--color-cta)] text-[color:var(--color-cta-text)]'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
@@ -53,23 +53,23 @@ const AboutPage: React.FC = () => {
                   Start Solo was founded with a simple mission: to help aspiring entrepreneurs build profitable solo businesses without the burnout that often comes with it.
                 </p>
                 
-                <div className="bg-blue-50 p-8 rounded-lg border border-blue-100">
+                <div className="bg-[color:var(--color-gray-50)] p-8 rounded-lg border border-[color:var(--color-gray-100)]">
                   <h3 className="text-xl font-bold text-gray-900 mb-6">Our Comprehensive Support System</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-4">
                       <div className="flex items-start">
-                        <div className="bg-blue-100 p-2 rounded-lg mr-3">
-                          <BookOpen className="h-5 w-5 text-blue-600" />
+                        <div className="bg-[color:var(--color-teal)] bg-opacity-20 p-2 rounded-lg mr-3">
+                          <BookOpen className="h-5 w-5 text-[color:var(--color-teal)]" />
                         </div>
                         <div>
                           <h3 className="font-semibold text-gray-900">Bootcamps</h3>
-                          <p className="text-gray-600">Expert-led on-ground training sessions - <a href="/solosprint-bootcamp" className="text-blue-600 hover:text-blue-700">learn more</a></p>
+                          <p className="text-gray-600">Expert-led on-ground training sessions - <a href="/solosprint-bootcamp" className="text-[color:var(--color-teal)] hover:text-[color:var(--color-cta-dark)]">learn more</a></p>
                         </div>
                       </div>
                       
                       <div className="flex items-start">
-                        <div className="bg-blue-100 p-2 rounded-lg mr-3">
-                          <Users className="h-5 w-5 text-blue-600" />
+                        <div className="bg-[color:var(--color-teal)] bg-opacity-20 p-2 rounded-lg mr-3">
+                          <Users className="h-5 w-5 text-[color:var(--color-teal)]" />
                         </div>
                         <div>
                           <h3 className="font-semibold text-gray-900">Community Forum</h3>
@@ -78,8 +78,8 @@ const AboutPage: React.FC = () => {
                       </div>
                       
                       <div className="flex items-start">
-                        <div className="bg-blue-100 p-2 rounded-lg mr-3">
-                          <Award className="h-5 w-5 text-blue-600" />
+                        <div className="bg-[color:var(--color-teal)] bg-opacity-20 p-2 rounded-lg mr-3">
+                          <Award className="h-5 w-5 text-[color:var(--color-teal)]" />
                         </div>
                         <div>
                           <h3 className="font-semibold text-gray-900">Mentorships</h3>
@@ -90,8 +90,8 @@ const AboutPage: React.FC = () => {
                     
                     <div className="space-y-4">
                       <div className="flex items-start">
-                        <div className="bg-blue-100 p-2 rounded-lg mr-3">
-                          <Briefcase className="h-5 w-5 text-blue-600" />
+                        <div className="bg-[color:var(--color-teal)] bg-opacity-20 p-2 rounded-lg mr-3">
+                          <Briefcase className="h-5 w-5 text-[color:var(--color-teal)]" />
                         </div>
                         <div>
                           <h3 className="font-semibold text-gray-900">Resource Library</h3>
@@ -100,8 +100,8 @@ const AboutPage: React.FC = () => {
                       </div>
                       
                       <div className="flex items-start">
-                        <div className="bg-blue-100 p-2 rounded-lg mr-3">
-                          <ChevronRight className="h-5 w-5 text-blue-600" />
+                        <div className="bg-[color:var(--color-teal)] bg-opacity-20 p-2 rounded-lg mr-3">
+                          <ChevronRight className="h-5 w-5 text-[color:var(--color-teal)]" />
                         </div>
                         <div>
                           <h3 className="font-semibold text-gray-900">Exclusive Tools</h3>
@@ -110,8 +110,8 @@ const AboutPage: React.FC = () => {
                       </div>
                       
                       <div className="flex items-start">
-                        <div className="bg-blue-100 p-2 rounded-lg mr-3">
-                          <MessageCircle className="h-5 w-5 text-blue-600" />
+                        <div className="bg-[color:var(--color-teal)] bg-opacity-20 p-2 rounded-lg mr-3">
+                          <MessageCircle className="h-5 w-5 text-[color:var(--color-teal)]" />
                         </div>
                         <div>
                           <h3 className="font-semibold text-gray-900">Marketplace</h3>
@@ -140,7 +140,7 @@ const AboutPage: React.FC = () => {
                   <h3 className="font-bold text-gray-900 mb-6">Her Journey Highlights</h3>
                   <div className="space-y-6">
                     <div className="flex items-start">
-                      <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
+                      <div className="bg-[color:var(--color-cta)] text-[color:var(--color-cta-text)] rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
                         1
                       </div>
                       <div className="ml-4">
@@ -149,7 +149,7 @@ const AboutPage: React.FC = () => {
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
+                      <div className="bg-[color:var(--color-cta)] text-[color:var(--color-cta-text)] rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
                         2
                       </div>
                       <div className="ml-4">
@@ -158,7 +158,7 @@ const AboutPage: React.FC = () => {
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
+                      <div className="bg-[color:var(--color-cta)] text-[color:var(--color-cta-text)] rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
                         3
                       </div>
                       <div className="ml-4">
@@ -174,7 +174,7 @@ const AboutPage: React.FC = () => {
             {/* Mission & Values Tab */}
             {activeTab === 'mission' && (
               <div className="space-y-8">
-                <div className="bg-blue-50 p-6 rounded-lg border border-blue-100">
+                <div className="bg-[color:var(--color-gray-50)] p-6 rounded-lg border border-[color:var(--color-gray-100)]">
                   <h3 className="text-xl font-bold text-gray-900 mb-3">Our Mission</h3>
                   <p className="text-gray-600">
                     To empower 100,00,00 professionals to build profitable solo businesses with financial freedom and work-life balance by 2030.
@@ -185,15 +185,15 @@ const AboutPage: React.FC = () => {
                   <h3 className="font-bold text-gray-900 mb-4">Our Goals</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
-                      <ChevronRight className="h-5 w-5 text-blue-600 mr-2 mt-0.5" />
+                      <ChevronRight className="h-5 w-5 text-[color:var(--color-teal)] mr-2 mt-0.5" />
                       <span className="text-gray-600">Empower professionals to become successful solopreneurs</span>
                     </li>
                     <li className="flex items-start">
-                      <ChevronRight className="h-5 w-5 text-blue-600 mr-2 mt-0.5" />
+                      <ChevronRight className="h-5 w-5 text-[color:var(--color-teal)] mr-2 mt-0.5" />
                       <span className="text-gray-600">Create a supportive community of like-minded individuals</span>
                     </li>
                     <li className="flex items-start">
-                      <ChevronRight className="h-5 w-5 text-blue-600 mr-2 mt-0.5" />
+                      <ChevronRight className="h-5 w-5 text-[color:var(--color-teal)] mr-2 mt-0.5" />
                       <span className="text-gray-600">Promote sustainable business practices</span>
                     </li>
                   </ul>
@@ -252,18 +252,18 @@ const AboutPage: React.FC = () => {
                     </div>
                     <div className="p-6">
                       <h3 className="text-xl font-bold text-gray-900 mb-1">Diksha Sethi</h3>
-                      <p className="text-blue-600 font-medium mb-4">Founder & Lead Trainer</p>
+                      <p className="text-[color:var(--color-teal)] font-medium mb-4">Founder & Lead Trainer</p>
                       <ul className="space-y-2 text-gray-600">
                         <li className="flex items-start">
-                          <ChevronRight className="h-4 w-4 text-blue-600 mr-2 mt-0.5" />
+                          <ChevronRight className="h-4 w-4 text-[color:var(--color-teal)] mr-2 mt-0.5" />
                           <span>Communications specialist with 18+ years of experience</span>
                         </li>
                         <li className="flex items-start">
-                          <ChevronRight className="h-4 w-4 text-blue-600 mr-2 mt-0.5" />
+                          <ChevronRight className="h-4 w-4 text-[color:var(--color-teal)] mr-2 mt-0.5" />
                           <span>Led branding for Mastercard, Ford, Qualcomm, Indigo</span>
                         </li>
                         <li className="flex items-start">
-                          <ChevronRight className="h-4 w-4 text-blue-600 mr-2 mt-0.5" />
+                          <ChevronRight className="h-4 w-4 text-[color:var(--color-teal)] mr-2 mt-0.5" />
                           <span>20,000+ training hours clocked and counting</span>
                         </li>
                       </ul>
@@ -280,18 +280,18 @@ const AboutPage: React.FC = () => {
                     </div>
                     <div className="p-6">
                       <h3 className="text-xl font-bold text-gray-900 mb-1">Vishal Sharma</h3>
-                      <p className="text-blue-600 font-medium mb-4">AI Solopreneur & Marketing Strategist</p>
+                      <p className="text-[color:var(--color-teal)] font-medium mb-4">AI Solopreneur & Marketing Strategist</p>
                       <ul className="space-y-2 text-gray-600">
                         <li className="flex items-start">
-                          <ChevronRight className="h-4 w-4 text-blue-600 mr-2 mt-0.5" />
+                          <ChevronRight className="h-4 w-4 text-[color:var(--color-teal)] mr-2 mt-0.5" />
                           <span>Digital marketing expert with two decades of proven brand marketing experience</span>
                         </li>
                         <li className="flex items-start">
-                          <ChevronRight className="h-4 w-4 text-blue-600 mr-2 mt-0.5" />
+                          <ChevronRight className="h-4 w-4 text-[color:var(--color-teal)] mr-2 mt-0.5" />
                           <span>Expertise in business strategy and technology solutions</span>
                         </li>
                         <li className="flex items-start">
-                          <ChevronRight className="h-4 w-4 text-blue-600 mr-2 mt-0.5" />
+                          <ChevronRight className="h-4 w-4 text-[color:var(--color-teal)] mr-2 mt-0.5" />
                           <span>Specializes in scaling businesses and improving operational efficiency</span>
                         </li>
                       </ul>
@@ -299,14 +299,14 @@ const AboutPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="bg-blue-50 p-8 rounded-lg border border-blue-100 text-center">
+                <div className="bg-[color:var(--color-gray-50)] p-8 rounded-lg border border-[color:var(--color-gray-100)] text-center">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Join Our Journey</h3>
                   <p className="text-gray-600 mb-6">
                     We aim to redefine success for solopreneurs. Whether starting out or scaling up, join our community.
                   </p>
                   <a 
                     href="https://chat.whatsapp.com/CgrHI3AQbb6IX3gWKDa5Ij"
-                    className="bg-green-600 text-white px-6 py-3 rounded-lg transition-colors duration-200 hover:bg-green-700 font-medium inline-flex items-center"
+                    className="bg-green-600 text-[color:var(--color-cta-text)] px-6 py-3 rounded-lg transition-colors duration-200 hover:bg-green-700 font-medium inline-flex items-center"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -338,7 +338,7 @@ const AboutPage: React.FC = () => {
                 <Mail className="h-6 w-6 text-gray-600 mr-3 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                  <a href="mailto:hello@startsolo.in" className="text-blue-600 hover:text-blue-700 transition-colors">
+                  <a href="mailto:hello@startsolo.in" className="text-[color:var(--color-teal)] hover:text-[color:var(--color-cta-dark)] transition-colors">
                     hello@startsolo.in
                   </a>
                 </div>

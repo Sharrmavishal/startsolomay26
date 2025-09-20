@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Award, BookOpen, Users, Briefcase, ArrowRight, Mic, ChevronRight, ChevronLeft } from 'lucide-react';
+import { Award, BookOpen, Users, Briefcase, ArrowRight, Mic, ChevronRight, ChevronLeft, TrendingUp, Target, BarChart3 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const InstructorAndExpertsSection = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [activeMentor, setActiveMentor] = useState(0);
   const navigate = useNavigate();
   
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -11,6 +12,39 @@ const InstructorAndExpertsSection = () => {
     navigate('/course');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const mentors = [
+    {
+      name: "Diksha Sethi",
+      role: "Founder, Start Solo",
+      title: "YOUR LEAD MENTOR",
+      image: "https://res.cloudinary.com/dnm2ejglr/image/upload/v1741361535/Meet_The_Trainer_800x800_wb7jkq.png",
+      description: "Meet Diksha Sethi—Communications Specialist, brand whisperer, and solopreneur champion. With 18 years of experience leading brands like Mastercard, Ford, IndiGo, SpiceJet, and Qualcomm, she has navigated boardrooms, crisis war rooms, and major brand launches.",
+      highlights: [
+        { icon: Briefcase, text: "18+ years of proven agency leadership expertise" },
+        { icon: Users, text: "Empowered 2,800+ professionals" },
+        { icon: BookOpen, text: "20,000+ hours of impactful mentoring" },
+        { icon: Award, text: "Award-winning podcaster & NLP practitioner" }
+      ],
+      quote: "I believe in our motto: 'Start Solo—but not alone.' My mission is to help people look beyond the 9-to-5 and turn their passion into financial freedom. Start Solo is a community that incubates, mentors, and empowers solopreneurs to launch and grow—every step of the way.",
+      author: "— Diksha Sethi"
+    },
+    {
+      name: "Vishal Sharma",
+      role: "Founder, Start Solo",
+      title: "YOUR CO-MENTOR",
+      image: "https://res.cloudinary.com/dnm2ejglr/image/upload/v1758382815/Vishal_profile_800_x_800_px_y5s92t.png",
+      description: "Meet Vishal Sharma - Digital Maverick, storyteller, transformation leader & Co-Founder, Start Solo. With 18+ years of experience across Pharma, Energy, Government, E-commerce, Real estate, Non-profits, Education, Tech, OTT, Aviation, and Tourism, he blends creativity and data to drive growth.",
+      highlights: [
+        { icon: Briefcase, text: "18+ years leading digital teams" },
+        { icon: TrendingUp, text: "Head of Digital at Publicis Groupe" },
+        { icon: Target, text: "Experienced in large-scale digital transformation" },
+        { icon: BarChart3, text: "Creator of impactful marketing strategies with measurable results" }
+      ],
+      quote: "Most programs target VC-backed startups or expect full-time commitment. Start Solo is for those starting small and lean, especially first-timers with no business background. We offer practical, hands-on support to help them build from the ground up and grow gradually without putting too much at stake.",
+      author: "— Vishal Sharma"
+    }
+  ];
 
   const speakers = [
     {
@@ -79,70 +113,115 @@ const InstructorAndExpertsSection = () => {
             LEARN FROM THE BEST
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--color-navy)] mb-4">Meet Your Mentor & Guest Speakers</h2>
-          <p className="text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
             Learn from industry leaders, innovators, and challengers who bring real-world expertise to help you build, launch, and scale as a solopreneur.
           </p>
         </div>
         
-        {/* Main Mentor Section */}
+        {/* Main Mentor Section - Carousel */}
         <div className="max-w-6xl mx-auto mb-16">
-          <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100">
-            <div className="flex flex-col md:flex-row">
-              <div className="md:w-2/5">
-                <img 
-                  src="https://res.cloudinary.com/dnm2ejglr/image/upload/v1741361535/Meet_The_Trainer_800x800_wb7jkq.png"
-                  alt="Diksha Sethi - Communications Specialist" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="md:w-3/5 p-8 md:p-10">
-                <div className="inline-block bg-gray-100 text-[color:var(--color-cta)] px-3 py-1 rounded-full mb-3 text-sm font-medium">
-                  YOUR LEAD MENTOR
-                </div>
-                <h3 className="text-3xl font-bold text-[color:var(--color-navy)] mb-2">Diksha Sethi</h3>
-                <p className="text-[color:var(--color-teal)] font-medium mb-4">Founder, Start Solo</p>
-                
-                <p className="text-[color:var(--color-gray-900)] mb-6">
-                  Meet Diksha Sethi—Communications Specialist, brand whisperer, and solopreneur champion. With 18 years of experience leading brands like Mastercard, Ford, IndiGo, SpiceJet, and Qualcomm, she has navigated boardrooms, crisis war rooms, and major brand launches.
-                </p>
-                
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="flex items-center">
-                    <Briefcase className="h-5 w-5 text-[color:var(--color-teal)] mr-2" />
-                    <span className="text-[color:var(--color-gray-900)]">18+ years of proven agency leadership expertise</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Users className="h-5 w-5 text-[color:var(--color-teal)] mr-2" />
-                    <span className="text-[color:var(--color-gray-900)]">Empowered 2,800+ professionals</span>
-                  </div>
-                  <div className="flex items-center">
-                    <BookOpen className="h-5 w-5 text-[color:var(--color-teal)] mr-2" />
-                    <span className="text-[color:var(--color-gray-900)]">20,000+ hours of impactful mentoring</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Award className="h-5 w-5 text-[color:var(--color-teal)] mr-2" />
-                    <span className="text-[color:var(--color-gray-900)]">Award-winning podcaster & NLP practitioner</span>
-                  </div>
-                </div>
-                
-                <div className="bg-[color:var(--color-gray-50)] p-4 rounded-lg border border-[color:var(--color-gray-100)] mb-6">
-                  <p className="italic text-[color:var(--color-gray-900)] mb-3">
-                    "I believe in our motto: 'Start Solo—but not alone.' My mission is to help people look beyond the 9-to-5 and turn their passion into financial freedom. Start Solo is a community that incubates, mentors, and empowers solopreneurs to launch and grow—every step of the way."
-                  </p>
-                  <p className="font-medium text-[color:var(--color-navy)]">— Diksha Sethi</p>
-                </div>
-                
-                <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-                  <a 
-                    href="/course"
-                    onClick={handleClick}
-                    className="bg-[color:var(--color-cta)] hover:bg-[color:var(--color-cta-dark)] text-[color:var(--color-cta-text)] px-6 py-3 rounded-lg transition flex items-center justify-center text-sm md:text-base font-semibold"
-                  >
-                    Learn about the Courses <ArrowRight className="ml-2 h-5 w-5" />
-                  </a>
+          <div className="relative">
+            {/* Navigation Buttons */}
+            <button
+              onClick={() => setActiveMentor(activeMentor === 0 ? mentors.length - 1 : activeMentor - 1)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white rounded-full p-2 shadow-lg z-10 hover:bg-[color:var(--color-gray-50)]"
+              aria-label="Previous mentor"
+            >
+              <ChevronLeft className="h-6 w-6 text-[color:var(--color-gray-900)]" />
+            </button>
+            
+            <button
+              onClick={() => setActiveMentor(activeMentor === mentors.length - 1 ? 0 : activeMentor + 1)}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white rounded-full p-2 shadow-lg z-10 hover:bg-[color:var(--color-gray-50)]"
+              aria-label="Next mentor"
+            >
+              <ChevronRight className="h-6 w-6 text-[color:var(--color-gray-900)]" />
+            </button>
+
+            <div className="overflow-hidden">
+              <div 
+                className="transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${activeMentor * 100}%)` }}
+              >
+                <div className="flex">
+                  {mentors.map((mentor, index) => (
+                    <div 
+                      key={index}
+                      className="w-full flex-shrink-0"
+                      style={{ width: '100%' }}
+                    >
+                      <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100">
+                        <div className="flex flex-col md:flex-row">
+                          <div className="md:w-2/5">
+                            <img 
+                              src={mentor.image}
+                              alt={`${mentor.name} - ${mentor.role}`} 
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div className="md:w-3/5 p-8 md:p-10">
+                            <div className="inline-block bg-gray-100 text-[color:var(--color-cta)] px-3 py-1 rounded-full mb-3 text-sm font-medium">
+                              {mentor.title}
+                            </div>
+                            <h3 className="text-3xl font-bold text-[color:var(--color-navy)] mb-2">{mentor.name}</h3>
+                            <p className="text-[color:var(--color-teal)] font-medium mb-4">{mentor.role}</p>
+                            
+                            <p className="text-[color:var(--color-gray-900)] mb-6">
+                              {mentor.description}
+                            </p>
+                            
+                            <div className="grid grid-cols-2 gap-4 mb-6">
+                              {mentor.highlights.map((highlight, idx) => {
+                                const IconComponent = highlight.icon;
+                                return (
+                                  <div key={idx} className="flex items-center">
+                                    <IconComponent className="h-5 w-5 text-[color:var(--color-teal)] mr-2" />
+                                    <span className="text-[color:var(--color-gray-900)]">{highlight.text}</span>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                            
+                            <div className="bg-[color:var(--color-gray-50)] p-4 rounded-lg border border-[color:var(--color-gray-100)] mb-6">
+                              <p className="italic text-[color:var(--color-gray-900)] mb-3">
+                                "{mentor.quote}"
+                              </p>
+                              <p className="font-medium text-[color:var(--color-navy)]">{mentor.author}</p>
+                            </div>
+                            
+                            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                              <a 
+                                href="/course"
+                                onClick={handleClick}
+                                className="bg-[color:var(--color-cta)] hover:bg-[color:var(--color-cta-dark)] text-[color:var(--color-cta-text)] px-6 py-3 rounded-lg transition flex items-center justify-center text-sm md:text-base font-semibold"
+                              >
+                                Learn about the Courses <ArrowRight className="ml-2 h-5 w-5" />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
+          </div>
+          
+          {/* Dots Indicator */}
+          <div className="flex justify-center mt-6 space-x-2">
+            {mentors.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveMentor(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === activeMentor 
+                    ? 'bg-[color:var(--color-cta)]' 
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to mentor ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
         

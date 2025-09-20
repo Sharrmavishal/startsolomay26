@@ -88,10 +88,10 @@ const WomenEntrepreneursPage: React.FC = () => {
               <h2 className="text-xl sm:text-2xl md:text-3xl text-[color:var(--color-teal)] mb-4 sm:mb-5 md:mb-6 font-medium">
                 Welcome to Work That Moves With Your Life
               </h2>
-              <p className="text-base sm:text-lg text-[color:var(--color-gray-900)] mb-5 sm:mb-6 md:mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] mb-5 sm:mb-6 md:mb-8 leading-relaxed">
                 Your pause wasn't a setback—it was part of your journey. With Start Solo, rediscover your purpose and shape a career that grows with you, not against you.
               </p>
-              <p className="text-base sm:text-lg text-[color:var(--color-gray-900)] mb-6 sm:mb-7 md:mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] mb-6 sm:mb-7 md:mb-8 leading-relaxed">
                 Life and work can flow together. Your skills and ambitions are always relevant, ready for new possibilities.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
@@ -148,7 +148,7 @@ const WomenEntrepreneursPage: React.FC = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[color:var(--color-navy)] mb-3 sm:mb-4 leading-tight">
               We See You. We Hear You.
             </h2>
-            <p className="text-base sm:text-lg text-[color:var(--color-gray-900)] mb-5 sm:mb-6 leading-relaxed">
+            <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] mb-5 sm:mb-6 leading-relaxed">
               Maybe you stepped back for caregiving, learning, or rest. At Start Solo, we believe your experience enriches both your work and your life. You never have to choose just one.
             </p>
           </div>
@@ -213,9 +213,10 @@ const WomenEntrepreneursPage: React.FC = () => {
               {/* Image */}
               <div>
                 <img 
-                  src="https://res.cloudinary.com/ddrztw5i1/image/upload/v1758279375/WhatsApp_Image_2025-09-18_at_13.34.22_1_mczrmu.jpg" 
+                  src="https://res.cloudinary.com/dnm2ejglr/image/upload/v1758386067/solopreneur_500x350_px_js38ah.png" 
                   alt="Woman balancing work and life" 
                   className="w-full rounded-lg shadow-md"
+                  loading="lazy"
                   style={{ maxHeight: "300px", objectFit: "cover" }}
                 />
               </div>
@@ -278,7 +279,7 @@ const WomenEntrepreneursPage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--color-navy)] mb-6">Real Stories, Real Blending of Life & Work</h2>
-            <p className="text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
               Meet women who've transformed their career breaks into opportunities for growth and fulfillment.
             </p>
           </div>
@@ -346,7 +347,7 @@ const WomenEntrepreneursPage: React.FC = () => {
           </div>
           
           <div className="text-center mt-12">
-            <p className="text-xl text-[color:var(--color-gray-900)] italic max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] italic max-w-3xl mx-auto">
               Their breakthroughs brought work and life closer—on their own terms.
             </p>
           </div>
@@ -358,7 +359,7 @@ const WomenEntrepreneursPage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--color-navy)] mb-6">Your Support Toolkit</h2>
-            <p className="text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
               Everything you need to build a career that works with your life, not against it.
             </p>
           </div>
@@ -444,7 +445,7 @@ const WomenEntrepreneursPage: React.FC = () => {
                 </div>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-[color:var(--color-navy)]">Women Who Build, Together</h2>
-              <p className="text-lg mb-6 leading-relaxed text-[color:var(--color-gray-900)]">
+              <p className="text-lg md:text-xl mb-6 leading-relaxed text-[color:var(--color-gray-900)]">
                 Join a WhatsApp-led community designed for women like you — a safe, supportive circle where experiences are shared, questions are welcomed, and every milestone is celebrated.
               </p>
               <a 

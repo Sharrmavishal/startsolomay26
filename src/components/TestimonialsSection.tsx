@@ -43,6 +43,18 @@ const TestimonialsSection = () => {
       role: "Communications Consultant, Archetype",
       quote: "Diksha's incredible approach to digital marketing fundamentals, enriched with practical case studies, has boosted my confidence to handle campaigns independently—highly recommended for anyone starting their marketing journey.",
       stars: 4.5
+    },
+    {
+      name: "Bhawna Arora",
+      role: "Counselling Therapist",
+      quote: "The personalised attention and clear details suggested were quite practical and made sense.",
+      stars: 4.5
+    },
+    {
+      name: "Shweta Mishra",
+      role: "Founder, Yoganomy Wellness",
+      quote: "Had a great experience working with them.",
+      stars: 4.5
     }
   ];
 
@@ -114,7 +126,7 @@ const TestimonialsSection = () => {
             SUCCESS STORIES
           </div>
           <h2 className="text-3xl font-bold text-[color:var(--color-navy)] mb-4">Real Experiences, Real Impact</h2>
-          <p className="text-lg text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
             Discover how professionals and entrepreneurs have transformed their careers through our workshops and mentoring
           </p>
         </div>

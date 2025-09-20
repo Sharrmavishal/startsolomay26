@@ -9,213 +9,193 @@ const PolicyPage: React.FC<PolicyPageProps> = ({ type }) => {
   const policies = {
     privacy: {
       title: "Privacy Policy",
-      lastUpdated: "Feb 24, 2025",
+      lastUpdated: "January 20, 2025",
       content: `
 # Privacy Policy
 
-**Last Updated: Feb 24, 2025**
+**Last Updated: January 20, 2025**
 
-This Privacy Policy describes how Start Solo ("we," "us," or "our") collects, uses, and shares your personal information when you visit our website, register for our webinars, or purchase our courses.
+At Start Solo, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, register for our webinars, purchase our courses, or interact with our services.
 
 ## Information We Collect
 
-### Personal Information
+We collect information that you voluntarily provide to us when you register, create an account, make purchases, or communicate with us. This includes your name, email address, phone number, professional background, payment information, and any messages or feedback you send us.
 
-We may collect the following types of personal information:
+We also collect information during mentorship sessions, including session recordings (with your consent), notes from mentoring conversations, and feedback on your progress and goals.
 
-- **Contact Information**: Name, email address, phone number
-- **Account Information**: Username, password
-- **Payment Information**: Credit card details, billing address
-- **Profile Information**: Professional background, goals, preferences
-- **Communication**: Messages sent to us via contact forms or email
-
-### Usage Information
-
-We automatically collect certain information about your device and how you interact with our website:
-
-- **Device Information**: IP address, browser type, operating system
-- **Usage Data**: Pages visited, time spent on pages, links clicked
-- **Location Information**: General location based on IP address
+We automatically collect certain information about your device and usage when you visit our website, including your IP address, browser type, pages visited, and general location based on your IP address.
 
 ## How We Use Your Information
 
-We use your personal information for the following purposes:
+We use your personal information to provide and maintain our educational services, process payments, deliver course materials, and provide customer support. We also use it to send you important updates about our services, notify you about new courses and offerings, and share relevant educational content.
 
-- To provide and maintain our services
-- To process and fulfill your purchases
-- To send you important information about our services
-- To communicate with you about webinars, courses, and other offerings
-- To improve our website and services
-- To comply with legal obligations
+For mentorship services, we use session recordings and notes to improve our mentorship program, track your progress, and provide personalized guidance. We analyze website usage to improve our services, personalize your experience, and ensure the security and integrity of our platform. We comply with applicable laws and regulations and protect our rights and prevent fraud.
 
 ## How We Share Your Information
 
-We may share your personal information with:
+We may share your personal information with trusted third-party service providers who assist us with payment processing, email marketing, website hosting, and analytics. We may also disclose your information when required by law, to protect our rights, or in the event of a business transfer.
 
-- **Service Providers**: Companies that help us deliver our services (payment processors, email service providers, etc.)
-- **Legal Requirements**: When required by law or to protect our rights
+**We do not sell, rent, or trade your personal information to third parties for marketing purposes.**
 
-We do not sell your personal information to third parties.
+## Data Security
 
-## Your Rights
+We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, accidental loss, and malicious attacks. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.
 
-Depending on your location, you may have certain rights regarding your personal information, including:
+## Your Rights and Choices
 
-- The right to access your personal information
-- The right to correct inaccurate information
-- The right to delete your personal information
-- The right to restrict or object to processing
-- The right to data portability
+Depending on your location, you may have rights to access, correct, delete, or restrict the processing of your personal information. You can also opt out of marketing communications and manage your notification preferences. To exercise these rights, please contact us at privacy@startsolo.in.
 
-To exercise these rights, please contact us at privacy@startsolo.in.
+## Cookies and Data Retention
 
-## Changes to This Policy
+We use cookies and similar technologies to remember your preferences, analyze website traffic, and ensure website functionality. You can control cookie settings through your browser preferences. We retain your personal information for as long as necessary to provide our services, comply with legal requirements, and support business operations.
 
-We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
+## International Data Transfers and Children's Privacy
+
+Your information may be transferred to and processed in countries other than your own, with appropriate safeguards in place. Our services are not intended for children under 13 years of age, and we do not knowingly collect personal information from children under 13.
+
+## Changes to This Privacy Policy
+
+We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of any material changes by posting the updated policy on our website and updating the "Last Updated" date. Your continued use of our services after any changes constitutes acceptance of the updated policy.
 
 ## Contact Us
 
-If you have any questions about this Privacy Policy, please contact us:
+If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
 
-Email: privacy@startsolo.in
-Address: Start Solo, C2, Sector 1, Block C, Sector 1, Noida, Uttar Pradesh 201301`
+**Email**: privacy@startsolo.in
+**Address**: Start Solo, C2, Sector 1, Block C, Sector 1, Noida, Uttar Pradesh 201301
+**Phone**: Available through our support channels
+
+We are committed to addressing your privacy concerns promptly and transparently.`
     },
     terms: {
       title: "Terms of Service",
-      lastUpdated: "Feb 24, 2025",
+      lastUpdated: "January 20, 2025",
       content: `
 # Terms of Service
 
-**Last Updated: Feb 24, 2025**
+**Last Updated: January 20, 2025**
 
-Please read these Terms of Service ("Terms") carefully before using the Start Solo website or any of our services.
+Welcome to Start Solo! These Terms of Service ("Terms") govern your use of our website, services, and educational programs. Please read these Terms carefully before accessing or using our services.
 
 ## Acceptance of Terms
 
-By accessing or using our website, registering for webinars, or purchasing courses, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our services.
+By accessing our website, registering for webinars, purchasing courses, or using any of our services, you agree to be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, please do not use our services.
 
-## Services
+## Description of Services
 
-Start Solo provides educational content, webinars, courses, and resources for solopreneurs. We reserve the right to modify, suspend, or discontinue any part of our services at any time without notice.
+Start Solo provides comprehensive educational services for aspiring and current solopreneurs, including educational content, community access, mentorship programs, resources and tools, and support services. We reserve the right to modify, suspend, or discontinue any part of our services at any time without prior notice.
 
-## User Accounts
+## Mentorship Services
 
-When you create an account with us, you must provide accurate and complete information. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.
+### Educational Nature and Individual Responsibility
 
-## Payment and Refunds
+Our mentorship services are designed to provide guidance, insights, and educational support to help you develop your entrepreneurial skills and business knowledge. While we provide valuable guidance and support, the ultimate success of your business endeavors depends on your individual efforts, market conditions, and various external factors.
 
-### Payment
+Business success is influenced by numerous factors including market conditions, economic trends, competition, and industry changes that are beyond anyone's control. We provide strategic advice and recommendations, but you retain full responsibility for how you choose to implement these suggestions in your specific business context.
 
-All prices are listed in Indian Rupees (INR) unless otherwise specified. By making a purchase, you authorize us to charge the payment method you provide.
+### Business Decision Autonomy and Professional Consultation
 
-### Refunds
+All business decisions remain entirely yours, and we encourage you to use our guidance as one input among many in your decision-making process. We recommend consulting with qualified professionals (accountants, lawyers, financial advisors) for specific legal, financial, or tax matters.
 
-For the Solo Accelerator Session, we offer a 100% money-back guarantee if you attend the full session and don't feel it was worth your time.
+As with any business venture, there are inherent risks, and we encourage you to assess these risks carefully before making significant business decisions. Business success often requires ongoing learning, adaptation, and refinement of strategies based on real-world experience.
 
-For course purchases, refund policies will be specified at the time of purchase. Generally, we offer a 30-day money-back guarantee for our courses.
+### Mentorship Session Terms
 
-## Intellectual Property
+We strive to accommodate your schedule while maintaining high-quality mentorship experiences for all participants. Sessions may be recorded (with your consent) to help us improve our mentorship program and ensure consistent quality. We maintain strict confidentiality regarding your business information and expect the same professional discretion from you. We understand that business schedules can be unpredictable and offer flexible rescheduling with reasonable notice.
 
-All content on our website and in our courses, including text, graphics, logos, images, audio, video, and software, is the property of Start Solo and is protected by copyright and other intellectual property laws.
+## Course Services
 
-You may not reproduce, distribute, modify, create derivative works from, publicly display, publicly perform, republish, download, store, or transmit any of our materials without our express written consent.
+### Educational Content and Individual Application
 
-## User Content
+Our course materials are designed for educational purposes and represent general business principles and strategies. The effectiveness of course content depends on how you adapt and apply the principles to your specific business situation. Business strategies that work in one market or time period may need adjustment for different conditions.
 
-By submitting content to our website or services (such as comments, testimonials, or forum posts), you grant us a non-exclusive, royalty-free, perpetual, irrevocable, and fully sublicensable right to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such content throughout the world in any media.
+Business practices and market conditions evolve, and we encourage you to stay updated with current trends and best practices. For specific legal, financial, or regulatory matters, we recommend consulting with qualified professionals in those fields.
 
-## Limitation of Liability
+### Course Implementation Terms
 
-To the maximum extent permitted by law, Start Solo shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses resulting from your access to or use of or inability to access or use our services.
+Course completion and application of materials is entirely at your own pace and discretion. Course materials may be updated periodically to reflect current best practices and market conditions. When participating in course-related communities or forums, you agree to maintain professional and respectful communication. Course materials are for your personal use in building your business, not for redistribution or commercial training purposes.
 
-## Governing Law
+## User Accounts and Registration
 
-These Terms shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law provisions.
+When you create an account with us, you must provide accurate, current, and complete information, maintain and update your information as necessary, and keep your account credentials secure and confidential. You are responsible for all activities that occur under your account and must comply with all applicable laws and regulations. We reserve the right to suspend or terminate your account if you violate these Terms.
+
+## Payment Terms and Refunds
+
+All prices are listed in Indian Rupees (INR) unless otherwise specified. Payment must be made in full before accessing course materials. We accept various payment methods including credit cards, debit cards, and digital wallets.
+
+Our refund policies vary by service. For Launchpad: The Start Solo Business Starter Course, we offer a 3-day money-back guarantee with detailed feedback required. For other services, refund policies will be specified at the time of purchase. Processing time is typically 7-10 business days for approved refunds.
+
+## Intellectual Property Rights
+
+All content on our website and in our courses, including text, graphics, logos, images, audio, video, software, and course materials, is the exclusive property of Start Solo and is protected by copyright, trademark, and other intellectual property laws.
+
+You may access and use our content for personal, non-commercial purposes and download materials specifically provided for download. You may not reproduce, distribute, or create derivative works without written permission, use our content for commercial purposes without authorization, remove copyright notices, or share login credentials with others.
+
+## User-Generated Content
+
+By submitting content to our platform, you grant us a non-exclusive, royalty-free, perpetual license to use, reproduce, modify, and distribute your content. Your submitted content must be original, comply with applicable laws, and not contain harmful or inappropriate material. We reserve the right to review, moderate, and remove content that violates these Terms.
+
+## Prohibited Activities
+
+You agree not to use our services for any unlawful purpose, attempt to gain unauthorized access to our systems, interfere with our services, use automated systems to access our content, share false information, or harass other users.
+
+## Disclaimers and Limitations
+
+We strive to provide reliable service but cannot guarantee uninterrupted access to our platform or error-free operation of our systems. While we provide high-quality educational content, we cannot guarantee specific business outcomes or financial results.
+
+To the maximum extent permitted by law, Start Solo shall not be liable for indirect, incidental, or consequential damages, loss of profits, revenue, or business opportunities, loss of data, or any damages exceeding the amount paid for our services.
+
+## Indemnification and Privacy
+
+You agree to indemnify and hold harmless Start Solo from any claims, damages, or expenses arising from your use of our services, violation of these Terms, or submission of inappropriate content. Our collection and use of your personal information is governed by our Privacy Policy.
+
+## Governing Law and Dispute Resolution
+
+These Terms shall be governed by the laws of India. Any disputes shall be resolved through good faith negotiation, mediation if negotiation fails, or binding arbitration as a last resort.
 
 ## Changes to Terms
 
-We reserve the right to modify these Terms at any time. We will provide notice of significant changes by posting the new Terms on our website and updating the "Last Updated" date.
+We reserve the right to modify these Terms at any time. We will notify you of material changes by posting updated Terms on our website and updating the "Last Updated" date. Your continued use of our services after changes constitutes acceptance of the updated Terms.
 
-## Contact Us
+## Severability
 
-If you have any questions about these Terms, please contact us:
+If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.
 
-Email: legal@startsolo.in
-Address: Start Solo, C2, Sector 1, Block C, Sector 1, Noida, Uttar Pradesh 201301`
+## Contact Information
+
+If you have any questions about these Terms of Service, please contact us:
+
+**Email**: legal@startsolo.in
+**Address**: Start Solo, C2, Sector 1, Block C, Sector 1, Noida, Uttar Pradesh 201301
+**Support**: Available through our website contact form
+
+We are committed to addressing your concerns and questions promptly and professionally.`
     },
     refund: {
       title: "Refund Policy",
-      lastUpdated: "Feb 24, 2025",
+      lastUpdated: "January 20, 2025",
       content: `
 # Refund Policy
 
-**Last Updated: Feb 24, 2025**
+**Last Updated: January 20, 2025**
 
 At Start Solo, we want you to be completely satisfied with your investment in your learning journey. This refund policy outlines our commitment to fairness and transparency in all our offerings.
 
-## Solo Accelerator Session (₹99)
+## Launchpad: The Start Solo Business Starter Course
 
-### Money-Back Guarantee
+We offer a 3-day money-back guarantee for our Launchpad course. You must request the refund within 3 days of purchase and provide detailed feedback about why the course didn't meet your expectations.
 
-We offer a 100% money-back guarantee for our Solo Accelerator Session under the following conditions:
+To request a refund, email us at hello@startsolo.in with your purchase details. We'll review your request within 2-3 business days and process approved refunds within 7-10 business days.
 
-- You attend the full 90-minute session
-- You feel the session didn't provide value as promised
-- You request a refund within 24 hours of attending the session
+## Refund Exclusions and Additional Terms
 
-In addition to refunding your registration fee, we'll also provide complimentary access to our "Solo Business Starter Kit" (₹1,997 value) as a gesture of goodwill.
+Refunds are not available for course purchases made using special discount codes, bundle purchases, or after the guarantee period has expired. We reserve the right to deny refund requests that appear to be fraudulent or abusive.
 
-### How to Request a Refund
-
-To request a refund for the Solo Accelerator Session:
-
-1. Email us at hello@startsolo.in within 24 hours of attending the session
-2. Include your registration details and reason for the refund
-3. We'll process your refund within 5-7 business days
-
-## Start Solo Course
-
-### 30-Day Money-Back Guarantee
-
-For our comprehensive Start Solo course, we offer a 30-day money-back guarantee:
-
-- You must have completed less than 30% of the course content
-- You must request the refund within 30 days of purchase
-- You must provide detailed feedback about why the course didn't meet your expectations
-
-### Refund Exclusions
-
-Refunds are not available for:
-
-- Course purchases made using special discount codes
-- Bundle purchases or promotional offers
-- After accessing more than 30% of the course content
-- After the 30-day guarantee period has expired
-
-### How to Request a Course Refund
-
-1. Email hello@startsolo.in with subject line "Course Refund Request"
-2. Include your purchase details and reason for refund
-3. Our team will review your request within 48 hours
-4. Approved refunds will be processed within 7-10 business days
-
-## Additional Terms
-
-- Refunds will be issued to the original payment method used for purchase
-- Processing times may vary depending on your payment provider
-- Any bonus materials or downloads must be deleted upon refund
-- We reserve the right to deny refund requests that don't meet our criteria
+Refunds will be issued to the original payment method used for purchase. Processing times may vary depending on your payment provider. Any bonus materials or downloads must be deleted upon refund, and we reserve the right to deny refund requests that don't meet our criteria.
 
 ## Contact Us
 
-If you have any questions about our refund policy, please contact us:
-
-- Email: hello@startsolo.in
-- WhatsApp: Join our Support Hub
-- Contact Form: Visit our Support Page
-- Address: Start Solo, C2, Sector 1, Block C, Sector 1, Noida, Uttar Pradesh 201301
-
-We're committed to ensuring your satisfaction and will work with you to resolve any concerns about our products or services.`
+If you have any questions about our refund policy, please contact us at hello@startsolo.in. We're committed to ensuring your satisfaction and will work with you to resolve any concerns about our products or services.`
     }
   };
 
@@ -239,15 +219,21 @@ We're committed to ensuring your satisfaction and will work with you to resolve 
                 <p className="text-[color:var(--color-gray-900)]">Last Updated: {selectedPolicy.lastUpdated}</p>
               </div>
               
-              <div className="prose max-w-none">
+              <div className="prose max-w-none text-[color:var(--color-gray-900)] leading-relaxed">
                 <div dangerouslySetInnerHTML={{ 
                   __html: selectedPolicy.content
-                    .replace(/# (.*)/g, '<h1 class="text-3xl font-bold mb-6">$1</h1>')
-                    .replace(/## (.*)/g, '<h2 class="text-2xl font-bold mt-8 mb-4">$1</h2>')
-                    .replace(/### (.*)/g, '<h3 class="text-xl font-bold mt-6 mb-3">$1</h3>')
-                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                    .replace(/- (.*)/g, '<li class="ml-4">$1</li>')
-                    .split('\n\n').join('<br><br>')
+                    .replace(/# (.*)/g, '<h1 class="text-3xl font-bold text-[color:var(--color-navy)] mb-6 mt-8 first:mt-0">$1</h1>')
+                    .replace(/## (.*)/g, '<h2 class="text-xl font-semibold text-[color:var(--color-navy)] mt-6 mb-3">$1</h2>')
+                    .replace(/### (.*)/g, '<h3 class="text-lg font-medium text-[color:var(--color-navy)] mt-4 mb-2">$1</h3>')
+                    .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-[color:var(--color-navy)]">$1</strong>')
+                    .replace(/- (.*)/g, '<li class="ml-6 mb-2 list-disc">$1</li>')
+                    .replace(/(\d+)\. (.*)/g, '<li class="ml-6 mb-2 list-decimal">$2</li>')
+                    .split('\n\n').map(paragraph => {
+                      if (paragraph.trim().startsWith('<h') || paragraph.trim().startsWith('<li')) {
+                        return paragraph;
+                      }
+                      return `<p class="mb-4 leading-relaxed">${paragraph.trim()}</p>`;
+                    }).join('')
                 }} />
               </div>
             </div>

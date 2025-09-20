@@ -537,7 +537,7 @@ const CoursePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center text-gray-800">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight">Take the first step toward independence and entrepreneurship today.</h2>
-            <p className="text-lg sm:text-xl mb-6 sm:mb-8 text-gray-700">
+            <p className="text-lg md:text-xl mb-6 sm:mb-8 text-gray-700">
               Begin your transformation today.
             </p>
             <div className="mb-4 sm:mb-6 flex items-center justify-center gap-2">

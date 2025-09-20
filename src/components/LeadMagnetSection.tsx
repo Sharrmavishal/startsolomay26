@@ -189,7 +189,7 @@ const LeadMagnetSection = () => {
             Kickstart Your Solopreneur Journey
           </h2>
           <div className="w-16 h-1 bg-[color:var(--color-cta)] mx-auto mb-3"></div>
-          <p className="text-base text-[color:var(--color-gray-900)] max-w-xl mx-auto">
+          <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] max-w-xl mx-auto">
             Download for FREE
           </p>
         </div>

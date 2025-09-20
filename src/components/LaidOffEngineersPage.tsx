@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Download, Calendar, Users, BookOpen, Briefcase, Code, LineChart } from 'lucide-react';
 import LeadMagnetForm from './LeadMagnetForm';
+import { OptimizedImage } from './OptimizedImage';
 import MentorForm from './MentorForm';
 
 const LaidOffEngineersPage: React.FC = () => {
@@ -36,7 +37,7 @@ const LaidOffEngineersPage: React.FC = () => {
               <h2 className="text-xl sm:text-2xl md:text-3xl text-[color:var(--color-teal)] mb-4 sm:mb-5 md:mb-6 font-medium">
                 Losing a job never erases your value.
               </h2>
-              <p className="text-base sm:text-lg text-[color:var(--color-gray-900)] mb-6 sm:mb-7 md:mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] mb-6 sm:mb-7 md:mb-8 leading-relaxed">
                 At Start Solo, your expertise becomes a launchpad for independence—no company can take away your future.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
@@ -84,7 +85,7 @@ const LaidOffEngineersPage: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--color-navy)] mb-4 leading-tight">
               We Understand the Uncertainty You're Facing
             </h2>
-            <p className="text-lg text-[color:var(--color-gray-900)] mb-6">
+            <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] mb-6">
               You're never starting from zero. Career transitions can feel overwhelming, but your technical expertise and problem-solving skills are more valuable than ever. At Start Solo, we help you channel that uncertainty into opportunity.
             </p>
           </div>
@@ -142,7 +143,7 @@ const LaidOffEngineersPage: React.FC = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-[color:var(--color-navy)] mb-4 leading-tight">
               Your Skills Deserve a Fresh Direction
             </h2>
-            <p className="text-lg text-[color:var(--color-gray-900)] max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] max-w-2xl mx-auto">
               Losing a job doesn't mean losing your edge. At Start Solo, we help you bounce back fast by turning your expertise into a solo business.
             </p>
           </div>
@@ -245,7 +246,7 @@ const LaidOffEngineersPage: React.FC = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--color-navy)] mb-6">Let's Put Your Skills Back to Work—For You</h2>
-              <p className="text-xl text-[color:var(--color-gray-900)]">
+              <p className="text-lg md:text-xl text-[color:var(--color-gray-900)]">
                 Start Solo helps you:
               </p>
             </div>
@@ -281,7 +282,7 @@ const LaidOffEngineersPage: React.FC = () => {
             </div>
             
             <div className="text-center mb-12">
-              <p className="text-xl text-[color:var(--color-gray-900)] font-medium">
+              <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] font-medium">
                 You don't have to wait. Begin building the life that fits you, today.
               </p>
             </div>
@@ -318,7 +319,7 @@ const LaidOffEngineersPage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--color-navy)] mb-6">From Layoff to Take-Off: Genuine Stories</h2>
-            <p className="text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
               Meet professionals who've transformed unexpected career changes into opportunities for growth.
             </p>
           </div>
@@ -386,7 +387,7 @@ const LaidOffEngineersPage: React.FC = () => {
           </div>
           
           <div className="text-center mt-12">
-            <p className="text-xl text-[color:var(--color-gray-900)] italic max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] italic max-w-3xl mx-auto">
               They built futures by relying on their skills and passion.
             </p>
           </div>
@@ -398,7 +399,7 @@ const LaidOffEngineersPage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--color-navy)] mb-6">Your Breakthrough Toolkit</h2>
-            <p className="text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
               Everything you need to transform your professional expertise into independent success.
             </p>
           </div>
@@ -524,7 +525,7 @@ const LaidOffEngineersPage: React.FC = () => {
                 </div>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-[color:var(--color-navy)]">The Engineers' Reboot Hub</h2>
-              <p className="text-lg mb-6 leading-relaxed text-[color:var(--color-gray-900)]">
+              <p className="text-lg md:text-xl mb-6 leading-relaxed text-[color:var(--color-gray-900)]">
                 Connect with a supportive network of professionals who understand your journey and have been there themselves. Join engineers who are building their own paths forward.
               </p>
               <a 

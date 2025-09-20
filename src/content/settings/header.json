@@ -6,6 +6,10 @@
       "url": "/about"
     },
     {
+      "label": "Course",
+      "url": "/course"
+    },
+    {
       "label": "Success Stories",
       "url": "/#testimonials"
     },

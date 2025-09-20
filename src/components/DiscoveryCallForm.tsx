@@ -10,13 +10,15 @@ const DiscoveryCallForm: React.FC<DiscoveryCallFormProps> = ({ onClose }) => {
     name: '',
     mobile: '',
     city: '',
-    whatsappPermission: false
+    whatsappPermission: false,
+    consent: false
   });
 
   const [errors, setErrors] = useState({
     name: '',
     mobile: '',
-    city: ''
+    city: '',
+    consent: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -47,6 +49,11 @@ const DiscoveryCallForm: React.FC<DiscoveryCallFormProps> = ({ onClose }) => {
     return '';
   };
 
+  const validateConsent = (consent: boolean) => {
+    if (!consent) return 'You must agree to the Terms of Service and Privacy Policy';
+    return '';
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     const newValue = type === 'checkbox' ? checked : value;
@@ -72,17 +79,19 @@ const DiscoveryCallForm: React.FC<DiscoveryCallFormProps> = ({ onClose }) => {
     const nameError = validateName(formData.name);
     const mobileError = validateMobile(formData.mobile);
     const cityError = validateCity(formData.city);
+    const consentError = validateConsent(formData.consent);
     
     const newErrors = {
       name: nameError,
       mobile: mobileError,
-      city: cityError
+      city: cityError,
+      consent: consentError
     };
     
     setErrors(newErrors);
     
     // If there are any errors, don't submit
-    if (nameError || mobileError || cityError) {
+    if (nameError || mobileError || cityError || consentError) {
       return;
     }
     
@@ -249,6 +258,24 @@ const DiscoveryCallForm: React.FC<DiscoveryCallFormProps> = ({ onClose }) => {
               I give permission to add me to the Women's WhatsApp Community for networking and support
             </label>
           </div>
+
+          {/* Consent Checkbox */}
+          <div className="flex items-start space-x-3">
+            <input
+              type="checkbox"
+              id="consent"
+              name="consent"
+              checked={formData.consent}
+              onChange={handleInputChange}
+              className="mt-1 h-4 w-4 text-[color:var(--color-navy)] border-[color:var(--color-gray-300)] rounded focus:ring-[color:var(--color-navy)]"
+            />
+            <label htmlFor="consent" className="text-sm text-[color:var(--color-gray-900)]">
+              I agree to the <a href="/terms" target="_blank" className="text-[color:var(--color-teal)] hover:underline">Terms of Service</a> and <a href="/privacy" target="_blank" className="text-[color:var(--color-teal)] hover:underline">Privacy Policy</a>, and consent to receive updates. Unsubscribe anytime.
+            </label>
+          </div>
+          {errors.consent && (
+            <p className="text-red-500 text-xs mt-1">{errors.consent}</p>
+          )}
 
           {/* Submit Button */}
           <button

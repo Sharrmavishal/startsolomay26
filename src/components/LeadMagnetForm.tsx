@@ -15,7 +15,8 @@ const LeadMagnetForm: React.FC<LeadMagnetFormProps> = ({ isOpen, onClose, leadMa
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: ''
+    phone: '',
+    consent: false
   });
   const [errors, setErrors] = useState<{[key: string]: string}>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -43,9 +44,15 @@ const LeadMagnetForm: React.FC<LeadMagnetFormProps> = ({ isOpen, onClose, leadMa
     return '';
   };
 
+  const validateConsent = (consent: boolean): string => {
+    if (!consent) return 'You must agree to the Terms of Service and Privacy Policy';
+    return '';
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = e.target;
+    const newValue = type === 'checkbox' ? checked : value;
+    setFormData(prev => ({ ...prev, [name]: newValue }));
     
     // Clear error for this field when user starts typing
     if (errors[name]) {
@@ -60,12 +67,14 @@ const LeadMagnetForm: React.FC<LeadMagnetFormProps> = ({ isOpen, onClose, leadMa
     const nameError = validateName(formData.name);
     const emailError = validateEmail(formData.email);
     const phoneError = validatePhone(formData.phone);
+    const consentError = validateConsent(formData.consent);
 
-    if (nameError || emailError || phoneError) {
+    if (nameError || emailError || phoneError || consentError) {
       setErrors({
         name: nameError,
         email: emailError,
-        phone: phoneError
+        phone: phoneError,
+        consent: consentError
       });
       return;
     }
@@ -104,7 +113,7 @@ const LeadMagnetForm: React.FC<LeadMagnetFormProps> = ({ isOpen, onClose, leadMa
       setTimeout(() => {
         onClose();
         setIsSuccess(false);
-        setFormData({ name: '', email: '', phone: '' });
+        setFormData({ name: '', email: '', phone: '', consent: false });
         setErrors({});
       }, 3000);
 
@@ -247,6 +256,26 @@ const LeadMagnetForm: React.FC<LeadMagnetFormProps> = ({ isOpen, onClose, leadMa
                   )}
                 </div>
 
+                <div className="flex items-start space-x-2 p-3 bg-[color:var(--color-gray-50)] rounded-lg">
+                  <input
+                    id="consent"
+                    name="consent"
+                    type="checkbox"
+                    checked={formData.consent}
+                    onChange={handleInputChange}
+                    className="mt-0.5 h-3 w-3 text-[color:var(--color-teal)] border-[color:var(--color-gray-200)] rounded focus:ring-[color:var(--color-teal)]"
+                  />
+                  <label htmlFor="consent" className="text-xs text-[color:var(--color-gray-900)]">
+                    I agree to the <a href="/terms" target="_blank" className="text-[color:var(--color-teal)] hover:underline">Terms of Service</a> and <a href="/privacy" target="_blank" className="text-[color:var(--color-teal)] hover:underline">Privacy Policy</a>, and consent to receive updates. Unsubscribe anytime.
+                  </label>
+                </div>
+                {errors.consent && (
+                  <p className="text-red-500 text-sm mt-2 flex items-center">
+                    <span className="w-1 h-1 bg-red-500 rounded-full mr-2"></span>
+                    {errors.consent}
+                  </p>
+                )}
+
                 {errors.submit && (
                   <div className="bg-red-50 border border-red-200 rounded-xl p-4">
                     <p className="text-red-600 text-sm flex items-center">
@@ -274,11 +303,6 @@ const LeadMagnetForm: React.FC<LeadMagnetFormProps> = ({ isOpen, onClose, leadMa
                   )}
                 </button>
 
-                <p className="text-xs text-[color:var(--color-gray-900)] text-opacity-60 text-center leading-relaxed">
-                  By downloading, you agree to receive occasional updates from Start Solo. 
-                  <br />
-                  <span className="text-[color:var(--color-teal)]">Unsubscribe anytime.</span>
-                </p>
               </form>
             </>
           )}

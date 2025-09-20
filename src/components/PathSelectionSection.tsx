@@ -37,7 +37,7 @@ const pathOptions = [
     textColorClass: "text-[color:var(--color-teal)]",
     hoverColorClass: "group-hover:text-[color:var(--color-navy)]",
     iconColor: "var(--color-teal)",
-    image: "https://res.cloudinary.com/ddrztw5i1/image/upload/v1758278640/woman_soloprepreneur_mgqsz2.png",
+    image: "https://res.cloudinary.com/dnm2ejglr/image/upload/v1758383554/woman_soloprepreneur_1_gg2mwz.png",
     customPath: "/women-entrepreneurs"
   },
   {
@@ -48,7 +48,7 @@ const pathOptions = [
     textColorClass: "text-[color:var(--color-cta)]",
     hoverColorClass: "group-hover:text-[color:var(--color-navy)]",
     iconColor: "var(--color-cta)",
-    image: "https://res.cloudinary.com/ddrztw5i1/image/upload/v1758278803/indian_graduates_pgvcc5.png"
+    image: "https://res.cloudinary.com/dnm2ejglr/image/upload/v1758384750/indian_graduates_1_ra46z0.png"
   },
   {
     title: "Engineers in Career Transition",
@@ -58,7 +58,7 @@ const pathOptions = [
     textColorClass: "text-[color:var(--color-sky)]",
     hoverColorClass: "group-hover:text-[color:var(--color-navy)]",
     iconColor: "var(--color-sky)",
-    image: "https://res.cloudinary.com/ddrztw5i1/image/upload/v1758278936/indian_engineer_fcgro6.png",
+    image: "https://res.cloudinary.com/dnm2ejglr/image/upload/v1758384803/indian_engineer_1_fnctmg.png",
     customPath: "/engineers-in-career-transition"
   }
 ];
@@ -88,6 +88,7 @@ const PathSelectionSection = () => {
                     src={option.image} 
                     alt={option.title} 
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 bg-white p-2 rounded-full">

@@ -10,6 +10,10 @@
       "url": "/about"
     },
     {
+      "label": "Course",
+      "url": "/course"
+    },
+    {
       "label": "Accelerator",
       "url": "#webinar-info"
     },

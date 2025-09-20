@@ -133,17 +133,17 @@ const SolosprintBootcampPage = () => {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="text-center">
-                  <Users className="h-8 w-8 text-blue-600 mx-auto mb-2" />
+                  <Users className="h-8 w-8 text-[color:var(--color-teal)] mx-auto mb-2" />
                   <h3 className="font-semibold text-gray-900 mb-1">Collaboration</h3>
                   <p className="text-sm text-gray-600">Co-created with solopreneurs like you</p>
                 </div>
                 <div className="text-center">
-                  <BookOpen className="h-8 w-8 text-blue-600 mx-auto mb-2" />
+                  <BookOpen className="h-8 w-8 text-[color:var(--color-teal)] mx-auto mb-2" />
                   <h3 className="font-semibold text-gray-900 mb-1">Value-Driven</h3>
                   <p className="text-sm text-gray-600">Focused on real challenges and solutions</p>
                 </div>
                 <div className="text-center">
-                  <Calendar className="h-8 w-8 text-blue-600 mx-auto mb-2" />
+                  <Calendar className="h-8 w-8 text-[color:var(--color-teal)] mx-auto mb-2" />
                   <h3 className="font-semibold text-gray-900 mb-1">Practical Learning</h3>
                   <p className="text-sm text-gray-600">Actionable insights you can implement</p>
                 </div>
@@ -162,7 +162,7 @@ const SolosprintBootcampPage = () => {
                 </p>
                 <button
                   onClick={() => setFormData(prev => ({ ...prev, submitted: false, currentStep: 1 }))}
-                  className="bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors duration-200 hover:bg-gray-800 font-medium"
+                  className="bg-gray-900 text-[color:var(--color-cta-text)] px-6 py-3 rounded-lg transition-colors duration-200 hover:bg-gray-800 font-medium"
                 >
                   Submit Another Response
                 </button>
@@ -191,14 +191,14 @@ const SolosprintBootcampPage = () => {
                       <div key={step} className="flex items-center">
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
                           formData.currentStep >= step 
-                            ? 'bg-blue-600 text-white' 
+                            ? 'bg-[color:var(--color-cta)] text-[color:var(--color-cta-text)]' 
                             : 'bg-gray-200 text-gray-600'
                         }`}>
                           {step}
                         </div>
                         {step < 3 && (
                           <div className={`w-12 h-1 mx-2 ${
-                            formData.currentStep > step ? 'bg-blue-600' : 'bg-gray-200'
+                            formData.currentStep > step ? 'bg-[color:var(--color-cta)]' : 'bg-gray-200'
                           }`} />
                         )}
                       </div>
@@ -210,7 +210,7 @@ const SolosprintBootcampPage = () => {
                 {formData.currentStep === 1 && (
                   <div className="space-y-6">
                     <div className="text-center mb-8">
-                      <MapPin className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                      <MapPin className="h-12 w-12 text-[color:var(--color-teal)] mx-auto mb-4" />
                       <h2 className="text-2xl font-bold text-gray-900 mb-2">Preferred Locations</h2>
                       <p className="text-gray-600">Select the cities where you'd like to attend the bootcamp</p>
                     </div>
@@ -225,8 +225,8 @@ const SolosprintBootcampPage = () => {
                             onClick={() => handleLocationChange(city)}
                             className={`p-3 rounded-lg text-left transition-all ${
                               formData.locations.includes(city)
-                                ? 'bg-blue-600 text-white border-2 border-blue-600' 
-                                : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-blue-600'
+                                ? 'bg-[color:var(--color-cta)] text-[color:var(--color-cta-text)] border-2 border-[color:var(--color-cta)]' 
+                                : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-[color:var(--color-cta)]'
                             }`}
                           >
                             <span className="font-medium">{city}</span>
@@ -235,7 +235,7 @@ const SolosprintBootcampPage = () => {
                       </div>
 
                       <details className="mb-6">
-                        <summary className="cursor-pointer text-blue-600 hover:text-blue-700 font-medium mb-4">
+                        <summary className="cursor-pointer text-[color:var(--color-teal)] hover:text-[color:var(--color-cta-dark)] font-medium mb-4">
                           View all cities
                         </summary>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -246,8 +246,8 @@ const SolosprintBootcampPage = () => {
                               onClick={() => handleLocationChange(city)}
                               className={`p-3 rounded-lg text-left transition-all ${
                                 formData.locations.includes(city)
-                                  ? 'bg-blue-600 text-white border-2 border-blue-600' 
-                                  : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-blue-600'
+                                  ? 'bg-[color:var(--color-cta)] text-[color:var(--color-cta-text)] border-2 border-[color:var(--color-cta)]' 
+                                  : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-[color:var(--color-cta)]'
                               }`}
                             >
                               <span className="font-medium">{city}</span>
@@ -262,7 +262,7 @@ const SolosprintBootcampPage = () => {
                         type="button"
                         onClick={nextStep}
                         disabled={!isStepValid(1)}
-                        className="bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700"
+                        className="bg-[color:var(--color-cta)] text-[color:var(--color-cta-text)] px-6 py-3 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[color:var(--color-cta-dark)]"
                       >
                         Next Step
                       </button>
@@ -273,7 +273,7 @@ const SolosprintBootcampPage = () => {
                 {formData.currentStep === 2 && (
                   <div className="space-y-6">
                     <div className="text-center mb-8">
-                      <BookOpen className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                      <BookOpen className="h-12 w-12 text-[color:var(--color-teal)] mx-auto mb-4" />
                       <h2 className="text-2xl font-bold text-gray-900 mb-2">Preferred Topics</h2>
                       <p className="text-gray-600">Select the topics you'd like to learn about</p>
                     </div>
@@ -286,8 +286,8 @@ const SolosprintBootcampPage = () => {
                           onClick={() => handleTopicChange(topic)}
                           className={`p-4 rounded-lg text-left transition-all ${
                             formData.topics.includes(topic)
-                              ? 'bg-blue-600 text-white border-2 border-blue-600' 
-                              : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-blue-600'
+                              ? 'bg-[color:var(--color-cta)] text-[color:var(--color-cta-text)] border-2 border-[color:var(--color-cta)]' 
+                              : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-[color:var(--color-cta)]'
                           }`}
                         >
                           <span className="font-medium">{topic}</span>
@@ -304,7 +304,7 @@ const SolosprintBootcampPage = () => {
                         name="otherTopic"
                         value={formData.otherTopic}
                         onChange={(e) => setFormData(prev => ({ ...prev, otherTopic: e.target.value }))}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[color:var(--color-cta)] focus:border-[color:var(--color-cta)] transition-colors"
                         placeholder="Suggest additional topics you'd like to see covered"
                       />
                     </div>
@@ -322,7 +322,7 @@ const SolosprintBootcampPage = () => {
                         type="button"
                         onClick={nextStep}
                         disabled={!isStepValid(2)}
-                        className="bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700"
+                        className="bg-[color:var(--color-cta)] text-[color:var(--color-cta-text)] px-6 py-3 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[color:var(--color-cta-dark)]"
                       >
                         Next Step
                       </button>
@@ -333,7 +333,7 @@ const SolosprintBootcampPage = () => {
                 {formData.currentStep === 3 && (
                   <div className="space-y-6">
                     <div className="text-center mb-8">
-                      <Calendar className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                      <Calendar className="h-12 w-12 text-[color:var(--color-teal)] mx-auto mb-4" />
                       <h2 className="text-2xl font-bold text-gray-900 mb-2">Duration & Contact</h2>
                       <p className="text-gray-600">Tell us your preferred duration and how to reach you</p>
                     </div>
@@ -350,8 +350,8 @@ const SolosprintBootcampPage = () => {
                             onClick={() => setFormData(prev => ({ ...prev, duration }))}
                             className={`p-4 rounded-lg text-center transition-all ${
                               formData.duration === duration
-                                ? 'bg-blue-600 text-white border-2 border-blue-600' 
-                                : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-blue-600'
+                                ? 'bg-[color:var(--color-cta)] text-[color:var(--color-cta-text)] border-2 border-[color:var(--color-cta)]' 
+                                : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-[color:var(--color-cta)]'
                             }`}
                           >
                             <span className="font-medium">{duration}</span>
@@ -369,7 +369,7 @@ const SolosprintBootcampPage = () => {
                         name="email"
                         value={formData.email}
                         onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[color:var(--color-cta)] focus:border-[color:var(--color-cta)] transition-colors"
                         placeholder="Enter your email to receive updates about the bootcamp"
                       />
                     </div>
@@ -386,7 +386,7 @@ const SolosprintBootcampPage = () => {
                       <button
                         type="submit"
                         disabled={!isStepValid(3) || formData.submitting}
-                        className="bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700 flex items-center"
+                        className="bg-[color:var(--color-cta)] text-[color:var(--color-cta-text)] px-6 py-3 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[color:var(--color-cta-dark)] flex items-center"
                       >
                         {formData.submitting ? (
                           <>
