@@ -66,7 +66,9 @@ const Footer = () => {
               <li><a href="/" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Home</a></li>
               <li><a href="/about" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
               <li><a href="/course" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Launchpad Course</a></li>
-              <li><a href="/#path-selection" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Choose Your Path</a></li>
+              <li><a href="/women-entrepreneurs" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">For Women</a></li>
+              <li><a href="/path/graduates-students" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">For Graduates</a></li>
+              <li><a href="/engineers-in-career-transition" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">For Engineers</a></li>
               <li><a href="/#instructor" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Mentors</a></li>
               <li><a href="/#testimonials" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Success Stories</a></li>
               <li><a href="/#faq" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">FAQs</a></li>
@@ -78,6 +80,7 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-lg mb-4 text-white">Resources</h4>
             <ul className="space-y-2">
+              <li><a href="/#path-selection" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Choose Your Path</a></li>
               <li>
                 <a 
                   href="https://chat.whatsapp.com/CgrHI3AQbb6IX3gWKDa5Ij" 
@@ -90,9 +93,6 @@ const Footer = () => {
                 </a>
               </li>
               <li><a href="/#lead-magnet" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Downloads</a></li>
-              <li><a href="/women-entrepreneurs" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">For Women</a></li>
-              <li><a href="/path/graduates-students" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">For Graduates</a></li>
-              <li><a href="/engineers-in-career-transition" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">For Engineers</a></li>
               <li>
                 <a href="/join-mentor" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">
                   Join as a Mentor
@@ -151,7 +151,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-600 pt-8 text-center text-gray-300 text-sm">
-          <p className="mb-2">&copy; {new Date().getFullYear()} Start Solo. All rights reserved.</p>
+          <p className="mb-2">&copy; 2025-26 Start Solo. All rights reserved.</p>
           <p>Results achieved will vary based on individual commitment, execution effectiveness, and prevailing market dynamics.</p>
         </div>
       </div>
