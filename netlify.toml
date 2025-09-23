@@ -27,12 +27,12 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
     Content-Security-Policy = """
       default-src 'self' https://api.netlify.com https://identity.netlify.com;
-      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com https://www.googletagmanager.com https://snap.licdn.com https://*.google-analytics.com https://www.google-analytics.com https://cdn.razorpay.com;
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com https://www.googletagmanager.com https://snap.licdn.com https://*.google-analytics.com https://www.google-analytics.com https://cdn.razorpay.com https://checkout.razorpay.com https://*.razorpay.com https://*.rzp.io;
       style-src 'self' 'unsafe-inline';
       img-src 'self' data: https: https://res.cloudinary.com https://www.google-analytics.com https://px.ads.linkedin.com;
       font-src 'self';
-      connect-src 'self' https://api.netlify.com https://identity.netlify.com https://*.google-analytics.com https://api.razorpay.com https://pages.razorpay.com;
-      frame-src 'self' https://pages.razorpay.com https://api.razorpay.com;
+      connect-src 'self' https://api.netlify.com https://identity.netlify.com https://*.google-analytics.com https://*.razorpay.com https://*.rzp.io;
+      frame-src 'self' https://*.razorpay.com https://*.rzp.io;
       frame-ancestors 'none';
       base-uri 'self';
       form-action 'self' https://pages.razorpay.com;
