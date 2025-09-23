@@ -34,8 +34,8 @@ const SEOHead: React.FC = () => {
     
     // Update Open Graph meta tags
     const ogTags = [
-      { property: 'og:title', content: 'Start Solo by Diksha Sethi | Start a Profitable Solo Business, But Not Alone' },
-      { property: 'og:description', content: `Join the 90-minute Solo Accelerator Session to learn the proven framework that can help you launch and grow successful businesses. Just ₹99. Limited seats available. Next cohort starts ${cohortStartDate}` },
+      { property: 'og:title', content: 'Launchpad by Start Solo — Learn with Mentor Diksha Sethi' },
+      { property: 'og:description', content: 'Kickstart your solo business with Launchpad, our 4‑week, self‑paced course led by mentor Diksha Sethi. Practical tools, guided steps, and community support to launch with confidence.' },
       { property: 'og:image', content: 'https://res.cloudinary.com/dnm2ejglr/image/upload/v1741527316/Training_Unoptimised_iaovgq.png' },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '630' },
@@ -56,8 +56,8 @@ const SEOHead: React.FC = () => {
     // Update Twitter meta tags
     const twitterTags = [
       { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: 'Start Solo by Diksha Sethi | Start a Profitable Solo Business, But Not Alone' },
-      { name: 'twitter:description', content: `Join the 90-minute Solo Accelerator Session to learn the proven framework that can help you launch and grow successful businesses. Just ₹99. Limited seats available. Next cohort starts ${cohortStartDate}` },
+      { name: 'twitter:title', content: 'Launchpad by Start Solo — Learn with Mentor Diksha Sethi' },
+      { name: 'twitter:description', content: 'Kickstart your solo business with Launchpad, our 4‑week, self‑paced course led by mentor Diksha Sethi. Practical tools, guided steps, and community support to launch with confidence.' },
       { name: 'twitter:image', content: 'https://res.cloudinary.com/dnm2ejglr/image/upload/v1741527316/Training_Unoptimised_iaovgq.png' }
     ];
     
