@@ -6,7 +6,11 @@ const WorkshopMentorshipSection: React.FC = () => {
   const navigate = useNavigate();
 
   const handleExplorePrograms = () => {
-    navigate('/course');
+    navigate('/course#course-hero');
+    setTimeout(() => {
+      const el = document.getElementById('course-hero');
+      el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 0);
   };
 
   const programs = [
@@ -39,7 +43,7 @@ const WorkshopMentorshipSection: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[color:var(--color-navy)] mb-3 sm:mb-4 px-4">
-            What We Do
+            How We Support You
           </h2>
               <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto px-4">
                 From Skills to Success: Your Complete Solopreneur Journey

@@ -1,26 +1,87 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Star, Clock, Users, ShieldCheck, CheckCircle, ChevronDown, Play, BookOpen, Award, Globe, Calendar, Shield, Rocket, X } from 'lucide-react';
+import { ArrowRight, Star, Clock, Users, ShieldCheck, CheckCircle, ChevronDown, Play, BookOpen, Award, Globe, Calendar, Shield, Rocket, X, Share2 } from 'lucide-react';
 
 const CoursePage: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [hasShownPopup, setHasShownPopup] = useState(false);
+  // Bundle prices (right card / popup)
+  const originalPrice = 4897;
+  const currentPrice = 1999;
+  const percentOff = Math.round(((originalPrice - currentPrice) / originalPrice) * 100);
+
+  // Hero prices (left under Enroll now)
+  const heroOriginalPrice = 3999;
+  const heroCurrentPrice = 1999;
+  const heroPercentOff = Math.round(((heroOriginalPrice - heroCurrentPrice) / heroOriginalPrice) * 100);
+
+  // Offer headline variants
+  type OfferVariant = 'alpha' | 'alpha1' | 'alpha2' | 'alpha3';
+  const OFFER_VARIANT: OfferVariant = 'alpha'; // switch between 'alpha', 'alpha1', 'alpha2', 'alpha3'
+
+  const getOfferHeadline = (variant: OfferVariant): string => {
+    switch (variant) {
+      case 'alpha':
+        return '⚡ Limited-time introductory offer';
+      case 'alpha1':
+        return '🎉 Introductory price — save today';
+      case 'alpha2':
+        return '⏳ Launch offer — ends soon';
+      case 'alpha3':
+        return '🔥 New student special — limited time';
+      default:
+        return '⚡ Limited-time introductory offer';
+    }
+  };
 
   useEffect(() => {
+    // Ensure Razorpay embed script is present for the Enroll Now button
+    const d = document as Document & { [key: string]: any };
+    const existing = d.getElementById('razorpay-embed-btn-js') as HTMLScriptElement | null;
+    if (!existing) {
+      const s = d.createElement('script');
+      s.defer = true;
+      s.id = 'razorpay-embed-btn-js';
+      s.src = 'https://cdn.razorpay.com/static/embed_btn/bundle.js';
+      d.body.appendChild(s);
+    } else {
+      const rzp = (window as any)['__rzp__'];
+      rzp && rzp.init && rzp.init();
+    }
+
+    // Initialize from localStorage to avoid showing repeatedly in a session
+    const shown = localStorage.getItem('coursePopupShown') === 'true';
+    if (shown && !hasShownPopup) {
+      setHasShownPopup(true);
+    }
+
     const handleScroll = () => {
       if (hasShownPopup) return; // Don't show again if already shown
-      
+
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercentage = (scrollTop / documentHeight) * 100;
-      
-      if (scrollPercentage >= 45) {
+      const scrollPercentage = documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+
+      if (scrollPercentage >= 25) {
         setShowPopup(true);
         setHasShownPopup(true);
+        localStorage.setItem('coursePopupShown', 'true');
       }
     };
 
+    // Time-based fallback: show after 20s if not already shown
+    const timer = window.setTimeout(() => {
+      if (!hasShownPopup) {
+        setShowPopup(true);
+        setHasShownPopup(true);
+        localStorage.setItem('coursePopupShown', 'true');
+      }
+    }, 20000);
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.clearTimeout(timer);
+    };
   }, [hasShownPopup]);
 
   const closePopup = () => {
@@ -30,11 +91,31 @@ const CoursePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Top Banner - Coursera Style */}
-      <section className="border-b border-gray-200 bg-gray-50">
+      <section id="course-hero" className="border-b border-gray-200 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
             {/* Left: Title/Meta */}
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-8 relative">
+              {/* Compact share icon at top-right */}
+              <button
+                aria-label="Share course"
+                onClick={() => {
+                  if (navigator.share) {
+                    navigator.share({
+                      title: 'Launchpad: The Start Solo Business Starter Course',
+                      text: 'This comprehensive self-paced 4-week program prepares you with the practical skills and confidence to launch your solo business.',
+                      url: window.location.origin + '/course'
+                    });
+                  } else {
+                    const shareUrl = window.location.origin + '/course';
+                    navigator.clipboard.writeText(shareUrl);
+                    alert('Course link copied to clipboard!');
+                  }
+                }}
+                className="absolute right-0 top-0 inline-flex items-center justify-center h-9 w-9 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50"
+              >
+                <Share2 className="h-4 w-4" />
+              </button>
               <div className="mb-3 text-sm text-gray-600">Start Solo • Professional Certificate</div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1D3A6B] mb-4 leading-tight">Launchpad: The Start Solo Business Starter Course</h1>
               <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-4 text-gray-700">
@@ -51,74 +132,52 @@ const CoursePage: React.FC = () => {
               <p className="mt-4 sm:mt-6 text-gray-900 max-w-4xl text-base sm:text-lg leading-relaxed">
                 This comprehensive self-paced 4-week program prepares you with the practical skills and confidence to launch your solo business. Designed for career changers, returning professionals, and fresh graduates, Launchpad eliminates guesswork and shows you how to build your business independently — no large teams, no VC funding, just your skills and passion.
               </p>
-              <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <a href="#" className="inline-flex items-center justify-center bg-[#1D3A6B] text-white hover:bg-[#152A4F] px-6 py-3 rounded-lg font-semibold transition-colors min-h-[48px]">
-                  Enroll now <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-        <button
-                  onClick={() => {
-                    if (navigator.share) {
-                      navigator.share({
-                        title: 'Launchpad: The Start Solo Business Starter Course',
-                        text: 'This comprehensive self-paced 4-week program prepares you with the practical skills and confidence to launch your solo business.',
-                        url: window.location.origin + '/course'
-                      });
-                    } else {
-                      // Fallback for browsers that don't support Web Share API
-                      const shareUrl = window.location.origin + '/course';
-                      navigator.clipboard.writeText(shareUrl);
-                      alert('Course link copied to clipboard!');
-                    }
-                  }}
-                  className="inline-flex items-center justify-center border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors min-h-[48px]"
-                >
-                  Share
-        </button>
-              </div>
-              <div className="mt-3 flex flex-col sm:flex-row sm:items-center gap-2">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-[color:var(--color-gray-600)] line-through">₹3999</span>
-                  <span className="text-[color:var(--color-cta)] font-bold text-lg sm:text-xl">₹1999</span>
+              <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                {/* Razorpay embed for Enroll Now with built-in powered-by (authentic) */}
+                <div className="razorpay-embed-btn" data-url="https://pages.razorpay.com/pl_RL0MOjjDNiy5aS/view" data-text="Enroll Now" data-color="#1D3A6B" data-size="large"></div>
+                <div className="flex items-baseline gap-1 sm:gap-2 sm:ml-2">
+                  <span className="text-[color:var(--color-gray-600)] line-through text-xs sm:text-sm">₹{heroOriginalPrice}</span>
+                  <span className="text-[color:var(--color-cta)] font-extrabold text-2xl sm:text-3xl">₹{heroCurrentPrice}</span>
+                  <span className="ml-1 text-[color:var(--color-cta)] bg-[color:var(--color-cta)]/10 px-1.5 py-0.5 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap">{heroPercentOff}% off</span>
                 </div>
-                <span className="text-sm text-[color:var(--color-gray-600)]">Special offer.</span>
               </div>
+              {/* Powered by is rendered by Razorpay embed under the button for authenticity */}
             </div>
             {/* Right: Enrollment Card */}
             <div className="lg:col-span-4">
-              <div className="rounded-xl bg-white shadow-xl p-4 sm:p-6 border-l-4 border-l-[color:var(--color-teal)] border border-gray-200 lg:sticky lg:top-8 hover:scale-105 transition-transform duration-300">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="text-base sm:text-lg font-bold text-gray-900 animate-pulse">⚡ Limited-time introductory offer</span>
+              <div className="rounded-xl bg-white shadow-xl p-3 sm:p-4 border-l-4 border-l-[color:var(--color-teal)] border border-gray-200 lg:sticky lg:top-8 transition-transform duration-300">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-sm sm:text-base font-bold text-gray-900">{getOfferHeadline(OFFER_VARIANT)}</span>
                 </div>
-                <div className="grid grid-cols-1 gap-3 text-sm mb-4">
-                  <div className="bg-gray-50 rounded-lg p-3">
+                {/* Items list - full width */}
+                <div className="space-y-2 text-sm mb-3">
+                  <div className="bg-gray-50 rounded-lg p-2">
                     <div className="font-semibold text-gray-900 text-sm sm:text-base">Launchpad Course: ₹3999</div>
                     <div className="text-gray-600 text-xs">4 weeks | 35–40 hours, self-paced</div>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div className="bg-gray-50 rounded-lg p-3">
-                      <div className="font-semibold text-gray-900 text-sm sm:text-base">Mentorship Call: ₹599</div>
-                      <div className="text-gray-600 text-xs">1 personalized session | 45 minutes</div>
-                    </div>
-                    <div className="bg-gray-50 rounded-lg p-3">
-                      <div className="font-semibold text-gray-900 text-sm sm:text-base">Business Niche Finder: ₹299</div>
-                      <div className="text-gray-600 text-xs">1.5 hours | Digital toolkit & worksheet</div>
-                    </div>
+                  <div className="bg-gray-50 rounded-lg p-2">
+                    <div className="font-semibold text-gray-900 text-sm sm:text-base">Mentorship Call: ₹599</div>
+                    <div className="text-gray-600 text-xs">1 personalized session | 45 minutes</div>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-2">
+                    <div className="font-semibold text-gray-900 text-sm sm:text-base">Business Niche Finder: ₹299</div>
+                    <div className="text-gray-600 text-xs">1.5 hours | Digital toolkit & worksheet</div>
                   </div>
                 </div>
-                <div className="mb-3 flex flex-col sm:flex-row sm:items-center justify-center gap-2 sm:gap-3">
+                {/* Totals - below items */}
+                <div className="grid justify-items-center text-center gap-1 mb-2">
+                  <div className="text-[color:var(--color-gray-700)] text-sm md:text-base font-semibold">Offer Price:</div>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-[color:var(--color-gray-600)] line-through">₹4897</span>
-                    <span className="text-[color:var(--color-cta)] font-bold text-xl sm:text-2xl">₹1999</span>
+                    <span className="text-[color:var(--color-cta)] font-extrabold text-4xl md:text-5xl">₹{currentPrice.toLocaleString('en-IN')}</span>
+                    <span className="text-[color:var(--color-cta)] text-sm md:text-base font-bold">{percentOff}% off</span>
                   </div>
-                  <div className="bg-[color:var(--color-gray-100)] text-[color:var(--color-gray-700)] px-2 py-1 rounded text-xs font-medium border border-[color:var(--color-gray-200)]">
-                    Save ₹2898
-                  </div>
+                  <div className="text-[color:var(--color-gray-600)] line-through text-base md:text-lg">₹{originalPrice.toLocaleString('en-IN')}</div>
                 </div>
-                <a href="#" className="w-full bg-[#1D3A6B] hover:bg-[#152A4F] text-white px-6 py-3 rounded-lg font-semibold mb-2 transition-all duration-300 hover:scale-105 inline-block text-center min-h-[48px] flex items-center justify-center">
-                  Grab Offer
-                </a>
-                <div className="text-xs text-[color:var(--color-gray-600)] text-center">Special Bundle Price Offer.</div>
-                <div className="text-xs text-gray-600 text-center">Expert guidance every step of the way. Community support included</div>
+                {/* Razorpay embed for checkout */}
+                <div className="flex justify-center mb-2">
+                  <div className="razorpay-embed-btn" data-url="https://pages.razorpay.com/pl_RL0l8Thhv0i1vd/view" data-text="Proceed to Checkout" data-color="#1D3A6B" data-size="large"></div>
+                </div>
+                <div className="text-[10px] text-gray-600 text-center">Expert guidance every step of the way · Community support included</div>
               </div>
             </div>
           </div>
@@ -429,7 +488,9 @@ const CoursePage: React.FC = () => {
                     <div className="min-w-0 flex-1">
                       <h4 className="font-semibold text-gray-900 text-sm sm:text-base">{instructor.name}</h4>
                       <p className="text-xs sm:text-sm text-gray-600">{instructor.title}</p>
-                      <p className="text-xs sm:text-sm text-gray-500">{instructor.company}</p>
+                      {instructor.company && !instructor.title.includes(instructor.company) && (
+                        <p className="text-xs sm:text-sm text-gray-500">{instructor.company}</p>
+                      )}
                     </div>
                   </div>
                   <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">{instructor.bio}</p>
@@ -540,13 +601,12 @@ const CoursePage: React.FC = () => {
             <p className="text-lg md:text-xl mb-6 sm:mb-8 text-gray-700">
               Begin your transformation today.
             </p>
-            <div className="mb-4 sm:mb-6 flex items-center justify-center gap-2">
-              <span className="text-gray-500 line-through">₹3999</span>
-              <span className="text-gray-800 font-bold text-xl sm:text-2xl">₹1999</span>
+            <div className="mb-4 sm:mb-6 flex items-baseline justify-center gap-1 sm:gap-2">
+              <span className="text-gray-500 line-through text-sm sm:text-base">₹3999</span>
+              <span className="text-[#1D3A6B] font-extrabold text-2xl sm:text-3xl">₹1999</span>
+              <span className="ml-1 text-[#1D3A6B] bg-[#1D3A6B]/10 px-1.5 py-0.5 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap">50% off</span>
             </div>
-            <a href="#" className="bg-[color:var(--color-teal)] text-white hover:bg-[#4A8B85] px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-colors inline-flex items-center justify-center min-h-[48px] sm:min-h-[56px]">
-              Enroll Now <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-            </a>
+            <div className="razorpay-embed-btn inline-block" data-url="https://pages.razorpay.com/pl_RL0MOjjDNiy5aS/view" data-text="Enroll Now" data-color="#1D3A6B" data-size="large"></div>
             <div className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600">Limited-time introductory offer.</div>
           </div>
         </div>
@@ -572,31 +632,32 @@ const CoursePage: React.FC = () => {
                 <div className="flex items-center gap-2 mb-4">
                   <span className="text-xl sm:text-2xl font-bold text-gray-900 animate-pulse">⚡ Limited-time introductory offer</span>
                 </div>
-                <div className="grid grid-cols-1 gap-3 text-sm mb-4">
-                  <div className="bg-gray-50 rounded-lg p-3">
-                    <div className="font-semibold text-gray-900">Launchpad Course: ₹3999</div>
-                    <div className="text-gray-600 text-xs">4 weeks | 35–40 hours, self-paced</div>
-                  </div>
-                  <div className="bg-gray-50 rounded-lg p-3">
-                    <div className="font-semibold text-gray-900">Mentorship Call: ₹599</div>
-                    <div className="text-gray-600 text-xs">1 personalized session | 45 minutes</div>
-                  </div>
-                  <div className="bg-gray-50 rounded-lg p-3">
-                    <div className="font-semibold text-gray-900">Business Niche Finder: ₹299</div>
-                    <div className="text-gray-600 text-xs">1.5 hours | Digital toolkit & worksheet</div>
-                  </div>
+            <div className="mb-3 grid gap-1 sm:grid-cols-2 sm:gap-3 items-start">
+              <div className="space-y-2">
+                <div className="bg-gray-50 rounded-lg p-2">
+                  <div className="font-semibold text-gray-900">Launchpad Course: ₹3999</div>
+                  <div className="text-gray-600 text-xs">4 weeks | 35–40 hours, self-paced</div>
                 </div>
-                <div className="mb-3 flex flex-col sm:flex-row sm:items-center justify-center gap-2 sm:gap-3">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-[color:var(--color-gray-600)] line-through">₹4897</span>
-                    <span className="text-[color:var(--color-cta)] font-bold text-xl sm:text-2xl">₹1999</span>
-                  </div>
-                  <div className="bg-[color:var(--color-gray-100)] text-[color:var(--color-gray-700)] px-2 py-1 rounded text-xs font-medium border border-[color:var(--color-gray-200)]">
-                    Save ₹2898
-                  </div>
+                <div className="bg-gray-50 rounded-lg p-2">
+                  <div className="font-semibold text-gray-900">Mentorship Call: ₹599</div>
+                  <div className="text-gray-600 text-xs">1 personalized session | 45 minutes</div>
                 </div>
-                <a href="#" className="w-full bg-[#1D3A6B] hover:bg-[#152A4F] text-white px-6 py-3 rounded-lg font-semibold mb-2 transition-all duration-300 hover:scale-105 inline-block text-center min-h-[48px] flex items-center justify-center">
-                  Grab Offer
+                <div className="bg-gray-50 rounded-lg p-2">
+                  <div className="font-semibold text-gray-900">Business Niche Finder: ₹299</div>
+                  <div className="text-gray-600 text-xs">1.5 hours | Digital toolkit & worksheet</div>
+                </div>
+              </div>
+              <div className="grid content-center justify-items-center text-center gap-1">
+                <div className="text-[color:var(--color-gray-700)] text-sm font-medium">Offer Price:</div>
+                <div>
+                  <span className="text-[color:var(--color-cta)] font-bold text-2xl sm:text-3xl">₹{currentPrice.toLocaleString('en-IN')}</span>
+                </div>
+                <div className="text-[color:var(--color-gray-600)] line-through">₹{originalPrice.toLocaleString('en-IN')}</div>
+                <div className="text-[color:var(--color-cta)] text-sm font-semibold">{percentOff}% off</div>
+              </div>
+            </div>
+                <a href="#" className="w-full bg-[#1D3A6B] hover:bg-[#152A4F] text-white px-5 py-2.5 rounded-lg font-semibold mb-2 transition-colors duration-300 inline-block text-center min-h-[44px] flex items-center justify-center">
+                  Proceed to Checkout <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
                 <div className="text-xs text-[color:var(--color-gray-600)] text-center">Special Bundle Price Offer.</div>
                 <div className="text-xs text-gray-600 text-center">Expert guidance every step of the way. Community support included</div>

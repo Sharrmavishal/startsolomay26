@@ -416,7 +416,7 @@ const WomenEntrepreneursPage: React.FC = () => {
                   Follow our step-by-step program to launch a brand and business that works for your life circumstances.
                 </p>
                 <a 
-                  href="/course" 
+                  href="/course#course-hero"
                   className="text-[color:var(--color-teal)] font-medium hover:text-[color:var(--color-primary)] transition flex items-center"
                 >
                   Join the Course <ArrowRight className="ml-1 h-4 w-4" />

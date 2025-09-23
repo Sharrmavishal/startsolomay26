@@ -9,7 +9,7 @@ const TestimonialsSection = () => {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    navigate('/learn');
+    navigate('/course');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -195,7 +195,7 @@ const TestimonialsSection = () => {
 
           <div className="mt-8 text-center">
             <a 
-              href="/learn"
+              href="/course"
               onClick={handleClick}
               className="bg-[color:var(--color-cta)] text-[color:var(--color-cta-text)] px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center text-sm md:text-base font-semibold relative overflow-hidden group hover:shadow-lg z-0"
               data-tracking="testimonials-cta"

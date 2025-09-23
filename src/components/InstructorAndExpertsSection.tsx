@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Award, BookOpen, Users, Briefcase, ArrowRight, Mic, ChevronRight, ChevronLeft, TrendingUp, Target, BarChart3 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const InstructorAndExpertsSection = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeMentor, setActiveMentor] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const autoplayRef = useRef<number | null>(null);
   const navigate = useNavigate();
   
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -105,6 +107,20 @@ const InstructorAndExpertsSection = () => {
     setActiveSlide((prev) => (prev - 2 < 0 ? speakers.length - 2 : prev - 2));
   };
 
+  // Autoplay for mentors carousel
+  useEffect(() => {
+    if (isPaused) return;
+    autoplayRef.current = window.setInterval(() => {
+      setActiveMentor((prev) => (prev === mentors.length - 1 ? 0 : prev + 1));
+    }, 2500);
+    return () => {
+      if (autoplayRef.current) {
+        clearInterval(autoplayRef.current);
+        autoplayRef.current = null;
+      }
+    };
+  }, [isPaused, mentors.length]);
+
   return (
     <section id="instructor" className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -120,7 +136,11 @@ const InstructorAndExpertsSection = () => {
         
         {/* Main Mentor Section - Carousel */}
         <div className="max-w-6xl mx-auto mb-16">
-          <div className="relative">
+          <div 
+            className="relative"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             {/* Navigation Buttons */}
             <button
               onClick={() => setActiveMentor(activeMentor === 0 ? mentors.length - 1 : activeMentor - 1)}

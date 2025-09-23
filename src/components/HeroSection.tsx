@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, ChevronRight, Award } from 'lucide-react';
 import { useContent } from './ContentProvider';
 import { useNavigate } from 'react-router-dom';
@@ -86,6 +86,22 @@ const HeroSection = () => {
     document.body.removeChild(link);
   };
 
+  // Ensure Razorpay embed script is present for CTAs on the homepage
+  useEffect(() => {
+    const d = document as Document & { [key: string]: any };
+    const existing = d.getElementById('razorpay-embed-btn-js') as HTMLScriptElement | null;
+    if (!existing) {
+      const s = d.createElement('script');
+      s.defer = true;
+      s.id = 'razorpay-embed-btn-js';
+      s.src = 'https://cdn.razorpay.com/static/embed_btn/bundle.js';
+      d.body.appendChild(s);
+    } else {
+      const rzp = (window as any)['__rzp__'];
+      rzp && rzp.init && rzp.init();
+    }
+  }, []);
+
   return (
     <section id="hero" className="py-6 sm:py-8 md:py-12 lg:py-16 relative bg-white border-b border-gray-100">
       {isLeadFormOpen && (
@@ -122,8 +138,10 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 mb-5 sm:mb-6 md:mb-8">
               {hero?.primaryButton && (
                 <a 
-                  href="/course"
+                  href="https://pages.razorpay.com/pl_RL0MOjjDNiy5aS/view"
                   onClick={handleClick}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-[color:var(--color-cta)] hover:bg-[color:var(--color-cta-dark)] text-[color:var(--color-cta-text)] px-4 sm:px-6 py-3 sm:py-3.5 rounded-lg transition-all duration-300 flex items-center justify-center text-sm sm:text-base font-semibold w-full sm:w-auto"
                   aria-label={hero.primaryButton.text || "Primary CTA"}
                   data-tracking={hero.primaryButton.trackingId || "hero-primary-cta"}

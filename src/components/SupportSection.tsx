@@ -62,7 +62,7 @@ const SupportSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[color:var(--color-navy)] mb-4">
-            How We Support You
+            What We Do
           </h2>
           <p className="text-lg md:text-xl text-[color:var(--color-gray-900)] max-w-3xl mx-auto">
             From spark to success — we're with you every step of the way.

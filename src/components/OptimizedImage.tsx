@@ -124,3 +124,5 @@ export const useIntersectionObserver = (ref: React.RefObject<HTMLElement>, optio
 
   return isIntersecting;
 };
+
+

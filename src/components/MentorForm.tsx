@@ -43,16 +43,13 @@ const MentorForm: React.FC<MentorFormProps> = ({ onClose }) => {
         submitted: true,
         submitting: false
       }));
-
-      // Set timeout for redirect
-      setTimeout(() => {
-        window.location.href = 'https://hub.startsolo.in/l/ce8af018cf';
-      }, 3000);
     } catch (error) {
       console.error('Error submitting form:', error);
       setFormData(prev => ({ ...prev, submitting: false }));
     }
   };
+
+  // (Removed Razorpay embed script to avoid duplicate buttons). Using a styled link instead.
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
@@ -75,16 +72,22 @@ const MentorForm: React.FC<MentorFormProps> = ({ onClose }) => {
               </div>
               <h3 className="text-xl font-bold text-[color:var(--color-navy)] mb-3">Thank You!</h3>
               <p className="text-[color:var(--color-gray-900)] mb-4 text-sm">
-                We'll be in touch via WhatsApp within 12 hours to book your slot!
+                We'll be in touch via WhatsApp within 12 hours to book your slot. To confirm your session, please complete the ₹999 commitment fee now:
               </p>
-              <div className="bg-[color:var(--color-navy)] bg-opacity-10 p-4 rounded-lg border border-[color:var(--color-navy)] border-opacity-20">
-                <p className="text-[color:var(--color-navy)] font-medium mb-2 text-sm">
-                  Please wait while we redirect you to confirm your session...
-                </p>
-                <div className="w-full bg-[color:var(--color-gray-200)] rounded-full h-1.5">
-                  <div className="bg-[color:var(--color-cta)] h-1.5 rounded-full animate-pulse" style={{width: '60%'}}></div>
-                </div>
+              {/* Single styled CTA button linking to Razorpay page */}
+              <div className="flex justify-center">
+                <a
+                  href="https://rzp.io/rzp/Ibh0MbWI"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-[#1D3A6B] hover:bg-[#152A4F] text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transition-colors"
+                >
+                  Pay ₹999 to Confirm
+                </a>
               </div>
+              <p className="text-xs text-[color:var(--color-gray-700)] mt-3">
+                Having trouble? <a href="https://rzp.io/rzp/Ibh0MbWI" target="_blank" rel="noopener noreferrer" className="text-[color:var(--color-teal)] underline">Open payment page</a>
+              </p>
             </div>
           ) : (
             <>
@@ -216,7 +219,8 @@ const MentorForm: React.FC<MentorFormProps> = ({ onClose }) => {
                 <button
                   type="submit"
                   disabled={formData.submitting}
-                  className="w-full bg-[color:var(--color-cta)] hover:bg-[color:var(--color-cta-dark)] text-[color:var(--color-cta-text)] px-4 py-3 rounded-lg transition-all duration-200 flex items-center justify-center text-sm font-semibold disabled:opacity-70 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  aria-label="Book mentorship call and pay commitment fee"
+                  className="w-full bg-[color:var(--color-cta)] hover:bg-[color:var(--color-cta-dark)] text-[color:var(--color-cta-text)] px-5 py-3 rounded-lg transition-colors duration-200 flex items-center justify-center text-base sm:text-lg font-semibold disabled:opacity-70 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
                 >
                   {formData.submitting ? (
                     <>
@@ -228,7 +232,7 @@ const MentorForm: React.FC<MentorFormProps> = ({ onClose }) => {
                     </>
                   ) : (
                     <>
-                      Book My Call for ₹999 <Send className="ml-2 h-4 w-4" />
+                      Book My Call for ₹999 <Send className="ml-2 h-5 w-5" />
                     </>
                   )}
                 </button>
