@@ -126,13 +126,13 @@ const HeroSection = () => {
               onClick={() => {
                 if (navigator.share) {
                   navigator.share({
-                    title: 'Start Solo — Launchpad for Solopreneurs',
-                    text: 'Kickstart your solo business with Launchpad by Start Solo.',
+                    title: 'Launchpad Business Starter Course by Start Solo',
+                    text: 'Kickstart your solo business with Launchpad Business Starter Course by Start Solo. https://startsolo.in/',
                     url: window.location.origin + '/'
                   });
                 } else {
-                  const shareUrl = window.location.origin + '/';
-                  navigator.clipboard.writeText(shareUrl);
+                  const shareText = 'Kickstart your solo business with Launchpad Business Starter Course by Start Solo. https://startsolo.in/';
+                  navigator.clipboard.writeText(shareText);
                   alert('Homepage link copied to clipboard!');
                 }
               }}

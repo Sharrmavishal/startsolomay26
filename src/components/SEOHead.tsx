@@ -34,8 +34,8 @@ const SEOHead: React.FC = () => {
     
     // Update Open Graph meta tags
     const ogTags = [
-      { property: 'og:title', content: 'Launchpad by Start Solo — Learn with Mentor Diksha Sethi' },
-      { property: 'og:description', content: 'Kickstart your solo business with Launchpad, our 4‑week, self‑paced course led by mentor Diksha Sethi. Practical tools, guided steps, and community support to launch with confidence.' },
+      { property: 'og:title', content: 'Launchpad Business Starter Course by Start Solo' },
+      { property: 'og:description', content: 'Kickstart your solo business with Launchpad Business Starter Course by Start Solo. 4‑week, self‑paced, mentor-led by Diksha Sethi.' },
       { property: 'og:image', content: 'https://res.cloudinary.com/dnm2ejglr/image/upload/v1741527316/Training_Unoptimised_iaovgq.png' },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '630' },
@@ -56,8 +56,8 @@ const SEOHead: React.FC = () => {
     // Update Twitter meta tags
     const twitterTags = [
       { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: 'Launchpad by Start Solo — Learn with Mentor Diksha Sethi' },
-      { name: 'twitter:description', content: 'Kickstart your solo business with Launchpad, our 4‑week, self‑paced course led by mentor Diksha Sethi. Practical tools, guided steps, and community support to launch with confidence.' },
+      { name: 'twitter:title', content: 'Launchpad Business Starter Course by Start Solo' },
+      { name: 'twitter:description', content: 'Kickstart your solo business with Launchpad Business Starter Course by Start Solo. 4‑week, self‑paced, mentor-led by Diksha Sethi.' },
       { name: 'twitter:image', content: 'https://res.cloudinary.com/dnm2ejglr/image/upload/v1741527316/Training_Unoptimised_iaovgq.png' }
     ];
     
