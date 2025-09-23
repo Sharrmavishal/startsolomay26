@@ -29,10 +29,10 @@
       default-src 'self' https://api.netlify.com https://identity.netlify.com;
       script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com https://www.googletagmanager.com https://snap.licdn.com https://*.google-analytics.com https://www.google-analytics.com https://cdn.razorpay.com https://checkout.razorpay.com https://*.razorpay.com https://*.rzp.io;
       style-src 'self' 'unsafe-inline';
-      img-src 'self' data: https: https://res.cloudinary.com https://www.google-analytics.com https://px.ads.linkedin.com;
+      img-src 'self' data: https: https://res.cloudinary.com https://www.google-analytics.com https://px.ads.linkedin.com https://i.ytimg.com https://img.youtube.com;
       font-src 'self';
       connect-src 'self' https://api.netlify.com https://identity.netlify.com https://*.google-analytics.com https://*.razorpay.com https://*.rzp.io;
-      frame-src 'self' https://*.razorpay.com https://*.rzp.io;
+      frame-src 'self' https://*.razorpay.com https://*.rzp.io https://www.youtube.com https://www.youtube-nocookie.com;
       frame-ancestors 'none';
       base-uri 'self';
       form-action 'self' https://pages.razorpay.com;
