@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, ChevronRight, Award } from 'lucide-react';
+import { ArrowRight, ChevronRight, Award, Share2 } from 'lucide-react';
 import { useContent } from './ContentProvider';
 import { useNavigate } from 'react-router-dom';
 import LeadCaptureForm, { LeadCaptureData } from './LeadCaptureForm';
@@ -119,7 +119,27 @@ const HeroSection = () => {
       )}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-          <div className="w-full lg:w-1/2 mb-6 sm:mb-8 lg:mb-0 lg:pr-8 xl:pr-10">
+          <div className="w-full lg:w-1/2 mb-6 sm:mb-8 lg:mb-0 lg:pr-8 xl:pr-10 relative">
+            {/* Compact share icon at top-right */}
+            <button
+              aria-label="Share homepage"
+              onClick={() => {
+                if (navigator.share) {
+                  navigator.share({
+                    title: 'Start Solo — Launchpad for Solopreneurs',
+                    text: 'Kickstart your solo business with Launchpad by Start Solo.',
+                    url: window.location.origin + '/'
+                  });
+                } else {
+                  const shareUrl = window.location.origin + '/';
+                  navigator.clipboard.writeText(shareUrl);
+                  alert('Homepage link copied to clipboard!');
+                }
+              }}
+              className="absolute right-0 top-0 inline-flex items-center justify-center h-9 w-9 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50"
+            >
+              <Share2 className="h-4 w-4" />
+            </button>
                         <div className="inline-block bg-gray-100 text-[color:var(--color-teal)] px-3 py-1 md:px-4 md:py-1.5 rounded-full mb-4 md:mb-6 font-medium text-sm md:text-base shadow-sm uppercase">
               {hero?.highlight?.replace('{cohortStartDate}', general?.cohortStartDate || 'TBA') || `Next cohort starts ${general?.cohortStartDate || 'TBA'}`}
             </div>
