@@ -62,12 +62,12 @@ const LaidOffEngineersPage: React.FC = () => {
                 >
                   Explore 10 Low-Risk Solo Businesses <Download className="ml-2 h-4 w-4" />
                 </button>
-                <button 
-                  onClick={() => setIsDiscoveryCallFormOpen(true)} 
+                <a 
+                  href="/course" 
                   className="border-2 border-[color:var(--color-navy)] bg-white text-[color:var(--color-navy)] px-4 sm:px-6 py-3 sm:py-3.5 rounded-lg hover:bg-[color:var(--color-navy)] hover:text-white transition flex items-center justify-center text-sm sm:text-base font-semibold w-full sm:w-auto"
                 >
-                  Set up a Discovery Call <ArrowRight className="ml-2 h-4 w-4" />
-                </button>
+                  Start Your Solopreneur Journey <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
               </div>
             </div>
             <div className="w-full lg:w-1/2">
