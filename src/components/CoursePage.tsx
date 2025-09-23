@@ -103,12 +103,12 @@ const CoursePage: React.FC = () => {
                   if (navigator.share) {
                     navigator.share({
                       title: 'Launchpad: The Start Solo Business Starter Course',
-                      text: 'This comprehensive self-paced 4-week program prepares you with the practical skills and confidence to launch your solo business.',
+                      text: 'This comprehensive self-paced 4-week program by Diksha Sethi prepares you with the practical skills and confidence to launch your solo business. https://startsolo.in/course',
                       url: window.location.origin + '/course'
                     });
                   } else {
-                    const shareUrl = window.location.origin + '/course';
-                    navigator.clipboard.writeText(shareUrl);
+                    const shareText = 'This comprehensive self-paced 4-week program by Diksha Sethi prepares you with the practical skills and confidence to launch your solo business. https://startsolo.in/course';
+                    navigator.clipboard.writeText(shareText);
                     alert('Course link copied to clipboard!');
                   }
                 }}
