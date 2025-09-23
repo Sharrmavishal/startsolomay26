@@ -158,10 +158,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 mb-5 sm:mb-6 md:mb-8">
               {hero?.primaryButton && (
                 <a 
-                  href="https://pages.razorpay.com/pl_RL0MOjjDNiy5aS/view"
-                  onClick={handleClick}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/course"
                   className="bg-[color:var(--color-cta)] hover:bg-[color:var(--color-cta-dark)] text-[color:var(--color-cta-text)] px-4 sm:px-6 py-3 sm:py-3.5 rounded-lg transition-all duration-300 flex items-center justify-center text-sm sm:text-base font-semibold w-full sm:w-auto"
                   aria-label={hero.primaryButton.text || "Primary CTA"}
                   data-tracking={hero.primaryButton.trackingId || "hero-primary-cta"}
