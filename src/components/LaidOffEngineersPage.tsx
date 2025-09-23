@@ -3,11 +3,13 @@ import { ArrowRight, Download, Calendar, Users, BookOpen, Briefcase, Code, LineC
 import LeadMagnetForm from './LeadMagnetForm';
 import { OptimizedImage } from './OptimizedImage';
 import MentorForm from './MentorForm';
+import DiscoveryCallForm from './DiscoveryCallForm';
 
 const LaidOffEngineersPage: React.FC = () => {
   const [isLeadMagnetFormOpen, setIsLeadMagnetFormOpen] = useState(false);
   const [isSkillMatchFormOpen, setIsSkillMatchFormOpen] = useState(false);
   const [isMentorFormOpen, setIsMentorFormOpen] = useState(false);
+  const [isDiscoveryCallFormOpen, setIsDiscoveryCallFormOpen] = useState(false);
 
   const handleLeadMagnetFormClose = () => {
     setIsLeadMagnetFormOpen(false);
@@ -19,6 +21,10 @@ const LaidOffEngineersPage: React.FC = () => {
 
   const handleMentorFormClose = () => {
     setIsMentorFormOpen(false);
+  };
+
+  const handleDiscoveryCallFormClose = () => {
+    setIsDiscoveryCallFormOpen(false);
   };
 
   return (
@@ -47,12 +53,12 @@ const LaidOffEngineersPage: React.FC = () => {
                 >
                   Explore 10 Low-Risk Solo Businesses <Download className="ml-2 h-4 w-4" />
                 </button>
-                <a 
-                  href="/course" 
+                <button 
+                  onClick={() => setIsDiscoveryCallFormOpen(true)} 
                   className="border-2 border-[color:var(--color-navy)] bg-white text-[color:var(--color-navy)] px-4 sm:px-6 py-3 sm:py-3.5 rounded-lg hover:bg-[color:var(--color-navy)] hover:text-white transition flex items-center justify-center text-sm sm:text-base font-semibold w-full sm:w-auto"
                 >
-                  Start Your Solopreneur Journey <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                  Set up a Discovery Call <ArrowRight className="ml-2 h-4 w-4" />
+                </button>
               </div>
             </div>
             <div className="w-full lg:w-1/2">
@@ -574,6 +580,11 @@ const LaidOffEngineersPage: React.FC = () => {
           onClose={handleMentorFormClose}
         />
       )}
+
+  {/* Discovery Call Form */}
+  {isDiscoveryCallFormOpen && (
+    <DiscoveryCallForm onClose={handleDiscoveryCallFormClose} audience="engineers" />
+  )}
     </div>
   );
 };

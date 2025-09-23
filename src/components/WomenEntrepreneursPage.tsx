@@ -72,6 +72,7 @@ const WomenEntrepreneursPage: React.FC = () => {
       {isDiscoveryCallFormOpen && (
         <DiscoveryCallForm
           onClose={handleDiscoveryCallFormClose}
+          audience="women"
         />
       )}
       {/* Hero Section */}

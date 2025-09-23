@@ -67,8 +67,8 @@ const GraduatesStudentsPage: React.FC = () => {
       )}
       {isDiscoveryCallFormOpen && (
         <DiscoveryCallForm
-          isOpen={isDiscoveryCallFormOpen}
           onClose={handleDiscoveryCallFormClose}
+          audience="graduates"
         />
       )}
       {/* Hero Section */}

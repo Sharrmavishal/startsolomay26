@@ -3,7 +3,7 @@
 ## 🎨 **Color Palette**
 
 ### **Primary Hero Colors**
-- **Navy Blue** (`#1D3A6B`) - Authority, trust, main headings
+- **Navy Blue** - Authority, trust, main headings
 - **Sky Blue** (`#8FC2F2`) - Light accents, backgrounds
 
 ### **Secondary Brand Colors**

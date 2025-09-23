@@ -3,9 +3,10 @@ import { X, Phone, Check } from 'lucide-react';
 
 interface DiscoveryCallFormProps {
   onClose: () => void;
+  audience?: 'women' | 'graduates' | 'engineers' | 'default';
 }
 
-const DiscoveryCallForm: React.FC<DiscoveryCallFormProps> = ({ onClose }) => {
+const DiscoveryCallForm: React.FC<DiscoveryCallFormProps> = ({ onClose, audience = 'default' }) => {
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',
@@ -123,7 +124,10 @@ const DiscoveryCallForm: React.FC<DiscoveryCallFormProps> = ({ onClose }) => {
   if (isSubmitted) {
     return (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-        <div className="bg-white rounded-xl p-8 max-w-md w-full text-center">
+        <div className="bg-white rounded-xl p-8 max-w-md w-full text-center relative">
+          <button onClick={onClose} className="absolute top-3 right-3 text-[color:var(--color-gray-900)] hover:text-[color:var(--color-navy)]">
+            <X className="h-5 w-5" />
+          </button>
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <Check className="h-8 w-8 text-green-600" />
           </div>
@@ -248,7 +252,10 @@ const DiscoveryCallForm: React.FC<DiscoveryCallFormProps> = ({ onClose }) => {
               className="mt-1 h-4 w-4 text-[color:var(--color-navy)] border-[color:var(--color-gray-300)] rounded focus:ring-[color:var(--color-navy)]"
             />
             <label htmlFor="whatsappPermission" className="text-sm text-[color:var(--color-gray-900)]">
-              I give permission to add me to the Women's WhatsApp Community for networking and support
+              {audience === 'women' && "I give permission to add me to the Women's WhatsApp Community for networking and support"}
+              {audience === 'graduates' && 'I give permission to add me to the Graduates WhatsApp Community for networking and support'}
+              {audience === 'engineers' && 'I give permission to add me to the Engineers WhatsApp Community for networking and support'}
+              {audience === 'default' && 'I give permission to add me to the Start Solo WhatsApp Community for networking and support'}
             </label>
           </div>
 
