@@ -136,7 +136,7 @@ const HeroSection = () => {
                   alert('Homepage link copied to clipboard!');
                 }
               }}
-              className="absolute right-0 top-0 inline-flex items-center justify-center h-9 w-9 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50"
+              className="hidden sm:inline-flex absolute right-0 top-0 items-center justify-center h-9 w-9 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50"
             >
               <Share2 className="h-4 w-4" />
             </button>
@@ -155,7 +155,7 @@ const HeroSection = () => {
               ))}
             </ul>
             
-            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 mb-5 sm:mb-6 md:mb-8">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 mb-5 sm:mb-6 md:mb-8">
               {hero?.primaryButton && (
                 <a 
                   href="https://pages.razorpay.com/pl_RL0MOjjDNiy5aS/view"
@@ -179,6 +179,26 @@ const HeroSection = () => {
                   {hero.secondaryButton.text || "Meet Your Instructor"} <ChevronRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </button>
               )}
+              {/* Mobile share icon inline with CTAs */}
+              <button
+                aria-label="Share homepage"
+                onClick={() => {
+                  if (navigator.share) {
+                    navigator.share({
+                      title: 'Launchpad Business Starter Course by Start Solo',
+                      text: 'Kickstart your solo business with Launchpad Business Starter Course by Start Solo. https://startsolo.in/',
+                      url: window.location.origin + '/'
+                    });
+                  } else {
+                    const shareText = 'Kickstart your solo business with Launchpad Business Starter Course by Start Solo. https://startsolo.in/';
+                    navigator.clipboard.writeText(shareText);
+                    alert('Homepage link copied to clipboard!');
+                  }
+                }}
+                className="sm:hidden inline-flex items-center justify-center h-10 w-10 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50"
+              >
+                <Share2 className="h-4 w-4" />
+              </button>
             </div>
             
             <div className="flex items-center">
