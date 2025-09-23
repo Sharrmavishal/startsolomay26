@@ -118,13 +118,6 @@ const DiscoveryCallForm: React.FC<DiscoveryCallFormProps> = ({ onClose }) => {
     
     setIsSubmitting(false);
     setIsSubmitted(true);
-    
-    // Redirect to Razorpay after showing thank you message
-    setTimeout(() => {
-      // Replace with your actual Razorpay link
-      window.open('https://rzp.io/l/your-razorpay-link', '_blank');
-      onClose();
-    }, 3000);
   };
 
   if (isSubmitted) {
@@ -139,7 +132,7 @@ const DiscoveryCallForm: React.FC<DiscoveryCallFormProps> = ({ onClose }) => {
             Your discovery call request has been submitted successfully.
           </p>
           <p className="text-[color:var(--color-gray-600)] text-sm">
-            You'll be redirected to complete the ₹99 payment, then we'll contact you within 24 hours to schedule your call.
+            Our team will contact you within 24 hours to schedule your free discovery call.
           </p>
         </div>
       </div>
@@ -287,11 +280,10 @@ const DiscoveryCallForm: React.FC<DiscoveryCallFormProps> = ({ onClose }) => {
           </button>
         </form>
 
-        {/* Commitment Fee Information */}
+        {/* Info Note */}
         <div className="mt-4 text-center">
           <p className="text-[color:var(--color-gray-500)] text-xs leading-relaxed">
-            ₹99 commitment fee - Non-refundable<br/>
-            Helps us prioritize serious requests
+            Thank you for your interest. We typically respond within 24 hours on business days.
           </p>
         </div>
       </div>
