@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArrowRight, Download, Calendar, Users, BookOpen, Briefcase, Code, LineChart } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Download, Calendar, Users, BookOpen, Briefcase, Code, LineChart, Phone } from 'lucide-react';
 import LeadMagnetForm from './LeadMagnetForm';
 import { OptimizedImage } from './OptimizedImage';
 import MentorForm from './MentorForm';
@@ -10,6 +10,7 @@ const LaidOffEngineersPage: React.FC = () => {
   const [isSkillMatchFormOpen, setIsSkillMatchFormOpen] = useState(false);
   const [isMentorFormOpen, setIsMentorFormOpen] = useState(false);
   const [isDiscoveryCallFormOpen, setIsDiscoveryCallFormOpen] = useState(false);
+  const [isStickyCTAVisible, setIsStickyCTAVisible] = useState(false);
 
   const handleLeadMagnetFormClose = () => {
     setIsLeadMagnetFormOpen(false);
@@ -26,6 +27,14 @@ const LaidOffEngineersPage: React.FC = () => {
   const handleDiscoveryCallFormClose = () => {
     setIsDiscoveryCallFormOpen(false);
   };
+
+  // Show sticky CTA after scrolling a bit
+  useEffect(() => {
+    const handleScroll = () => setIsStickyCTAVisible(window.scrollY > 300);
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -559,6 +568,24 @@ const LaidOffEngineersPage: React.FC = () => {
           }}
         />
       )}
+
+      {/* Sticky Discovery Call CTA */}
+      <div 
+        className={`fixed bottom-6 right-6 z-50 transition-all duration-300 ${
+          isStickyCTAVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
+        }`}
+      >
+        <button 
+          onClick={() => setIsDiscoveryCallFormOpen(true)}
+          className="flex items-center bg-[color:var(--color-navy)] text-white px-4 py-3 rounded-full shadow-lg hover:bg-[color:var(--color-cta)] transition-all duration-300 group"
+          aria-label="Set up a discovery call"
+        >
+          <Phone className="h-6 w-6 mr-2" />
+          <span className="font-medium whitespace-nowrap max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-in-out">
+            Set up a discovery call
+          </span>
+        </button>
+      </div>
 
       {/* Skill Match Form */}
       {isSkillMatchFormOpen && (
