@@ -11,6 +11,7 @@ import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
 import CoursePage from './components/CoursePage';
+import WebinarPage from './components/WebinarPage';
 import SEOHead from './components/SEOHead';
 import StickyWhatsAppCTA from './components/StickyWhatsAppCTA';
 
@@ -89,6 +90,12 @@ function App() {
               <Route path="/course" element={
                 <>
                   <CoursePage />
+                  <Footer />
+                </>
+              } />
+              <Route path="/webinar" element={
+                <>
+                  <WebinarPage />
                   <Footer />
                 </>
               } />
