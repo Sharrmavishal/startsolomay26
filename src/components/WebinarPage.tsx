@@ -42,15 +42,27 @@ const WebinarPage: React.FC = () => {
                 * indicates required fields
               </p>
               
-              <form className="space-y-5">
+              <form 
+                name="webinar-registration" 
+                method="POST" 
+                data-netlify="true" 
+                data-netlify-honeypot="bot-field"
+                className="space-y-5"
+              >
+                <input type="hidden" name="form-name" value="webinar-registration" />
+                <div style={{ display: 'none' }}>
+                  <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Full Name *
                   </label>
                   <input
                     type="text"
+                    name="full-name"
                     className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Enter your full name"
+                    required
                   />
                 </div>
 
@@ -60,8 +72,10 @@ const WebinarPage: React.FC = () => {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Enter your email address"
+                    required
                   />
                 </div>
 
@@ -71,6 +85,7 @@ const WebinarPage: React.FC = () => {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
                     className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Enter your phone number (optional)"
                   />
@@ -80,7 +95,11 @@ const WebinarPage: React.FC = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Occupation / Role *
                   </label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                  <select 
+                    name="occupation"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    required
+                  >
                     <option value="">Please Select</option>
                     <option value="entrepreneur">Entrepreneur</option>
                     <option value="freelancer">Freelancer</option>
@@ -96,7 +115,11 @@ const WebinarPage: React.FC = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     How did you hear about us? *
                   </label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                  <select 
+                    name="hear-about"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    required
+                  >
                     <option value="">Please Select</option>
                     <option value="social-media">Social Media</option>
                     <option value="google-search">Google Search</option>
@@ -145,6 +168,7 @@ const WebinarPage: React.FC = () => {
                   <input
                     type="checkbox"
                     id="consent"
+                    name="consent"
                     className="mt-1 mr-3"
                     required
                   />

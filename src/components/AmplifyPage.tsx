@@ -6,7 +6,6 @@ const AmplifyPage: React.FC = () => {
     name: '',
     email: '',
     phone: '',
-    package: '',
     message: ''
   });
 
@@ -24,12 +23,7 @@ const AmplifyPage: React.FC = () => {
     console.log('Form submitted:', formData);
     alert('Thank you for your interest! We\'ll get back to you soon.');
     setIsFormOpen(false);
-    setFormData({ name: '', email: '', phone: '', package: '', message: '' });
-  };
-
-  const handlePackageSelect = (packageName: string) => {
-    setFormData(prev => ({ ...prev, package: packageName }));
-    setIsFormOpen(true);
+    setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
   return (
@@ -93,10 +87,10 @@ const AmplifyPage: React.FC = () => {
                 </li>
               </ul>
               <button 
-                onClick={() => handlePackageSelect('AMPLIFY LITE')}
+                onClick={() => {/* TODO: Add Razorpay payment integration */}}
                 className="w-full mt-6 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
-                Choose LITE
+                Sign Up
               </button>
             </div>
 
@@ -132,10 +126,10 @@ const AmplifyPage: React.FC = () => {
                 </li>
               </ul>
               <button 
-                onClick={() => handlePackageSelect('AMPLIFY PLUS')}
+                onClick={() => {/* TODO: Add Razorpay payment integration */}}
                 className="w-full mt-6 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
-                Choose PLUS
+                Sign Up
               </button>
             </div>
 
@@ -166,10 +160,10 @@ const AmplifyPage: React.FC = () => {
                 </li>
               </ul>
               <button 
-                onClick={() => handlePackageSelect('AMPLIFY PRO')}
+                onClick={() => {/* TODO: Add Razorpay payment integration */}}
                 className="w-full mt-6 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
-                Choose PRO
+                Sign Up
               </button>
             </div>
           </div>
@@ -319,7 +313,7 @@ const AmplifyPage: React.FC = () => {
             <div className="p-6">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900">
-                  {formData.package ? `Get Started with ${formData.package}` : 'Get Started Today'}
+                  Get Started Today
                 </h3>
                 <button
                   onClick={() => setIsFormOpen(false)}
@@ -329,7 +323,18 @@ const AmplifyPage: React.FC = () => {
                 </button>
               </div>
               
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form 
+                name="amplify-lead-capture" 
+                method="POST" 
+                data-netlify="true" 
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit} 
+                className="space-y-4"
+              >
+                <input type="hidden" name="form-name" value="amplify-lead-capture" />
+                <div style={{ display: 'none' }}>
+                  <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </div>
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                     Full Name *
@@ -373,26 +378,6 @@ const AmplifyPage: React.FC = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
-
-                {!formData.package && (
-                  <div>
-                    <label htmlFor="package" className="block text-sm font-medium text-gray-700 mb-1">
-                      Package Interest
-                    </label>
-                    <select
-                      id="package"
-                      name="package"
-                      value={formData.package}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="">Select a package</option>
-                      <option value="AMPLIFY LITE">AMPLIFY LITE - ₹65,000</option>
-                      <option value="AMPLIFY PLUS">AMPLIFY PLUS - ₹75,000</option>
-                      <option value="AMPLIFY PRO">AMPLIFY PRO - ₹85,000</option>
-                    </select>
-                  </div>
-                )}
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
