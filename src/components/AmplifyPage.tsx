@@ -1,6 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const AmplifyPage: React.FC = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    package: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Form submitted:', formData);
+    alert('Thank you for your interest! We\'ll get back to you soon.');
+    setIsFormOpen(false);
+    setFormData({ name: '', email: '', phone: '', package: '', message: '' });
+  };
+
+  const handlePackageSelect = (packageName: string) => {
+    setFormData(prev => ({ ...prev, package: packageName }));
+    setIsFormOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -61,6 +92,12 @@ const AmplifyPage: React.FC = () => {
                   <span>GMB optimizing</span>
                 </li>
               </ul>
+              <button 
+                onClick={() => handlePackageSelect('AMPLIFY LITE')}
+                className="w-full mt-6 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Choose LITE
+              </button>
             </div>
 
             {/* AMPLIFY PLUS */}
@@ -94,6 +131,12 @@ const AmplifyPage: React.FC = () => {
                   <span>Payment gateway</span>
                 </li>
               </ul>
+              <button 
+                onClick={() => handlePackageSelect('AMPLIFY PLUS')}
+                className="w-full mt-6 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Choose PLUS
+              </button>
             </div>
 
             {/* AMPLIFY PRO */}
@@ -122,6 +165,12 @@ const AmplifyPage: React.FC = () => {
                   <span>Nano/micro influencer outreach (up to 2)</span>
                 </li>
               </ul>
+              <button 
+                onClick={() => handlePackageSelect('AMPLIFY PRO')}
+                className="w-full mt-6 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Choose PRO
+              </button>
             </div>
           </div>
         </div>
@@ -254,11 +303,132 @@ const AmplifyPage: React.FC = () => {
           <p className="text-xl text-blue-100 mb-8">
             Let's create a digital presence that truly represents your business
           </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+          <button 
+            onClick={() => setIsFormOpen(true)}
+            className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors"
+          >
             Get Started Today
           </button>
         </div>
       </section>
+
+      {/* Contact Form Modal */}
+      {isFormOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-bold text-gray-900">
+                  {formData.package ? `Get Started with ${formData.package}` : 'Get Started Today'}
+                </h3>
+                <button
+                  onClick={() => setIsFormOpen(false)}
+                  className="text-gray-400 hover:text-gray-600 text-2xl"
+                >
+                  ×
+                </button>
+              </div>
+              
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                {!formData.package && (
+                  <div>
+                    <label htmlFor="package" className="block text-sm font-medium text-gray-700 mb-1">
+                      Package Interest
+                    </label>
+                    <select
+                      id="package"
+                      name="package"
+                      value={formData.package}
+                      onChange={handleInputChange}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="">Select a package</option>
+                      <option value="AMPLIFY LITE">AMPLIFY LITE - ₹65,000</option>
+                      <option value="AMPLIFY PLUS">AMPLIFY PLUS - ₹75,000</option>
+                      <option value="AMPLIFY PRO">AMPLIFY PRO - ₹85,000</option>
+                    </select>
+                  </div>
+                )}
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                    Tell us about your business
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    rows={4}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="What kind of business do you have? What are your goals?"
+                  />
+                </div>
+
+                <div className="flex space-x-4 pt-4">
+                  <button
+                    type="button"
+                    onClick={() => setIsFormOpen(false)}
+                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
