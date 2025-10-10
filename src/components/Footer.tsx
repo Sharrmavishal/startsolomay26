@@ -67,6 +67,7 @@ const Footer = () => {
               <li><a href="/about" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
               <li><a href="/course" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Launchpad Course</a></li>
               <li><a href="/webinar" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Webinar</a></li>
+              <li><a href="/amplify" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">Amplify</a></li>
               <li><a href="/women-entrepreneurs" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">For Women</a></li>
               <li><a href="/path/graduates-students" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">For Graduates</a></li>
               <li><a href="/engineers-in-career-transition" onClick={handleClick} className="text-gray-300 hover:text-white transition-colors">For Engineers</a></li>
