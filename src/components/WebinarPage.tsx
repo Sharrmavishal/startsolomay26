@@ -22,7 +22,7 @@ const WebinarPage: React.FC = () => {
             {/* On-demand Tag */}
             <div>
               <span className="inline-block bg-[#1a1f36] text-white px-4 py-2 text-sm font-semibold rounded-md">
-                On-demand
+                Webinar
               </span>
             </div>
 
@@ -91,108 +91,66 @@ const WebinarPage: React.FC = () => {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Occupation / Role *
-                  </label>
-                  <select 
-                    name="occupation"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    required
-                  >
-                    <option value="">Please Select</option>
-                    <option value="entrepreneur">Entrepreneur</option>
-                    <option value="freelancer">Freelancer</option>
-                    <option value="employee">Employee</option>
-                    <option value="student">Student</option>
-                    <option value="unemployed">Currently Unemployed</option>
-                    <option value="retired">Retired</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    How did you hear about us? *
-                  </label>
-                  <select 
-                    name="hear-about"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    required
-                  >
-                    <option value="">Please Select</option>
-                    <option value="social-media">Social Media</option>
-                    <option value="google-search">Google Search</option>
-                    <option value="referral">Friend/Family Referral</option>
-                    <option value="youtube">YouTube</option>
-                    <option value="podcast">Podcast</option>
-                    <option value="email">Email Newsletter</option>
-                    <option value="website">Website</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Add Additional Services (Optional)
-                  </label>
-                  <div className="space-y-3">
-                    <div className="flex items-start">
-                      <input
-                        type="checkbox"
-                        id="mentorship"
-                        name="additional-services"
-                        value="mentorship"
-                        className="mt-1 mr-3"
-                      />
-                      <label htmlFor="mentorship" className="text-sm text-gray-700">
-                        <span className="font-semibold">Mentorship Call: ₹599</span><br/>
-                        <span className="text-gray-600">1 personalized session | 45 minutes</span>
-                      </label>
+                <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-4">
+                  <h3 className="text-sm font-bold text-gray-900 mb-3 text-center">What You'll Get:</h3>
+                  
+                  <div className="space-y-2 mb-4">
+                    <div className="flex items-center text-sm">
+                      <span className="text-green-600 mr-2">✅</span>
+                      <span className="text-gray-800">90-min Live Webinar — <span className="line-through text-gray-500">₹999</span></span>
                     </div>
-                    <div className="flex items-start">
-                      <input
-                        type="checkbox"
-                        id="niche-finder"
-                        name="additional-services"
-                        value="niche-finder"
-                        className="mt-1 mr-3"
-                      />
-                      <label htmlFor="niche-finder" className="text-sm text-gray-700">
-                        <span className="font-semibold">Business Niche Finder: ₹299</span><br/>
-                        <span className="text-gray-600">1.5 hours | Digital toolkit & worksheet</span>
-                      </label>
+                    <div className="flex items-center text-sm">
+                      <span className="text-green-600 mr-2">✅</span>
+                      <span className="text-gray-800">Idea Generator Toolkit — <span className="line-through text-gray-500">₹499</span></span>
+                    </div>
+                    <div className="flex items-center text-sm">
+                      <span className="text-green-600 mr-2">✅</span>
+                      <span className="text-gray-800">Niche Finder Framework — <span className="line-through text-gray-500">₹499</span></span>
+                    </div>
+                    <div className="flex items-center text-sm">
+                      <span className="text-green-600 mr-2">✅</span>
+                      <span className="text-gray-800">Mentorship Q&A — <span className="line-through text-gray-500">₹999</span></span>
+                    </div>
+                  </div>
+                  
+                  <div className="border-t border-gray-300 pt-3">
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-sm font-semibold text-gray-700">Total Value:</span>
+                      <span className="text-sm font-bold text-gray-500 line-through">₹2,996</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm font-bold text-green-600">🎉 Your Price:</span>
+                      <span className="text-lg font-bold text-green-600">₹499</span>
+                    </div>
+                    <div className="text-center mt-1">
+                      <span className="text-sm font-bold text-green-600">(Save ₹2,497!)</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-start">
-                  <input
-                    type="checkbox"
-                    id="consent"
-                    name="consent"
-                    className="mt-1 mr-3"
-                    required
-                  />
-                  <label htmlFor="consent" className="text-sm text-gray-600">
-                    I agree to the{' '}
-                    <a href="/policies/terms" className="text-blue-600 hover:underline">
-                      Terms and Conditions
-                    </a>
-                    {' '}and{' '}
-                    <a href="/policies/privacy" className="text-blue-600 hover:underline">
-                      Privacy Policy
-                    </a>
-                    . I consent to receive course materials and updates via email.
-                  </label>
-                </div>
-
                 <button
-                  type="submit"
-                  className="w-full bg-blue-900 text-white py-3 px-6 rounded-md font-semibold hover:bg-blue-800 transition-colors duration-200"
+                  type="button"
+                  onClick={() => {
+                    console.log('Get This Bundle clicked');
+                    window.open('https://rzp.io/rzp/fcigSpq', '_blank', 'noopener,noreferrer');
+                  }}
+                  className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200"
                 >
-                  Register for Webinar @ ₹199
+                  Get This Bundle @ ₹499
                 </button>
+                
+                <p className="text-xs text-gray-500 text-center mt-3">
+                  I agree to the{' '}
+                  <a href="/policies/terms" className="text-blue-600 hover:underline">
+                    Terms and Conditions
+                  </a>
+                  {' '}and{' '}
+                  <a href="/policies/privacy" className="text-blue-600 hover:underline">
+                    Privacy Policy
+                  </a>
+                  . I consent to receive course materials and updates via email.
+                </p>
               </form>
             </div>
           </div>
