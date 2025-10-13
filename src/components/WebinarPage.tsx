@@ -132,37 +132,6 @@ const WebinarPage: React.FC = () => {
                   </select>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Payment Information *
-                  </label>
-                  <div className="space-y-3">
-                    <div className="flex items-center">
-                      <input
-                        type="radio"
-                        id="full-payment"
-                        name="payment"
-                        value="full"
-                        className="mr-3"
-                      />
-                      <label htmlFor="full-payment" className="text-sm text-gray-700">
-                        Full Payment (One-time)
-                      </label>
-                    </div>
-                    <div className="flex items-center">
-                      <input
-                        type="radio"
-                        id="installment"
-                        name="payment"
-                        value="installment"
-                        className="mr-3"
-                      />
-                      <label htmlFor="installment" className="text-sm text-gray-700">
-                        Installment Plan (Monthly)
-                      </label>
-                    </div>
-                  </div>
-                </div>
 
                 <div className="flex items-start">
                   <input
