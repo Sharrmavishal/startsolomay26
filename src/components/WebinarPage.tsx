@@ -4,7 +4,7 @@ const WebinarPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - Exact Hootsuite Layout */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 py-8 lg:py-12">
+      <section id="webinar-form" className="max-w-7xl mx-auto px-6 lg:px-8 py-8 lg:py-12">
         <div className="grid lg:grid-cols-[1.2fr,1fr] gap-12 lg:gap-20 items-start">
           {/* Left Column - Image and Content */}
           <div className="space-y-8">
@@ -328,7 +328,15 @@ const WebinarPage: React.FC = () => {
           <p className="text-gray-700 text-lg mb-8 leading-relaxed max-w-3xl">
             "Someday" is too expensive. Your dream of an independent, flexible business is ready for takeoff—with the right planning and mentorship
           </p>
-          <button className="bg-[#1a1f36] text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-[#2a3f56] transition-colors">
+          <button 
+            onClick={() => {
+              document.getElementById('webinar-form')?.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }}
+            className="bg-[#1a1f36] text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-[#2a3f56] transition-colors"
+          >
             Secure Your Spot for the Next Workshop
           </button>
         </div>
