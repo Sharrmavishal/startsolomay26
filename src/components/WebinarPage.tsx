@@ -132,6 +132,39 @@ const WebinarPage: React.FC = () => {
                   </select>
                 </div>
 
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Add Additional Services (Optional)
+                  </label>
+                  <div className="space-y-3">
+                    <div className="flex items-start">
+                      <input
+                        type="checkbox"
+                        id="mentorship"
+                        name="additional-services"
+                        value="mentorship"
+                        className="mt-1 mr-3"
+                      />
+                      <label htmlFor="mentorship" className="text-sm text-gray-700">
+                        <span className="font-semibold">Mentorship Call: ₹599</span><br/>
+                        <span className="text-gray-600">1 personalized session | 45 minutes</span>
+                      </label>
+                    </div>
+                    <div className="flex items-start">
+                      <input
+                        type="checkbox"
+                        id="niche-finder"
+                        name="additional-services"
+                        value="niche-finder"
+                        className="mt-1 mr-3"
+                      />
+                      <label htmlFor="niche-finder" className="text-sm text-gray-700">
+                        <span className="font-semibold">Business Niche Finder: ₹299</span><br/>
+                        <span className="text-gray-600">1.5 hours | Digital toolkit & worksheet</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
 
                 <div className="flex items-start">
                   <input
@@ -158,7 +191,7 @@ const WebinarPage: React.FC = () => {
                   type="submit"
                   className="w-full bg-blue-900 text-white py-3 px-6 rounded-md font-semibold hover:bg-blue-800 transition-colors duration-200"
                 >
-                  Register for Course
+                  Register for Webinar @ ₹199
                 </button>
               </form>
             </div>
