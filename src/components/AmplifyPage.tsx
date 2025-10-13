@@ -86,12 +86,14 @@ const AmplifyPage: React.FC = () => {
                   <span>GMB optimizing</span>
                 </li>
               </ul>
-              <button 
-                onClick={() => {/* TODO: Add Razorpay payment integration */}}
-                className="w-full mt-6 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              <a 
+                href="https://rzp.io/rzp/9tgTsMR8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full mt-6 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block text-center"
               >
                 Sign Up
-              </button>
+              </a>
             </div>
 
             {/* AMPLIFY PLUS */}
@@ -125,12 +127,14 @@ const AmplifyPage: React.FC = () => {
                   <span>Payment gateway</span>
                 </li>
               </ul>
-              <button 
-                onClick={() => {/* TODO: Add Razorpay payment integration */}}
-                className="w-full mt-6 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              <a 
+                href="https://rzp.io/rzp/mwyqVQHL"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full mt-6 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block text-center"
               >
                 Sign Up
-              </button>
+              </a>
             </div>
 
             {/* AMPLIFY PRO */}
@@ -159,12 +163,14 @@ const AmplifyPage: React.FC = () => {
                   <span>Nano/micro influencer outreach (up to 2)</span>
                 </li>
               </ul>
-              <button 
-                onClick={() => {/* TODO: Add Razorpay payment integration */}}
-                className="w-full mt-6 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              <a 
+                href="https://rzp.io/rzp/rDGlQlS"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full mt-6 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block text-center"
               >
                 Sign Up
-              </button>
+              </a>
             </div>
           </div>
         </div>
