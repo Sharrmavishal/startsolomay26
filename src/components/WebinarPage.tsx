@@ -30,6 +30,9 @@ const WebinarPage: React.FC = () => {
             <h1 className="text-[2.75rem] lg:text-[3.5rem] font-bold text-[#1a1f36] leading-[1.1] tracking-tight">
               Launch Your Solo Business: Live with Diksha Sethi
             </h1>
+            <p className="text-xl text-gray-700 mt-6 leading-relaxed">
+              Launch Your Solo Business in Just 2 Weeks: With around 40 hours of focused learning and practical exercises, you'll be ready with a clear 1-pager business plan to start and grow your solo venture confidently.
+            </p>
           </div>
 
           {/* Right Column - Registration Form */}
@@ -132,8 +135,17 @@ const WebinarPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => {
+                    // Store user data before payment
+                    const formData = {
+                      name: (document.querySelector('input[name="full-name"]') as HTMLInputElement)?.value || '',
+                      email: (document.querySelector('input[name="email"]') as HTMLInputElement)?.value || '',
+                      phone: (document.querySelector('input[name="phone"]') as HTMLInputElement)?.value || ''
+                    };
+                    localStorage.setItem('webinarUserData', JSON.stringify(formData));
+                    
                     console.log('Get This Bundle clicked');
-                    window.open('https://rzp.io/rzp/fcigSpq', '_blank', 'noopener,noreferrer');
+                    // Updated Razorpay link with success URL
+                    window.open('https://rzp.io/rzp/fcigSpq?redirect_url=https://startsolo.in/webinar/success', '_blank', 'noopener,noreferrer');
                   }}
                   className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200"
                 >
@@ -157,13 +169,13 @@ const WebinarPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Details Section - White Background, LEFT ALIGNED like Hootsuite */}
-      <section className="bg-white py-12 lg:py-16">
+      {/* Details Section - Light Gray Background, LEFT ALIGNED like Hootsuite */}
+      <section className="bg-gray-50 py-12 lg:py-16">
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#1a1f36] mb-8">Details</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#1a1f36] mb-8">Who Should Attend:</h2>
           
           {/* Program Info Box */}
-          <div className="bg-gray-50 rounded-lg p-6 mb-8">
+          <div className="bg-white rounded-lg p-6 mb-8 shadow-sm">
             <div className="grid md:grid-cols-3 gap-6">
               <div>
                 <p className="text-sm font-semibold text-[#1a1f36] mb-1">Date & Time</p>
@@ -181,20 +193,67 @@ const WebinarPage: React.FC = () => {
           </div>
 
           <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 text-lg mb-6 leading-relaxed">
-              Launch Your Solo Business in Just 2 Weeks: With around 40 hours of focused learning and practical exercises, you'll be ready with a clear 1-pager business plan to start and grow your solo venture confidently.
-            </p>
-            <p className="text-gray-700 text-lg mb-6 leading-relaxed">
-              What was once a competitive advantage has now become a necessity for businesses of all kinds. Over the last two years, we've learned so much about the value of social commerce for building brands and increasing sales—and there's no going back.
-            </p>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              That's why we've rounded up a panel of experts who'll answer all your questions and walk you through the ins and outs of creating and maintaining stellar social storefronts—so you can take your business to new heights now that brick-and-mortar is back.
-            </p>
+            <ul className="text-gray-700 text-lg leading-relaxed space-y-4">
+              <li className="flex items-start">
+                <span className="text-[#1a1f36] mr-3 text-xl">•</span>
+                <span>Working professionals planning to go independent (especially women and engineers)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-[#1a1f36] mr-3 text-xl">•</span>
+                <span>Recent graduates wanting to build their own business instead of following the traditional job route</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-[#1a1f36] mr-3 text-xl">•</span>
+                <span>Freelancers ready to grow beyond project to project</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-[#1a1f36] mr-3 text-xl">•</span>
+                <span>Side hustlers ready to become full-time Solopreneurs</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-[#1a1f36] mr-3 text-xl">•</span>
+                <span>Creators building personal brands</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div className="mt-8">
+            <h3 className="text-2xl font-bold text-[#1a1f36] mb-6">About the Workshop:</h3>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-gray-700 text-lg mb-4 leading-relaxed">
+                Do you have a skill or idea, but no clue where to start?<br/>
+                This hands-on session is your gateway to building a solo business—practically, affordably, and with expert mentorship.
+              </p>
+              <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+                Learn how Start Solo's Launchpad course guides you from "maybe someday" to "I'm doing it"— without the need for funding, a big team, or years of trial and error.
+              </p>
+              <p className="text-gray-700 text-lg mb-4 leading-relaxed font-semibold">
+                Get a sneak peek into the entire Launchpad journey, including:
+              </p>
+              <ul className="text-gray-700 text-lg leading-relaxed space-y-2">
+                <li className="flex items-start">
+                  <span className="text-[#1a1f36] mr-3 text-xl">•</span>
+                  <span>Structured video modules</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[#1a1f36] mr-3 text-xl">•</span>
+                  <span>Real-world frameworks</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[#1a1f36] mr-3 text-xl">•</span>
+                  <span>Live mentorship sessions with Diksha Sethi and Start Solo mentors</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[#1a1f36] mr-3 text-xl">•</span>
+                  <span>A clear path and community support to keep you accountable</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* What You'll Learn Section - LEFT ALIGNED like Hootsuite */}
+      {/* What You'll Learn Section - White Background, LEFT ALIGNED like Hootsuite */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#1a1f36] mb-10">What you'll learn</h2>
@@ -321,8 +380,8 @@ const WebinarPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Ready to Take the First Step Section - LEFT ALIGNED like Hootsuite */}
-      <section className="bg-gray-50 py-16 lg:py-20">
+      {/* Ready to Take the First Step Section - Blue Background, LEFT ALIGNED like Hootsuite */}
+      <section className="bg-blue-50 py-16 lg:py-20">
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#1a1f36] mb-6">Ready to Take the First Step?</h2>
           <p className="text-gray-700 text-lg mb-8 leading-relaxed max-w-3xl">

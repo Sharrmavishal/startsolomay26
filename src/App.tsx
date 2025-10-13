@@ -12,6 +12,7 @@ import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
 import CoursePage from './components/CoursePage';
 import WebinarPage from './components/WebinarPage';
+import WebinarSuccessPage from './components/WebinarSuccessPage';
 import AmplifyPage from './components/AmplifyPage';
 import SEOHead from './components/SEOHead';
 import StickyWhatsAppCTA from './components/StickyWhatsAppCTA';
@@ -97,6 +98,12 @@ function App() {
               <Route path="/webinar" element={
                 <>
                   <WebinarPage />
+                  <Footer />
+                </>
+              } />
+              <Route path="/webinar/success" element={
+                <>
+                  <WebinarSuccessPage />
                   <Footer />
                 </>
               } />
