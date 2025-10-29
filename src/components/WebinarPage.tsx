@@ -211,11 +211,7 @@ const WebinarPage: React.FC = () => {
           
           {/* Program Info Box */}
           <div className="bg-white rounded-lg p-6 mb-8 shadow-sm">
-            <div className="grid md:grid-cols-3 gap-6">
-              <div>
-                <p className="text-sm font-semibold text-[#1a1f36] mb-1">Date & Time</p>
-                <p className="text-gray-700">[Add live session dates]</p>
-              </div>
+            <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <p className="text-sm font-semibold text-[#1a1f36] mb-1">Duration</p>
                 <p className="text-gray-700">3 hours</p>
