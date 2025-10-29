@@ -168,9 +168,13 @@ const DiscoveryCallForm: React.FC<DiscoveryCallFormProps> = ({ onClose, audience
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-4" name="discovery-call-form" data-netlify="true">
+        <form onSubmit={handleSubmit} className="space-y-4" name="discovery-call-form" data-netlify="true" data-netlify-honeypot="bot-field">
           {/* Hidden form name for Netlify */}
           <input type="hidden" name="form-name" value="discovery-call-form" />
+          {/* Honeypot field for spam protection */}
+          <div style={{ display: 'none' }}>
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          </div>
           {/* Name */}
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-[color:var(--color-gray-900)] mb-1">
