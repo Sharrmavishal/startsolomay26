@@ -1,6 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const WebinarPage: React.FC = () => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const isFormValid = () => {
+    return formData.fullName.trim() !== '' && formData.email.trim() !== '' && formData.phone.trim() !== '';
+  };
+
+  const handlePaymentClick = () => {
+    if (!isFormValid()) {
+      alert('Please fill in all required fields (Full Name, Email, and Phone Number) before proceeding.');
+      return;
+    }
+
+    // Store user data before payment
+    localStorage.setItem('webinarUserData', JSON.stringify({
+      name: formData.fullName,
+      email: formData.email,
+      phone: formData.phone
+    }));
+    
+    console.log('Get This Bundle clicked');
+    // Updated Razorpay link with success URL
+    window.open('https://rzp.io/rzp/fcigSpq?redirect_url=https://startsolo.in/webinar/success', '_blank', 'noopener,noreferrer');
+  };
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - Exact Hootsuite Layout */}
@@ -12,8 +47,8 @@ const WebinarPage: React.FC = () => {
             <div className="relative">
               <div className="w-full aspect-[4/3] bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop&q=80" 
-                  alt="Team collaboration and business planning" 
+                  src="https://res.cloudinary.com/dnm2ejglr/image/upload/v1761727110/start_solo_hero_banner_800x600_t2hjjo.png" 
+                  alt="Start Solo - Launch Your Solo Business" 
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -62,7 +97,9 @@ const WebinarPage: React.FC = () => {
                   </label>
                   <input
                     type="text"
-                    name="full-name"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Enter your full name"
                     required
@@ -76,6 +113,8 @@ const WebinarPage: React.FC = () => {
                   <input
                     type="email"
                     name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Enter your email address"
                     required
@@ -84,13 +123,16 @@ const WebinarPage: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number
+                    Phone Number *
                   </label>
                   <input
                     type="tel"
                     name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Enter your phone number (optional)"
+                    placeholder="Enter your phone number"
+                    required
                   />
                 </div>
 
@@ -134,20 +176,13 @@ const WebinarPage: React.FC = () => {
 
                 <button
                   type="button"
-                  onClick={() => {
-                    // Store user data before payment
-                    const formData = {
-                      name: (document.querySelector('input[name="full-name"]') as HTMLInputElement)?.value || '',
-                      email: (document.querySelector('input[name="email"]') as HTMLInputElement)?.value || '',
-                      phone: (document.querySelector('input[name="phone"]') as HTMLInputElement)?.value || ''
-                    };
-                    localStorage.setItem('webinarUserData', JSON.stringify(formData));
-                    
-                    console.log('Get This Bundle clicked');
-                    // Updated Razorpay link with success URL
-                    window.open('https://rzp.io/rzp/fcigSpq?redirect_url=https://startsolo.in/webinar/success', '_blank', 'noopener,noreferrer');
-                  }}
-                  className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200"
+                  onClick={handlePaymentClick}
+                  disabled={!isFormValid()}
+                  className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors duration-200 ${
+                    isFormValid() 
+                      ? 'bg-green-600 text-white hover:bg-green-700 cursor-pointer' 
+                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  }`}
                 >
                   Get This Bundle @ ₹499
                 </button>
