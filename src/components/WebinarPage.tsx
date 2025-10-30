@@ -7,6 +7,7 @@ const WebinarPage: React.FC = () => {
     phone: '',
     sessionDate: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -66,6 +67,50 @@ const WebinarPage: React.FC = () => {
     // Updated Razorpay link with success URL
     window.open('https://rzp.io/rzp/fcigSpq?redirect_url=https://startsolo.in/webinar/success', '_blank', 'noopener,noreferrer');
   };
+
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!isFormValid()) {
+      alert('Please fill in all required fields (Full Name, Email, and Phone Number) before proceeding.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Persist for success page
+    localStorage.setItem('webinarUserData', JSON.stringify({
+      name: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      sessionDate: formData.sessionDate,
+      sessionTime: '12PM to 1:30PM'
+    }));
+
+    // Submit to Netlify Forms reliably before payment
+    const encode = (data: Record<string, string>) =>
+      Object.keys(data)
+        .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+        .join('&');
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': 'webinar-registration',
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          sessionDate: formData.sessionDate,
+          sessionTime: '12PM to 1:30PM'
+        })
+      });
+    } catch (err) {
+      // continue to payment even if tracking fails
+    }
+
+    setIsSubmitting(false);
+    handlePaymentClick();
+  };
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - Exact Hootsuite Layout */}
@@ -116,6 +161,7 @@ const WebinarPage: React.FC = () => {
                 data-netlify="true" 
                 data-netlify-honeypot="bot-field"
                 className="space-y-4"
+                onSubmit={handleFormSubmit}
               >
                 <input type="hidden" name="form-name" value="webinar-registration" />
                 <div style={{ display: 'none' }}>
@@ -226,16 +272,15 @@ const WebinarPage: React.FC = () => {
                 </div>
 
                 <button
-                  type="button"
-                  onClick={handlePaymentClick}
-                  disabled={!isFormValid()}
+                  type="submit"
+                  disabled={!isFormValid() || isSubmitting}
                   className={`w-full py-2.5 px-5 rounded-lg font-semibold transition-colors duration-200 ${
-                    isFormValid() 
+                    isFormValid() && !isSubmitting
                       ? 'bg-green-600 text-white hover:bg-green-700 cursor-pointer' 
                       : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                   }`}
                 >
-                  Get This Bundle @ ₹499
+                  {isSubmitting ? 'Processing…' : 'Get This Bundle @ ₹499'}
                 </button>
                 
                 <p className="text-xs text-gray-500 text-center mt-3">
