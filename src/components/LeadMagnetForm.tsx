@@ -82,20 +82,24 @@ const LeadMagnetForm: React.FC<LeadMagnetFormProps> = ({ isOpen, onClose, leadMa
     setIsSubmitting(true);
 
     try {
-      // Submit to Netlify Forms
-      const formDataToSubmit = new FormData();
-      formDataToSubmit.append('form-name', 'lead-magnet-download');
-      formDataToSubmit.append('lead-magnet-title', leadMagnet.title);
-      formDataToSubmit.append('name', formData.name.trim());
-      formDataToSubmit.append('email', formData.email.trim());
-      formDataToSubmit.append('phone', formData.phone.replace(/\D/g, ''));
-      formDataToSubmit.append('download-file', leadMagnet.fileName);
-      formDataToSubmit.append('timestamp', new Date().toISOString());
+      // Submit to Netlify Forms (URL-encoded for reliability across pages)
+      const encode = (data: Record<string, string>) =>
+        Object.keys(data)
+          .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+          .join('&');
 
       await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formDataToSubmit as any).toString()
+        body: encode({
+          'form-name': 'lead-magnet-download',
+          'lead-magnet-title': leadMagnet.title,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.replace(/\D/g, ''),
+          'download-file': leadMagnet.fileName,
+          timestamp: new Date().toISOString()
+        })
       });
 
       // Show success state
