@@ -566,6 +566,7 @@ const LaidOffEngineersPage: React.FC = () => {
             fileName: "10_Solopreneur_Models_That_Don_t_Need_VC.pdf",
             downloadUrl: "https://res.cloudinary.com/ddrztw5i1/image/upload/v1758279942/10_Solopreneur_Models_That_Don_t_Need_VC_spn4wp.pdf"
           }}
+          audience="engineers"
         />
       )}
 
@@ -597,6 +598,7 @@ const LaidOffEngineersPage: React.FC = () => {
             fileName: "Skills_to_Solo_Business_Idea_Generator.docx",
             downloadUrl: "https://res.cloudinary.com/ddrztw5i1/raw/upload/v1758279948/Skills_to_Solo_Business_Idea_Generator_ww5qqd.docx"
           }}
+          audience="engineers"
         />
       )}
 

@@ -56,6 +56,7 @@ const WomenEntrepreneursPage: React.FC = () => {
             fileName: "Passion_Rediscovery_Guide_for_Women.docx",
             downloadUrl: "https://res.cloudinary.com/ddrztw5i1/raw/upload/v1758283876/Passion_Rediscovery_Guide_for_Women_testrj.docx"
           }}
+          audience="women"
         />
       )}
       {isSupportToolkitFormOpen && (
@@ -67,6 +68,7 @@ const WomenEntrepreneursPage: React.FC = () => {
             fileName: "Passion_Rediscovery_Guide_for_Women.docx",
             downloadUrl: "https://res.cloudinary.com/ddrztw5i1/raw/upload/v1758283876/Passion_Rediscovery_Guide_for_Women_testrj.docx"
           }}
+          audience="women"
         />
       )}
       {isDiscoveryCallFormOpen && (

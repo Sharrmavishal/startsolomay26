@@ -9,9 +9,10 @@ interface LeadMagnetFormProps {
     downloadUrl: string;
     fileName: string;
   };
+  audience?: string;
 }
 
-const LeadMagnetForm: React.FC<LeadMagnetFormProps> = ({ isOpen, onClose, leadMagnet }) => {
+const LeadMagnetForm: React.FC<LeadMagnetFormProps> = ({ isOpen, onClose, leadMagnet, audience }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -98,7 +99,9 @@ const LeadMagnetForm: React.FC<LeadMagnetFormProps> = ({ isOpen, onClose, leadMa
           email: formData.email.trim(),
           phone: formData.phone.replace(/\D/g, ''),
           'download-file': leadMagnet.fileName,
-          timestamp: new Date().toISOString()
+          timestamp: new Date().toISOString(),
+          pagePath: window.location.pathname,
+          audience: audience || ''
         })
       });
 

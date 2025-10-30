@@ -52,6 +52,7 @@ const GraduatesStudentsPage: React.FC = () => {
             downloadUrl: "https://res.cloudinary.com/ddrztw5i1/raw/upload/v1758279948/Skills_to_Solo_Business_Idea_Generator_ww5qqd.docx",
             fileName: "Skills_to_Solo_Business_Idea_Generator.docx"
           }}
+          audience="graduates"
         />
       )}
       {isSkillMatchFormOpen && (
@@ -63,6 +64,7 @@ const GraduatesStudentsPage: React.FC = () => {
             downloadUrl: "https://res.cloudinary.com/ddrztw5i1/raw/upload/v1758279948/Skills_to_Solo_Business_Idea_Generator_ww5qqd.docx",
             fileName: "Skills_to_Solo_Business_Idea_Generator.docx"
           }}
+          audience="graduates"
         />
       )}
       {isDiscoveryCallFormOpen && (
