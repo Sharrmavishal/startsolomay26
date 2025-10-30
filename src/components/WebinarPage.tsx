@@ -4,10 +4,11 @@ const WebinarPage: React.FC = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
-    phone: ''
+    phone: '',
+    sessionDate: ''
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -16,7 +17,12 @@ const WebinarPage: React.FC = () => {
   };
 
   const isFormValid = () => {
-    return formData.fullName.trim() !== '' && formData.email.trim() !== '' && formData.phone.trim() !== '';
+    return (
+      formData.fullName.trim() !== '' &&
+      formData.email.trim() !== '' &&
+      formData.phone.trim() !== '' &&
+      formData.sessionDate.trim() !== ''
+    );
   };
 
   const handlePaymentClick = () => {
@@ -29,8 +35,32 @@ const WebinarPage: React.FC = () => {
     localStorage.setItem('webinarUserData', JSON.stringify({
       name: formData.fullName,
       email: formData.email,
-      phone: formData.phone
+      phone: formData.phone,
+      sessionDate: formData.sessionDate,
+      sessionTime: '12PM to 1:30PM'
     }));
+
+    // Submit to Netlify to capture lead + selection
+    const encode = (data: Record<string, string>) =>
+      Object.keys(data)
+        .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+        .join('&');
+    try {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': 'webinar-registration',
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          sessionDate: formData.sessionDate,
+          sessionTime: '12PM to 1:30PM'
+        })
+      });
+    } catch (e) {
+      // no-op; do not block payment flow
+    }
     
     console.log('Get This Bundle clicked');
     // Updated Razorpay link with success URL
@@ -72,11 +102,11 @@ const WebinarPage: React.FC = () => {
 
           {/* Right Column - Registration Form */}
           <div className="lg:sticky lg:top-8">
-            <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
               <h3 className="text-2xl font-bold text-[#1a1f36] mb-3">
                 Please complete the form to register
               </h3>
-              <p className="text-sm text-gray-600 mb-8">
+              <p className="text-sm text-gray-600 mb-6">
                 * indicates required fields
               </p>
               
@@ -85,7 +115,7 @@ const WebinarPage: React.FC = () => {
                 method="POST" 
                 data-netlify="true" 
                 data-netlify-honeypot="bot-field"
-                className="space-y-5"
+                className="space-y-4"
               >
                 <input type="hidden" name="form-name" value="webinar-registration" />
                 <div style={{ display: 'none' }}>
@@ -100,7 +130,7 @@ const WebinarPage: React.FC = () => {
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Enter your full name"
                     required
                   />
@@ -115,7 +145,7 @@ const WebinarPage: React.FC = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Enter your email address"
                     required
                   />
@@ -130,17 +160,38 @@ const WebinarPage: React.FC = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Enter your phone number"
                     required
                   />
                 </div>
 
+                {/* Session Date & Time */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Choose Your Session Date *
+                  </label>
+                  <select
+                    name="sessionDate"
+                    value={formData.sessionDate}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+                  >
+                    <option value="" disabled>-- Select a date --</option>
+                    <option value="Nov 2, 2025">Nov 2, 2025</option>
+                    <option value="Nov 8, 2025">Nov 8, 2025</option>
+                  </select>
+                  {/* Fixed time captured for Netlify */}
+                  <input type="hidden" name="sessionTime" value="12PM to 1:30PM" />
+                  <p className="mt-2 text-xs text-gray-600">Time: 12PM to 1:30PM</p>
+                </div>
 
-                <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-4">
-                  <h3 className="text-sm font-bold text-gray-900 mb-3 text-center">What You'll Get:</h3>
+
+                <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-3">
+                  <h3 className="text-sm font-bold text-gray-900 mb-2 text-center">What You'll Get:</h3>
                   
-                  <div className="space-y-2 mb-4">
+                  <div className="space-y-1.5 mb-3">
                     <div className="flex items-center text-sm">
                       <span className="text-green-600 mr-2">✅</span>
                       <span className="text-gray-800">90-min Live Webinar — <span className="line-through text-gray-500">₹999</span></span>
@@ -159,7 +210,7 @@ const WebinarPage: React.FC = () => {
                     </div>
                   </div>
                   
-                  <div className="border-t border-gray-300 pt-3">
+                  <div className="border-t border-gray-300 pt-2.5">
                     <div className="flex justify-between items-center mb-1">
                       <span className="text-sm font-semibold text-gray-700">Total Value:</span>
                       <span className="text-sm font-bold text-gray-500 line-through">₹2,996</span>
@@ -178,7 +229,7 @@ const WebinarPage: React.FC = () => {
                   type="button"
                   onClick={handlePaymentClick}
                   disabled={!isFormValid()}
-                  className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors duration-200 ${
+                  className={`w-full py-2.5 px-5 rounded-lg font-semibold transition-colors duration-200 ${
                     isFormValid() 
                       ? 'bg-green-600 text-white hover:bg-green-700 cursor-pointer' 
                       : 'bg-gray-300 text-gray-500 cursor-not-allowed'

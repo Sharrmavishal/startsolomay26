@@ -656,7 +656,7 @@ const CoursePage: React.FC = () => {
                 <div className="text-[color:var(--color-cta)] text-sm font-semibold">{percentOff}% off</div>
               </div>
             </div>
-                <a href="#" className="w-full bg-[#1D3A6B] hover:bg-[#152A4F] text-white px-5 py-2.5 rounded-lg font-semibold mb-2 transition-colors duration-300 inline-block text-center min-h-[44px] flex items-center justify-center">
+                <a href="https://pages.razorpay.com/pl_RL0MOjjDNiy5aS/view" target="_blank" rel="noopener noreferrer" className="w-full bg-[#1D3A6B] hover:bg-[#152A4F] text-white px-5 py-2.5 rounded-lg font-semibold mb-2 transition-colors duration-300 inline-block text-center min-h-[44px] flex items-center justify-center">
                   Proceed to Checkout <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
                 <div className="text-xs text-[color:var(--color-gray-600)] text-center">Special Bundle Price Offer.</div>

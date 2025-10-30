@@ -19,8 +19,27 @@ const AmplifyPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    const encode = (data: Record<string, string>) =>
+      Object.keys(data)
+        .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+        .join('&');
+
+    try {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': 'amplify-lead-capture',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message
+        })
+      });
+    } catch (err) {
+      // no-op
+    }
+
     alert('Thank you for your interest! We\'ll get back to you soon.');
     setIsFormOpen(false);
     setFormData({ name: '', email: '', phone: '', message: '' });
@@ -60,30 +79,30 @@ const AmplifyPage: React.FC = () => {
             <div className="bg-white border-2 border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">AMPLIFY LITE</h3>
-                <div className="text-4xl font-bold text-blue-600 mb-2">₹65,000</div>
+                <div className="text-4xl font-bold text-blue-600 mb-2">₹50,000</div>
                 <div className="text-gray-600 mb-4">3–4 weeks</div>
                 <div className="text-sm text-gray-500">Small home brands, bakers, creators looking to streamline their online presence</div>
               </div>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>10 editable social media templates</span>
+                  <span>10 ready-to-use social media post designs</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>Logo refresh</span>
+                  <span>A refreshed logo (clean and modern)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>1-pager landing page</span>
+                  <span>A simple one-page website (your online home)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>Channel refresh (bio + cover photo)</span>
+                  <span>Social media profile makeover (bio + cover photo)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>GMB optimizing</span>
+                  <span>Get found on Google (Google My Business setup)</span>
                 </li>
               </ul>
               <button 
@@ -106,26 +125,22 @@ const AmplifyPage: React.FC = () => {
               </div>
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">AMPLIFY PLUS</h3>
-                <div className="text-4xl font-bold text-blue-600 mb-2">₹75,000</div>
+                <div className="text-4xl font-bold text-blue-600 mb-2">₹65,000</div>
                 <div className="text-gray-600 mb-4">4–5 weeks</div>
                 <div className="text-sm text-gray-500">Growing solo brands seeking expansion</div>
               </div>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>Everything in Lite</span>
+                  <span>A one-page brochure or menu (for sharing easily on WhatsApp or print)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>One-page brochure or menu or business card</span>
+                  <span>Instagram ad setup to attract more buyers</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>Ad campaign setup on Instagram</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Payment gateway</span>
+                  <span>Simple online payment link so customers can pay you instantly</span>
                 </li>
               </ul>
               <button 
@@ -143,26 +158,26 @@ const AmplifyPage: React.FC = () => {
             <div className="bg-white border-2 border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">AMPLIFY PRO</h3>
-                <div className="text-4xl font-bold text-blue-600 mb-2">₹85,000</div>
+                <div className="text-4xl font-bold text-blue-600 mb-2">₹75,000</div>
                 <div className="text-gray-600 mb-4">5–6 weeks</div>
                 <div className="text-sm text-gray-500">Ambitious or retail-ready brands</div>
               </div>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>Full suite</span>
+                  <span>A complete brand kit (posts, logo, ads — all set for launch)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>WhatsApp catalogue</span>
+                  <span>WhatsApp product catalogue setup</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>Ad campaign setup on Instagram</span>
+                  <span>Instagram ad campaign (optimized for your audience)</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>Nano/micro influencer outreach (up to 2)</span>
+                  <span>Nano/micro influencer shoutouts (up to 2 collaborations)</span>
                 </li>
               </ul>
               <button 
