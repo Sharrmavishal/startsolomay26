@@ -23,19 +23,23 @@ const WebinarSuccessPage: React.FC = () => {
       }
     }
 
-    // Load Calendly script
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.head.appendChild(script);
+    // Ensure Calendly widget CSS is present
+    if (!document.querySelector('link[href="https://assets.calendly.com/assets/external/widget.css"]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://assets.calendly.com/assets/external/widget.css';
+      document.head.appendChild(link);
+    }
 
-    return () => {
-      // Cleanup script on component unmount
-      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
+    // Load Calendly script (once)
+    if (!document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      document.head.appendChild(script);
+    }
+
+    return () => {};
   }, [location]);
 
   const handleCalendlyEventScheduled = (event: any) => {
@@ -94,22 +98,25 @@ const WebinarSuccessPage: React.FC = () => {
             Select your preferred time for the 90-minute webinar session
           </p>
           
-          <div 
-            className="calendly-inline-widget" 
-            data-url="https://calendly.com/startsolowebinar/startsolowebinar"
-            data-pre-fill={userData ? JSON.stringify({
-              name: userData.name,
-              email: userData.email,
-              customAnswers: {
-                a1: userData.phone || ''
-              }
-            }) : '{}'}
-            data-embed-type="inline"
-            data-hide-landing-page-details="true"
-            data-hide-gdpr-banner="true"
-            data-hide-event-type-details="true"
-            style={{ minWidth: '320px', height: '350px' }}
-          ></div>
+          {(() => {
+            const base = 'https://calendly.com/startsolowebinar/startsolowebinar';
+            const params = new URLSearchParams({
+              hide_landing_page_details: '1',
+              hide_gdpr_banner: '1',
+              hide_event_type_details: '1'
+            });
+            if (userData?.name) params.set('name', userData.name);
+            if (userData?.email) params.set('email', userData.email);
+            if (userData?.phone) params.set('a1', userData.phone);
+            const dataUrl = `${base}?${params.toString()}`;
+            return (
+              <div
+                className="calendly-inline-widget"
+                data-url={dataUrl}
+                style={{ minWidth: '320px', height: '700px' }}
+              />
+            );
+          })()}
         </div>
 
         {/* What's Next */}
