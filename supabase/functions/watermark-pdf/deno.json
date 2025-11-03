@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "@supabase/supabase-js": "jsr:@supabase/supabase-js@2",
+    "npm:pdf-lib@1.17.1": "https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.esm.js"
+  }
+}
+
