@@ -6,7 +6,7 @@ set -e
 
 echo "🚀 Starting deployment..."
 
-PROJECT_REF="mwjwhhujuunfjurkeuwd"
+PROJECT_REF="<your-project-ref>"
 
 # Check if logged in
 if ! supabase projects list &> /dev/null; then

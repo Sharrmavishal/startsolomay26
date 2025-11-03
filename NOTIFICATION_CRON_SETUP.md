@@ -47,7 +47,7 @@ Add these secrets:
 1. Go to https://cron-job.org (or similar service)
 2. Create account/login
 3. Create new cron job:
-   - **URL:** `https://mwjwhhujuunfjurkeuwd.supabase.co/functions/v1/process-notifications`
+   - **URL:** `https://<your-project-id>.supabase.co/functions/v1/process-notifications`
    - **Method:** POST
    - **Headers:** 
      - `Authorization`: `Bearer YOUR_ANON_KEY`
@@ -77,7 +77,7 @@ SELECT cron.schedule(
   '*/15 * * * *', -- Every 15 minutes
   $$
   SELECT net.http_post(
-    url := 'https://mwjwhhujuunfjurkeuwd.supabase.co/functions/v1/process-notifications',
+    url := 'https://<your-project-id>.supabase.co/functions/v1/process-notifications',
     headers := jsonb_build_object(
       'Authorization', 'Bearer YOUR_ANON_KEY',
       'Content-Type', 'application/json'
@@ -92,11 +92,11 @@ SELECT cron.schedule(
 
 ## Step 4: Verify Deployment
 
-Function URL: `https://mwjwhhujuunfjurkeuwd.supabase.co/functions/v1/process-notifications`
+Function URL: `https://<your-project-id>.supabase.co/functions/v1/process-notifications`
 
 Test manually:
 ```bash
-curl -X POST 'https://mwjwhhujuunfjurkeuwd.supabase.co/functions/v1/process-notifications' \
+curl -X POST 'https://<your-project-id>.supabase.co/functions/v1/process-notifications' \
   -H 'Authorization: Bearer YOUR_ANON_KEY' \
   -H 'Content-Type: application/json'
 ```
