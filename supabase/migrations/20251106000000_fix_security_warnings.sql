@@ -24,17 +24,17 @@ ALTER FUNCTION update_points_config_updated_at() SET search_path = public;
 ALTER FUNCTION award_points_for_post() SET search_path = public;
 
 -- Course Functions
-ALTER FUNCTION calculate_quiz_score(jsonb, jsonb) SET search_path = public;
+ALTER FUNCTION calculate_quiz_score() SET search_path = public;
 ALTER FUNCTION auto_complete_lesson_on_quiz_pass() SET search_path = public;
-ALTER FUNCTION update_course_rating_stats() SET search_path = public;
+ALTER FUNCTION update_course_rating() SET search_path = public;
 ALTER FUNCTION can_review_course(uuid, uuid) SET search_path = public;
 ALTER FUNCTION update_course_enrollment_count() SET search_path = public;
-ALTER FUNCTION update_course_progress(uuid) SET search_path = public;
+ALTER FUNCTION update_course_progress() SET search_path = public;
 
 -- Bundle Functions
 ALTER FUNCTION calculate_bundle_price(uuid) SET search_path = public;
-ALTER FUNCTION calculate_bundle_discount(uuid, text) SET search_path = public;
-ALTER FUNCTION get_bundle_final_price(uuid, text) SET search_path = public;
+ALTER FUNCTION calculate_bundle_discount(uuid) SET search_path = public;
+ALTER FUNCTION get_bundle_final_price(uuid) SET search_path = public;
 
 -- Trial Expiration Functions
 ALTER FUNCTION set_trial_expiration() SET search_path = public;
