@@ -718,7 +718,7 @@ CREATE POLICY "Students can view quiz questions for enrolled courses" ON course_
       JOIN community_members cm ON ce.student_id = cm.id
       WHERE ce.course_id = (SELECT course_id FROM course_lessons WHERE id = lesson_id)
       AND cm.user_id = (select auth.uid())
-      AND ce.status = 'enrolled'
+      AND ce.enrollment_status = 'active'
     )
   );
 
