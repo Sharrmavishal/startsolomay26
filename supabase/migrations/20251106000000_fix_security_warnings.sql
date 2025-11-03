@@ -161,8 +161,8 @@ BEGIN
       CREATE POLICY "Public can view available slots" ON mentor_availability
         FOR SELECT
         USING (
-          is_available = true AND
-          available_at > NOW()
+          is_booked = false AND
+          available_date >= CURRENT_DATE
         );
     END IF;
   END IF;
