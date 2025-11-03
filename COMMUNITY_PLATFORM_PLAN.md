@@ -666,3 +666,126 @@ This document tracks all implementation decisions, user experience tweaks, and a
 - Trial expiration banner always shows for non-vetted, non-admin members to ensure awareness
 - Course reviews only allow star ratings (no text reviews) for simplicity
 - Course bundles support multiple discount types and are integrated with payment system
+
+---
+
+## Future Optimizations & Pro Plan Requirements
+
+### Performance Optimizations (Future)
+
+#### Multiple Permissive RLS Policies (WARN)
+**Status:** Documented for future optimization
+
+**Issue:** Multiple permissive policies for the same role/action on several tables can impact query performance.
+
+**Affected Tables:**
+- `certificate_templates` - Multiple SELECT policies (anon, authenticated, etc.)
+- `community_courses` - Multiple SELECT policies
+- `content_access_logs` - Multiple SELECT policies (admins, mentors, users)
+- `course_bundle_items` - Multiple SELECT policies
+- `course_bundles` - Multiple INSERT policies (admins, mentors)
+- `course_lessons` - Multiple SELECT policies
+- `course_modules` - Multiple SELECT policies
+- `course_quiz_questions` - Multiple SELECT policies
+- `event_product_purchases` - Multiple SELECT policies (admins, mentors, users)
+- `event_products` - Multiple policies for INSERT/UPDATE/DELETE/SELECT
+- `event_registrations` - Multiple INSERT policies
+- `mentor_availability` - Multiple SELECT policies
+- `mentor_courses` - Multiple UPDATE policies
+- `mentor_rate_cards` - Multiple SELECT policies
+- `points_config` - Multiple SELECT policies
+
+**Note:** These are often intentional for complex access patterns (e.g., admins can do X AND mentors can do X). Optimization would involve combining policies, but may reduce readability. Impact is usually minor.
+
+#### Unindexed Foreign Keys (INFO)
+**Status:** Documented for future optimization
+
+**Issue:** Foreign key columns without covering indexes can impact join performance.
+
+**Affected Tables:**
+- `admin_settings.updated_by`
+- `admin_vetting.assigned_admin_id`, `reviewed_by`
+- `comment_engagements.member_id`
+- `community_members.deleted_by`, `suspended_by`, `vetting_admin_id`
+- `course_progress.member_id`
+- `event_product_purchases.event_id`
+- `member_badges.badge_id`
+- `mentor_availability.mentor_id`, `booked_by`
+- `mentor_courses.admin_approved_by`
+- `mentor_sessions.related_event_id`
+- `post_engagements.member_id`
+
+**Note:** These are optimization suggestions. Can be addressed later based on actual query performance patterns.
+
+#### Unused Indexes (INFO)
+**Status:** Documented for future review
+
+**Issue:** Several indexes have not been used and may be candidates for removal.
+
+**Affected Tables:** Multiple indexes across various tables including:
+- `community_members`, `community_posts`, `community_comments`
+- `community_events`, `event_registrations`, `mentor_matches`
+- `course_modules`, `course_lessons`, `course_progress`
+- `course_quiz_questions`, `course_quiz_submissions`
+- `course_reviews`, `course_bundles`, `course_bundle_items`
+- `event_products`, `event_product_purchases`
+- `mentor_sessions`, `mentor_rate_cards`, `mentor_courses`
+- `notifications`, `content_access_logs`, `certificate_templates`
+
+**Note:** These indexes may be needed as data grows. Review and remove only if confirmed unnecessary after monitoring query patterns.
+
+### Pro Plan Requirements
+
+#### Leaked Password Protection
+**Status:** Requires Supabase Pro plan or above
+
+**Feature:** Prevent use of known or easy-to-guess passwords on signup or password change.
+
+**Details:**
+- Powered by HaveIBeenPwned.org Pwned Passwords API
+- Only available on Pro plan and above
+- Can be enabled via: Supabase Dashboard → Authentication → Attack Protection → Enable "Leaked Password Protection"
+
+**Action:** Enable when upgrading to Pro plan.
+
+---
+
+## Security Fixes Completed
+
+### RLS Performance Optimization ✅
+**Migration:** `20251106000001_fix_rls_performance_auth_initplan.sql`
+
+**Issue:** All RLS policies were re-evaluating `auth.uid()` for each row, causing significant performance degradation.
+
+**Solution:** Wrapped all `auth.uid()` calls in `(select auth.uid())` to evaluate once per query instead of per row.
+
+**Impact:** Fixed 100+ `auth_rls_initplan` warnings. Significant performance improvement for all queries involving RLS policies.
+
+**Tables Fixed:** 32 tables across the entire platform, including:
+- `community_members`, `community_posts`, `community_comments`
+- `community_events`, `event_registrations`
+- `course_progress`, `course_enrollments`, `course_modules`, `course_lessons`
+- `mentor_courses`, `mentor_sessions`, `mentor_matches`
+- `admin_vetting`, `admin_settings`
+- `course_quiz_questions`, `course_quiz_submissions`
+- `event_products`, `event_product_purchases`
+- `course_reviews`, `course_bundles`
+- And 20+ more tables
+
+### Function Search Path Security ✅
+**Migration:** `20251106000000_fix_security_warnings.sql`
+
+**Issue:** 33 PostgreSQL functions had mutable search_path, creating security risk.
+
+**Solution:** Set `search_path = public` for all affected functions using `ALTER FUNCTION`.
+
+**Impact:** Fixed all `function_search_path_mutable` warnings.
+
+### Missing RLS Policies ✅
+**Migration:** `20251106000000_fix_security_warnings.sql`
+
+**Issue:** `community_courses` and `mentor_availability` tables had RLS enabled but no policies.
+
+**Solution:** Added appropriate RLS policies for both tables.
+
+**Impact:** Fixed `rls_enabled_no_policy` warnings.
