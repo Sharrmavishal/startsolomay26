@@ -77,16 +77,16 @@ BEGIN
     SELECT 1 FROM pg_tables 
     WHERE schemaname = 'public' AND tablename = 'community_courses'
   ) THEN
-    -- Allow public read access to published courses
+    -- Allow public read access to active courses
     IF NOT EXISTS (
       SELECT 1 FROM pg_policies 
       WHERE schemaname = 'public' 
       AND tablename = 'community_courses' 
-      AND policyname = 'Public can view published courses'
+      AND policyname = 'Public can view active courses'
     ) THEN
-      CREATE POLICY "Public can view published courses" ON community_courses
+      CREATE POLICY "Public can view active courses" ON community_courses
         FOR SELECT
-        USING (status = 'published');
+        USING (is_active = true);
     END IF;
 
     -- Admins can manage all courses
