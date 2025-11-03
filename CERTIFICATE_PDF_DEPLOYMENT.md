@@ -31,13 +31,13 @@
 ## Step 3: Verify Deployment
 
 - Function should appear in Edge Functions list
-- Function URL: `https://mwjwhhujuunfjurkeuwd.supabase.co/functions/v1/generate-certificate-pdf`
+- Function URL: `https://<your-project-id>.supabase.co/functions/v1/generate-certificate-pdf`
 
 ## Step 4: Test (Optional)
 
 Get a certificate ID from database, then test:
 ```bash
-curl -X POST 'https://mwjwhhujuunfjurkeuwd.supabase.co/functions/v1/generate-certificate-pdf' \
+curl -X POST 'https://<your-project-id>.supabase.co/functions/v1/generate-certificate-pdf' \
   -H 'Authorization: Bearer YOUR_ANON_KEY' \
   -H 'Content-Type: application/json' \
   -d '{"certificateId":"YOUR_CERTIFICATE_ID"}' \
