@@ -25,6 +25,14 @@ const LoginModal: React.FC<LoginModalProps> = ({
   const [success, setSuccess] = useState<string | null>(null);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const turnstileRef = useRef<any>(null);
+  const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+
+  // Debug: Log if site key is missing (only in production)
+  React.useEffect(() => {
+    if (!turnstileSiteKey && import.meta.env.PROD) {
+      console.error('⚠️ VITE_TURNSTILE_SITE_KEY is not set in Netlify environment variables');
+    }
+  }, [turnstileSiteKey]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,12 +68,12 @@ const LoginModal: React.FC<LoginModalProps> = ({
           setLoading(false);
           return;
         }
-        if (!captchaToken) {
+        if (turnstileSiteKey && !captchaToken) {
           setError('Please complete the CAPTCHA verification');
           setLoading(false);
           return;
         }
-        const { data, error } = await auth.signUp(email, password, { full_name: fullName }, captchaToken);
+        const { data, error } = await auth.signUp(email, password, { full_name: fullName }, captchaToken || undefined);
         if (error) throw error;
         
         if (data.user && !data.session) {
@@ -98,12 +106,12 @@ const LoginModal: React.FC<LoginModalProps> = ({
         }, 3000);
       } else {
         // Login
-        if (!captchaToken) {
+        if (turnstileSiteKey && !captchaToken) {
           setError('Please complete the CAPTCHA verification');
           setLoading(false);
           return;
         }
-        const { error } = await auth.signIn(email, password, captchaToken);
+        const { error } = await auth.signIn(email, password, captchaToken || undefined);
         if (error) throw error;
         setSuccess('Signed in successfully!');
         setTimeout(() => {
@@ -315,27 +323,33 @@ const LoginModal: React.FC<LoginModalProps> = ({
             {/* Turnstile CAPTCHA widget - only show for login and signup */}
             {(mode === 'signup' || mode === 'login') && (
               <div className="flex justify-center">
-                <Turnstile
-                  ref={turnstileRef}
-                  siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || ''}
-                  onSuccess={(token) => {
-                    setCaptchaToken(token);
-                    setError(null);
-                  }}
-                  onError={() => {
-                    setError('CAPTCHA verification failed. Please try again.');
-                    setCaptchaToken(null);
-                  }}
-                  onExpire={() => {
-                    setCaptchaToken(null);
-                  }}
-                />
+                {turnstileSiteKey ? (
+                  <Turnstile
+                    ref={turnstileRef}
+                    siteKey={turnstileSiteKey}
+                    onSuccess={(token) => {
+                      setCaptchaToken(token);
+                      setError(null);
+                    }}
+                    onError={() => {
+                      setError('CAPTCHA verification failed. Please try again.');
+                      setCaptchaToken(null);
+                    }}
+                    onExpire={() => {
+                      setCaptchaToken(null);
+                    }}
+                  />
+                ) : (
+                  <div className="text-sm text-yellow-600 bg-yellow-50 border border-yellow-200 rounded-lg px-4 py-2">
+                    ⚠️ CAPTCHA configuration missing. Please contact support.
+                  </div>
+                )}
               </div>
             )}
 
             <button
               type="submit"
-              disabled={loading || (mode !== 'magic-link' && mode !== 'forgot-password' && !captchaToken)}
+              disabled={loading || (mode !== 'magic-link' && mode !== 'forgot-password' && turnstileSiteKey && !captchaToken)}
               className="w-full bg-[#1D3A6B] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#152A4F] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
             >
               {loading ? (
