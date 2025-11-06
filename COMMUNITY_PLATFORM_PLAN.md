@@ -1,6 +1,6 @@
 # Start Solo Community Platform - Implementation Plan & Decisions
 
-**Last Updated:** November 5, 2025
+**Last Updated:** November 6, 2025
 
 ## Overview
 This document tracks all implementation decisions, user experience tweaks, and architectural choices for the Start Solo Community Platform to ensure consistency and avoid regressions.
@@ -16,7 +16,7 @@ This document tracks all implementation decisions, user experience tweaks, and a
 - ✅ Database migrations with RLS policies
 
 ### Decisions Made
-- **Authentication Method:** Email/password + Magic link via Supabase Auth
+- **Authentication Method:** Email/password + Magic link via Supabase Auth with Cloudflare Turnstile CAPTCHA protection
 - **Member Onboarding:** Required for all new users before accessing community features
 - **Profile Creation:** Automatic profile creation in `community_members` table upon signup
 
@@ -789,3 +789,41 @@ This document tracks all implementation decisions, user experience tweaks, and a
 **Solution:** Added appropriate RLS policies for both tables.
 
 **Impact:** Fixed `rls_enabled_no_policy` warnings.
+
+### Cloudflare Turnstile CAPTCHA Integration ✅
+**Date:** November 2025
+
+**Implementation:** Bot protection for authentication flows using Cloudflare Turnstile.
+
+**Components Modified:**
+- `src/components/community/LoginModal.tsx` - Added Turnstile widget integration
+- `src/lib/supabase.ts` - Updated auth methods to accept `captchaToken` parameter
+- `netlify.toml` - Added Cloudflare Turnstile domains to CSP
+
+**Configuration:**
+1. **Cloudflare Turnstile Setup:**
+   - Site Key: Added to Netlify as `VITE_TURNSTILE_SITE_KEY`
+   - Secret Key: Added to Supabase as `TURNSTILE_SECRET_KEY` (via Secrets)
+   - Domains: `localhost` and `startsolo.in` added to allowed domains in Cloudflare Dashboard
+
+2. **Content Security Policy:**
+   - Added `https://challenges.cloudflare.com` to:
+     - `script-src` (for Turnstile scripts)
+     - `frame-src` (for CAPTCHA widget)
+     - `connect-src` (for API calls)
+
+3. **Frontend Implementation:**
+   - Turnstile widget displayed for login and signup modes
+   - Submit buttons disabled until CAPTCHA verification completes
+   - Graceful fallback: If `VITE_TURNSTILE_SITE_KEY` is missing, shows warning but allows form submission
+   - CAPTCHA token passed to Supabase auth methods (`signUp`, `signIn`, `signInWithMagicLink`)
+
+**Dependencies:**
+- `@marsidev/react-turnstile` package installed
+
+**Status:** ✅ Working in production (localhost and startsolo.in)
+
+**Notes:**
+- Turnstile is free and unlimited (unlike reCAPTCHA)
+- CAPTCHA only required for login/signup, not magic link or password reset
+- Widget automatically resets on form errors
