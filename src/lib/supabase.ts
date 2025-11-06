@@ -25,32 +25,37 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
 // Auth helpers
 export const auth = {
   // Sign up with email and password
-  signUp: async (email: string, password: string, metadata?: { full_name?: string }) => {
+  signUp: async (email: string, password: string, metadata?: { full_name?: string }, captchaToken?: string) => {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
         data: metadata || {},
+        captchaToken: captchaToken,
       },
     });
     return { data, error };
   },
 
   // Sign in with email and password
-  signIn: async (email: string, password: string) => {
+  signIn: async (email: string, password: string, captchaToken?: string) => {
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
+      options: {
+        captchaToken: captchaToken,
+      },
     });
     return { data, error };
   },
 
   // Sign in with magic link (passwordless)
-  signInWithMagicLink: async (email: string, redirectTo?: string) => {
+  signInWithMagicLink: async (email: string, redirectTo?: string, captchaToken?: string) => {
     const { data, error } = await supabase.auth.signInWithOtp({
       email,
       options: {
         emailRedirectTo: redirectTo || `${window.location.origin}/community/auth/callback`,
+        captchaToken: captchaToken,
       },
     });
     return { data, error };

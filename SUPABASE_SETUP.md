@@ -34,9 +34,12 @@ This guide will help you set up Supabase for the Start Solo Community Platform.
 ```env
 VITE_SUPABASE_URL=your_project_url_here
 VITE_SUPABASE_ANON_KEY=your_anon_key_here
+VITE_TURNSTILE_SITE_KEY=your_turnstile_site_key_here
 ```
 
 **Important**: Never commit `.env` to git (it's already in `.gitignore`)
+
+**Note**: `VITE_TURNSTILE_SITE_KEY` is required for CAPTCHA protection. See Step 4.5 for setup instructions.
 
 ## Step 4: Enable Authentication
 
@@ -53,6 +56,24 @@ VITE_SUPABASE_ANON_KEY=your_anon_key_here
 4. Configure email templates if needed:
    - Go to **Authentication** → **Email Templates**
    - Customize confirmation, magic link, and password reset emails with Start Solo branding
+
+5. Enable CAPTCHA Protection (Recommended):
+   - Go to **Authentication** → **Attack Protection**
+   - Enable **Turnstile** (Cloudflare Turnstile is free and unlimited)
+   - Get your Turnstile keys:
+     - Go to https://dash.cloudflare.com → **Turnstile**
+     - Create a new site/widget
+     - **IMPORTANT:** In the **Domains** section, add:
+       - `localhost` (for local development)
+       - `127.0.0.1` (alternative localhost)
+       - `startsolo.in` (your production domain)
+       - `*.netlify.app` (for Netlify previews, optional)
+     - Copy the **Site Key** and **Secret Key**
+   - In Supabase, paste the **Secret Key** in the CAPTCHA secret field
+   - Add the **Site Key** to your `.env` file as `VITE_TURNSTILE_SITE_KEY`
+   - Also add `VITE_TURNSTILE_SITE_KEY` to Netlify environment variables for production
+   
+   **Note:** If you see "Invalid domain" error, make sure `localhost` is added to your Turnstile site's allowed domains in Cloudflare Dashboard.
 
 ## Step 5: Run Database Migrations
 
@@ -142,6 +163,7 @@ For Netlify deployment:
 2. Add:
    - `VITE_SUPABASE_URL`: Your Supabase project URL
    - `VITE_SUPABASE_ANON_KEY`: Your Supabase anon key
+   - `VITE_TURNSTILE_SITE_KEY`: Your Cloudflare Turnstile site key (if using CAPTCHA)
 3. Redeploy your site
 
 ## Troubleshooting

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { X, Mail, Lock, Loader } from 'lucide-react';
 import { auth, supabase } from '../../lib/supabase';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -22,12 +23,20 @@ const LoginModal: React.FC<LoginModalProps> = ({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const turnstileRef = useRef<any>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
     setSuccess(null);
+
+    // Reset captcha token for retry
+    if (turnstileRef.current) {
+      turnstileRef.current.reset();
+    }
+    setCaptchaToken(null);
 
     try {
       if (mode === 'magic-link') {
@@ -36,6 +45,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
           email,
           options: {
             emailRedirectTo: redirectUrl,
+            captchaToken: captchaToken || undefined,
           },
         });
         if (error) throw error;
@@ -50,7 +60,12 @@ const LoginModal: React.FC<LoginModalProps> = ({
           setLoading(false);
           return;
         }
-        const { data, error } = await auth.signUp(email, password, { full_name: fullName });
+        if (!captchaToken) {
+          setError('Please complete the CAPTCHA verification');
+          setLoading(false);
+          return;
+        }
+        const { data, error } = await auth.signUp(email, password, { full_name: fullName }, captchaToken);
         if (error) throw error;
         
         if (data.user && !data.session) {
@@ -83,7 +98,12 @@ const LoginModal: React.FC<LoginModalProps> = ({
         }, 3000);
       } else {
         // Login
-        const { error } = await auth.signIn(email, password);
+        if (!captchaToken) {
+          setError('Please complete the CAPTCHA verification');
+          setLoading(false);
+          return;
+        }
+        const { error } = await auth.signIn(email, password, captchaToken);
         if (error) throw error;
         setSuccess('Signed in successfully!');
         setTimeout(() => {
@@ -93,6 +113,11 @@ const LoginModal: React.FC<LoginModalProps> = ({
       }
     } catch (err: any) {
       setError(err.message || 'An error occurred. Please try again.');
+      // Reset captcha on error
+      if (turnstileRef.current) {
+        turnstileRef.current.reset();
+      }
+      setCaptchaToken(null);
     } finally {
       setLoading(false);
     }
@@ -104,7 +129,11 @@ const LoginModal: React.FC<LoginModalProps> = ({
     setFullName('');
     setError(null);
     setSuccess(null);
+    setCaptchaToken(null);
     setMode('login');
+    if (turnstileRef.current) {
+      turnstileRef.current.reset();
+    }
     onClose();
   };
 
@@ -283,9 +312,30 @@ const LoginModal: React.FC<LoginModalProps> = ({
               </div>
             )}
 
+            {/* Turnstile CAPTCHA widget - only show for login and signup */}
+            {(mode === 'signup' || mode === 'login') && (
+              <div className="flex justify-center">
+                <Turnstile
+                  ref={turnstileRef}
+                  siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || ''}
+                  onSuccess={(token) => {
+                    setCaptchaToken(token);
+                    setError(null);
+                  }}
+                  onError={() => {
+                    setError('CAPTCHA verification failed. Please try again.');
+                    setCaptchaToken(null);
+                  }}
+                  onExpire={() => {
+                    setCaptchaToken(null);
+                  }}
+                />
+              </div>
+            )}
+
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || (mode !== 'magic-link' && mode !== 'forgot-password' && !captchaToken)}
               className="w-full bg-[#1D3A6B] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#152A4F] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
             >
               {loading ? (
