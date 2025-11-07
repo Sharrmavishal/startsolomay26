@@ -42,6 +42,7 @@ import AuthCallback from './components/community/AuthCallback';
 import ResetPassword from './components/community/ResetPassword';
 import SEOHead from './components/SEOHead';
 import StickyWhatsAppCTA from './components/StickyWhatsAppCTA';
+import MentorshipPage from './components/MentorshipPage';
 
 // Lazy load heavy components
 const HighConversionLanding = lazy(() => import('./components/HighConversionLanding'));
@@ -119,6 +120,11 @@ function App() {
                 <>
                   <CoursePage />
                   <Footer />
+                </>
+              } />
+              <Route path="/mentorship" element={
+                <>
+                  <MentorshipPage />
                 </>
               } />
               <Route path="/webinar" element={
